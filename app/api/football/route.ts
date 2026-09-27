@@ -1,19 +1,14 @@
 import {footballDay,isFootballLeague,validFootballDay} from '@/lib/football';
 import {footballGameAnalysis,footballSchedule,nextFootballDay} from '@/lib/football-source';
 import {getRawDb} from '@/db';
-import {footballLiveAudit,saveFootballForecast,saveFootballResults} from '@/lib/football-ledger';
-import validation from '@/data/football/calibration-runtime.json';
+import {saveFootballForecast,saveFootballResults} from '@/lib/football-ledger';
 export const dynamic='force-dynamic';
 const savedResults=new Map<string,number>();
 export async function GET(request:Request){
   const p=new URL(request.url).searchParams,league=p.get('league')||'eng.1',day=p.get('date')||footballDay(),kind=p.get('kind')||'schedule';
   const headers={'Cache-Control':'private, no-store'};
-  if(!isFootballLeague(league)||!validFootballDay(day)||Math.abs(Date.parse(day)-Date.parse(footballDay()))>370*86400000||!['schedule','analysis','next','validation'].includes(kind))return Response.json({error:'足球聯賽或日期參數錯誤'},{status:400,headers});
+  if(!isFootballLeague(league)||!validFootballDay(day)||Math.abs(Date.parse(day)-Date.parse(footballDay()))>370*86400000||!['schedule','analysis','next'].includes(kind))return Response.json({error:'足球聯賽或日期參數錯誤'},{status:400,headers});
   try{
-    if(kind==='validation'){
-      const live=await footballLiveAudit(getRawDb()).catch(()=>({available:false,error:'賽前快照統計暫時無法讀取'}));
-      return Response.json({validation,live},{headers});
-    }
     if(kind==='next')return Response.json(await nextFootballDay(league,day),{headers});
     if(kind==='analysis'){
       const id=p.get('game')||'';if(!/^\d{1,12}$/.test(id))return Response.json({error:'無效賽事編號'},{status:400,headers});

@@ -10,6 +10,12 @@ const expires=Date.now()+3600000;
 for(const [id,name] of [['tz:1','render-test-admin'],['tz:2','pending-test-user']])await database.query('INSERT INTO tz_bindings(member_id,source_user_id,username,device_id,encrypted_token,expires_at,verified_at) VALUES ($1,$2,$3,$4,$5,$6,$7)',[id,id,name,'test-device','test-ciphertext',expires,Date.now()]);
 await database.query('INSERT INTO account_access VALUES ($1,1,NULL,$2)',['tz:1',Date.now()]);
 await database.query('INSERT INTO arena_sessions VALUES ($1,$2,$3)',[createHash('sha256').update('f'.repeat(64)).digest('hex'),'tz:1',expires]);
+// An approved non-admin account is needed only for the football admin gate smoke.
+if(process.env.YJ_FOOTBALL_ADMIN_SMOKE==='1'){
+ await database.query('INSERT INTO tz_bindings(member_id,source_user_id,username,device_id,encrypted_token,expires_at,verified_at) VALUES ($1,$2,$3,$4,$5,$6,$7)',['tz:3','tz:3','football-test-member','test-device','test-ciphertext',expires,Date.now()]);
+ await database.query('INSERT INTO account_access VALUES ($1,1,NULL,$2)',['tz:3',Date.now()]);
+ await database.query('INSERT INTO arena_sessions VALUES ($1,$2,$3)',[createHash('sha256').update('e'.repeat(64)).digest('hex'),'tz:3',expires]);
+}
 class TestPool{
  async query(sql,values=[]){
   if(sql.startsWith('-- Additive')){await database.exec(sql);return {rows:[],rowCount:0};}

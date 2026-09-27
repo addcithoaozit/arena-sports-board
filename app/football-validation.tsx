@@ -9,7 +9,7 @@ export default function FootballValidation({league}:{league:FootballLeague}){
   const [open,setOpen]=useState(false),[live,setLive]=useState<Live|null>(null),[reload,setReload]=useState(0);
   useEffect(()=>{
     if(!open)return;const controller=new AbortController();setLive(null);
-    fetch('/api/football?kind=validation',{cache:'no-store',signal:AbortSignal.any([controller.signal,AbortSignal.timeout(20000)])}).then(async r=>{if(!r.ok)throw Error('統計暫時無法讀取');return r.json();}).then(d=>{if(!controller.signal.aborted)setLive(d.live);}).catch(()=>{if(!controller.signal.aborted)setLive({available:false,error:'統計暫時無法讀取，請重試。'});});
+    fetch('/api/admin/football-validation',{cache:'no-store',signal:AbortSignal.any([controller.signal,AbortSignal.timeout(20000)])}).then(async r=>{if(!r.ok)throw Error('統計暫時無法讀取');return r.json();}).then(d=>{if(!controller.signal.aborted)setLive(d.live);}).catch(()=>{if(!controller.signal.aborted)setLive({available:false,error:'統計暫時無法讀取，請重試。'});});
     return()=>controller.abort();
   },[open,reload]);
   const entry=audit.leagues[league],status=selectFootballCalibration(league).summary;

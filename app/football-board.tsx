@@ -2,7 +2,6 @@
 import {useEffect,useRef,useState} from 'react';
 import {ArrowLeft,ArrowRight,CalendarDays,RefreshCw} from 'lucide-react';
 import {FOOTBALL_LEAGUES,footballDay,shiftFootballDay,type FootballAnalysis,type FootballGame,type FootballLeague} from '@/lib/football';
-import FootballValidation from './football-validation';
 
 type Board={games:FootballGame[];fetchedAt:string;day:string;league:FootballLeague};
 type Report={game?:FootballGame;analysis?:FootballAnalysis;error?:string;sourceFetchedAt?:string;archiveAsOf?:string;snapshotSaved?:boolean};
@@ -75,8 +74,6 @@ export default function FootballBoard(){
     {error&&<div className="football-alert" role="alert">{error} {board?'目前顯示上次取得的賽程；分析暫停顯示。':''}<button type="button" onClick={()=>setReload(n=>n+1)}>重新載入</button></div>}
     {loading&&!board?<div className="football-empty" role="status"><RefreshCw className="animate-spin"/><h3>正在取得{selected.name}賽程</h3><p>賽程載入後會自動計算可分析的比賽。</p></div>:board&&!games.length?<div className="football-empty"><CalendarDays size={30}/><h3>{board.games.length?'沒有符合篩選條件的比賽':`${day} 沒有${selected.name}賽事`}</h3><p>{board.games.length?'可切換至全部查看當日賽程。':'可查看下一個比賽日，或自行選擇日期。'}</p>{!board.games.length&&<button type="button" className="football-primary" disabled={nextBusy} onClick={()=>void nextMatch()}>{nextBusy?'正在查詢…':'下一個比賽日'}<ArrowRight size={16}/></button>}{notice&&<p role="status">{notice}</p>}</div>:null}
     <div className="football-games">{games.map(game=><FootballCard key={game.id} game={game} report={reports[game.id]} now={now} unavailable={!!error||stale}/>)}</div>
-    <FootballValidation league={league}/>
-    <details className="football-method"><summary>分析方式與資料範圍</summary><p>使用最近一年同項賽事、最多20場正式90分鐘賽果，每隊至少5場。基礎模型採90天時間衰減，主客場樣本足夠時使用60%場地權重；中立場不採場地加權。</p><p>通過歷史驗收的西甲使用180天衰減、訓練得到的進攻防守係數與低比分修正；其餘聯賽保留基礎模型。各市場機率由同一比分分布計算，2.5球為固定分析基準。</p><p>分析含90分鐘補時，不含加時及互射十二碼。排除延期、缺比分與衝突賽果。尚未納入先發、傷停、實際xG、對手強度與賠率；抓取時間不代表供應商更新時間。</p></details>
   </section>;
 }
 function FootballCard({game,report,now,unavailable}:{game:FootballGame;report?:Report;now:number;unavailable:boolean}){
