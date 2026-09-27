@@ -23,7 +23,7 @@ export type FootballAnalysis = {
   quality?:{label:string;warnings:string[];historyConflicts:number;archiveSupplementGames:number};
   homeForm?:FootballForm;awayForm?:FootballForm;
   historyMode?:'competition'|'recent-form';
-  external?:{sources:string[];fetchedAt:string;historyGames:number;conflicts:number;homeXgGames:number;awayXgGames:number;modelApplied:boolean;reasons:string[]};
+  external?:{sources:string[];fetchedAt:string;historyGames:number;conflicts:number;homeXgGames:number;awayXgGames:number;modelApplied:boolean;modelFamily?:'score-market';leagueGames?:number;reasons:string[]};
   expected?:{home:number;away:number};probabilities?:{home:number;draw:number;away:number;over25:number;under25:number;btts:number};
   scores?:{home:number;away:number;probability:number}[];lean?:string;notes:string[];
 };

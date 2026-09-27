@@ -2,6 +2,8 @@ import {analyzeFootball,footballDay,needsFootballRecentForm,parseFootballEvents,
 import {archivedFootballHistory,footballArchiveCutoff} from './football-archive';
 import {reconcileFootballHistory} from './football-history';
 import {applyExternalFootballAnalysis,loadExternalFootballContext} from './football-external-source';
+import {loadFootballMarketContext,applyFootballMarketAnalysis} from './football-market-source';
+import {selectFootballMarketModel} from './football-market-model';
 const ROOT='https://site.api.espn.com/apis/site/v2/sports/soccer';
 const cache=new Map<string,{expires:number;value:any;fetchedAt:string}>(),pending=new Map<string,Promise<any>>();
 // Share bounded source work across members; only public football data is cached.
@@ -48,7 +50,9 @@ export async function footballGameAnalysis(league:FootballLeague,day:string,id:s
   const schedule=await footballSchedule(league,day),game=schedule.games.find(g=>g.id===id);
   if(!game)return null;
   if(game.state!=='scheduled'||!game.timeConfirmed||Date.parse(game.start)<=Date.now())return {game,analysis:analyzeFootball(game,[]),sourceFetchedAt:schedule.fetchedAt};
-  const externalRequest=loadExternalFootballContext(league).catch(()=>null);
+  const marketActive=!!selectFootballMarketModel(league);
+  const marketRequest=marketActive?loadFootballMarketContext(league).catch(()=>null):Promise.resolve(null);
+  const externalRequest=marketActive?Promise.resolve(null):loadExternalFootballContext(league).catch(()=>null);
   const years=[game.season,game.season-1];
   const requests=[game.home.id,game.away.id].flatMap(team=>years.map(year=>({team,year})));
   const results=await Promise.allSettled(requests.map(async({team,year})=>{
@@ -85,5 +89,8 @@ export async function footballGameAnalysis(league:FootballLeague,day:string,id:s
   analysis.quality={label:warnings.length?'資料有限':'基本賽果完整',warnings,historyConflicts:merged.conflicts,archiveSupplementGames:merged.supplemented};
   const external=await externalRequest;
   if(external)analysis=applyExternalFootballAnalysis(game,analysis,merged.games,external);
+  const market=await marketRequest;
+  if(market)analysis=applyFootballMarketAnalysis(game,analysis,market);
+  else if(marketActive&&analysis.quality){analysis.quality.label='資料有限';analysis.quality.warnings.push('第二輪模型已通過，但聯賽年度來源暫時未更新，沿用既有分析。');}
   return {game,analysis,sourceFetchedAt:[...success,...extraSuccess].map(r=>r.fetchedAt).sort()[0]||null,archiveAsOf:merged.supplemented?footballArchiveCutoff:null};
 }

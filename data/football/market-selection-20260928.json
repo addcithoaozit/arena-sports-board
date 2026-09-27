@@ -1,0 +1,5657 @@
+{
+  "createdAt": "2026-09-27T19:35:16.876464+00:00",
+  "sourceSha256": "3e640e267ecddc415b8548c6b4c4c18e5f8680698c8ba80d30ee2453a6a8debe",
+  "protocolSha256": "908196c244cb3a767b7fc13e4218107c6087fea36f8dd6d39d9ca75a2c900e5c",
+  "leagues": {
+    "ger.1": {
+      "winner": {
+        "index": 0,
+        "regularization": 0.01,
+        "marketTilts": false,
+        "parameters": {
+          "decayDays": 90,
+          "venueWeight": 0,
+          "blend": 1,
+          "homeIntercept": -0.010959284095134119,
+          "awayIntercept": -0.0008911731159077344,
+          "goalAttack": 0.2876065348219026,
+          "goalDefense": 0.1503680755533557,
+          "elo": 0.577174778724018,
+          "rho": -0.09380296561464642,
+          "overTilt": 0.0,
+          "bttsTilt": 0.0,
+          "drawTilt": 0.0
+        },
+        "selectionMetrics": {
+          "n": 592,
+          "logLoss": 1.0266634004213717,
+          "brier": 0.6159087824709328,
+          "accuracy": 0.4831081081081081,
+          "over25Brier": 0.24435447392219378,
+          "bttsBrier": 0.24849754476275007
+        },
+        "score": 3.9511594857702432,
+        "reasons": []
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "regularization": 0.01,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0,
+            "blend": 0.25,
+            "homeIntercept": -0.010959284095134119,
+            "awayIntercept": -0.0008911731159077344,
+            "goalAttack": 0.2876065348219026,
+            "goalDefense": 0.1503680755533557,
+            "elo": 0.577174778724018,
+            "rho": -0.09380296561464642,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.033275788631605,
+            "brier": 0.6208116800815116,
+            "accuracy": 0.49155405405405406,
+            "over25Brier": 0.2452347339807172,
+            "bttsBrier": 0.2504706788254937
+          },
+          "score": 3.9767739857259574,
+          "reasons": []
+        },
+        {
+          "index": 0,
+          "regularization": 0.01,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0,
+            "blend": 0.5,
+            "homeIntercept": -0.010959284095134119,
+            "awayIntercept": -0.0008911731159077344,
+            "goalAttack": 0.2876065348219026,
+            "goalDefense": 0.1503680755533557,
+            "elo": 0.577174778724018,
+            "rho": -0.09380296561464642,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.029211734349515,
+            "brier": 0.6179162172586458,
+            "accuracy": 0.48986486486486486,
+            "over25Brier": 0.24434304674810503,
+            "bttsBrier": 0.24951253888779873
+          },
+          "score": 3.960809334170644,
+          "reasons": []
+        },
+        {
+          "index": 0,
+          "regularization": 0.01,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0,
+            "blend": 0.75,
+            "homeIntercept": -0.010959284095134119,
+            "awayIntercept": -0.0008911731159077344,
+            "goalAttack": 0.2876065348219026,
+            "goalDefense": 0.1503680755533557,
+            "elo": 0.577174778724018,
+            "rho": -0.09380296561464642,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0269884674472012,
+            "brier": 0.616283452886098,
+            "accuracy": 0.4864864864864865,
+            "over25Brier": 0.2440381056170766,
+            "bttsBrier": 0.24885431118708798
+          },
+          "score": 3.952206450629291,
+          "reasons": []
+        },
+        {
+          "index": 0,
+          "regularization": 0.01,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0,
+            "blend": 1,
+            "homeIntercept": -0.010959284095134119,
+            "awayIntercept": -0.0008911731159077344,
+            "goalAttack": 0.2876065348219026,
+            "goalDefense": 0.1503680755533557,
+            "elo": 0.577174778724018,
+            "rho": -0.09380296561464642,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0266634004213717,
+            "brier": 0.6159087824709328,
+            "accuracy": 0.4831081081081081,
+            "over25Brier": 0.24435447392219378,
+            "bttsBrier": 0.24849754476275007
+          },
+          "score": 3.9511594857702432,
+          "reasons": []
+        },
+        {
+          "index": 0,
+          "regularization": 0.01,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0,
+            "blend": 0.25,
+            "homeIntercept": -0.011089399266047684,
+            "awayIntercept": -0.0019849541748130197,
+            "goalAttack": 0.28637174902733387,
+            "goalDefense": 0.15085266169014244,
+            "elo": 0.5806910978980311,
+            "rho": -0.06599367173040178,
+            "overTilt": 0.05849063673466529,
+            "bttsTilt": -0.039494101292765565,
+            "drawTilt": 0.10087710703043107
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0334234006773269,
+            "brier": 0.6208881853039862,
+            "accuracy": 0.49155405405405406,
+            "over25Brier": 0.2452171808286537,
+            "bttsBrier": 0.2504669908343911
+          },
+          "score": 3.9769526412990825,
+          "reasons": []
+        },
+        {
+          "index": 0,
+          "regularization": 0.01,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0,
+            "blend": 0.5,
+            "homeIntercept": -0.011089399266047684,
+            "awayIntercept": -0.0019849541748130197,
+            "goalAttack": 0.28637174902733387,
+            "goalDefense": 0.15085266169014244,
+            "elo": 0.5806910978980311,
+            "rho": -0.06599367173040178,
+            "overTilt": 0.05849063673466529,
+            "bttsTilt": -0.039494101292765565,
+            "drawTilt": 0.10087710703043107
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0296206355799076,
+            "brier": 0.618139694477412,
+            "accuracy": 0.48986486486486486,
+            "over25Brier": 0.24430666455863304,
+            "bttsBrier": 0.24950286350555742
+          },
+          "score": 3.9613744848567785,
+          "reasons": []
+        },
+        {
+          "index": 0,
+          "regularization": 0.01,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0,
+            "blend": 0.75,
+            "homeIntercept": -0.011089399266047684,
+            "awayIntercept": -0.0019849541748130197,
+            "goalAttack": 0.28637174902733387,
+            "goalDefense": 0.15085266169014244,
+            "elo": 0.5806910978980311,
+            "rho": -0.06599367173040178,
+            "overTilt": 0.05849063673466529,
+            "bttsTilt": -0.039494101292765565,
+            "drawTilt": 0.10087710703043107
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0277624658147597,
+            "brier": 0.6167096461298146,
+            "accuracy": 0.4864864864864865,
+            "over25Brier": 0.24398245697796908,
+            "bttsBrier": 0.24883638770485503
+          },
+          "score": 3.9533364339453057,
+          "reasons": []
+        },
+        {
+          "index": 0,
+          "regularization": 0.01,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0,
+            "blend": 1,
+            "homeIntercept": -0.011089399266047684,
+            "awayIntercept": -0.0019849541748130197,
+            "goalAttack": 0.28637174902733387,
+            "goalDefense": 0.15085266169014244,
+            "elo": 0.5806910978980311,
+            "rho": -0.06599367173040178,
+            "overTilt": 0.05849063673466529,
+            "bttsTilt": -0.039494101292765565,
+            "drawTilt": 0.10087710703043107
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0278932062245878,
+            "brier": 0.6165759795445016,
+            "accuracy": 0.4831081081081081,
+            "over25Brier": 0.24428018308256877,
+            "bttsBrier": 0.24847013826294412
+          },
+          "score": 3.9530004824252023,
+          "reasons": []
+        },
+        {
+          "index": 0,
+          "regularization": 0.05,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0,
+            "blend": 0.25,
+            "homeIntercept": -0.00333715635029579,
+            "awayIntercept": 0.006329250086074733,
+            "goalAttack": 0.27348575948805304,
+            "goalDefense": 0.15475279641991424,
+            "elo": 0.3963175517542608,
+            "rho": -0.08302203548609051,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0336749805525918,
+            "brier": 0.6211312559683517,
+            "accuracy": 0.4864864864864865,
+            "over25Brier": 0.24528360417602924,
+            "bttsBrier": 0.2504315587460733
+          },
+          "score": 3.97771219992445,
+          "reasons": []
+        },
+        {
+          "index": 0,
+          "regularization": 0.05,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0,
+            "blend": 0.5,
+            "homeIntercept": -0.00333715635029579,
+            "awayIntercept": 0.006329250086074733,
+            "goalAttack": 0.27348575948805304,
+            "goalDefense": 0.15475279641991424,
+            "elo": 0.3963175517542608,
+            "rho": -0.08302203548609051,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.029757154941794,
+            "brier": 0.6183601798313755,
+            "accuracy": 0.49155405405405406,
+            "over25Brier": 0.2444273012513156,
+            "bttsBrier": 0.24946971816238378
+          },
+          "score": 3.9622160390274446,
+          "reasons": []
+        },
+        {
+          "index": 0,
+          "regularization": 0.05,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0,
+            "blend": 0.75,
+            "homeIntercept": -0.00333715635029579,
+            "awayIntercept": 0.006329250086074733,
+            "goalAttack": 0.27348575948805304,
+            "goalDefense": 0.15475279641991424,
+            "elo": 0.3963175517542608,
+            "rho": -0.08302203548609051,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.027413795977893,
+            "brier": 0.6166764822007486,
+            "accuracy": 0.4847972972972973,
+            "over25Brier": 0.2441430934731346,
+            "bttsBrier": 0.2488303266241135
+          },
+          "score": 3.953574964591162,
+          "reasons": []
+        },
+        {
+          "index": 0,
+          "regularization": 0.05,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0,
+            "blend": 1,
+            "homeIntercept": -0.00333715635029579,
+            "awayIntercept": 0.006329250086074733,
+            "goalAttack": 0.27348575948805304,
+            "goalDefense": 0.15475279641991424,
+            "elo": 0.3963175517542608,
+            "rho": -0.08302203548609051,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0266820542631223,
+            "brier": 0.6160976531309832,
+            "accuracy": 0.4780405405405405,
+            "over25Brier": 0.24446413846269258,
+            "bttsBrier": 0.24849699847105533
+          },
+          "score": 3.9519220419666485,
+          "reasons": []
+        },
+        {
+          "index": 0,
+          "regularization": 0.05,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0,
+            "blend": 0.25,
+            "homeIntercept": 0.0006905135736006579,
+            "awayIntercept": 0.011901750893357986,
+            "goalAttack": 0.2718426849499885,
+            "goalDefense": 0.15408142660815885,
+            "elo": 0.3949975825146199,
+            "rho": -0.07390831952530955,
+            "overTilt": 0.02494345797988778,
+            "bttsTilt": -0.04225089334389339,
+            "drawTilt": 0.04975492512568613
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.033750461226506,
+            "brier": 0.6211754908119499,
+            "accuracy": 0.48817567567567566,
+            "over25Brier": 0.24527963890096297,
+            "bttsBrier": 0.25041748399348046
+          },
+          "score": 3.9777836320301576,
+          "reasons": []
+        },
+        {
+          "index": 0,
+          "regularization": 0.05,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0,
+            "blend": 0.5,
+            "homeIntercept": 0.0006905135736006579,
+            "awayIntercept": 0.011901750893357986,
+            "goalAttack": 0.2718426849499885,
+            "goalDefense": 0.15408142660815885,
+            "elo": 0.3949975825146199,
+            "rho": -0.07390831952530955,
+            "overTilt": 0.02494345797988778,
+            "bttsTilt": -0.04225089334389339,
+            "drawTilt": 0.04975492512568613
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0299563293473748,
+            "brier": 0.6184818609192344,
+            "accuracy": 0.49155405405405406,
+            "over25Brier": 0.24442200502131922,
+            "bttsBrier": 0.24943406224241924
+          },
+          "score": 3.9624393020737116,
+          "reasons": []
+        },
+        {
+          "index": 0,
+          "regularization": 0.05,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0,
+            "blend": 0.75,
+            "homeIntercept": 0.0006905135736006579,
+            "awayIntercept": 0.011901750893357986,
+            "goalAttack": 0.2718426849499885,
+            "goalDefense": 0.15408142660815885,
+            "elo": 0.3949975825146199,
+            "rho": -0.07390831952530955,
+            "overTilt": 0.02494345797988778,
+            "bttsTilt": -0.04225089334389339,
+            "drawTilt": 0.04975492512568613
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0277795086809913,
+            "brier": 0.6169032136961538,
+            "accuracy": 0.4847972972972973,
+            "over25Brier": 0.2441379886228275,
+            "bttsBrier": 0.24876770750940988
+          },
+          "score": 3.9540202499666277,
+          "reasons": []
+        },
+        {
+          "index": 0,
+          "regularization": 0.05,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0,
+            "blend": 1,
+            "homeIntercept": 0.0006905135736006579,
+            "awayIntercept": 0.011901750893357986,
+            "goalAttack": 0.2718426849499885,
+            "goalDefense": 0.15408142660815885,
+            "elo": 0.3949975825146199,
+            "rho": -0.07390831952530955,
+            "overTilt": 0.02494345797988778,
+            "bttsTilt": -0.04225089334389339,
+            "drawTilt": 0.04975492512568613
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0272508736734975,
+            "brier": 0.6164498413971036,
+            "accuracy": 0.4780405405405405,
+            "over25Brier": 0.24445963361489678,
+            "bttsBrier": 0.2484053349308552
+          },
+          "score": 3.9526505811363104,
+          "reasons": []
+        },
+        {
+          "index": 0,
+          "regularization": 0.2,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0,
+            "blend": 0.25,
+            "homeIntercept": -0.0023927051560550783,
+            "awayIntercept": 0.008969807341681582,
+            "goalAttack": 0.1770114707350086,
+            "goalDefense": 0.09978337107105742,
+            "elo": 0.20474700115483965,
+            "rho": -0.057376002571725294,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0345037360988145,
+            "brier": 0.6217577345345386,
+            "accuracy": 0.4864864864864865,
+            "over25Brier": 0.24526354470423567,
+            "bttsBrier": 0.2501461707822109
+          },
+          "score": 3.978297185006178,
+          "reasons": []
+        },
+        {
+          "index": 0,
+          "regularization": 0.2,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0,
+            "blend": 0.5,
+            "homeIntercept": -0.0023927051560550783,
+            "awayIntercept": 0.008969807341681582,
+            "goalAttack": 0.1770114707350086,
+            "goalDefense": 0.09978337107105742,
+            "elo": 0.20474700115483965,
+            "rho": -0.057376002571725294,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.032120065896042,
+            "brier": 0.6200772126354724,
+            "accuracy": 0.48986486486486486,
+            "over25Brier": 0.24451766664137609,
+            "bttsBrier": 0.24907084209050506
+          },
+          "score": 3.9660191838092715,
+          "reasons": []
+        },
+        {
+          "index": 0,
+          "regularization": 0.2,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0,
+            "blend": 0.75,
+            "homeIntercept": -0.0023927051560550783,
+            "awayIntercept": 0.008969807341681582,
+            "goalAttack": 0.1770114707350086,
+            "goalDefense": 0.09978337107105742,
+            "elo": 0.20474700115483965,
+            "rho": -0.057376002571725294,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0319961886244895,
+            "brier": 0.6199942335887049,
+            "accuracy": 0.48817567567567566,
+            "over25Brier": 0.24448461865804086,
+            "bttsBrier": 0.2484455847742252
+          },
+          "score": 3.9631495448871696,
+          "reasons": []
+        },
+        {
+          "index": 0,
+          "regularization": 0.2,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0,
+            "blend": 1,
+            "homeIntercept": -0.0023927051560550783,
+            "awayIntercept": 0.008969807341681582,
+            "goalAttack": 0.1770114707350086,
+            "goalDefense": 0.09978337107105742,
+            "elo": 0.20474700115483965,
+            "rho": -0.057376002571725294,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0341696770033606,
+            "brier": 0.6215657204771774,
+            "accuracy": 0.47466216216216217,
+            "over25Brier": 0.24520569741378279,
+            "bttsBrier": 0.24822406137626096
+          },
+          "score": 3.969798854088572,
+          "reasons": []
+        },
+        {
+          "index": 0,
+          "regularization": 0.2,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0,
+            "blend": 0.25,
+            "homeIntercept": 0.0015335013932043064,
+            "awayIntercept": 0.014225190181651285,
+            "goalAttack": 0.1765440069542047,
+            "goalDefense": 0.09956139995417251,
+            "elo": 0.20436372152274487,
+            "rho": -0.055386146790474176,
+            "overTilt": 0.005929397754894149,
+            "bttsTilt": -0.025902940237613928,
+            "drawTilt": 0.021805616099569523
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0345375773574288,
+            "brier": 0.621778898024492,
+            "accuracy": 0.4864864864864865,
+            "over25Brier": 0.24526493046655518,
+            "bttsBrier": 0.2501349205180763
+          },
+          "score": 3.9783245429861456,
+          "reasons": []
+        },
+        {
+          "index": 0,
+          "regularization": 0.2,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0,
+            "blend": 0.5,
+            "homeIntercept": 0.0015335013932043064,
+            "awayIntercept": 0.014225190181651285,
+            "goalAttack": 0.1765440069542047,
+            "goalDefense": 0.09956139995417251,
+            "elo": 0.20436372152274487,
+            "rho": -0.055386146790474176,
+            "overTilt": 0.005929397754894149,
+            "bttsTilt": -0.025902940237613928,
+            "drawTilt": 0.021805616099569523
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0322095440912504,
+            "brier": 0.6201367869954201,
+            "accuracy": 0.48986486486486486,
+            "over25Brier": 0.24452337865728221,
+            "bttsBrier": 0.2490403059859985
+          },
+          "score": 3.9661024722782154,
+          "reasons": []
+        },
+        {
+          "index": 0,
+          "regularization": 0.2,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0,
+            "blend": 0.75,
+            "homeIntercept": 0.0015335013932043064,
+            "awayIntercept": 0.014225190181651285,
+            "goalAttack": 0.1765440069542047,
+            "goalDefense": 0.09956139995417251,
+            "elo": 0.20436372152274487,
+            "rho": -0.055386146790474176,
+            "overTilt": 0.005929397754894149,
+            "bttsTilt": -0.025902940237613928,
+            "drawTilt": 0.021805616099569523
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0321554368658412,
+            "brier": 0.6201025944705512,
+            "accuracy": 0.48986486486486486,
+            "over25Brier": 0.2444961154854564,
+            "bttsBrier": 0.24838989503024025
+          },
+          "score": 3.963301570624641,
+          "reasons": []
+        },
+        {
+          "index": 0,
+          "regularization": 0.2,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0,
+            "blend": 1,
+            "homeIntercept": 0.0015335013932043064,
+            "awayIntercept": 0.014225190181651285,
+            "goalAttack": 0.1765440069542047,
+            "goalDefense": 0.09956139995417251,
+            "elo": 0.20436372152274487,
+            "rho": -0.055386146790474176,
+            "overTilt": 0.005929397754894149,
+            "bttsTilt": -0.025902940237613928,
+            "drawTilt": 0.021805616099569523
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0344050854886835,
+            "brier": 0.6217249671200049,
+            "accuracy": 0.47297297297297297,
+            "over25Brier": 0.24522310649691634,
+            "bttsBrier": 0.2481408617225971
+          },
+          "score": 3.9700202823639876,
+          "reasons": []
+        },
+        {
+          "index": 1,
+          "regularization": 0.01,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0.6,
+            "blend": 0.25,
+            "homeIntercept": -0.016038696146440788,
+            "awayIntercept": -0.0036739365204745537,
+            "goalAttack": 0.1988959621725061,
+            "goalDefense": 0.09137223622407814,
+            "elo": 0.653646534921262,
+            "rho": -0.09207763577383439,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0338880548570986,
+            "brier": 0.6211824926000868,
+            "accuracy": 0.48817567567567566,
+            "over25Brier": 0.2453695978018643,
+            "bttsBrier": 0.2503001189886831
+          },
+          "score": 3.9778257234934173,
+          "reasons": []
+        },
+        {
+          "index": 1,
+          "regularization": 0.01,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0.6,
+            "blend": 0.5,
+            "homeIntercept": -0.016038696146440788,
+            "awayIntercept": -0.0036739365204745537,
+            "goalAttack": 0.1988959621725061,
+            "goalDefense": 0.09137223622407814,
+            "elo": 0.653646534921262,
+            "rho": -0.09207763577383439,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.030324554414221,
+            "brier": 0.6185794727202265,
+            "accuracy": 0.4831081081081081,
+            "over25Brier": 0.24463010282526573,
+            "bttsBrier": 0.2491937222860036
+          },
+          "score": 3.9628387508435834,
+          "reasons": []
+        },
+        {
+          "index": 1,
+          "regularization": 0.01,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0.6,
+            "blend": 0.75,
+            "homeIntercept": -0.016038696146440788,
+            "awayIntercept": -0.0036739365204745537,
+            "goalAttack": 0.1988959621725061,
+            "goalDefense": 0.09137223622407814,
+            "elo": 0.653646534921262,
+            "rho": -0.09207763577383439,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0284898733309493,
+            "brier": 0.6171642725974926,
+            "accuracy": 0.4797297297297297,
+            "over25Brier": 0.24449529017091662,
+            "bttsBrier": 0.24840710683103284
+          },
+          "score": 3.9551376221951386,
+          "reasons": []
+        },
+        {
+          "index": 1,
+          "regularization": 0.01,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0.6,
+            "blend": 1,
+            "homeIntercept": -0.016038696146440788,
+            "awayIntercept": -0.0036739365204745537,
+            "goalAttack": 0.1988959621725061,
+            "goalDefense": 0.09137223622407814,
+            "elo": 0.653646534921262,
+            "rho": -0.09207763577383439,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0284388035071008,
+            "brier": 0.6169367810856622,
+            "accuracy": 0.4797297297297297,
+            "over25Brier": 0.24499976914810065,
+            "bttsBrier": 0.24793733339014304
+          },
+          "score": 3.9549035138565536,
+          "reasons": []
+        },
+        {
+          "index": 1,
+          "regularization": 0.01,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0.6,
+            "blend": 0.25,
+            "homeIntercept": -0.01462633683838011,
+            "awayIntercept": -0.002780538384026971,
+            "goalAttack": 0.19781958401133748,
+            "goalDefense": 0.09157414423969513,
+            "elo": 0.6559740864148255,
+            "rho": -0.06446297849714164,
+            "overTilt": 0.05652660730414123,
+            "bttsTilt": -0.0458492015397222,
+            "drawTilt": 0.1036423267511888
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0340388683266448,
+            "brier": 0.6212607112955852,
+            "accuracy": 0.48986486486486486,
+            "over25Brier": 0.24535416824753956,
+            "bttsBrier": 0.2502939513628768
+          },
+          "score": 3.9780089606195377,
+          "reasons": []
+        },
+        {
+          "index": 1,
+          "regularization": 0.01,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0.6,
+            "blend": 0.5,
+            "homeIntercept": -0.01462633683838011,
+            "awayIntercept": -0.002780538384026971,
+            "goalAttack": 0.19781958401133748,
+            "goalDefense": 0.09157414423969513,
+            "elo": 0.6559740864148255,
+            "rho": -0.06446297849714164,
+            "overTilt": 0.05652660730414123,
+            "bttsTilt": -0.0458492015397222,
+            "drawTilt": 0.1036423267511888
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0307460592213242,
+            "brier": 0.618810186209941,
+            "accuracy": 0.4831081081081081,
+            "over25Brier": 0.24459869734129136,
+            "bttsBrier": 0.24917839534286168
+          },
+          "score": 3.9634253343052737,
+          "reasons": []
+        },
+        {
+          "index": 1,
+          "regularization": 0.01,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0.6,
+            "blend": 0.75,
+            "homeIntercept": -0.01462633683838011,
+            "awayIntercept": -0.002780538384026971,
+            "goalAttack": 0.19781958401133748,
+            "goalDefense": 0.09157414423969513,
+            "elo": 0.6559740864148255,
+            "rho": -0.06446297849714164,
+            "overTilt": 0.05652660730414123,
+            "bttsTilt": -0.0458492015397222,
+            "drawTilt": 0.1036423267511888
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.029291537900211,
+            "brier": 0.617607847536884,
+            "accuracy": 0.4797297297297297,
+            "over25Brier": 0.24444806879304715,
+            "bttsBrier": 0.24838050518837043
+          },
+          "score": 3.9563217324956783,
+          "reasons": []
+        },
+        {
+          "index": 1,
+          "regularization": 0.01,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0.6,
+            "blend": 1,
+            "homeIntercept": -0.01462633683838011,
+            "awayIntercept": -0.002780538384026971,
+            "goalAttack": 0.19781958401133748,
+            "goalDefense": 0.09157414423969513,
+            "elo": 0.6559740864148255,
+            "rho": -0.06446297849714164,
+            "overTilt": 0.05652660730414123,
+            "bttsTilt": -0.0458492015397222,
+            "drawTilt": 0.1036423267511888
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0297167254611246,
+            "brier": 0.6176369355609874,
+            "accuracy": 0.4797297297297297,
+            "over25Brier": 0.24493781166992185,
+            "bttsBrier": 0.2478992824236025
+          },
+          "score": 3.956851263367316,
+          "reasons": []
+        },
+        {
+          "index": 1,
+          "regularization": 0.05,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0.6,
+            "blend": 0.25,
+            "homeIntercept": -0.005215201850915219,
+            "awayIntercept": 0.0058021204423465604,
+            "goalAttack": 0.21669326967180608,
+            "goalDefense": 0.11883130240351293,
+            "elo": 0.428694011091616,
+            "rho": -0.08174367719786682,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0345275362398705,
+            "brier": 0.621670816792887,
+            "accuracy": 0.4864864864864865,
+            "over25Brier": 0.24549550488839378,
+            "bttsBrier": 0.2503464891479476
+          },
+          "score": 3.979917070932163,
+          "reasons": []
+        },
+        {
+          "index": 1,
+          "regularization": 0.05,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0.6,
+            "blend": 0.5,
+            "homeIntercept": -0.005215201850915219,
+            "awayIntercept": 0.0058021204423465604,
+            "goalAttack": 0.21669326967180608,
+            "goalDefense": 0.11883130240351293,
+            "elo": 0.428694011091616,
+            "rho": -0.08174367719786682,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0312684559643783,
+            "brier": 0.6193092359884462,
+            "accuracy": 0.48986486486486486,
+            "over25Brier": 0.24480410717526196,
+            "bttsBrier": 0.24929007400960856
+          },
+          "score": 3.966002888604907,
+          "reasons": []
+        },
+        {
+          "index": 1,
+          "regularization": 0.05,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0.6,
+            "blend": 0.75,
+            "homeIntercept": -0.005215201850915219,
+            "awayIntercept": 0.0058021204423465604,
+            "goalAttack": 0.21669326967180608,
+            "goalDefense": 0.11883130240351293,
+            "elo": 0.428694011091616,
+            "rho": -0.08174367719786682,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0293925428076693,
+            "brier": 0.6179046933659725,
+            "accuracy": 0.48986486486486486,
+            "over25Brier": 0.24463323755542032,
+            "bttsBrier": 0.24854817714843014
+          },
+          "score": 3.9583105972694907,
+          "reasons": []
+        },
+        {
+          "index": 1,
+          "regularization": 0.05,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0.6,
+            "blend": 1,
+            "homeIntercept": -0.005215201850915219,
+            "awayIntercept": 0.0058021204423465604,
+            "goalAttack": 0.21669326967180608,
+            "goalDefense": 0.11883130240351293,
+            "elo": 0.428694011091616,
+            "rho": -0.08174367719786682,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.02893316719837,
+            "brier": 0.617474723072004,
+            "accuracy": 0.4797297297297297,
+            "over25Brier": 0.2450117940549998,
+            "bttsBrier": 0.24810241124162324
+          },
+          "score": 3.956944476046921,
+          "reasons": []
+        },
+        {
+          "index": 1,
+          "regularization": 0.05,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0.6,
+            "blend": 0.25,
+            "homeIntercept": -0.0005124853935309989,
+            "awayIntercept": 0.012355651708325999,
+            "goalAttack": 0.21515082835306737,
+            "goalDefense": 0.1180678781644283,
+            "elo": 0.42705262847039105,
+            "rho": -0.07307428591201368,
+            "overTilt": 0.02419350160416496,
+            "bttsTilt": -0.04578410085862508,
+            "drawTilt": 0.05012953832549288
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0346013263234433,
+            "brier": 0.6217139717804877,
+            "accuracy": 0.4864864864864865,
+            "over25Brier": 0.24549189683358819,
+            "bttsBrier": 0.2503306115444429
+          },
+          "score": 3.979979435043074,
+          "reasons": []
+        },
+        {
+          "index": 1,
+          "regularization": 0.05,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0.6,
+            "blend": 0.5,
+            "homeIntercept": -0.0005124853935309989,
+            "awayIntercept": 0.012355651708325999,
+            "goalAttack": 0.21515082835306737,
+            "goalDefense": 0.1180678781644283,
+            "elo": 0.42705262847039105,
+            "rho": -0.07307428591201368,
+            "overTilt": 0.02419350160416496,
+            "bttsTilt": -0.04578410085862508,
+            "drawTilt": 0.05012953832549288
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.031464038654033,
+            "brier": 0.6194284417691026,
+            "accuracy": 0.48817567567567566,
+            "over25Brier": 0.24480053071012073,
+            "bttsBrier": 0.249250741324006
+          },
+          "score": 3.9662111012743395,
+          "reasons": []
+        },
+        {
+          "index": 1,
+          "regularization": 0.05,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0.6,
+            "blend": 0.75,
+            "homeIntercept": -0.0005124853935309989,
+            "awayIntercept": 0.012355651708325999,
+            "goalAttack": 0.21515082835306737,
+            "goalDefense": 0.1180678781644283,
+            "elo": 0.42705262847039105,
+            "rho": -0.07307428591201368,
+            "overTilt": 0.02419350160416496,
+            "bttsTilt": -0.04578410085862508,
+            "drawTilt": 0.05012953832549288
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0297531725278624,
+            "brier": 0.6181283704638136,
+            "accuracy": 0.48986486486486486,
+            "over25Brier": 0.24463212918298902,
+            "bttsBrier": 0.2484797542061711
+          },
+          "score": 3.958739250911279,
+          "reasons": []
+        },
+        {
+          "index": 1,
+          "regularization": 0.05,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0.6,
+            "blend": 1,
+            "homeIntercept": -0.0005124853935309989,
+            "awayIntercept": 0.012355651708325999,
+            "goalAttack": 0.21515082835306737,
+            "goalDefense": 0.1180678781644283,
+            "elo": 0.42705262847039105,
+            "rho": -0.07307428591201368,
+            "overTilt": 0.02419350160416496,
+            "bttsTilt": -0.04578410085862508,
+            "drawTilt": 0.05012953832549288
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0294967031862294,
+            "brier": 0.6178254455388715,
+            "accuracy": 0.4797297297297297,
+            "over25Brier": 0.24501445850586973,
+            "bttsBrier": 0.24800240464849133
+          },
+          "score": 3.9576615082795326,
+          "reasons": []
+        },
+        {
+          "index": 1,
+          "regularization": 0.2,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0.6,
+            "blend": 0.25,
+            "homeIntercept": -0.002457431139194134,
+            "awayIntercept": 0.00940014086933058,
+            "goalAttack": 0.15514115648468124,
+            "goalDefense": 0.0877692338996852,
+            "elo": 0.210072225817165,
+            "rho": -0.05689385291487651,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0351836888356636,
+            "brier": 0.6221975386786968,
+            "accuracy": 0.4864864864864865,
+            "over25Brier": 0.24543659189599648,
+            "bttsBrier": 0.25013016960215867
+          },
+          "score": 3.98029318870348,
+          "reasons": []
+        },
+        {
+          "index": 1,
+          "regularization": 0.2,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0.6,
+            "blend": 0.5,
+            "homeIntercept": -0.002457431139194134,
+            "awayIntercept": 0.00940014086933058,
+            "goalAttack": 0.15514115648468124,
+            "goalDefense": 0.0877692338996852,
+            "elo": 0.210072225817165,
+            "rho": -0.05689385291487651,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0333442422692676,
+            "brier": 0.6208772429388677,
+            "accuracy": 0.49493243243243246,
+            "over25Brier": 0.2448023654991496,
+            "bttsBrier": 0.2490207876602019
+          },
+          "score": 3.969432647717329,
+          "reasons": []
+        },
+        {
+          "index": 1,
+          "regularization": 0.2,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0.6,
+            "blend": 0.75,
+            "homeIntercept": -0.002457431139194134,
+            "awayIntercept": 0.00940014086933058,
+            "goalAttack": 0.15514115648468124,
+            "goalDefense": 0.0877692338996852,
+            "elo": 0.210072225817165,
+            "rho": -0.05689385291487651,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0336373771068277,
+            "brier": 0.6210719350209075,
+            "accuracy": 0.48986486486486486,
+            "over25Brier": 0.24481362225647668,
+            "bttsBrier": 0.24834836314751663
+          },
+          "score": 3.9674008478198473,
+          "reasons": []
+        },
+        {
+          "index": 1,
+          "regularization": 0.2,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0.6,
+            "blend": 1,
+            "homeIntercept": -0.002457431139194134,
+            "awayIntercept": 0.00940014086933058,
+            "goalAttack": 0.15514115648468124,
+            "goalDefense": 0.0877692338996852,
+            "elo": 0.210072225817165,
+            "rho": -0.05689385291487651,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0361021325717716,
+            "brier": 0.622834819364884,
+            "accuracy": 0.47635135135135137,
+            "over25Brier": 0.24550657418181254,
+            "bttsBrier": 0.2480680180641914
+          },
+          "score": 3.974289020740299,
+          "reasons": []
+        },
+        {
+          "index": 1,
+          "regularization": 0.2,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0.6,
+            "blend": 0.25,
+            "homeIntercept": 0.0015298022374868531,
+            "awayIntercept": 0.014752874009723672,
+            "goalAttack": 0.15468649180327668,
+            "goalDefense": 0.08753702361063045,
+            "elo": 0.20969490305816074,
+            "rho": -0.054945253788447584,
+            "overTilt": 0.0058792397225600175,
+            "bttsTilt": -0.026277146566110087,
+            "drawTilt": 0.021838736530499125
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0352183394834826,
+            "brier": 0.6222191099017753,
+            "accuracy": 0.4864864864864865,
+            "over25Brier": 0.2454382849900249,
+            "bttsBrier": 0.25011883627565973
+          },
+          "score": 3.9803228939203823,
+          "reasons": []
+        },
+        {
+          "index": 1,
+          "regularization": 0.2,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0.6,
+            "blend": 0.5,
+            "homeIntercept": 0.0015298022374868531,
+            "awayIntercept": 0.014752874009723672,
+            "goalAttack": 0.15468649180327668,
+            "goalDefense": 0.08753702361063045,
+            "elo": 0.20969490305816074,
+            "rho": -0.054945253788447584,
+            "overTilt": 0.0058792397225600175,
+            "bttsTilt": -0.026277146566110087,
+            "drawTilt": 0.021838736530499125
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0334341055954246,
+            "brier": 0.6209365675174199,
+            "accuracy": 0.49493243243243246,
+            "over25Brier": 0.24480872385260258,
+            "bttsBrier": 0.24899030053148988
+          },
+          "score": 3.9695187218615153,
+          "reasons": []
+        },
+        {
+          "index": 1,
+          "regularization": 0.2,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0.6,
+            "blend": 0.75,
+            "homeIntercept": 0.0015298022374868531,
+            "awayIntercept": 0.014752874009723672,
+            "goalAttack": 0.15468649180327668,
+            "goalDefense": 0.08753702361063045,
+            "elo": 0.20969490305816074,
+            "rho": -0.054945253788447584,
+            "overTilt": 0.0058792397225600175,
+            "bttsTilt": -0.026277146566110087,
+            "drawTilt": 0.021838736530499125
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0337958165771892,
+            "brier": 0.621178685785534,
+            "accuracy": 0.48986486486486486,
+            "over25Brier": 0.24482620238595137,
+            "bttsBrier": 0.24829283761442078
+          },
+          "score": 3.9675545628298146,
+          "reasons": []
+        },
+        {
+          "index": 1,
+          "regularization": 0.2,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0.6,
+            "blend": 1,
+            "homeIntercept": 0.0015298022374868531,
+            "awayIntercept": 0.014752874009723672,
+            "goalAttack": 0.15468649180327668,
+            "goalDefense": 0.08753702361063045,
+            "elo": 0.20969490305816074,
+            "rho": -0.054945253788447584,
+            "overTilt": 0.0058792397225600175,
+            "bttsTilt": -0.026277146566110087,
+            "drawTilt": 0.021838736530499125
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0363351961400415,
+            "brier": 0.6229908434085196,
+            "accuracy": 0.4780405405405405,
+            "over25Brier": 0.24552569337057004,
+            "bttsBrier": 0.24798476939582761
+          },
+          "score": 3.9745097739408703,
+          "reasons": []
+        },
+        {
+          "index": 2,
+          "regularization": 0.01,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0,
+            "blend": 0.25,
+            "homeIntercept": -0.013625502020361332,
+            "awayIntercept": -0.0015647753452271915,
+            "goalAttack": 0.3064462198515988,
+            "goalDefense": 0.17908317028261111,
+            "elo": 0.5531470479332871,
+            "rho": -0.09362506250943405,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0335025963680315,
+            "brier": 0.6210220005108308,
+            "accuracy": 0.48817567567567566,
+            "over25Brier": 0.245141472424199,
+            "bttsBrier": 0.25040455596292704
+          },
+          "score": 3.9766880460669696,
+          "reasons": []
+        },
+        {
+          "index": 2,
+          "regularization": 0.01,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0,
+            "blend": 0.5,
+            "homeIntercept": -0.013625502020361332,
+            "awayIntercept": -0.0015647753452271915,
+            "goalAttack": 0.3064462198515988,
+            "goalDefense": 0.17908317028261111,
+            "elo": 0.5531470479332871,
+            "rho": -0.09362506250943405,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0297716906802972,
+            "brier": 0.6183990506055966,
+            "accuracy": 0.48817567567567566,
+            "over25Brier": 0.24415055158690205,
+            "bttsBrier": 0.24937062886175013
+          },
+          "score": 3.960776702057886,
+          "reasons": []
+        },
+        {
+          "index": 2,
+          "regularization": 0.01,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0,
+            "blend": 0.75,
+            "homeIntercept": -0.013625502020361332,
+            "awayIntercept": -0.0015647753452271915,
+            "goalAttack": 0.3064462198515988,
+            "goalDefense": 0.17908317028261111,
+            "elo": 0.5531470479332871,
+            "rho": -0.09362506250943405,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0279922889381778,
+            "brier": 0.6171026042276386,
+            "accuracy": 0.4831081081081081,
+            "over25Brier": 0.2437421475691824,
+            "bttsBrier": 0.24862542884355032
+          },
+          "score": 3.952374188112077,
+          "reasons": []
+        },
+        {
+          "index": 2,
+          "regularization": 0.01,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0,
+            "blend": 1,
+            "homeIntercept": -0.013625502020361332,
+            "awayIntercept": -0.0015647753452271915,
+            "goalAttack": 0.3064462198515988,
+            "goalDefense": 0.17908317028261111,
+            "elo": 0.5531470479332871,
+            "rho": -0.09362506250943405,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0282311822529238,
+            "brier": 0.6171278663948704,
+            "accuracy": 0.47466216216216217,
+            "over25Brier": 0.24395274215249438,
+            "bttsBrier": 0.24817111672491513
+          },
+          "score": 3.9516935826169806,
+          "reasons": []
+        },
+        {
+          "index": 2,
+          "regularization": 0.01,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0,
+            "blend": 0.25,
+            "homeIntercept": -0.013660439921456187,
+            "awayIntercept": -0.002571611582813664,
+            "goalAttack": 0.3051533390481166,
+            "goalDefense": 0.17945049592643456,
+            "elo": 0.5568119841060992,
+            "rho": -0.0657089012157127,
+            "overTilt": 0.058292369392674105,
+            "bttsTilt": -0.039594353639306835,
+            "drawTilt": 0.10137754303686938
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0336508960434052,
+            "brier": 0.621098358708542,
+            "accuracy": 0.48817567567567566,
+            "over25Brier": 0.24512471659677598,
+            "bttsBrier": 0.25040165353212923
+          },
+          "score": 3.9768734808230852,
+          "reasons": []
+        },
+        {
+          "index": 2,
+          "regularization": 0.01,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0,
+            "blend": 0.5,
+            "homeIntercept": -0.013660439921456187,
+            "awayIntercept": -0.002571611582813664,
+            "goalAttack": 0.3051533390481166,
+            "goalDefense": 0.17945049592643456,
+            "elo": 0.5568119841060992,
+            "rho": -0.0657089012157127,
+            "overTilt": 0.058292369392674105,
+            "bttsTilt": -0.039594353639306835,
+            "drawTilt": 0.10137754303686938
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0301851772494308,
+            "brier": 0.6186235230498001,
+            "accuracy": 0.48817567567567566,
+            "over25Brier": 0.24411553014177487,
+            "bttsBrier": 0.2493626925028974
+          },
+          "score": 3.9613602818912392,
+          "reasons": []
+        },
+        {
+          "index": 2,
+          "regularization": 0.01,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0,
+            "blend": 0.75,
+            "homeIntercept": -0.013660439921456187,
+            "awayIntercept": -0.002571611582813664,
+            "goalAttack": 0.3051533390481166,
+            "goalDefense": 0.17945049592643456,
+            "elo": 0.5568119841060992,
+            "rho": -0.0657089012157127,
+            "overTilt": 0.058292369392674105,
+            "bttsTilt": -0.039594353639306835,
+            "drawTilt": 0.10137754303686938
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0287758290216487,
+            "brier": 0.6175296600036733,
+            "accuracy": 0.4831081081081081,
+            "over25Brier": 0.24368813838646725,
+            "bttsBrier": 0.24861026542573345
+          },
+          "score": 3.9535323435726077,
+          "reasons": []
+        },
+        {
+          "index": 2,
+          "regularization": 0.01,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0,
+            "blend": 1,
+            "homeIntercept": -0.013660439921456187,
+            "awayIntercept": -0.002571611582813664,
+            "goalAttack": 0.3051533390481166,
+            "goalDefense": 0.17945049592643456,
+            "elo": 0.5568119841060992,
+            "rho": -0.0657089012157127,
+            "overTilt": 0.058292369392674105,
+            "bttsTilt": -0.039594353639306835,
+            "drawTilt": 0.10137754303686938
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0294741768697213,
+            "brier": 0.6177917925178973,
+            "accuracy": 0.47466216216216217,
+            "over25Brier": 0.24388004545860625,
+            "bttsBrier": 0.24814764154652103
+          },
+          "score": 3.953564116050491,
+          "reasons": []
+        },
+        {
+          "index": 2,
+          "regularization": 0.05,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0,
+            "blend": 0.25,
+            "homeIntercept": -0.006893966931543278,
+            "awayIntercept": 0.004997754186724981,
+            "goalAttack": 0.28138896687235576,
+            "goalDefense": 0.1713582837994317,
+            "elo": 0.3879967030489928,
+            "rho": -0.08282709513304462,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.033848299293664,
+            "brier": 0.6212989776442013,
+            "accuracy": 0.4847972972972973,
+            "over25Brier": 0.2451901720314147,
+            "bttsBrier": 0.2503432404051461
+          },
+          "score": 3.977417767917466,
+          "reasons": []
+        },
+        {
+          "index": 2,
+          "regularization": 0.05,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0,
+            "blend": 0.5,
+            "homeIntercept": -0.006893966931543278,
+            "awayIntercept": 0.004997754186724981,
+            "goalAttack": 0.28138896687235576,
+            "goalDefense": 0.1713582837994317,
+            "elo": 0.3879967030489928,
+            "rho": -0.08282709513304462,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.030227741883355,
+            "brier": 0.6187702290056027,
+            "accuracy": 0.4847972972972973,
+            "over25Brier": 0.24425231873114275,
+            "bttsBrier": 0.24929732039832062
+          },
+          "score": 3.9619308341561297,
+          "reasons": []
+        },
+        {
+          "index": 2,
+          "regularization": 0.05,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0,
+            "blend": 0.75,
+            "homeIntercept": -0.006893966931543278,
+            "awayIntercept": 0.004997754186724981,
+            "goalAttack": 0.28138896687235576,
+            "goalDefense": 0.1713582837994317,
+            "elo": 0.3879967030489928,
+            "rho": -0.08282709513304462,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0283096144851613,
+            "brier": 0.6174063480848535,
+            "accuracy": 0.4797297297297297,
+            "over25Brier": 0.24390196570918918,
+            "bttsBrier": 0.2485754978051115
+          },
+          "score": 3.9536151152814036,
+          "reasons": []
+        },
+        {
+          "index": 2,
+          "regularization": 0.05,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0,
+            "blend": 1,
+            "homeIntercept": -0.006893966931543278,
+            "awayIntercept": 0.004997754186724981,
+            "goalAttack": 0.28138896687235576,
+            "goalDefense": 0.1713582837994317,
+            "elo": 0.3879967030489928,
+            "rho": -0.08282709513304462,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0281397263505945,
+            "brier": 0.6172264858356787,
+            "accuracy": 0.47128378378378377,
+            "over25Brier": 0.24417584299375525,
+            "bttsBrier": 0.24816105381368295
+          },
+          "score": 3.9526278253596447,
+          "reasons": []
+        },
+        {
+          "index": 2,
+          "regularization": 0.05,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0,
+            "blend": 0.25,
+            "homeIntercept": -0.0026941706428897654,
+            "awayIntercept": 0.010731091456259122,
+            "goalAttack": 0.2797500992040118,
+            "goalDefense": 0.17060643500126305,
+            "elo": 0.38671310723162255,
+            "rho": -0.07364344782825366,
+            "overTilt": 0.024547610989771092,
+            "bttsTilt": -0.04243529335865396,
+            "drawTilt": 0.05018814926937099
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0339248372567007,
+            "brier": 0.6213436584109997,
+            "accuracy": 0.4847972972972973,
+            "over25Brier": 0.2451868488244661,
+            "bttsBrier": 0.25032954027380444
+          },
+          "score": 3.9774950219480862,
+          "reasons": []
+        },
+        {
+          "index": 2,
+          "regularization": 0.05,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0,
+            "blend": 0.5,
+            "homeIntercept": -0.0026941706428897654,
+            "awayIntercept": 0.010731091456259122,
+            "goalAttack": 0.2797500992040118,
+            "goalDefense": 0.17060643500126305,
+            "elo": 0.38671310723162255,
+            "rho": -0.07364344782825366,
+            "overTilt": 0.024547610989771092,
+            "bttsTilt": -0.04243529335865396,
+            "drawTilt": 0.05018814926937099
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0304310287245158,
+            "brier": 0.6188938389116414,
+            "accuracy": 0.4847972972972973,
+            "over25Brier": 0.24424841558673577,
+            "bttsBrier": 0.2492629069441521
+          },
+          "score": 3.9621717237377627,
+          "reasons": []
+        },
+        {
+          "index": 2,
+          "regularization": 0.05,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0,
+            "blend": 0.75,
+            "homeIntercept": -0.0026941706428897654,
+            "awayIntercept": 0.010731091456259122,
+            "goalAttack": 0.2797500992040118,
+            "goalDefense": 0.17060643500126305,
+            "elo": 0.38671310723162255,
+            "rho": -0.07364344782825366,
+            "overTilt": 0.024547610989771092,
+            "bttsTilt": -0.04243529335865396,
+            "drawTilt": 0.05018814926937099
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0286831298846884,
+            "brier": 0.6176361561652061,
+            "accuracy": 0.4797297297297297,
+            "over25Brier": 0.2438990056221585,
+            "bttsBrier": 0.24851576674054612
+          },
+          "score": 3.954092998814426,
+          "reasons": []
+        },
+        {
+          "index": 2,
+          "regularization": 0.05,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0,
+            "blend": 1,
+            "homeIntercept": -0.0026941706428897654,
+            "awayIntercept": 0.010731091456259122,
+            "goalAttack": 0.2797500992040118,
+            "goalDefense": 0.17060643500126305,
+            "elo": 0.38671310723162255,
+            "rho": -0.07364344782825366,
+            "overTilt": 0.024547610989771092,
+            "bttsTilt": -0.04243529335865396,
+            "drawTilt": 0.05018814926937099
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0287192009510067,
+            "brier": 0.6175810088744466,
+            "accuracy": 0.47297297297297297,
+            "over25Brier": 0.24417411221755597,
+            "bttsBrier": 0.2480751306381787
+          },
+          "score": 3.9534044020151486,
+          "reasons": []
+        },
+        {
+          "index": 2,
+          "regularization": 0.2,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0,
+            "blend": 0.25,
+            "homeIntercept": -0.005204039550307432,
+            "awayIntercept": 0.007734661525970331,
+            "goalAttack": 0.1753628797430136,
+            "goalDefense": 0.10455677782229683,
+            "elo": 0.20437492617260156,
+            "rho": -0.05726751898665044,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0346151292045145,
+            "brier": 0.6218643274131506,
+            "accuracy": 0.48817567567567566,
+            "over25Brier": 0.24520010667960285,
+            "bttsBrier": 0.2500718737206686
+          },
+          "score": 3.9780226392177713,
+          "reasons": []
+        },
+        {
+          "index": 2,
+          "regularization": 0.2,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0,
+            "blend": 0.5,
+            "homeIntercept": -0.005204039550307432,
+            "awayIntercept": 0.007734661525970331,
+            "goalAttack": 0.1753628797430136,
+            "goalDefense": 0.10455677782229683,
+            "elo": 0.20437492617260156,
+            "rho": -0.05726751898665044,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0324511161495251,
+            "brier": 0.6203578224479508,
+            "accuracy": 0.48986486486486486,
+            "over25Brier": 0.24441469430541685,
+            "bttsBrier": 0.24893918779686594
+          },
+          "score": 3.9658463526076515,
+          "reasons": []
+        },
+        {
+          "index": 2,
+          "regularization": 0.2,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0,
+            "blend": 0.75,
+            "homeIntercept": -0.005204039550307432,
+            "awayIntercept": 0.007734661525970331,
+            "goalAttack": 0.1753628797430136,
+            "goalDefense": 0.10455677782229683,
+            "elo": 0.20437492617260156,
+            "rho": -0.05726751898665044,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.032657782078361,
+            "brier": 0.6205203933671619,
+            "accuracy": 0.4864864864864865,
+            "over25Brier": 0.24436992866290178,
+            "bttsBrier": 0.24826927562733303
+          },
+          "score": 3.963462816899783,
+          "reasons": []
+        },
+        {
+          "index": 2,
+          "regularization": 0.2,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0,
+            "blend": 1,
+            "homeIntercept": -0.005204039550307432,
+            "awayIntercept": 0.007734661525970331,
+            "goalAttack": 0.1753628797430136,
+            "goalDefense": 0.10455677782229683,
+            "elo": 0.20437492617260156,
+            "rho": -0.05726751898665044,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.035279666283684,
+            "brier": 0.6224122033280731,
+            "accuracy": 0.47297297297297297,
+            "over25Brier": 0.24511075819219155,
+            "bttsBrier": 0.24801419429449784
+          },
+          "score": 3.9710029329745833,
+          "reasons": []
+        },
+        {
+          "index": 2,
+          "regularization": 0.2,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0,
+            "blend": 0.25,
+            "homeIntercept": -0.0012109366610935722,
+            "awayIntercept": 0.013074947353686573,
+            "goalAttack": 0.17491276155223745,
+            "goalDefense": 0.10434472122270187,
+            "elo": 0.20397618719169197,
+            "rho": -0.05528583162745026,
+            "overTilt": 0.0058106151368139715,
+            "bttsTilt": -0.026108715997788932,
+            "drawTilt": 0.02185796821316124
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0346494885354174,
+            "brier": 0.6218859094368232,
+            "accuracy": 0.48817567567567566,
+            "over25Brier": 0.2452015877559422,
+            "bttsBrier": 0.250060468692435
+          },
+          "score": 3.978050937062751,
+          "reasons": []
+        },
+        {
+          "index": 2,
+          "regularization": 0.2,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0,
+            "blend": 0.5,
+            "homeIntercept": -0.0012109366610935722,
+            "awayIntercept": 0.013074947353686573,
+            "goalAttack": 0.17491276155223745,
+            "goalDefense": 0.10434472122270187,
+            "elo": 0.20397618719169197,
+            "rho": -0.05528583162745026,
+            "overTilt": 0.0058106151368139715,
+            "bttsTilt": -0.026108715997788932,
+            "drawTilt": 0.02185796821316124
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.032541948170191,
+            "brier": 0.6204183490937918,
+            "accuracy": 0.48986486486486486,
+            "over25Brier": 0.2444207861718252,
+            "bttsBrier": 0.24890847422851003
+          },
+          "score": 3.965933302555609,
+          "reasons": []
+        },
+        {
+          "index": 2,
+          "regularization": 0.2,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0,
+            "blend": 0.75,
+            "homeIntercept": -0.0012109366610935722,
+            "awayIntercept": 0.013074947353686573,
+            "goalAttack": 0.17491276155223745,
+            "goalDefense": 0.10434472122270187,
+            "elo": 0.20397618719169197,
+            "rho": -0.05528583162745026,
+            "overTilt": 0.0058106151368139715,
+            "bttsTilt": -0.026108715997788932,
+            "drawTilt": 0.02185796821316124
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0328188993424052,
+            "brier": 0.6206297854961741,
+            "accuracy": 0.4864864864864865,
+            "over25Brier": 0.2443821862705075,
+            "bttsBrier": 0.2482137382878506
+          },
+          "score": 3.9636219808132807,
+          "reasons": []
+        },
+        {
+          "index": 2,
+          "regularization": 0.2,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0,
+            "blend": 1,
+            "homeIntercept": -0.0012109366610935722,
+            "awayIntercept": 0.013074947353686573,
+            "goalAttack": 0.17491276155223745,
+            "goalDefense": 0.10434472122270187,
+            "elo": 0.20397618719169197,
+            "rho": -0.05528583162745026,
+            "overTilt": 0.0058106151368139715,
+            "bttsTilt": -0.026108715997788932,
+            "drawTilt": 0.02185796821316124
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.035516467931415,
+            "brier": 0.6225714318832535,
+            "accuracy": 0.47297297297297297,
+            "over25Brier": 0.24512930584909196,
+            "bttsBrier": 0.24793214627755344
+          },
+          "score": 3.9712348632254937,
+          "reasons": []
+        },
+        {
+          "index": 3,
+          "regularization": 0.01,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0.6,
+            "blend": 0.25,
+            "homeIntercept": -0.01694688048701374,
+            "awayIntercept": -0.004416626324201655,
+            "goalAttack": 0.2186999815048784,
+            "goalDefense": 0.11647541259781859,
+            "elo": 0.6317933288398673,
+            "rho": -0.09226000468958907,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.03404471470947,
+            "brier": 0.6213240998832953,
+            "accuracy": 0.48817567567567566,
+            "over25Brier": 0.24532117752692364,
+            "bttsBrier": 0.250253432779796
+          },
+          "score": 3.977821322142262,
+          "reasons": []
+        },
+        {
+          "index": 3,
+          "regularization": 0.01,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0.6,
+            "blend": 0.5,
+            "homeIntercept": -0.01694688048701374,
+            "awayIntercept": -0.004416626324201655,
+            "goalAttack": 0.2186999815048784,
+            "goalDefense": 0.11647541259781859,
+            "elo": 0.6317933288398673,
+            "rho": -0.09226000468958907,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0307161460887584,
+            "brier": 0.6189067909341128,
+            "accuracy": 0.4797297297297297,
+            "over25Brier": 0.24452256650755183,
+            "bttsBrier": 0.24908671064329888
+          },
+          "score": 3.9628783017861355,
+          "reasons": []
+        },
+        {
+          "index": 3,
+          "regularization": 0.01,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0.6,
+            "blend": 0.75,
+            "homeIntercept": -0.01694688048701374,
+            "awayIntercept": -0.004416626324201655,
+            "goalAttack": 0.2186999815048784,
+            "goalDefense": 0.11647541259781859,
+            "elo": 0.6317933288398673,
+            "rho": -0.09226000468958907,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0291967804897153,
+            "brier": 0.6177215741421133,
+            "accuracy": 0.4847972972972973,
+            "over25Brier": 0.2443189440835543,
+            "bttsBrier": 0.24822383817159724
+          },
+          "score": 3.9552667375359856,
+          "reasons": []
+        },
+        {
+          "index": 3,
+          "regularization": 0.01,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0.6,
+            "blend": 1,
+            "homeIntercept": -0.01694688048701374,
+            "awayIntercept": -0.004416626324201655,
+            "goalAttack": 0.2186999815048784,
+            "goalDefense": 0.11647541259781859,
+            "elo": 0.6317933288398673,
+            "rho": -0.09226000468958907,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0295463000727698,
+            "brier": 0.6177671362338248,
+            "accuracy": 0.47466216216216217,
+            "over25Brier": 0.24474611537706767,
+            "bttsBrier": 0.2476611621292668
+          },
+          "score": 3.9551725996837606,
+          "reasons": []
+        },
+        {
+          "index": 3,
+          "regularization": 0.01,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0.6,
+            "blend": 0.25,
+            "homeIntercept": -0.015647598376367547,
+            "awayIntercept": -0.0036874387260638322,
+            "goalAttack": 0.2175338914165855,
+            "goalDefense": 0.11647456250554712,
+            "elo": 0.6344217763271767,
+            "rho": -0.06456939718206396,
+            "overTilt": 0.056548851590296254,
+            "bttsTilt": -0.04517118404971157,
+            "drawTilt": 0.1035116066836892
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0341934919577462,
+            "brier": 0.62140060316483,
+            "accuracy": 0.48817567567567566,
+            "over25Brier": 0.2453058090003396,
+            "bttsBrier": 0.25024802189578904
+          },
+          "score": 3.9780031083595917,
+          "reasons": []
+        },
+        {
+          "index": 3,
+          "regularization": 0.01,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0.6,
+            "blend": 0.5,
+            "homeIntercept": -0.015647598376367547,
+            "awayIntercept": -0.0036874387260638322,
+            "goalAttack": 0.2175338914165855,
+            "goalDefense": 0.11647456250554712,
+            "elo": 0.6344217763271767,
+            "rho": -0.06456939718206396,
+            "overTilt": 0.056548851590296254,
+            "bttsTilt": -0.04517118404971157,
+            "drawTilt": 0.1035116066836892
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0311345400211915,
+            "brier": 0.6191340588291538,
+            "accuracy": 0.4797297297297297,
+            "over25Brier": 0.24449127668325082,
+            "bttsBrier": 0.24907327696346537
+          },
+          "score": 3.9634643677914667,
+          "reasons": []
+        },
+        {
+          "index": 3,
+          "regularization": 0.01,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0.6,
+            "blend": 0.75,
+            "homeIntercept": -0.015647598376367547,
+            "awayIntercept": -0.0036874387260638322,
+            "goalAttack": 0.2175338914165855,
+            "goalDefense": 0.11647456250554712,
+            "elo": 0.6344217763271767,
+            "rho": -0.06456939718206396,
+            "overTilt": 0.056548851590296254,
+            "bttsTilt": -0.04517118404971157,
+            "drawTilt": 0.1035116066836892
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.029993945500661,
+            "brier": 0.6181584021774232,
+            "accuracy": 0.4847972972972973,
+            "over25Brier": 0.24427189011800285,
+            "bttsBrier": 0.24820054802232622
+          },
+          "score": 3.956449555058656,
+          "reasons": []
+        },
+        {
+          "index": 3,
+          "regularization": 0.01,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0.6,
+            "blend": 1,
+            "homeIntercept": -0.015647598376367547,
+            "awayIntercept": -0.0036874387260638322,
+            "goalAttack": 0.2175338914165855,
+            "goalDefense": 0.11647456250554712,
+            "elo": 0.6344217763271767,
+            "rho": -0.06456939718206396,
+            "overTilt": 0.056548851590296254,
+            "bttsTilt": -0.04517118404971157,
+            "drawTilt": 0.1035116066836892
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0308166995968364,
+            "brier": 0.6184541845250469,
+            "accuracy": 0.47466216216216217,
+            "over25Brier": 0.24468438529365782,
+            "bttsBrier": 0.24762816639940793
+          },
+          "score": 3.9571131418895833,
+          "reasons": []
+        },
+        {
+          "index": 3,
+          "regularization": 0.05,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0.6,
+            "blend": 0.25,
+            "homeIntercept": -0.007282287312516437,
+            "awayIntercept": 0.004261108369505216,
+            "goalAttack": 0.23013142194024602,
+            "goalDefense": 0.13731807545836075,
+            "elo": 0.41841326997096107,
+            "rho": -0.08190420463347374,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0345851812266667,
+            "brier": 0.6217479075131772,
+            "accuracy": 0.4847972972972973,
+            "over25Brier": 0.24542742963736955,
+            "bttsBrier": 0.25027515344012485
+          },
+          "score": 3.979536561167455,
+          "reasons": []
+        },
+        {
+          "index": 3,
+          "regularization": 0.05,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0.6,
+            "blend": 0.5,
+            "homeIntercept": -0.007282287312516437,
+            "awayIntercept": 0.004261108369505216,
+            "goalAttack": 0.23013142194024602,
+            "goalDefense": 0.13731807545836075,
+            "elo": 0.41841326997096107,
+            "rho": -0.08190420463347374,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0315009968851985,
+            "brier": 0.6195352843824257,
+            "accuracy": 0.4864864864864865,
+            "over25Brier": 0.24468021759967065,
+            "bttsBrier": 0.2491479989562266
+          },
+          "score": 3.965521767613738,
+          "reasons": []
+        },
+        {
+          "index": 3,
+          "regularization": 0.05,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0.6,
+            "blend": 0.75,
+            "homeIntercept": -0.007282287312516437,
+            "awayIntercept": 0.004261108369505216,
+            "goalAttack": 0.23013142194024602,
+            "goalDefense": 0.13731807545836075,
+            "elo": 0.41841326997096107,
+            "rho": -0.08190420463347374,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0299188398114913,
+            "brier": 0.618353200878499,
+            "accuracy": 0.4797297297297297,
+            "over25Brier": 0.24446885168615137,
+            "bttsBrier": 0.24833245959618191
+          },
+          "score": 3.958011419646063,
+          "reasons": []
+        },
+        {
+          "index": 3,
+          "regularization": 0.05,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0.6,
+            "blend": 1,
+            "homeIntercept": -0.007282287312516437,
+            "awayIntercept": 0.004261108369505216,
+            "goalAttack": 0.23013142194024602,
+            "goalDefense": 0.13731807545836075,
+            "elo": 0.41841326997096107,
+            "rho": -0.08190420463347374,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0298770173504532,
+            "brier": 0.6182199175162513,
+            "accuracy": 0.4814189189189189,
+            "over25Brier": 0.24482531474970598,
+            "bttsBrier": 0.247808489562012
+          },
+          "score": 3.9571216271666874,
+          "reasons": []
+        },
+        {
+          "index": 3,
+          "regularization": 0.05,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0.6,
+            "blend": 0.25,
+            "homeIntercept": -0.0025660021508896055,
+            "awayIntercept": 0.01078096649293387,
+            "goalAttack": 0.22855814614126185,
+            "goalDefense": 0.13647238255771132,
+            "elo": 0.41683309868053753,
+            "rho": -0.07313303951258855,
+            "overTilt": 0.024046570512365206,
+            "bttsTilt": -0.04539543871155004,
+            "drawTilt": 0.05028916872049405
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0346596364911589,
+            "brier": 0.6217913078896377,
+            "accuracy": 0.4847972972972973,
+            "over25Brier": 0.24542421839928877,
+            "bttsBrier": 0.2502598913202537
+          },
+          "score": 3.9796040115461735,
+          "reasons": []
+        },
+        {
+          "index": 3,
+          "regularization": 0.05,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0.6,
+            "blend": 0.5,
+            "homeIntercept": -0.0025660021508896055,
+            "awayIntercept": 0.01078096649293387,
+            "goalAttack": 0.22855814614126185,
+            "goalDefense": 0.13647238255771132,
+            "elo": 0.41683309868053753,
+            "rho": -0.07313303951258855,
+            "overTilt": 0.024046570512365206,
+            "bttsTilt": -0.04539543871155004,
+            "drawTilt": 0.05028916872049405
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0316986475525018,
+            "brier": 0.6196552175577176,
+            "accuracy": 0.4864864864864865,
+            "over25Brier": 0.24467732290917965,
+            "bttsBrier": 0.24911051783448318
+          },
+          "score": 3.9657432529514445,
+          "reasons": []
+        },
+        {
+          "index": 3,
+          "regularization": 0.05,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0.6,
+            "blend": 0.75,
+            "homeIntercept": -0.0025660021508896055,
+            "awayIntercept": 0.01078096649293387,
+            "goalAttack": 0.22855814614126185,
+            "goalDefense": 0.13647238255771132,
+            "elo": 0.41683309868053753,
+            "rho": -0.07313303951258855,
+            "overTilt": 0.024046570512365206,
+            "bttsTilt": -0.04539543871155004,
+            "drawTilt": 0.05028916872049405
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.030282698114364,
+            "brier": 0.6185772987744012,
+            "accuracy": 0.4814189189189189,
+            "over25Brier": 0.24446856016461282,
+            "bttsBrier": 0.2482680545716135
+          },
+          "score": 3.9584631251519724,
+          "reasons": []
+        },
+        {
+          "index": 3,
+          "regularization": 0.05,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0.6,
+            "blend": 1,
+            "homeIntercept": -0.0025660021508896055,
+            "awayIntercept": 0.01078096649293387,
+            "goalAttack": 0.22855814614126185,
+            "goalDefense": 0.13647238255771132,
+            "elo": 0.41683309868053753,
+            "rho": -0.07313303951258855,
+            "overTilt": 0.024046570512365206,
+            "bttsTilt": -0.04539543871155004,
+            "drawTilt": 0.05028916872049405
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0304436644604316,
+            "brier": 0.6185688453624265,
+            "accuracy": 0.4797297297297297,
+            "over25Brier": 0.24482874238503605,
+            "bttsBrier": 0.24771602905496562
+          },
+          "score": 3.9578718506331967,
+          "reasons": []
+        },
+        {
+          "index": 3,
+          "regularization": 0.2,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0.6,
+            "blend": 0.25,
+            "homeIntercept": -0.004557883884959682,
+            "awayIntercept": 0.007881670606247603,
+            "goalAttack": 0.15738634467609836,
+            "goalDefense": 0.09422452982336557,
+            "elo": 0.2089984325406772,
+            "rho": -0.05693306480384307,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0351715391373897,
+            "brier": 0.6222156354527623,
+            "accuracy": 0.4864864864864865,
+            "over25Brier": 0.24537501800705314,
+            "bttsBrier": 0.25005867215542243
+          },
+          "score": 3.9797768328705683,
+          "reasons": []
+        },
+        {
+          "index": 3,
+          "regularization": 0.2,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0.6,
+            "blend": 0.5,
+            "homeIntercept": -0.004557883884959682,
+            "awayIntercept": 0.007881670606247603,
+            "goalAttack": 0.15738634467609836,
+            "goalDefense": 0.09422452982336557,
+            "elo": 0.2089984325406772,
+            "rho": -0.05693306480384307,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0334308106374912,
+            "brier": 0.6209821582458996,
+            "accuracy": 0.49493243243243246,
+            "over25Brier": 0.2447078557879574,
+            "bttsBrier": 0.2488932993183385
+          },
+          "score": 3.9687942776564364,
+          "reasons": []
+        },
+        {
+          "index": 3,
+          "regularization": 0.2,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0.6,
+            "blend": 0.75,
+            "homeIntercept": -0.004557883884959682,
+            "awayIntercept": 0.007881670606247603,
+            "goalAttack": 0.15738634467609836,
+            "goalDefense": 0.09422452982336557,
+            "elo": 0.2089984325406772,
+            "rho": -0.05693306480384307,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.033934025380654,
+            "brier": 0.6213361126376697,
+            "accuracy": 0.49155405405405406,
+            "over25Brier": 0.24471902275430804,
+            "bttsBrier": 0.24817585631373024
+          },
+          "score": 3.9670402839156926,
+          "reasons": []
+        },
+        {
+          "index": 3,
+          "regularization": 0.2,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0.6,
+            "blend": 1,
+            "homeIntercept": -0.004557883884959682,
+            "awayIntercept": 0.007881670606247603,
+            "goalAttack": 0.15738634467609836,
+            "goalDefense": 0.09422452982336557,
+            "elo": 0.2089984325406772,
+            "rho": -0.05693306480384307,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.03672477019013,
+            "brier": 0.6233338599776272,
+            "accuracy": 0.47635135135135137,
+            "over25Brier": 0.24544870309247946,
+            "bttsBrier": 0.24785923247251648
+          },
+          "score": 3.974622744916846,
+          "reasons": []
+        },
+        {
+          "index": 3,
+          "regularization": 0.2,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0.6,
+            "blend": 0.25,
+            "homeIntercept": -0.000527211289785596,
+            "awayIntercept": 0.013290348903379306,
+            "goalAttack": 0.15694248783467155,
+            "goalDefense": 0.09399685391658333,
+            "elo": 0.2086075590427082,
+            "rho": -0.05499357837810931,
+            "overTilt": 0.005791127860369989,
+            "bttsTilt": -0.026390641067885804,
+            "drawTilt": 0.02184947503776191
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0352064868669082,
+            "brier": 0.6222374827601254,
+            "accuracy": 0.4864864864864865,
+            "over25Brier": 0.24537679545385796,
+            "bttsBrier": 0.250047250311603
+          },
+          "score": 3.9798072560732227,
+          "reasons": []
+        },
+        {
+          "index": 3,
+          "regularization": 0.2,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0.6,
+            "blend": 0.5,
+            "homeIntercept": -0.000527211289785596,
+            "awayIntercept": 0.013290348903379306,
+            "goalAttack": 0.15694248783467155,
+            "goalDefense": 0.09399685391658333,
+            "elo": 0.2086075590427082,
+            "rho": -0.05499357837810931,
+            "overTilt": 0.005791127860369989,
+            "bttsTilt": -0.026390641067885804,
+            "drawTilt": 0.02184947503776191
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.033521508216205,
+            "brier": 0.6210421493213872,
+            "accuracy": 0.49493243243243246,
+            "over25Brier": 0.2447145073054226,
+            "bttsBrier": 0.24886279155100963
+          },
+          "score": 3.9688833275345887,
+          "reasons": []
+        },
+        {
+          "index": 3,
+          "regularization": 0.2,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0.6,
+            "blend": 0.75,
+            "homeIntercept": -0.000527211289785596,
+            "awayIntercept": 0.013290348903379306,
+            "goalAttack": 0.15694248783467155,
+            "goalDefense": 0.09399685391658333,
+            "elo": 0.2086075590427082,
+            "rho": -0.05499357837810931,
+            "overTilt": 0.005791127860369989,
+            "bttsTilt": -0.026390641067885804,
+            "drawTilt": 0.02184947503776191
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0340935122373554,
+            "brier": 0.6214435476630495,
+            "accuracy": 0.49155405405405406,
+            "over25Brier": 0.244732160781267,
+            "bttsBrier": 0.24812076230776717
+          },
+          "score": 3.9672000775053777,
+          "reasons": []
+        },
+        {
+          "index": 3,
+          "regularization": 0.2,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0.6,
+            "blend": 1,
+            "homeIntercept": -0.000527211289785596,
+            "awayIntercept": 0.013290348903379306,
+            "goalAttack": 0.15694248783467155,
+            "goalDefense": 0.09399685391658333,
+            "elo": 0.2086075590427082,
+            "rho": -0.05499357837810931,
+            "overTilt": 0.005791127860369989,
+            "bttsTilt": -0.026390641067885804,
+            "drawTilt": 0.02184947503776191
+          },
+          "selectionMetrics": {
+            "n": 592,
+            "logLoss": 1.0369582017288785,
+            "brier": 0.6234896499206475,
+            "accuracy": 0.47635135135135137,
+            "over25Brier": 0.24546862881252518,
+            "bttsBrier": 0.24777757900234845
+          },
+          "score": 3.974853083773024,
+          "reasons": []
+        }
+      ],
+      "selectionBaseline": {
+        "n": 592,
+        "logLoss": 1.0391580107333664,
+        "brier": 0.624970584456208,
+        "accuracy": 0.47635135135135137,
+        "over25Brier": 0.2466766346629004,
+        "bttsBrier": 0.2517459182597941
+      }
+    },
+    "ita.1": {
+      "winner": {
+        "index": 1,
+        "regularization": 0.01,
+        "marketTilts": true,
+        "parameters": {
+          "decayDays": 90,
+          "venueWeight": 0.6,
+          "blend": 1,
+          "homeIntercept": 0.0010062972682447417,
+          "awayIntercept": -0.03474928456949834,
+          "goalAttack": 0.18811099865095657,
+          "goalDefense": 0.08318219496793565,
+          "elo": 0.6992612368881534,
+          "rho": 0.032406537553415375,
+          "overTilt": -0.05970740524006345,
+          "bttsTilt": 0.17836407528906864,
+          "drawTilt": 0.137876236795241
+        },
+        "selectionMetrics": {
+          "n": 726,
+          "logLoss": 1.0075786908529287,
+          "brier": 0.6043662210667157,
+          "accuracy": 0.5179063360881543,
+          "over25Brier": 0.24594155382262364,
+          "bttsBrier": 0.24979635370470615
+        },
+        "score": 3.921074328762064,
+        "reasons": []
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "regularization": 0.01,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0,
+            "blend": 0.25,
+            "homeIntercept": 0.0036703737631320244,
+            "awayIntercept": -0.010034823661421388,
+            "goalAttack": 0.1953439511636135,
+            "goalDefense": 0.08136196349159479,
+            "elo": 0.6424943000892119,
+            "rho": -0.05935464632158857,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0231190570731918,
+            "brier": 0.6143539190628026,
+            "accuracy": 0.5055096418732782,
+            "over25Brier": 0.248043939482311,
+            "bttsBrier": 0.25068189682481806
+          },
+          "score": 3.964109396377918,
+          "reasons": []
+        },
+        {
+          "index": 0,
+          "regularization": 0.01,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0,
+            "blend": 0.5,
+            "homeIntercept": 0.0036703737631320244,
+            "awayIntercept": -0.010034823661421388,
+            "goalAttack": 0.1953439511636135,
+            "goalDefense": 0.08136196349159479,
+            "elo": 0.6424943000892119,
+            "rho": -0.05935464632158857,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0161341438141096,
+            "brier": 0.6095219634451662,
+            "accuracy": 0.5068870523415978,
+            "over25Brier": 0.2463988062581137,
+            "bttsBrier": 0.24978131106537965
+          },
+          "score": 3.939426900839342,
+          "reasons": []
+        },
+        {
+          "index": 0,
+          "regularization": 0.01,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0,
+            "blend": 0.75,
+            "homeIntercept": 0.0036703737631320244,
+            "awayIntercept": -0.010034823661421388,
+            "goalAttack": 0.1953439511636135,
+            "goalDefense": 0.08136196349159479,
+            "elo": 0.6424943000892119,
+            "rho": -0.05935464632158857,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.011559492719259,
+            "brier": 0.6064773374366673,
+            "accuracy": 0.5082644628099173,
+            "over25Brier": 0.24561184828925448,
+            "bttsBrier": 0.2494986889638607
+          },
+          "score": 3.9258323391332772,
+          "reasons": []
+        },
+        {
+          "index": 0,
+          "regularization": 0.01,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0,
+            "blend": 1,
+            "homeIntercept": 0.0036703737631320244,
+            "awayIntercept": -0.010034823661421388,
+            "goalAttack": 0.1953439511636135,
+            "goalDefense": 0.08136196349159479,
+            "elo": 0.6424943000892119,
+            "rho": -0.05935464632158857,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0093748382401755,
+            "brier": 0.6051346483513447,
+            "accuracy": 0.5179063360881543,
+            "over25Brier": 0.24570352910991813,
+            "bttsBrier": 0.249857279574318
+          },
+          "score": 3.923342457165599,
+          "reasons": []
+        },
+        {
+          "index": 0,
+          "regularization": 0.01,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0,
+            "blend": 0.25,
+            "homeIntercept": 0.0017614231672426557,
+            "awayIntercept": -0.037168494661991375,
+            "goalAttack": 0.2048234608715345,
+            "goalDefense": 0.08887813319765131,
+            "elo": 0.6869982292212138,
+            "rho": 0.03370881720400425,
+            "overTilt": -0.05934235022973287,
+            "bttsTilt": 0.17779086685795048,
+            "drawTilt": 0.1392468126813248
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0224381661369826,
+            "brier": 0.614031619361666,
+            "accuracy": 0.5082644628099173,
+            "over25Brier": 0.2480241825667142,
+            "bttsBrier": 0.25060992990881303
+          },
+          "score": 3.962566841124518,
+          "reasons": []
+        },
+        {
+          "index": 0,
+          "regularization": 0.01,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0,
+            "blend": 0.5,
+            "homeIntercept": 0.0017614231672426557,
+            "awayIntercept": -0.037168494661991375,
+            "goalAttack": 0.2048234608715345,
+            "goalDefense": 0.08887813319765131,
+            "elo": 0.6869982292212138,
+            "rho": 0.03370881720400425,
+            "overTilt": -0.05934235022973287,
+            "bttsTilt": 0.17779086685795048,
+            "drawTilt": 0.1392468126813248
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0152380798220186,
+            "brier": 0.6091884471766242,
+            "accuracy": 0.5082644628099173,
+            "over25Brier": 0.24633630594857292,
+            "bttsBrier": 0.24974745563947956
+          },
+          "score": 3.9376383858619386,
+          "reasons": []
+        },
+        {
+          "index": 0,
+          "regularization": 0.01,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0,
+            "blend": 0.75,
+            "homeIntercept": 0.0017614231672426557,
+            "awayIntercept": -0.037168494661991375,
+            "goalAttack": 0.2048234608715345,
+            "goalDefense": 0.08887813319765131,
+            "elo": 0.6869982292212138,
+            "rho": 0.03370881720400425,
+            "overTilt": -0.05934235022973287,
+            "bttsTilt": 0.17779086685795048,
+            "drawTilt": 0.1392468126813248
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.010756797667146,
+            "brier": 0.6062827004542461,
+            "accuracy": 0.5137741046831956,
+            "over25Brier": 0.2454868995250157,
+            "bttsBrier": 0.24958480290545135
+          },
+          "score": 3.9245842393483903,
+          "reasons": []
+        },
+        {
+          "index": 0,
+          "regularization": 0.01,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0,
+            "blend": 1,
+            "homeIntercept": 0.0017614231672426557,
+            "awayIntercept": -0.037168494661991375,
+            "goalAttack": 0.2048234608715345,
+            "goalDefense": 0.08887813319765131,
+            "elo": 0.6869982292212138,
+            "rho": 0.03370881720400425,
+            "overTilt": -0.05934235022973287,
+            "bttsTilt": 0.17779086685795048,
+            "drawTilt": 0.1392468126813248
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0088354843244163,
+            "brier": 0.605090429331697,
+            "accuracy": 0.5179063360881543,
+            "over25Brier": 0.2455024676278754,
+            "bttsBrier": 0.2501136558119723
+          },
+          "score": 3.922962816520357,
+          "reasons": []
+        },
+        {
+          "index": 0,
+          "regularization": 0.05,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0,
+            "blend": 0.25,
+            "homeIntercept": 0.014624041552221948,
+            "awayIntercept": 0.00124101823214133,
+            "goalAttack": 0.22029914016680585,
+            "goalDefense": 0.11308898786064994,
+            "elo": 0.44231127156204897,
+            "rho": -0.04917440201291975,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0253997276059181,
+            "brier": 0.6158709733170471,
+            "accuracy": 0.5041322314049587,
+            "over25Brier": 0.24819226461399777,
+            "bttsBrier": 0.2507422057436829
+          },
+          "score": 3.969591976712166,
+          "reasons": []
+        },
+        {
+          "index": 0,
+          "regularization": 0.05,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0,
+            "blend": 0.5,
+            "homeIntercept": 0.014624041552221948,
+            "awayIntercept": 0.00124101823214133,
+            "goalAttack": 0.22029914016680585,
+            "goalDefense": 0.11308898786064994,
+            "elo": 0.44231127156204897,
+            "rho": -0.04917440201291975,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0201781107645387,
+            "brier": 0.6121379717071476,
+            "accuracy": 0.5013774104683195,
+            "over25Brier": 0.246614234957051,
+            "bttsBrier": 0.24985131344544806
+          },
+          "score": 3.9486929026708038,
+          "reasons": []
+        },
+        {
+          "index": 0,
+          "regularization": 0.05,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0,
+            "blend": 0.75,
+            "homeIntercept": 0.014624041552221948,
+            "awayIntercept": 0.00124101823214133,
+            "goalAttack": 0.22029914016680585,
+            "goalDefense": 0.11308898786064994,
+            "elo": 0.44231127156204897,
+            "rho": -0.04917440201291975,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0168707984278222,
+            "brier": 0.6098119612410321,
+            "accuracy": 0.509641873278237,
+            "over25Brier": 0.245809956557815,
+            "bttsBrier": 0.24951277126148164
+          },
+          "score": 3.9371918972280473,
+          "reasons": []
+        },
+        {
+          "index": 0,
+          "regularization": 0.05,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0,
+            "blend": 1,
+            "homeIntercept": 0.014624041552221948,
+            "awayIntercept": 0.00124101823214133,
+            "goalAttack": 0.22029914016680585,
+            "goalDefense": 0.11308898786064994,
+            "elo": 0.44231127156204897,
+            "rho": -0.04917440201291975,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0154628377142887,
+            "brier": 0.608847287969567,
+            "accuracy": 0.5041322314049587,
+            "over25Brier": 0.24579956757700544,
+            "bttsBrier": 0.24972123981799757
+          },
+          "score": 3.935060188665181,
+          "reasons": []
+        },
+        {
+          "index": 0,
+          "regularization": 0.05,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0,
+            "blend": 0.25,
+            "homeIntercept": 0.018064429037205437,
+            "awayIntercept": -0.00825236005292017,
+            "goalAttack": 0.22539261093425886,
+            "goalDefense": 0.11671509745583268,
+            "elo": 0.4536709330502016,
+            "rho": -0.006731909810662574,
+            "overTilt": -0.03514484680703801,
+            "bttsTilt": 0.08266752038604977,
+            "drawTilt": 0.0799488419131746
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.025071159514128,
+            "brier": 0.6157388929548813,
+            "accuracy": 0.5041322314049587,
+            "over25Brier": 0.24818481788344954,
+            "bttsBrier": 0.25069963038503834
+          },
+          "score": 3.968862579130374,
+          "reasons": []
+        },
+        {
+          "index": 0,
+          "regularization": 0.05,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0,
+            "blend": 0.5,
+            "homeIntercept": 0.018064429037205437,
+            "awayIntercept": -0.00825236005292017,
+            "goalAttack": 0.22539261093425886,
+            "goalDefense": 0.11671509745583268,
+            "elo": 0.4536709330502016,
+            "rho": -0.006731909810662574,
+            "overTilt": -0.03514484680703801,
+            "bttsTilt": 0.08266752038604977,
+            "drawTilt": 0.0799488419131746
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0197194380554928,
+            "brier": 0.6120092263975695,
+            "accuracy": 0.5013774104683195,
+            "over25Brier": 0.24658298942299794,
+            "bttsBrier": 0.24982686459701092
+          },
+          "score": 3.947819745237791,
+          "reasons": []
+        },
+        {
+          "index": 0,
+          "regularization": 0.05,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0,
+            "blend": 0.75,
+            "homeIntercept": 0.018064429037205437,
+            "awayIntercept": -0.00825236005292017,
+            "goalAttack": 0.22539261093425886,
+            "goalDefense": 0.11671509745583268,
+            "elo": 0.4536709330502016,
+            "rho": -0.006731909810662574,
+            "overTilt": -0.03514484680703801,
+            "bttsTilt": 0.08266752038604977,
+            "drawTilt": 0.0799488419131746
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0164152911367035,
+            "brier": 0.6097504357577229,
+            "accuracy": 0.5068870523415978,
+            "over25Brier": 0.2457376515701199,
+            "bttsBrier": 0.24955299248370433
+          },
+          "score": 3.9365225439147955,
+          "reasons": []
+        },
+        {
+          "index": 0,
+          "regularization": 0.05,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0,
+            "blend": 1,
+            "homeIntercept": 0.018064429037205437,
+            "awayIntercept": -0.00825236005292017,
+            "goalAttack": 0.22539261093425886,
+            "goalDefense": 0.11671509745583268,
+            "elo": 0.4536709330502016,
+            "rho": -0.006731909810662574,
+            "overTilt": -0.03514484680703801,
+            "bttsTilt": 0.08266752038604977,
+            "drawTilt": 0.0799488419131746
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0150807871639982,
+            "brier": 0.6088476415572729,
+            "accuracy": 0.5027548209366391,
+            "over25Brier": 0.24566885077190598,
+            "bttsBrier": 0.24985581184994546
+          },
+          "score": 3.934702523865631,
+          "reasons": []
+        },
+        {
+          "index": 0,
+          "regularization": 0.2,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0,
+            "blend": 0.25,
+            "homeIntercept": 0.018900787256735854,
+            "awayIntercept": 0.008712392957853407,
+            "goalAttack": 0.15510897202472237,
+            "goalDefense": 0.08298151808855721,
+            "elo": 0.23187022619729497,
+            "rho": -0.03033746095921446,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0287979562152256,
+            "brier": 0.6180950024158952,
+            "accuracy": 0.4931129476584022,
+            "over25Brier": 0.24825545285104844,
+            "bttsBrier": 0.25062866365820646
+          },
+          "score": 3.9762660218063686,
+          "reasons": []
+        },
+        {
+          "index": 0,
+          "regularization": 0.2,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0,
+            "blend": 0.5,
+            "homeIntercept": 0.018900787256735854,
+            "awayIntercept": 0.008712392957853407,
+            "goalAttack": 0.15510897202472237,
+            "goalDefense": 0.08298151808855721,
+            "elo": 0.23187022619729497,
+            "rho": -0.03033746095921446,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.027229192338464,
+            "brier": 0.6167508452291897,
+            "accuracy": 0.48760330578512395,
+            "over25Brier": 0.24683470596399057,
+            "bttsBrier": 0.24971092277892862
+          },
+          "score": 3.963272300229433,
+          "reasons": []
+        },
+        {
+          "index": 0,
+          "regularization": 0.2,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0,
+            "blend": 0.75,
+            "homeIntercept": 0.018900787256735854,
+            "awayIntercept": 0.008712392957853407,
+            "goalAttack": 0.15510897202472237,
+            "goalDefense": 0.08298151808855721,
+            "elo": 0.23187022619729497,
+            "rho": -0.03033746095921446,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0277986720391972,
+            "brier": 0.6169819496328226,
+            "accuracy": 0.4807162534435262,
+            "over25Brier": 0.24628723109066264,
+            "bttsBrier": 0.249391274385028
+          },
+          "score": 3.9607430962935224,
+          "reasons": []
+        },
+        {
+          "index": 0,
+          "regularization": 0.2,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0,
+            "blend": 1,
+            "homeIntercept": 0.018900787256735854,
+            "awayIntercept": 0.008712392957853407,
+            "goalAttack": 0.15510897202472237,
+            "goalDefense": 0.08298151808855721,
+            "elo": 0.23187022619729497,
+            "rho": -0.03033746095921446,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0304783942627116,
+            "brier": 0.6187447649790416,
+            "accuracy": 0.4765840220385675,
+            "over25Brier": 0.2466339947999213,
+            "bttsBrier": 0.24963044813510865
+          },
+          "score": 3.968509163707836,
+          "reasons": []
+        },
+        {
+          "index": 0,
+          "regularization": 0.2,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0,
+            "blend": 0.25,
+            "homeIntercept": 0.022151495112031412,
+            "awayIntercept": 0.007276106181957769,
+            "goalAttack": 0.15580822310350528,
+            "goalDefense": 0.08344329675608927,
+            "elo": 0.232961481270674,
+            "rho": -0.018927770684802267,
+            "overTilt": -0.014533006596240862,
+            "bttsTilt": 0.024093851095836415,
+            "drawTilt": 0.03520184325394045
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.028670853912074,
+            "brier": 0.6180573734715199,
+            "accuracy": 0.4931129476584022,
+            "over25Brier": 0.24825145924143624,
+            "bttsBrier": 0.2506103323224126
+          },
+          "score": 3.9759937202542766,
+          "reasons": []
+        },
+        {
+          "index": 0,
+          "regularization": 0.2,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0,
+            "blend": 0.5,
+            "homeIntercept": 0.022151495112031412,
+            "awayIntercept": 0.007276106181957769,
+            "goalAttack": 0.15580822310350528,
+            "goalDefense": 0.08344329675608927,
+            "elo": 0.232961481270674,
+            "rho": -0.018927770684802267,
+            "overTilt": -0.014533006596240862,
+            "bttsTilt": 0.024093851095836415,
+            "drawTilt": 0.03520184325394045
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0270371053048193,
+            "brier": 0.6167197869199288,
+            "accuracy": 0.48760330578512395,
+            "over25Brier": 0.24682017044099763,
+            "bttsBrier": 0.24970371617022563
+          },
+          "score": 3.962949671387279,
+          "reasons": []
+        },
+        {
+          "index": 0,
+          "regularization": 0.2,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0,
+            "blend": 0.75,
+            "homeIntercept": 0.022151495112031412,
+            "awayIntercept": 0.007276106181957769,
+            "goalAttack": 0.15580822310350528,
+            "goalDefense": 0.08344329675608927,
+            "elo": 0.232961481270674,
+            "rho": -0.018927770684802267,
+            "overTilt": -0.014533006596240862,
+            "bttsTilt": 0.024093851095836415,
+            "drawTilt": 0.03520184325394045
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0275757276943893,
+            "brier": 0.6169669104468956,
+            "accuracy": 0.4820936639118457,
+            "over25Brier": 0.24625378304209297,
+            "bttsBrier": 0.24941601105044492
+          },
+          "score": 3.9604675320707416,
+          "reasons": []
+        },
+        {
+          "index": 0,
+          "regularization": 0.2,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0,
+            "blend": 1,
+            "homeIntercept": 0.022151495112031412,
+            "awayIntercept": 0.007276106181957769,
+            "goalAttack": 0.15580822310350528,
+            "goalDefense": 0.08344329675608927,
+            "elo": 0.232961481270674,
+            "rho": -0.018927770684802267,
+            "overTilt": -0.014533006596240862,
+            "bttsTilt": 0.024093851095836415,
+            "drawTilt": 0.03520184325394045
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0302314176897192,
+            "brier": 0.6187197257328227,
+            "accuracy": 0.4765840220385675,
+            "over25Brier": 0.24657182673091282,
+            "bttsBrier": 0.24969868063333558
+          },
+          "score": 3.96825203271594,
+          "reasons": []
+        },
+        {
+          "index": 1,
+          "regularization": 0.01,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0.6,
+            "blend": 0.25,
+            "homeIntercept": 0.002998045874211772,
+            "awayIntercept": -0.007659533768610511,
+            "goalAttack": 0.18035539567500466,
+            "goalDefense": 0.07585469806915991,
+            "elo": 0.6536169944280801,
+            "rho": -0.06042185733540638,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0230693127666435,
+            "brier": 0.6143436497776784,
+            "accuracy": 0.5068870523415978,
+            "over25Brier": 0.2483292062772019,
+            "bttsBrier": 0.25072157481270885
+          },
+          "score": 3.965340756778213,
+          "reasons": []
+        },
+        {
+          "index": 1,
+          "regularization": 0.01,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0.6,
+            "blend": 0.5,
+            "homeIntercept": 0.002998045874211772,
+            "awayIntercept": -0.007659533768610511,
+            "goalAttack": 0.18035539567500466,
+            "goalDefense": 0.07585469806915991,
+            "elo": 0.6536169944280801,
+            "rho": -0.06042185733540638,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0158496845539056,
+            "brier": 0.6093740303753323,
+            "accuracy": 0.5041322314049587,
+            "over25Brier": 0.24685339834138145,
+            "bttsBrier": 0.24978640237702823
+          },
+          "score": 3.9407480906477588,
+          "reasons": []
+        },
+        {
+          "index": 1,
+          "regularization": 0.01,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0.6,
+            "blend": 0.75,
+            "homeIntercept": 0.002998045874211772,
+            "awayIntercept": -0.007659533768610511,
+            "goalAttack": 0.18035539567500466,
+            "goalDefense": 0.07585469806915991,
+            "elo": 0.6536169944280801,
+            "rho": -0.06042185733540638,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0108561391450432,
+            "brier": 0.606068609844809,
+            "accuracy": 0.5137741046831956,
+            "over25Brier": 0.2461098636297995,
+            "bttsBrier": 0.24939727570370254
+          },
+          "score": 3.9260790023979433,
+          "reasons": []
+        },
+        {
+          "index": 1,
+          "regularization": 0.01,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0.6,
+            "blend": 1,
+            "homeIntercept": 0.002998045874211772,
+            "awayIntercept": -0.007659533768610511,
+            "goalAttack": 0.18035539567500466,
+            "goalDefense": 0.07585469806915991,
+            "elo": 0.6536169944280801,
+            "rho": -0.06042185733540638,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0080564200700786,
+            "brier": 0.6043461822742652,
+            "accuracy": 0.5192837465564738,
+            "over25Brier": 0.2461137066460134,
+            "bttsBrier": 0.24957276789026736
+          },
+          "score": 3.921305434773601,
+          "reasons": []
+        },
+        {
+          "index": 1,
+          "regularization": 0.01,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0.6,
+            "blend": 0.25,
+            "homeIntercept": 0.0010062972682447417,
+            "awayIntercept": -0.03474928456949834,
+            "goalAttack": 0.18811099865095657,
+            "goalDefense": 0.08318219496793565,
+            "elo": 0.6992612368881534,
+            "rho": 0.032406537553415375,
+            "overTilt": -0.05970740524006345,
+            "bttsTilt": 0.17836407528906864,
+            "drawTilt": 0.137876236795241
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0224009297922436,
+            "brier": 0.6140305375003,
+            "accuracy": 0.5068870523415978,
+            "over25Brier": 0.2483213317451092,
+            "bttsBrier": 0.2506492129748993
+          },
+          "score": 3.9638709750721888,
+          "reasons": []
+        },
+        {
+          "index": 1,
+          "regularization": 0.01,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0.6,
+            "blend": 0.5,
+            "homeIntercept": 0.0010062972682447417,
+            "awayIntercept": -0.03474928456949834,
+            "goalAttack": 0.18811099865095657,
+            "goalDefense": 0.08318219496793565,
+            "elo": 0.6992612368881534,
+            "rho": 0.032406537553415375,
+            "overTilt": -0.05970740524006345,
+            "bttsTilt": 0.17836407528906864,
+            "drawTilt": 0.137876236795241
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.014973258040095,
+            "brier": 0.609055781312133,
+            "accuracy": 0.5055096418732782,
+            "over25Brier": 0.24681288537968799,
+            "bttsBrier": 0.24974539086796008
+          },
+          "score": 3.939062573758689,
+          "reasons": []
+        },
+        {
+          "index": 1,
+          "regularization": 0.01,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0.6,
+            "blend": 0.75,
+            "homeIntercept": 0.0010062972682447417,
+            "awayIntercept": -0.03474928456949834,
+            "goalAttack": 0.18811099865095657,
+            "goalDefense": 0.08318219496793565,
+            "elo": 0.6992612368881534,
+            "rho": 0.032406537553415375,
+            "overTilt": -0.05970740524006345,
+            "bttsTilt": 0.17836407528906864,
+            "drawTilt": 0.137876236795241
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0100861829082455,
+            "brier": 0.6059040800892219,
+            "accuracy": 0.5137741046831956,
+            "over25Brier": 0.24601336077855623,
+            "bttsBrier": 0.24946475414399338
+          },
+          "score": 3.924950750637959,
+          "reasons": []
+        },
+        {
+          "index": 1,
+          "regularization": 0.01,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0.6,
+            "blend": 1,
+            "homeIntercept": 0.0010062972682447417,
+            "awayIntercept": -0.03474928456949834,
+            "goalAttack": 0.18811099865095657,
+            "goalDefense": 0.08318219496793565,
+            "elo": 0.6992612368881534,
+            "rho": 0.032406537553415375,
+            "overTilt": -0.05970740524006345,
+            "bttsTilt": 0.17836407528906864,
+            "drawTilt": 0.137876236795241
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0075786908529287,
+            "brier": 0.6043662210667157,
+            "accuracy": 0.5179063360881543,
+            "over25Brier": 0.24594155382262364,
+            "bttsBrier": 0.24979635370470615
+          },
+          "score": 3.921074328762064,
+          "reasons": []
+        },
+        {
+          "index": 1,
+          "regularization": 0.05,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0.6,
+            "blend": 0.25,
+            "homeIntercept": 0.013992632334903485,
+            "awayIntercept": 0.004463469567585697,
+            "goalAttack": 0.2058192895299395,
+            "goalDefense": 0.10663074689023011,
+            "elo": 0.45016257085862493,
+            "rho": -0.05005194200955565,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0254334755756722,
+            "brier": 0.6159248538225137,
+            "accuracy": 0.5013774104683195,
+            "over25Brier": 0.24853433186036464,
+            "bttsBrier": 0.2508033116093563
+          },
+          "score": 3.9713191843060316,
+          "reasons": []
+        },
+        {
+          "index": 1,
+          "regularization": 0.05,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0.6,
+            "blend": 0.5,
+            "homeIntercept": 0.013992632334903485,
+            "awayIntercept": 0.004463469567585697,
+            "goalAttack": 0.2058192895299395,
+            "goalDefense": 0.10663074689023011,
+            "elo": 0.45016257085862493,
+            "rho": -0.05005194200955565,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.020004231687961,
+            "brier": 0.612074874861644,
+            "accuracy": 0.4931129476584022,
+            "over25Brier": 0.24715066994750653,
+            "bttsBrier": 0.24987343611590393
+          },
+          "score": 3.950652015739865,
+          "reasons": []
+        },
+        {
+          "index": 1,
+          "regularization": 0.05,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0.6,
+            "blend": 0.75,
+            "homeIntercept": 0.013992632334903485,
+            "awayIntercept": 0.004463469567585697,
+            "goalAttack": 0.2058192895299395,
+            "goalDefense": 0.10663074689023011,
+            "elo": 0.45016257085862493,
+            "rho": -0.05005194200955565,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0162515073616574,
+            "brier": 0.6094676559060621,
+            "accuracy": 0.5041322314049587,
+            "over25Brier": 0.24638193900322408,
+            "bttsBrier": 0.24940131089665687
+          },
+          "score": 3.937879131642487,
+          "reasons": []
+        },
+        {
+          "index": 1,
+          "regularization": 0.05,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0.6,
+            "blend": 1,
+            "homeIntercept": 0.013992632334903485,
+            "awayIntercept": 0.004463469567585697,
+            "goalAttack": 0.2058192895299395,
+            "goalDefense": 0.10663074689023011,
+            "elo": 0.45016257085862493,
+            "rho": -0.05005194200955565,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0141494684913417,
+            "brier": 0.6080639624465073,
+            "accuracy": 0.4972451790633609,
+            "over25Brier": 0.24624252151115325,
+            "bttsBrier": 0.24937960247545995
+          },
+          "score": 3.9329406765850194,
+          "reasons": []
+        },
+        {
+          "index": 1,
+          "regularization": 0.05,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0.6,
+            "blend": 0.25,
+            "homeIntercept": 0.01732346343126679,
+            "awayIntercept": -0.0050355396500524185,
+            "goalAttack": 0.21027235351369636,
+            "goalDefense": 0.11030836708355052,
+            "elo": 0.46169391552992567,
+            "rho": -0.0077675371658680265,
+            "overTilt": -0.03503545845079708,
+            "bttsTilt": 0.08282823811637291,
+            "drawTilt": 0.07909843108674526
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0251145684610787,
+            "brier": 0.6157991720944128,
+            "accuracy": 0.5041322314049587,
+            "over25Brier": 0.24853495224014033,
+            "bttsBrier": 0.25076078563052684
+          },
+          "score": 3.970641844251755,
+          "reasons": []
+        },
+        {
+          "index": 1,
+          "regularization": 0.05,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0.6,
+            "blend": 0.5,
+            "homeIntercept": 0.01732346343126679,
+            "awayIntercept": -0.0050355396500524185,
+            "goalAttack": 0.21027235351369636,
+            "goalDefense": 0.11030836708355052,
+            "elo": 0.46169391552992567,
+            "rho": -0.0077675371658680265,
+            "overTilt": -0.03503545845079708,
+            "bttsTilt": 0.08282823811637291,
+            "drawTilt": 0.07909843108674526
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0195590985940823,
+            "brier": 0.6119553459198498,
+            "accuracy": 0.4972451790633609,
+            "over25Brier": 0.24713349829678166,
+            "bttsBrier": 0.24984452978501245
+          },
+          "score": 3.949845318221967,
+          "reasons": []
+        },
+        {
+          "index": 1,
+          "regularization": 0.05,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0.6,
+            "blend": 0.75,
+            "homeIntercept": 0.01732346343126679,
+            "awayIntercept": -0.0050355396500524185,
+            "goalAttack": 0.21027235351369636,
+            "goalDefense": 0.11030836708355052,
+            "elo": 0.46169391552992567,
+            "rho": -0.0077675371658680265,
+            "overTilt": -0.03503545845079708,
+            "bttsTilt": 0.08282823811637291,
+            "drawTilt": 0.07909843108674526
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0158160360037236,
+            "brier": 0.6094239937610899,
+            "accuracy": 0.5055096418732782,
+            "over25Brier": 0.24632714510899387,
+            "bttsBrier": 0.24943016000343787
+          },
+          "score": 3.9372827577799043,
+          "reasons": []
+        },
+        {
+          "index": 1,
+          "regularization": 0.05,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0.6,
+            "blend": 1,
+            "homeIntercept": 0.01732346343126679,
+            "awayIntercept": -0.0050355396500524185,
+            "goalAttack": 0.21027235351369636,
+            "goalDefense": 0.11030836708355052,
+            "elo": 0.46169391552992567,
+            "rho": -0.0077675371658680265,
+            "overTilt": -0.03503545845079708,
+            "bttsTilt": 0.08282823811637291,
+            "drawTilt": 0.07909843108674526
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0138045446923414,
+            "brier": 0.6081056490583425,
+            "accuracy": 0.4972451790633609,
+            "over25Brier": 0.24612951818150738,
+            "bttsBrier": 0.24949608778224452
+          },
+          "score": 3.9326845177446503,
+          "reasons": []
+        },
+        {
+          "index": 1,
+          "regularization": 0.2,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0.6,
+            "blend": 0.25,
+            "homeIntercept": 0.01897006333591653,
+            "awayIntercept": 0.011615617868326161,
+            "goalAttack": 0.15185753144455422,
+            "goalDefense": 0.08383798585379022,
+            "elo": 0.23235636291205028,
+            "rho": -0.03075883391401424,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0288394657130233,
+            "brier": 0.6181500496697756,
+            "accuracy": 0.49449035812672176,
+            "over25Brier": 0.24852420116489612,
+            "bttsBrier": 0.250690279891068
+          },
+          "score": 3.977711967568999,
+          "reasons": []
+        },
+        {
+          "index": 1,
+          "regularization": 0.2,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0.6,
+            "blend": 0.5,
+            "homeIntercept": 0.01897006333591653,
+            "awayIntercept": 0.011615617868326161,
+            "goalAttack": 0.15185753144455422,
+            "goalDefense": 0.08383798585379022,
+            "elo": 0.23235636291205028,
+            "rho": -0.03075883391401424,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0270950105445562,
+            "brier": 0.6167029224439364,
+            "accuracy": 0.4820936639118457,
+            "over25Brier": 0.24723988747796202,
+            "bttsBrier": 0.24974165687645833
+          },
+          "score": 3.964804484789619,
+          "reasons": []
+        },
+        {
+          "index": 1,
+          "regularization": 0.2,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0.6,
+            "blend": 0.75,
+            "homeIntercept": 0.01897006333591653,
+            "awayIntercept": 0.011615617868326161,
+            "goalAttack": 0.15185753144455422,
+            "goalDefense": 0.08383798585379022,
+            "elo": 0.23235636291205028,
+            "rho": -0.03075883391401424,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0272795005289594,
+            "brier": 0.6166810992071529,
+            "accuracy": 0.4820936639118457,
+            "over25Brier": 0.24668668267494917,
+            "bttsBrier": 0.24930875064236802
+          },
+          "score": 3.9610232658912596,
+          "reasons": []
+        },
+        {
+          "index": 1,
+          "regularization": 0.2,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0.6,
+            "blend": 1,
+            "homeIntercept": 0.01897006333591653,
+            "awayIntercept": 0.011615617868326161,
+            "goalAttack": 0.15185753144455422,
+            "goalDefense": 0.08383798585379022,
+            "elo": 0.23235636291205028,
+            "rho": -0.03075883391401424,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0293573401305172,
+            "brier": 0.6180489249350302,
+            "accuracy": 0.4765840220385675,
+            "over25Brier": 0.24688140494736877,
+            "bttsBrier": 0.24935438040052782
+          },
+          "score": 3.966196148057847,
+          "reasons": []
+        },
+        {
+          "index": 1,
+          "regularization": 0.2,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0.6,
+            "blend": 0.25,
+            "homeIntercept": 0.02216175286564679,
+            "awayIntercept": 0.010114561515617152,
+            "goalAttack": 0.15250853077105544,
+            "goalDefense": 0.08435268142254095,
+            "elo": 0.2334633895599275,
+            "rho": -0.01933999934104046,
+            "overTilt": -0.014467172303958732,
+            "bttsTilt": 0.024337357691259307,
+            "drawTilt": 0.03506395398437992
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.028713631932974,
+            "brier": 0.6181131057675939,
+            "accuracy": 0.49449035812672176,
+            "over25Brier": 0.24852186695594108,
+            "bttsBrier": 0.25067153600197184
+          },
+          "score": 3.977446985929404,
+          "reasons": []
+        },
+        {
+          "index": 1,
+          "regularization": 0.2,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0.6,
+            "blend": 0.5,
+            "homeIntercept": 0.02216175286564679,
+            "awayIntercept": 0.010114561515617152,
+            "goalAttack": 0.15250853077105544,
+            "goalDefense": 0.08435268142254095,
+            "elo": 0.2334633895599275,
+            "rho": -0.01933999934104046,
+            "overTilt": -0.014467172303958732,
+            "bttsTilt": 0.024337357691259307,
+            "drawTilt": 0.03506395398437992
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.026904506618374,
+            "brier": 0.6166727478970672,
+            "accuracy": 0.4820936639118457,
+            "over25Brier": 0.24722815571755,
+            "bttsBrier": 0.24973236843794988
+          },
+          "score": 3.9644877501757043,
+          "reasons": []
+        },
+        {
+          "index": 1,
+          "regularization": 0.2,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0.6,
+            "blend": 0.75,
+            "homeIntercept": 0.02216175286564679,
+            "awayIntercept": 0.010114561515617152,
+            "goalAttack": 0.15250853077105544,
+            "goalDefense": 0.08435268142254095,
+            "elo": 0.2334633895599275,
+            "rho": -0.01933999934104046,
+            "overTilt": -0.014467172303958732,
+            "bttsTilt": 0.024337357691259307,
+            "drawTilt": 0.03506395398437992
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0270602645916134,
+            "brier": 0.6166703332656764,
+            "accuracy": 0.4820936639118457,
+            "over25Brier": 0.24665679506986765,
+            "bttsBrier": 0.24932957816740584
+          },
+          "score": 3.9607568872363497,
+          "reasons": []
+        },
+        {
+          "index": 1,
+          "regularization": 0.2,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 90,
+            "venueWeight": 0.6,
+            "blend": 1,
+            "homeIntercept": 0.02216175286564679,
+            "awayIntercept": 0.010114561515617152,
+            "goalAttack": 0.15250853077105544,
+            "goalDefense": 0.08435268142254095,
+            "elo": 0.2334633895599275,
+            "rho": -0.01933999934104046,
+            "overTilt": -0.014467172303958732,
+            "bttsTilt": 0.024337357691259307,
+            "drawTilt": 0.03506395398437992
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.029120643245908,
+            "brier": 0.6180382947361172,
+            "accuracy": 0.47520661157024796,
+            "over25Brier": 0.24682322605728307,
+            "bttsBrier": 0.24941788289960615
+          },
+          "score": 3.9659693435751837,
+          "reasons": []
+        },
+        {
+          "index": 2,
+          "regularization": 0.01,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0,
+            "blend": 0.25,
+            "homeIntercept": 0.0032410529746171317,
+            "awayIntercept": -0.009605639037647962,
+            "goalAttack": 0.2240825729237306,
+            "goalDefense": 0.10903239977093765,
+            "elo": 0.6156223639786124,
+            "rho": -0.05964280953452266,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0230377607148482,
+            "brier": 0.6142911781346425,
+            "accuracy": 0.5055096418732782,
+            "over25Brier": 0.24812661051592835,
+            "bttsBrier": 0.2507881675461503
+          },
+          "score": 3.9646810063912215,
+          "reasons": []
+        },
+        {
+          "index": 2,
+          "regularization": 0.01,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0,
+            "blend": 0.5,
+            "homeIntercept": 0.0032410529746171317,
+            "awayIntercept": -0.009605639037647962,
+            "goalAttack": 0.2240825729237306,
+            "goalDefense": 0.10903239977093765,
+            "elo": 0.6156223639786124,
+            "rho": -0.05964280953452266,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.015993608243804,
+            "brier": 0.6094155271339567,
+            "accuracy": 0.5055096418732782,
+            "over25Brier": 0.24654986736252055,
+            "bttsBrier": 0.24998996188995762
+          },
+          "score": 3.9405497142995074,
+          "reasons": []
+        },
+        {
+          "index": 2,
+          "regularization": 0.01,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0,
+            "blend": 0.75,
+            "homeIntercept": 0.0032410529746171317,
+            "awayIntercept": -0.009605639037647962,
+            "goalAttack": 0.2240825729237306,
+            "goalDefense": 0.10903239977093765,
+            "elo": 0.6156223639786124,
+            "rho": -0.05964280953452266,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0113783857023646,
+            "brier": 0.6063428542768267,
+            "accuracy": 0.509641873278237,
+            "over25Brier": 0.245814237519879,
+            "bttsBrier": 0.24980209004359394
+          },
+          "score": 3.927451270455638,
+          "reasons": []
+        },
+        {
+          "index": 2,
+          "regularization": 0.01,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0,
+            "blend": 1,
+            "homeIntercept": 0.0032410529746171317,
+            "awayIntercept": -0.009605639037647962,
+            "goalAttack": 0.2240825729237306,
+            "goalDefense": 0.10903239977093765,
+            "elo": 0.6156223639786124,
+            "rho": -0.05964280953452266,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0091692064219648,
+            "brier": 0.6049836644054475,
+            "accuracy": 0.5110192837465565,
+            "over25Brier": 0.2459378969967565,
+            "bttsBrier": 0.2502446080087293
+          },
+          "score": 3.9253714851912416,
+          "reasons": []
+        },
+        {
+          "index": 2,
+          "regularization": 0.01,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0,
+            "blend": 0.25,
+            "homeIntercept": 0.0009922639525409393,
+            "awayIntercept": -0.037156572586421646,
+            "goalAttack": 0.23424609991891568,
+            "goalDefense": 0.11785505648115004,
+            "elo": 0.659852802490629,
+            "rho": 0.03395111773185957,
+            "overTilt": -0.05935543065723389,
+            "bttsTilt": 0.17936752048962964,
+            "drawTilt": 0.1392390599383238
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.022347978771684,
+            "brier": 0.6139626429566388,
+            "accuracy": 0.5068870523415978,
+            "over25Brier": 0.24810785547919467,
+            "bttsBrier": 0.2507193686008295
+          },
+          "score": 3.9631363606925576,
+          "reasons": []
+        },
+        {
+          "index": 2,
+          "regularization": 0.01,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0,
+            "blend": 0.5,
+            "homeIntercept": 0.0009922639525409393,
+            "awayIntercept": -0.037156572586421646,
+            "goalAttack": 0.23424609991891568,
+            "goalDefense": 0.11785505648115004,
+            "elo": 0.659852802490629,
+            "rho": 0.03395111773185957,
+            "overTilt": -0.05935543065723389,
+            "bttsTilt": 0.17936752048962964,
+            "drawTilt": 0.1392390599383238
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0150862913937986,
+            "brier": 0.6090756175948911,
+            "accuracy": 0.5068870523415978,
+            "over25Brier": 0.24649119423085486,
+            "bttsBrier": 0.24996685058821605
+          },
+          "score": 3.938797884248106,
+          "reasons": []
+        },
+        {
+          "index": 2,
+          "regularization": 0.01,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0,
+            "blend": 0.75,
+            "homeIntercept": 0.0009922639525409393,
+            "awayIntercept": -0.037156572586421646,
+            "goalAttack": 0.23424609991891568,
+            "goalDefense": 0.11785505648115004,
+            "elo": 0.659852802490629,
+            "rho": 0.03395111773185957,
+            "overTilt": -0.05935543065723389,
+            "bttsTilt": 0.17936752048962964,
+            "drawTilt": 0.1392390599383238
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0105663231676163,
+            "brier": 0.6061454142092344,
+            "accuracy": 0.509641873278237,
+            "over25Brier": 0.24569772285111083,
+            "bttsBrier": 0.24990976779284002
+          },
+          "score": 3.926308751137457,
+          "reasons": []
+        },
+        {
+          "index": 2,
+          "regularization": 0.01,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0,
+            "blend": 1,
+            "homeIntercept": 0.0009922639525409393,
+            "awayIntercept": -0.037156572586421646,
+            "goalAttack": 0.23424609991891568,
+            "goalDefense": 0.11785505648115004,
+            "elo": 0.659852802490629,
+            "rho": 0.03395111773185957,
+            "overTilt": -0.05935543065723389,
+            "bttsTilt": 0.17936752048962964,
+            "drawTilt": 0.1392390599383238
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0086252093840524,
+            "brier": 0.6049426485557915,
+            "accuracy": 0.5110192837465565,
+            "over25Brier": 0.24575143014467699,
+            "bttsBrier": 0.2505357699995889
+          },
+          "score": 3.9251886866804937,
+          "reasons": []
+        },
+        {
+          "index": 2,
+          "regularization": 0.05,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0,
+            "blend": 0.25,
+            "homeIntercept": 0.012716422627336367,
+            "awayIntercept": 0.0007129729169175027,
+            "goalAttack": 0.2370515395422441,
+            "goalDefense": 0.12978937605792695,
+            "elo": 0.43104203996985574,
+            "rho": -0.04948018842594189,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.025174580837561,
+            "brier": 0.6156993959539355,
+            "accuracy": 0.5027548209366391,
+            "over25Brier": 0.24825099578601667,
+            "bttsBrier": 0.2508250982659403
+          },
+          "score": 3.969660777155614,
+          "reasons": []
+        },
+        {
+          "index": 2,
+          "regularization": 0.05,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0,
+            "blend": 0.5,
+            "homeIntercept": 0.012716422627336367,
+            "awayIntercept": 0.0007129729169175027,
+            "goalAttack": 0.2370515395422441,
+            "goalDefense": 0.12978937605792695,
+            "elo": 0.43104203996985574,
+            "rho": -0.04948018842594189,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0198066518618336,
+            "brier": 0.6118582328631349,
+            "accuracy": 0.5013774104683195,
+            "over25Brier": 0.24674706990094522,
+            "bttsBrier": 0.2500335734665913
+          },
+          "score": 3.9491356457469062,
+          "reasons": []
+        },
+        {
+          "index": 2,
+          "regularization": 0.05,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0,
+            "blend": 0.75,
+            "homeIntercept": 0.012716422627336367,
+            "awayIntercept": 0.0007129729169175027,
+            "goalAttack": 0.2370515395422441,
+            "goalDefense": 0.12978937605792695,
+            "elo": 0.43104203996985574,
+            "rho": -0.04948018842594189,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0164225208913473,
+            "brier": 0.6094820622763263,
+            "accuracy": 0.5068870523415978,
+            "over25Brier": 0.24603092575594804,
+            "bttsBrier": 0.2498056823064658
+          },
+          "score": 3.9382700196479132,
+          "reasons": []
+        },
+        {
+          "index": 2,
+          "regularization": 0.05,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0,
+            "blend": 1,
+            "homeIntercept": 0.012716422627336367,
+            "awayIntercept": 0.0007129729169175027,
+            "goalAttack": 0.2370515395422441,
+            "goalDefense": 0.12978937605792695,
+            "elo": 0.43104203996985574,
+            "rho": -0.04948018842594189,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0150015661866767,
+            "brier": 0.60851940001678,
+            "accuracy": 0.5082644628099173,
+            "over25Brier": 0.2461205685749342,
+            "bttsBrier": 0.2501329010255194
+          },
+          "score": 3.9369991095451566,
+          "reasons": []
+        },
+        {
+          "index": 2,
+          "regularization": 0.05,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0,
+            "blend": 0.25,
+            "homeIntercept": 0.0159849477883183,
+            "awayIntercept": -0.008998426483639792,
+            "goalAttack": 0.24229800766611292,
+            "goalDefense": 0.13374784609808274,
+            "elo": 0.44252120027051167,
+            "rho": -0.006756994021264711,
+            "overTilt": -0.03517029935536591,
+            "bttsTilt": 0.08348643466766695,
+            "drawTilt": 0.08008825102562413
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0248389881210513,
+            "brier": 0.6155630219401833,
+            "accuracy": 0.5013774104683195,
+            "over25Brier": 0.24824340180862706,
+            "bttsBrier": 0.25078417307942014
+          },
+          "score": 3.9689236181866967,
+          "reasons": []
+        },
+        {
+          "index": 2,
+          "regularization": 0.05,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0,
+            "blend": 0.5,
+            "homeIntercept": 0.0159849477883183,
+            "awayIntercept": -0.008998426483639792,
+            "goalAttack": 0.24229800766611292,
+            "goalDefense": 0.13374784609808274,
+            "elo": 0.44252120027051167,
+            "rho": -0.006756994021264711,
+            "overTilt": -0.03517029935536591,
+            "bttsTilt": 0.08348643466766695,
+            "drawTilt": 0.08008825102562413
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.019338730309303,
+            "brier": 0.6117256073708649,
+            "accuracy": 0.5013774104683195,
+            "over25Brier": 0.2467162707754949,
+            "bttsBrier": 0.2500151149108078
+          },
+          "score": 3.9482728164991974,
+          "reasons": []
+        },
+        {
+          "index": 2,
+          "regularization": 0.05,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0,
+            "blend": 0.75,
+            "homeIntercept": 0.0159849477883183,
+            "awayIntercept": -0.008998426483639792,
+            "goalAttack": 0.24229800766611292,
+            "goalDefense": 0.13374784609808274,
+            "elo": 0.44252120027051167,
+            "rho": -0.006756994021264711,
+            "overTilt": -0.03517029935536591,
+            "bttsTilt": 0.08348643466766695,
+            "drawTilt": 0.08008825102562413
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0159573518179759,
+            "brier": 0.609418657567887,
+            "accuracy": 0.5082644628099173,
+            "over25Brier": 0.24596038080184407,
+            "bttsBrier": 0.2498578251950428
+          },
+          "score": 3.93764257744502,
+          "reasons": []
+        },
+        {
+          "index": 2,
+          "regularization": 0.05,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0,
+            "blend": 1,
+            "homeIntercept": 0.0159849477883183,
+            "awayIntercept": -0.008998426483639792,
+            "goalAttack": 0.24229800766611292,
+            "goalDefense": 0.13374784609808274,
+            "elo": 0.44252120027051167,
+            "rho": -0.006756994021264711,
+            "overTilt": -0.03517029935536591,
+            "bttsTilt": 0.08348643466766695,
+            "drawTilt": 0.08008825102562413
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0146088811989766,
+            "brier": 0.6085190823274292,
+            "accuracy": 0.5027548209366391,
+            "over25Brier": 0.2459936127499775,
+            "bttsBrier": 0.25028589689082975
+          },
+          "score": 3.9367181266917353,
+          "reasons": []
+        },
+        {
+          "index": 2,
+          "regularization": 0.2,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0,
+            "blend": 0.25,
+            "homeIntercept": 0.017085666788089027,
+            "awayIntercept": 0.008042353116949976,
+            "goalAttack": 0.1595273966222208,
+            "goalDefense": 0.0883374101606112,
+            "elo": 0.23037732449056186,
+            "rho": -0.030454174220610513,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0286113457665678,
+            "brier": 0.6179499622159242,
+            "accuracy": 0.49586776859504134,
+            "over25Brier": 0.24829206890506617,
+            "bttsBrier": 0.2506718670111077
+          },
+          "score": 3.976169227641999,
+          "reasons": []
+        },
+        {
+          "index": 2,
+          "regularization": 0.2,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0,
+            "blend": 0.5,
+            "homeIntercept": 0.017085666788089027,
+            "awayIntercept": 0.008042353116949976,
+            "goalAttack": 0.1595273966222208,
+            "goalDefense": 0.0883374101606112,
+            "elo": 0.23037732449056186,
+            "rho": -0.030454174220610513,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.026929512291332,
+            "brier": 0.6165187672477189,
+            "accuracy": 0.48760330578512395,
+            "over25Brier": 0.2469340241133315,
+            "bttsBrier": 0.24981877243456924
+          },
+          "score": 3.9634324750591543,
+          "reasons": []
+        },
+        {
+          "index": 2,
+          "regularization": 0.2,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0,
+            "blend": 0.75,
+            "homeIntercept": 0.017085666788089027,
+            "awayIntercept": 0.008042353116949976,
+            "goalAttack": 0.1595273966222208,
+            "goalDefense": 0.0883374101606112,
+            "elo": 0.23037732449056186,
+            "rho": -0.030454174220610513,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.027449507456356,
+            "brier": 0.616717035781018,
+            "accuracy": 0.4807162534435262,
+            "over25Brier": 0.24647486400893967,
+            "bttsBrier": 0.2495797872792966
+          },
+          "score": 3.9614748393076447,
+          "reasons": []
+        },
+        {
+          "index": 2,
+          "regularization": 0.2,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0,
+            "blend": 1,
+            "homeIntercept": 0.017085666788089027,
+            "awayIntercept": 0.008042353116949976,
+            "goalAttack": 0.1595273966222208,
+            "goalDefense": 0.0883374101606112,
+            "elo": 0.23037732449056186,
+            "rho": -0.030454174220610513,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0301375705460287,
+            "brier": 0.6184974732776735,
+            "accuracy": 0.4765840220385675,
+            "over25Brier": 0.2469337694288194,
+            "bttsBrier": 0.2499121998688721
+          },
+          "score": 3.9700946951337914,
+          "reasons": []
+        },
+        {
+          "index": 2,
+          "regularization": 0.2,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0,
+            "blend": 0.25,
+            "homeIntercept": 0.0203282575673535,
+            "awayIntercept": 0.00659840730679376,
+            "goalAttack": 0.16022514127015783,
+            "goalDefense": 0.08880388699716574,
+            "elo": 0.23148649513785738,
+            "rho": -0.019025957653533206,
+            "overTilt": -0.01456381138528878,
+            "bttsTilt": 0.024118964181289504,
+            "drawTilt": 0.03521313827953919
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0284831335369478,
+            "brier": 0.6179118629994477,
+            "accuracy": 0.49586776859504134,
+            "over25Brier": 0.2482879900182473,
+            "bttsBrier": 0.25065400466207394
+          },
+          "score": 3.9758966130472,
+          "reasons": []
+        },
+        {
+          "index": 2,
+          "regularization": 0.2,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0,
+            "blend": 0.5,
+            "homeIntercept": 0.0203282575673535,
+            "awayIntercept": 0.00659840730679376,
+            "goalAttack": 0.16022514127015783,
+            "goalDefense": 0.08880388699716574,
+            "elo": 0.23148649513785738,
+            "rho": -0.019025957653533206,
+            "overTilt": -0.01456381138528878,
+            "bttsTilt": 0.024118964181289504,
+            "drawTilt": 0.03521313827953919
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0267360847244447,
+            "brier": 0.6164880071603176,
+            "accuracy": 0.4903581267217631,
+            "over25Brier": 0.24691934628334355,
+            "bttsBrier": 0.2498131668921272
+          },
+          "score": 3.9631148081387026,
+          "reasons": []
+        },
+        {
+          "index": 2,
+          "regularization": 0.2,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0,
+            "blend": 0.75,
+            "homeIntercept": 0.0203282575673535,
+            "awayIntercept": 0.00659840730679376,
+            "goalAttack": 0.16022514127015783,
+            "goalDefense": 0.08880388699716574,
+            "elo": 0.23148649513785738,
+            "rho": -0.019025957653533206,
+            "overTilt": -0.01456381138528878,
+            "bttsTilt": 0.024118964181289504,
+            "drawTilt": 0.03521313827953919
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0272249517309473,
+            "brier": 0.6167032852238657,
+            "accuracy": 0.4807162534435262,
+            "over25Brier": 0.24644118157297165,
+            "bttsBrier": 0.2496075278649267
+          },
+          "score": 3.961210763983902,
+          "reasons": []
+        },
+        {
+          "index": 2,
+          "regularization": 0.2,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0,
+            "blend": 1,
+            "homeIntercept": 0.0203282575673535,
+            "awayIntercept": 0.00659840730679376,
+            "goalAttack": 0.16022514127015783,
+            "goalDefense": 0.08880388699716574,
+            "elo": 0.23148649513785738,
+            "rho": -0.019025957653533206,
+            "overTilt": -0.01456381138528878,
+            "bttsTilt": 0.024118964181289504,
+            "drawTilt": 0.03521313827953919
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0298879287250504,
+            "brier": 0.6184740775191392,
+            "accuracy": 0.47520661157024796,
+            "over25Brier": 0.24687120605065638,
+            "bttsBrier": 0.2499847483640283
+          },
+          "score": 3.969853163658718,
+          "reasons": []
+        },
+        {
+          "index": 3,
+          "regularization": 0.01,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0.6,
+            "blend": 0.25,
+            "homeIntercept": 0.0025531198522618717,
+            "awayIntercept": -0.007465599520544457,
+            "goalAttack": 0.21176829615564421,
+            "goalDefense": 0.0934281663395675,
+            "elo": 0.6290911054488563,
+            "rho": -0.060832681850346064,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0229813558381404,
+            "brier": 0.6142840551305623,
+            "accuracy": 0.5082644628099173,
+            "over25Brier": 0.24837005318438227,
+            "bttsBrier": 0.25084529905786246
+          },
+          "score": 3.9658132265153023,
+          "reasons": []
+        },
+        {
+          "index": 3,
+          "regularization": 0.01,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0.6,
+            "blend": 0.5,
+            "homeIntercept": 0.0025531198522618717,
+            "awayIntercept": -0.007465599520544457,
+            "goalAttack": 0.21176829615564421,
+            "goalDefense": 0.0934281663395675,
+            "elo": 0.6290911054488563,
+            "rho": -0.060832681850346064,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.015697774224258,
+            "brier": 0.6092712833496194,
+            "accuracy": 0.5068870523415978,
+            "over25Brier": 0.24692454285202622,
+            "bttsBrier": 0.25003617519853777
+          },
+          "score": 3.9417098546091407,
+          "reasons": []
+        },
+        {
+          "index": 3,
+          "regularization": 0.01,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0.6,
+            "blend": 0.75,
+            "homeIntercept": 0.0025531198522618717,
+            "awayIntercept": -0.007465599520544457,
+            "goalAttack": 0.21176829615564421,
+            "goalDefense": 0.0934281663395675,
+            "elo": 0.6290911054488563,
+            "rho": -0.060832681850346064,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0106606741603599,
+            "brier": 0.6059366035825459,
+            "accuracy": 0.5165289256198347,
+            "over25Brier": 0.24619863978224624,
+            "bttsBrier": 0.2497717974901633
+          },
+          "score": 3.9275164716833837,
+          "reasons": []
+        },
+        {
+          "index": 3,
+          "regularization": 0.01,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0.6,
+            "blend": 1,
+            "homeIntercept": 0.0025531198522618717,
+            "awayIntercept": -0.007465599520544457,
+            "goalAttack": 0.21176829615564421,
+            "goalDefense": 0.0934281663395675,
+            "elo": 0.6290911054488563,
+            "rho": -0.060832681850346064,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0078352498128225,
+            "brier": 0.6041953450597582,
+            "accuracy": 0.5179063360881543,
+            "over25Brier": 0.24620566550013215,
+            "bttsBrier": 0.25006777582970546
+          },
+          "score": 3.923178106484716,
+          "reasons": []
+        },
+        {
+          "index": 3,
+          "regularization": 0.01,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0.6,
+            "blend": 0.25,
+            "homeIntercept": 0.00013392302703247255,
+            "awayIntercept": -0.035063086723577816,
+            "goalAttack": 0.21998722719285627,
+            "goalDefense": 0.10159141382141762,
+            "elo": 0.6745616957090022,
+            "rho": 0.03213857691704367,
+            "overTilt": -0.059535580702176585,
+            "bttsTilt": 0.1799075072869117,
+            "drawTilt": 0.13717480533351306
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0223067797949914,
+            "brier": 0.6139663812684266,
+            "accuracy": 0.5082644628099173,
+            "over25Brier": 0.2483593484190027,
+            "bttsBrier": 0.2507753029240176
+          },
+          "score": 3.9643281841364315,
+          "reasons": []
+        },
+        {
+          "index": 3,
+          "regularization": 0.01,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0.6,
+            "blend": 0.5,
+            "homeIntercept": 0.00013392302703247255,
+            "awayIntercept": -0.035063086723577816,
+            "goalAttack": 0.21998722719285627,
+            "goalDefense": 0.10159141382141762,
+            "elo": 0.6745616957090022,
+            "rho": 0.03213857691704367,
+            "overTilt": -0.059535580702176585,
+            "bttsTilt": 0.1799075072869117,
+            "drawTilt": 0.13717480533351306
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.014814609110138,
+            "brier": 0.6089488177317592,
+            "accuracy": 0.5068870523415978,
+            "over25Brier": 0.24688098705923678,
+            "bttsBrier": 0.2500056128073177
+          },
+          "score": 3.940040305318286,
+          "reasons": []
+        },
+        {
+          "index": 3,
+          "regularization": 0.01,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0.6,
+            "blend": 0.75,
+            "homeIntercept": 0.00013392302703247255,
+            "awayIntercept": -0.035063086723577816,
+            "goalAttack": 0.21998722719285627,
+            "goalDefense": 0.10159141382141762,
+            "elo": 0.6745616957090022,
+            "rho": 0.03213857691704367,
+            "overTilt": -0.059535580702176585,
+            "bttsTilt": 0.1799075072869117,
+            "drawTilt": 0.13717480533351306
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0098874319011006,
+            "brier": 0.6057714941582597,
+            "accuracy": 0.5165289256198347,
+            "over25Brier": 0.2461018492008809,
+            "bttsBrier": 0.24986246819040417
+          },
+          "score": 3.926474910013866,
+          "reasons": []
+        },
+        {
+          "index": 3,
+          "regularization": 0.01,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0.6,
+            "blend": 1,
+            "homeIntercept": 0.00013392302703247255,
+            "awayIntercept": -0.035063086723577816,
+            "goalAttack": 0.21998722719285627,
+            "goalDefense": 0.10159141382141762,
+            "elo": 0.6745616957090022,
+            "rho": 0.03213857691704367,
+            "overTilt": -0.059535580702176585,
+            "bttsTilt": 0.1799075072869117,
+            "drawTilt": 0.13717480533351306
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0073609137346402,
+            "brier": 0.6042209753507521,
+            "accuracy": 0.5192837465564738,
+            "over25Brier": 0.24603902770888125,
+            "bttsBrier": 0.25033114633156733
+          },
+          "score": 3.9231390461928424,
+          "reasons": []
+        },
+        {
+          "index": 3,
+          "regularization": 0.05,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0.6,
+            "blend": 0.25,
+            "homeIntercept": 0.012388567542497298,
+            "awayIntercept": 0.0036137440576183735,
+            "goalAttack": 0.22761672372536584,
+            "goalDefense": 0.11850077363604605,
+            "elo": 0.43832611482965356,
+            "rho": -0.050458078690262906,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0252040476592863,
+            "brier": 0.6157588630564558,
+            "accuracy": 0.5055096418732782,
+            "over25Brier": 0.24853521304062762,
+            "bttsBrier": 0.2509099546176744
+          },
+          "score": 3.971256071354575,
+          "reasons": []
+        },
+        {
+          "index": 3,
+          "regularization": 0.05,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0.6,
+            "blend": 0.5,
+            "homeIntercept": 0.012388567542497298,
+            "awayIntercept": 0.0036137440576183735,
+            "goalAttack": 0.22761672372536584,
+            "goalDefense": 0.11850077363604605,
+            "elo": 0.43832611482965356,
+            "rho": -0.050458078690262906,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0196316553560014,
+            "brier": 0.611805804623595,
+            "accuracy": 0.4972451790633609,
+            "over25Brier": 0.2471760551051094,
+            "bttsBrier": 0.2501130791095991
+          },
+          "score": 3.9509094440498935,
+          "reasons": []
+        },
+        {
+          "index": 3,
+          "regularization": 0.05,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0.6,
+            "blend": 0.75,
+            "homeIntercept": 0.012388567542497298,
+            "awayIntercept": 0.0036137440576183735,
+            "goalAttack": 0.22761672372536584,
+            "goalDefense": 0.11850077363604605,
+            "elo": 0.43832611482965356,
+            "rho": -0.050458078690262906,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0158133977180255,
+            "brier": 0.6091539880213893,
+            "accuracy": 0.5068870523415978,
+            "over25Brier": 0.24645500118841632,
+            "bttsBrier": 0.24979521844864322
+          },
+          "score": 3.9388032463619815,
+          "reasons": []
+        },
+        {
+          "index": 3,
+          "regularization": 0.05,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0.6,
+            "blend": 1,
+            "homeIntercept": 0.012388567542497298,
+            "awayIntercept": 0.0036137440576183735,
+            "goalAttack": 0.22761672372536584,
+            "goalDefense": 0.11850077363604605,
+            "elo": 0.43832611482965356,
+            "rho": -0.050458078690262906,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.013718762603135,
+            "brier": 0.6077591699604122,
+            "accuracy": 0.5013774104683195,
+            "over25Brier": 0.2463851075668061,
+            "bttsBrier": 0.2499460835801847
+          },
+          "score": 3.934848015030391,
+          "reasons": []
+        },
+        {
+          "index": 3,
+          "regularization": 0.05,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0.6,
+            "blend": 0.25,
+            "homeIntercept": 0.0155044144483126,
+            "awayIntercept": -0.00615552994375876,
+            "goalAttack": 0.2322219966700186,
+            "goalDefense": 0.12241799280572513,
+            "elo": 0.4499792041836146,
+            "rho": -0.008023946450768813,
+            "overTilt": -0.03500030767530163,
+            "bttsTilt": 0.0837520874257318,
+            "drawTilt": 0.07895846803358177
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0248787667002228,
+            "brier": 0.615629170054769,
+            "accuracy": 0.5041322314049587,
+            "over25Brier": 0.24853360670837418,
+            "bttsBrier": 0.25086897342237424
+          },
+          "score": 3.9705633359899077,
+          "reasons": []
+        },
+        {
+          "index": 3,
+          "regularization": 0.05,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0.6,
+            "blend": 0.5,
+            "homeIntercept": 0.0155044144483126,
+            "awayIntercept": -0.00615552994375876,
+            "goalAttack": 0.2322219966700186,
+            "goalDefense": 0.12241799280572513,
+            "elo": 0.4499792041836146,
+            "rho": -0.008023946450768813,
+            "overTilt": -0.03500030767530163,
+            "bttsTilt": 0.0837520874257318,
+            "drawTilt": 0.07895846803358177
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0191787445915361,
+            "brier": 0.6116825437566904,
+            "accuracy": 0.49586776859504134,
+            "over25Brier": 0.24715571137095046,
+            "bttsBrier": 0.2500908991324552
+          },
+          "score": 3.9501032119567845,
+          "reasons": []
+        },
+        {
+          "index": 3,
+          "regularization": 0.05,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0.6,
+            "blend": 0.75,
+            "homeIntercept": 0.0155044144483126,
+            "awayIntercept": -0.00615552994375876,
+            "goalAttack": 0.2322219966700186,
+            "goalDefense": 0.12241799280572513,
+            "elo": 0.4499792041836146,
+            "rho": -0.008023946450768813,
+            "overTilt": -0.03500030767530163,
+            "bttsTilt": 0.0837520874257318,
+            "drawTilt": 0.07895846803358177
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0153706786790198,
+            "brier": 0.6091080520872112,
+            "accuracy": 0.5068870523415978,
+            "over25Brier": 0.2463975373368589,
+            "bttsBrier": 0.24983840827738057
+          },
+          "score": 3.9382423934269126,
+          "reasons": []
+        },
+        {
+          "index": 3,
+          "regularization": 0.05,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0.6,
+            "blend": 1,
+            "homeIntercept": 0.0155044144483126,
+            "awayIntercept": -0.00615552994375876,
+            "goalAttack": 0.2322219966700186,
+            "goalDefense": 0.12241799280572513,
+            "elo": 0.4499792041836146,
+            "rho": -0.008023946450768813,
+            "overTilt": -0.03500030767530163,
+            "bttsTilt": 0.0837520874257318,
+            "drawTilt": 0.07895846803358177
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0133666063325202,
+            "brier": 0.6077987518055518,
+            "accuracy": 0.5013774104683195,
+            "over25Brier": 0.24627149783750676,
+            "bttsBrier": 0.25008574741749
+          },
+          "score": 3.9346709422471466,
+          "reasons": []
+        },
+        {
+          "index": 3,
+          "regularization": 0.2,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0.6,
+            "blend": 0.25,
+            "homeIntercept": 0.017311290607029007,
+            "awayIntercept": 0.010532627493167973,
+            "goalAttack": 0.159485119829426,
+            "goalDefense": 0.08694163828870523,
+            "elo": 0.23063413930708443,
+            "rho": -0.030914610832957896,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0286297514086766,
+            "brier": 0.6179922516088677,
+            "accuracy": 0.49449035812672176,
+            "over25Brier": 0.24850590650257473,
+            "bttsBrier": 0.25074904551728094
+          },
+          "score": 3.977414762083819,
+          "reasons": []
+        },
+        {
+          "index": 3,
+          "regularization": 0.2,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0.6,
+            "blend": 0.5,
+            "homeIntercept": 0.017311290607029007,
+            "awayIntercept": 0.010532627493167973,
+            "goalAttack": 0.159485119829426,
+            "goalDefense": 0.08694163828870523,
+            "elo": 0.23063413930708443,
+            "rho": -0.030914610832957896,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0267669074314316,
+            "brier": 0.6164528651540189,
+            "accuracy": 0.4834710743801653,
+            "over25Brier": 0.2472428734547255,
+            "bttsBrier": 0.24989305530732492
+          },
+          "score": 3.9646963029642324,
+          "reasons": []
+        },
+        {
+          "index": 3,
+          "regularization": 0.2,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0.6,
+            "blend": 0.75,
+            "homeIntercept": 0.017311290607029007,
+            "awayIntercept": 0.010532627493167973,
+            "goalAttack": 0.159485119829426,
+            "goalDefense": 0.08694163828870523,
+            "elo": 0.23063413930708443,
+            "rho": -0.030914610832957896,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0269140516354696,
+            "brier": 0.616400650646596,
+            "accuracy": 0.4793388429752066,
+            "over25Brier": 0.24675110495825572,
+            "bttsBrier": 0.24958023023944254
+          },
+          "score": 3.961551335312639,
+          "reasons": []
+        },
+        {
+          "index": 3,
+          "regularization": 0.2,
+          "marketTilts": false,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0.6,
+            "blend": 1,
+            "homeIntercept": 0.017311290607029007,
+            "awayIntercept": 0.010532627493167973,
+            "goalAttack": 0.159485119829426,
+            "goalDefense": 0.08694163828870523,
+            "elo": 0.23063413930708443,
+            "rho": -0.030914610832957896,
+            "overTilt": 0.0,
+            "bttsTilt": 0.0,
+            "drawTilt": 0.0
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0290306717495021,
+            "brier": 0.6177962617771711,
+            "accuracy": 0.47796143250688705,
+            "over25Brier": 0.24704636181179762,
+            "bttsBrier": 0.24976968793989082
+          },
+          "score": 3.967778093950376,
+          "reasons": []
+        },
+        {
+          "index": 3,
+          "regularization": 0.2,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0.6,
+            "blend": 0.25,
+            "homeIntercept": 0.020494264512844623,
+            "awayIntercept": 0.009018503454041139,
+            "goalAttack": 0.16012817788742303,
+            "goalDefense": 0.08746802104207566,
+            "elo": 0.23174720971533552,
+            "rho": -0.019491247159197776,
+            "overTilt": -0.01447560523717335,
+            "bttsTilt": 0.024350014605202436,
+            "drawTilt": 0.035049482909242945
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0285028665612497,
+            "brier": 0.6179548369913733,
+            "accuracy": 0.49449035812672176,
+            "over25Brier": 0.24850304824253924,
+            "bttsBrier": 0.2507308448012262
+          },
+          "score": 3.97714806629431,
+          "reasons": []
+        },
+        {
+          "index": 3,
+          "regularization": 0.2,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0.6,
+            "blend": 0.5,
+            "homeIntercept": 0.020494264512844623,
+            "awayIntercept": 0.009018503454041139,
+            "goalAttack": 0.16012817788742303,
+            "goalDefense": 0.08746802104207566,
+            "elo": 0.23174720971533552,
+            "rho": -0.019491247159197776,
+            "overTilt": -0.01447560523717335,
+            "bttsTilt": 0.024350014605202436,
+            "drawTilt": 0.035049482909242945
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0265754035708108,
+            "brier": 0.6164229848944992,
+            "accuracy": 0.48622589531680444,
+            "over25Brier": 0.24723024741736221,
+            "bttsBrier": 0.24988578654330262
+          },
+          "score": 3.9643835117349235,
+          "reasons": []
+        },
+        {
+          "index": 3,
+          "regularization": 0.2,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0.6,
+            "blend": 0.75,
+            "homeIntercept": 0.020494264512844623,
+            "awayIntercept": 0.009018503454041139,
+            "goalAttack": 0.16012817788742303,
+            "goalDefense": 0.08746802104207566,
+            "elo": 0.23174720971533552,
+            "rho": -0.019491247159197776,
+            "overTilt": -0.01447560523717335,
+            "bttsTilt": 0.024350014605202436,
+            "drawTilt": 0.035049482909242945
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0266938525103015,
+            "brier": 0.6163909037519874,
+            "accuracy": 0.4820936639118457,
+            "over25Brier": 0.24672006245291378,
+            "bttsBrier": 0.2496049588004481
+          },
+          "score": 3.9612965215850315,
+          "reasons": []
+        },
+        {
+          "index": 3,
+          "regularization": 0.2,
+          "marketTilts": true,
+          "parameters": {
+            "decayDays": 180,
+            "venueWeight": 0.6,
+            "blend": 1,
+            "homeIntercept": 0.020494264512844623,
+            "awayIntercept": 0.009018503454041139,
+            "goalAttack": 0.16012817788742303,
+            "goalDefense": 0.08746802104207566,
+            "elo": 0.23174720971533552,
+            "rho": -0.019491247159197776,
+            "overTilt": -0.01447560523717335,
+            "bttsTilt": 0.024350014605202436,
+            "drawTilt": 0.035049482909242945
+          },
+          "selectionMetrics": {
+            "n": 726,
+            "logLoss": 1.0287921048519586,
+            "brier": 0.6177861975834521,
+            "accuracy": 0.47796143250688705,
+            "over25Brier": 0.2469868586994398,
+            "bttsBrier": 0.24983886936584143
+          },
+          "score": 3.9675676199241363,
+          "reasons": []
+        }
+      ],
+      "selectionBaseline": {
+        "n": 726,
+        "logLoss": 1.0326002692910325,
+        "brier": 0.6210564413431289,
+        "accuracy": 0.5137741046831956,
+        "over25Brier": 0.25050842061897766,
+        "bttsBrier": 0.25221503005886525
+      }
+    }
+  }
+}
