@@ -43,5 +43,6 @@ next-env.d.ts
 
 # Render migration backups and build metadata
 /.render-legacy-backup/
+/.football-research/
 *.tsbuildinfo
 !.env.example

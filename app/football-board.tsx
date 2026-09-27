@@ -2,9 +2,11 @@
 import {useEffect,useRef,useState} from 'react';
 import {ArrowLeft,ArrowRight,CalendarDays,RefreshCw} from 'lucide-react';
 import {FOOTBALL_LEAGUES,footballDay,shiftFootballDay,type FootballAnalysis,type FootballGame,type FootballLeague} from '@/lib/football';
+import FootballValidation from './football-validation';
 
 type Board={games:FootballGame[];fetchedAt:string;day:string;league:FootballLeague};
-type Report={analysis?:FootballAnalysis;error?:string;sourceFetchedAt?:string};
+type Report={game?:FootballGame;analysis?:FootballAnalysis;error?:string;sourceFetchedAt?:string;archiveAsOf?:string;snapshotSaved?:boolean};
+const fixtureKey=(g?:FootballGame)=>g&&[g.league,g.id,g.start,g.home.id,g.away.id,g.neutral,g.timeConfirmed].join('|');
 const percent=(n:number)=>(n*100).toFixed(1)+'%';
 const time=(value:string)=>new Date(value).toLocaleString('zh-TW',{timeZone:'Asia/Taipei',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false});
 async function request(url:string,signal:AbortSignal){
@@ -34,11 +36,11 @@ export default function FootballBoard(){
     setBoard(null);setReports({});setError('');setLoading(true);
     const base=`/api/football?league=${encodeURIComponent(league)}&date=${day}`;
     async function update(){
-      if(busy||controller.signal.aborted)return;busy=true;
+      if(busy||controller.signal.aborted)return;clearTimeout(timer);busy=true;
       try{
         const data:Board=await request(base,controller.signal);if(controller.signal.aborted)return;
         setBoard(data);setError('');setLoading(false);
-        const todo=data.games.filter(g=>g.state==='scheduled'&&g.timeConfirmed&&Date.parse(g.start)>Date.now()&&!queued.has(g.id)&&(!known[g.id]?.analysis||Date.now()-Date.parse(known[g.id].analysis!.capturedAt)>600000));
+        const todo=data.games.filter(g=>g.state==='scheduled'&&g.timeConfirmed&&Date.parse(g.start)>Date.now()&&!queued.has(g.id)&&(!known[g.id]?.analysis||fixtureKey(known[g.id]?.game)!==fixtureKey(g)||Date.now()-Date.parse(known[g.id].analysis!.capturedAt)>600000));
         todo.forEach(g=>queued.add(g.id));
         async function worker(){
           while(todo.length&&!controller.signal.aborted){
@@ -73,25 +75,29 @@ export default function FootballBoard(){
     {error&&<div className="football-alert" role="alert">{error} {board?'目前顯示上次取得的賽程；分析暫停顯示。':''}<button type="button" onClick={()=>setReload(n=>n+1)}>重新載入</button></div>}
     {loading&&!board?<div className="football-empty" role="status"><RefreshCw className="animate-spin"/><h3>正在取得{selected.name}賽程</h3><p>賽程載入後會自動計算可分析的比賽。</p></div>:board&&!games.length?<div className="football-empty"><CalendarDays size={30}/><h3>{board.games.length?'沒有符合篩選條件的比賽':`${day} 沒有${selected.name}賽事`}</h3><p>{board.games.length?'可切換至全部查看當日賽程。':'可查看下一個比賽日，或自行選擇日期。'}</p>{!board.games.length&&<button type="button" className="football-primary" disabled={nextBusy} onClick={()=>void nextMatch()}>{nextBusy?'正在查詢…':'下一個比賽日'}<ArrowRight size={16}/></button>}{notice&&<p role="status">{notice}</p>}</div>:null}
     <div className="football-games">{games.map(game=><FootballCard key={game.id} game={game} report={reports[game.id]} now={now} unavailable={!!error||stale}/>)}</div>
-    <details className="football-method"><summary>分析方式與資料範圍</summary><p>以兩隊最近一年同項賽事、最多20場正式90分鐘賽果計算，近期比賽權重較高。每隊至少5場，主客場至少3場時採主客場60%＋整體40%，不足時使用整體表現；中立場不採主客場加權。</p><p>模型預估進球取己方進球率與對方失球率的平均，再用卜瓦松分布估算主勝、和局、客勝、2.5球大小與比分。2.5球為固定分析基準。未納入先發、傷停、實際xG與賠率，尚未回測校準。</p><p>分析限90分鐘含補時，不含加時及互射十二碼。歷史資料排除加時、十二碼、延期與缺比分場次。抓取時間代表本站收到資料的時間。</p></details>
+    <FootballValidation league={league}/>
+    <details className="football-method"><summary>分析方式與資料範圍</summary><p>使用最近一年同項賽事、最多20場正式90分鐘賽果，每隊至少5場。基礎模型採90天時間衰減，主客場樣本足夠時使用60%場地權重；中立場不採場地加權。</p><p>通過歷史驗收的西甲使用180天衰減、訓練得到的進攻防守係數與低比分修正；其餘聯賽保留基礎模型。各市場機率由同一比分分布計算，2.5球為固定分析基準。</p><p>分析含90分鐘補時，不含加時及互射十二碼。排除延期、缺比分與衝突賽果。尚未納入先發、傷停、實際xG、對手強度與賠率；抓取時間不代表供應商更新時間。</p></details>
   </section>;
 }
 function FootballCard({game,report,now,unavailable}:{game:FootballGame;report?:Report;now:number;unavailable:boolean}){
   const a=report?.analysis,p=a?.probabilities;
   const eligible=game.state==='scheduled'&&game.timeConfirmed&&Date.parse(game.start)>now;
-  const ready=eligible&&!unavailable&&a?.status==='ready'&&p&&now-Date.parse(a.capturedAt)<15*60000;
+  const ready=eligible&&!unavailable&&fixtureKey(report?.game)===fixtureKey(game)&&a?.status==='ready'&&p&&now-Date.parse(a.capturedAt)<15*60000;
   return <article className="football-card">
     <div className="football-card-top"><span className={game.state==='live'?'football-live':''}>{game.state==='live'&&<i/>}{game.statusLabel}</span><span>{game.timeConfirmed?time(game.start):'時間待定'}</span></div>
     <div className="football-match"><div><small>主隊</small><h3 title={game.home.englishName}>{game.home.name}</h3></div><b>{game.homeScore!==null&&game.awayScore!==null?`${game.homeScore} : ${game.awayScore}`:'VS'}</b><div><small>客隊</small><h3 title={game.away.englishName}>{game.away.name}</h3></div></div>
     {(game.venue||game.neutral)&&<p className="football-venue">{game.neutral?'中立場・':''}{game.venue}</p>}
     {ready?<>
-      <div className="football-analysis-title"><strong>{a.lean}</strong><span>模型估計・未校準</span></div>
+      <div className="football-analysis-title"><strong>{a.lean}</strong><span>{a.calibration?.label||'基礎模型'}</span></div>
       <div className="football-probabilities">{[['主勝',p.home],['和局',p.draw],['客勝',p.away]].map(([label,value])=><div key={String(label)}><span>{label}</span><strong>{percent(Number(value))}</strong></div>)}</div>
       <div className="football-probability-bar" aria-hidden="true"><span style={{width:p.home*100+'%'}}/><span style={{width:p.draw*100+'%'}}/><span style={{width:p.away*100+'%'}}/></div>
       <div className="football-goals"><div><span>大 2.5 球</span><b>{percent(p.over25)}</b></div><div><span>小 2.5 球</span><b>{percent(p.under25)}</b></div><div><span>雙方都進球</span><b>{percent(p.btts)}</b></div></div>
       <div className="football-scores"><span>三組比分預測<small>主：客</small></span>{a.scores?.map(s=><div key={`${s.home}:${s.away}`}><b>{s.home} : {s.away}</b><small>{percent(s.probability)}</small></div>)}</div>
       <details className="football-detail"><summary>查看近況與分析依據</summary><div className="football-form">{[['主隊',a.homeForm],['客隊',a.awayForm]].map(([label,raw])=>{const f=raw as NonNullable<FootballAnalysis['homeForm']>;return <div key={String(label)}><b>{String(label)}・樣本 {f.games} 場</b><p>近五場（由近到遠）：{f.recent.join(' ')}</p><p>加權進球 {f.scored.toFixed(2)}・失球 {f.conceded.toFixed(2)}</p></div>;})}</div><p>模型預估進球：主 {a.expected!.home.toFixed(2)}／客 {a.expected!.away.toFixed(2)}</p><p>計算於 {time(a.capturedAt)}・歷史資料抓取 {report?.sourceFetchedAt?time(report.sourceFetchedAt):'—'}</p></details>
     </>:<div className="football-waiting" role="status">{unavailable?'資料更新中斷，請更新後再查看分析。':game.state==='live'?'比賽進行中，顯示即時比分。':game.state==='final'?'比賽已完場。':game.state==='other'?'賽事狀態異常，暫停賽前分析。':!game.timeConfirmed?'等待確認開賽時間。':Date.parse(game.start)<=now?'已到開賽時間，等待來源更新比賽狀態。':report?.error||a?.reason||(a?.status==='ready'?'分析資料已過期，正在重新取得。':'正在取得歷史賽果並計算分析…')}</div>}
+    {a?.quality?.warnings.map(w=><p className="football-quality" key={w}>{w}</p>)}
+    {ready&&report?.archiveAsOf&&<p className="football-quality">歷史補充快照：{report.archiveAsOf.slice(0,10)}；最新賽果另向來源確認。</p>}
+    {ready&&report?.snapshotSaved===false&&<p className="football-quality">本次未保存驗證快照（可能接近開賽或儲存暫時失敗），不會計入上線後成效。</p>}
     <div className="football-card-foot"><span>90分鐘含補時</span><a href={game.sourceUrl} target="_blank" rel="noreferrer noopener">賽事來源 ↗</a></div>
   </article>;
 }
