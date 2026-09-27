@@ -8,7 +8,7 @@ import {fresh,canShowPregameMarkets,isPregame,type Match} from '@/lib/baseball';
 import {orderMatchCards} from '@/lib/match-card-order';
 import {expectedRuns,scoreGrid,validLine,type RunSnapshot} from '@/lib/markets';
 import {matchOdds,type OddsSnapshot,type Quote,type MarketKey} from '@/lib/pinnacle';
-import {BOARD_MARKETS,binaryOutcome,boardQuote,boardSides,boardMarketLabel,isHalfMarket,makeBoardPick,sameBoardPick,settleBoard,type BoardPick} from '@/lib/board-markets';
+import {BOARD_MARKETS,binaryOutcome,boardQuote,boardSides,boardMarketLabel,isFullGamePk,isHalfMarket,makeBoardPick,sameBoardPick,settleBoard,type BoardPick} from '@/lib/board-markets';
 import {formatSpreadLine,formatPickLine} from '@/lib/market-display';
 import {marketContextStatus} from '@/lib/pregame-readiness';
 import type {AnalysisState} from './game-context';
@@ -37,7 +37,7 @@ export default function Markets({analysis,games,now,data,error,scheduleOK,schedu
  const dataOK=!error&&fresh(data?.fetchedAt,now,25*60000);
  const models=useMemo(()=>new Map(games.map(g=>{
   const runs=data?expectedRuns(g,data):null;
-  // Keep the established full-game calculation. First-half estimates use five
+  // Non-PK markets retain the score model. First-half estimates use five
   // of nine innings at the same scoring rate and keep ties without extra innings.
   return [g.id,runs?{runs,full:scoreGrid(runs.away,runs.home),half:scoreGrid(runs.away*5/9,runs.home*5/9,false)}:null];
  })),[games,data]);
@@ -54,7 +54,9 @@ export default function Markets({analysis,games,now,data,error,scheduleOK,schedu
  }
  function result(p:BoardPick){
   const g=games.find(g=>g.id===p.gameId),model=models.get(p.gameId),q=g?quote(g,p.key):null;
-  return g&&!reason(g)&&model&&q&&q.signature===p.quote&&q.line===p.line?settleBoard(isHalfMarket(p.key)?model.half:model.full,p):null;
+  if(!g||reason(g)||!model||!q||q.signature!==p.quote||q.line!==p.line)return null;
+  const win=isFullGamePk(p)?winnerAnalysis(g,analysis[g.id]?.report,now,scheduleOK):null;
+  return settleBoard(isHalfMarket(p.key)?model.half:model.full,p,win?.canEstimate?win.homeWin:null);
  }
  function options(g:Match,key:BoardPick['key']){
   const q=quote(g,key);if(!q)return [];
@@ -88,7 +90,9 @@ export default function Markets({analysis,games,now,data,error,scheduleOK,schedu
  const combined=valid?outcomes.reduce((n,r)=>n*r!.win,1):null;
  const orderedGames=orderMatchCards(games,g=>canShowPregameMarkets(g,now)?matchOdds(g,odds):null,oddsOK);
  function marketPanel(g:Match,key:BoardPick['key']){
-  const q=quote(g,key),rows=options(g,key),recommended=preferred(rows),blocked=reason(g);
+  const q=quote(g,key),rows=options(g,key),recommended=preferred(rows);
+  const win=q&&isFullGamePk(makeBoardPick(g.id,key,'home',q))?winnerAnalysis(g,analysis[g.id]?.report,now,scheduleOK):null;
+  const blocked=reason(g)||(win&&!win.canEstimate?win.reason:'');
   const sourceIssue=matchOdds(g,odds)?.issues?.[key];
   return <section className="space-y-3" aria-label={boardMarketLabel(key)}>
    <h5 className="font-bold">{boardMarketLabel(key)}</h5>
@@ -97,7 +101,7 @@ export default function Markets({analysis,games,now,data,error,scheduleOK,schedu
     const row=rows.find(x=>x.pick.side===side),p=row?.pick,r=row?.result,active=!!p&&picks.some(x=>sameBoardPick(x,p));
     const title=key==='firstHalfOddEven'?(side==='over'?'單':'雙'):key==='total'||key==='firstHalfTotal'?(side==='over'?'大':'小'):<TeamName team={g[side as 'home'|'away']}/>;
     return <Button key={side} variant={active?'default':'outline'} disabled={!p||!r} aria-pressed={active} className="market-option-card h-auto w-full items-start whitespace-normal p-3 text-left" onClick={()=>p&&add(p)}><span className="block w-full">
-     <span className="market-pick-title flex w-full flex-wrap items-start justify-between gap-x-3 gap-y-1 font-bold"><span className="min-w-0">{title}{p&&recommended&&sameBoardPick(p,recommended)&&<span className={`ml-2 ${active?'text-green-700':'text-green-400'}`}>推薦</span>}{active&&<span className="ml-1 text-green-700" aria-label="已選取">✓</span>}</span>
+     <span className="market-pick-title flex w-full flex-wrap items-start justify-between gap-x-3 gap-y-1 font-bold"><span className="min-w-0">{title}{p&&recommended&&sameBoardPick(p,recommended)&&<span data-market-recommendation={`${key}:${side}`} className={`ml-2 ${active?'text-green-700':'text-green-400'}`}>推薦</span>}{active&&<span className="ml-1 text-green-700" aria-label="已選取">✓</span>}</span>
       {q&&<span className="ml-auto whitespace-nowrap text-right tabular-nums">{key==='firstHalfOddEven'?'':p?formatPickLine(p):key==='total'||key==='firstHalfTotal'?q.display??q.line:formatSpreadLine(q,side as 'home'|'away')}{automatic?` @${(side==='home'||side==='over'?q.first:q.second).toFixed(3)}`:''}</span>}
      </span><span className="mt-3 block text-sm">{r?<MarketOutcomes outcome={r}/>:q?'尚無估算':oddsError?'來源讀取失敗':!matchOdds(g,odds)?'來源場次尚未配對':sourceIssue||'尚未開盤'}</span>
     </span></Button>;
@@ -129,7 +133,7 @@ export default function Markets({analysis,games,now,data,error,scheduleOK,schedu
   return cards;
  }
  const singleCards=buildSingleRecommendations();
- const singleScope=JSON.stringify(games.map(g=>[g.id,g.date,g.home.pitcherId,g.away.pitcherId]));
+ const singleScope=JSON.stringify(games.map(g=>{const win=winnerAnalysis(g,analysis[g.id]?.report,now,scheduleOK);return [g.id,g.date,g.home.id,g.away.id,g.home.pitcherId,g.away.pitcherId,win.status,win.homeWin];}));
  useEffect(()=>{
   if(savedSingles.current?.scope!==singleScope)savedSingles.current=null;
   if(scheduleOK&&oddsOK&&dataOK)savedSingles.current={scope:singleScope,at:now,cards:singleCards};
