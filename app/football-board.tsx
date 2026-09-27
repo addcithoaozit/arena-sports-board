@@ -90,11 +90,9 @@ function FootballCard({game,report,now,unavailable}:{game:FootballGame;report?:R
       <div className="football-probability-bar" aria-hidden="true"><span style={{width:p.home*100+'%'}}/><span style={{width:p.draw*100+'%'}}/><span style={{width:p.away*100+'%'}}/></div>
       <div className="football-goals"><div><span>大 2.5 球</span><b>{percent(p.over25)}</b></div><div><span>小 2.5 球</span><b>{percent(p.under25)}</b></div><div><span>雙方都進球</span><b>{percent(p.btts)}</b></div></div>
       <div className="football-scores"><span>三組比分預測<small>主：客</small></span>{a.scores?.map(s=><div key={`${s.home}:${s.away}`}><b>{s.home} : {s.away}</b><small>{percent(s.probability)}</small></div>)}</div>
-      <details className="football-detail"><summary>查看近況與分析依據</summary><div className="football-form">{[['主隊',a.homeForm],['客隊',a.awayForm]].map(([label,raw])=>{const f=raw as NonNullable<FootballAnalysis['homeForm']>;return <div key={String(label)}><b>{String(label)}・樣本 {f.games} 場</b><p>近五場（由近到遠）：{f.recent.join(' ')}</p><p>加權進球 {f.scored.toFixed(2)}・失球 {f.conceded.toFixed(2)}</p></div>;})}</div><p>模型預估進球：主 {a.expected!.home.toFixed(2)}／客 {a.expected!.away.toFixed(2)}</p><p>計算於 {time(a.capturedAt)}・歷史資料抓取 {report?.sourceFetchedAt?time(report.sourceFetchedAt):'—'}</p></details>
     </>:<div className="football-waiting" role="status">{unavailable?'資料更新中斷，請更新後再查看分析。':game.state==='live'?'比賽進行中，顯示即時比分。':game.state==='final'?'比賽已完場。':game.state==='other'?'賽事狀態異常，暫停賽前分析。':!game.timeConfirmed?'等待確認開賽時間。':Date.parse(game.start)<=now?'已到開賽時間，等待來源更新比賽狀態。':report?.error||a?.reason||(a?.status==='ready'?'分析資料已過期，正在重新取得。':'正在取得歷史賽果並計算分析…')}</div>}
     {a?.quality?.warnings.map(w=><p className="football-quality" key={w}>{w}</p>)}
     {ready&&report?.archiveAsOf&&<p className="football-quality">歷史補充快照：{report.archiveAsOf.slice(0,10)}；最新賽果另向來源確認。</p>}
     {ready&&report?.snapshotSaved===false&&<p className="football-quality">本次未保存驗證快照（可能接近開賽或儲存暫時失敗），不會計入上線後成效。</p>}
-    <div className="football-card-foot"><span>90分鐘含補時</span><a href={game.sourceUrl} target="_blank" rel="noreferrer noopener">賽事來源 ↗</a></div>
   </article>;
 }
