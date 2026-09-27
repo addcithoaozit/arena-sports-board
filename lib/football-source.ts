@@ -1,4 +1,4 @@
-import {analyzeFootball,footballDay,parseFootballEvents,shiftFootballDay,type FootballGame,type FootballLeague} from './football';
+import {analyzeFootball,footballDay,needsFootballRecentForm,parseFootballEvents,parseFootballTeamHistory,shiftFootballDay,type FootballGame,type FootballLeague} from './football';
 import {archivedFootballHistory,footballArchiveCutoff} from './football-archive';
 import {reconcileFootballHistory} from './football-history';
 const ROOT='https://site.api.espn.com/apis/site/v2/sports/soccer';
@@ -49,20 +49,37 @@ export async function footballGameAnalysis(league:FootballLeague,day:string,id:s
   if(game.state!=='scheduled'||!game.timeConfirmed||Date.parse(game.start)<=Date.now())return {game,analysis:analyzeFootball(game,[]),sourceFetchedAt:schedule.fetchedAt};
   const years=[game.season,game.season-1];
   const requests=[game.home.id,game.away.id].flatMap(team=>years.map(year=>({team,year})));
-  const results=await Promise.allSettled(requests.map(({team,year})=>source(`${league}/teams/${team}/schedule?season=${year}`,60*60000)));
+  const results=await Promise.allSettled(requests.map(async({team,year})=>{
+    const r=await source(`${league}/teams/${team}/schedule?season=${year}`,60*60000);
+    if(String(r.value?.team?.id)!==team)throw Error('球隊歷史來源身分不符');
+    return r;
+  }));
   const success=results.flatMap(r=>r.status==='fulfilled'?[r.value]:[]);
   const missing=results.flatMap((r,i)=>r.status==='rejected'?[requests[i]]:[]);
-  const merged=reconcileFootballHistory(success.flatMap(r=>parseFootballEvents(r.value,league)),archivedFootballHistory(league,game.home.id,game.away.id),league);
-  const analysis=analyzeFootball(game,merged.games),warnings:string[]=[];
+  const live=success.flatMap(r=>parseFootballEvents(r.value,league)),archive=archivedFootballHistory(league,game.home.id,game.away.id);
+  const initial=reconcileFootballHistory(live,archive,league),initialAnalysis=analyzeFootball(game,initial.games);
+  const sparse=[{team:game.home.id,form:initialAnalysis.homeForm},{team:game.away.id,form:initialAnalysis.awayForm}].filter(r=>needsFootballRecentForm(r.form,Date.now())||missing.some(m=>m.team===r.team));
+  const extraRequests=sparse.flatMap(({team})=>years.map(year=>({team,year})));
+  const extraResults=await Promise.allSettled(extraRequests.map(async({team,year})=>{
+    const r=await source(`all/teams/${team}/schedule?season=${year}`,60*60000);
+    return {...r,games:parseFootballTeamHistory(r.value,team)};
+  }));
+  const extraSuccess=extraResults.flatMap((r,i)=>r.status==='fulfilled'?[{...r.value,...extraRequests[i]}]:[]);
+  // Reconcile all feeds together so a quarantined ID cannot return via fallback.
+  // Preserve each competition identity; lower-division scores are never relabeled.
+  const merged=reconcileFootballHistory([...live,...extraSuccess.flatMap(r=>r.games)],archive);
+  const analysis=analyzeFootball(game,merged.games,Date.now(),merged.games),warnings:string[]=[];
   if(missing.length)warnings.push(`${missing.length}份歷史來源未完成；歷史快照日期 ${footballArchiveCutoff.slice(0,10)}。`);
   if(merged.conflicts)warnings.push(`${merged.conflicts}場歷史賽果衝突，已排除。`);
+  if(extraResults.some(r=>r.status==='rejected'))warnings.push('部分跨賽事近況未完成，僅採用已核對的賽果。');
+  if(analysis.historyMode==='recent-form')warnings.push(`已補充跨賽事近況：主隊${analysis.homeForm?.supplementGames||0}場、客隊${analysis.awayForm?.supplementGames||0}場；另行驗證此版本。`);
   if([analysis.homeForm,analysis.awayForm].some(f=>f&&f.games<10))warnings.push('至少一隊少於10場樣本，估計較不穩定。');
   // The archive can fill a previous season only after that season ended.
   // These European seasons start in the named year and finish by June next year.
-  if(missing.some(r=>r.year===game.season||Date.UTC(r.year+1,6,1)>Date.parse(footballArchiveCutoff))){
+  if(missing.some(r=>(r.year===game.season||Date.UTC(r.year+1,6,1)>Date.parse(footballArchiveCutoff))&&!extraSuccess.some(e=>e.team===r.team&&e.year===r.year))){
     analysis.status='waiting';analysis.reason='本季賽果來源未完整更新，暫停分析以免遺漏最新比賽。';
     delete analysis.probabilities;delete analysis.expected;delete analysis.scores;delete analysis.lean;
   }
   analysis.quality={label:warnings.length?'資料有限':'基本賽果完整',warnings,historyConflicts:merged.conflicts,archiveSupplementGames:merged.supplemented};
-  return {game,analysis,sourceFetchedAt:success.map(r=>r.fetchedAt).sort()[0]||null,archiveAsOf:merged.supplemented?footballArchiveCutoff:null};
+  return {game,analysis,sourceFetchedAt:[...success,...extraSuccess].map(r=>r.fetchedAt).sort()[0]||null,archiveAsOf:merged.supplemented?footballArchiveCutoff:null};
 }

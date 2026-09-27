@@ -1,6 +1,6 @@
 # Football calibration and known limitations — 2026-09-27
 
-This change audits all six football competitions. Only La Liga passes the frozen promotion rules and receives the fitted model. The other five keep `football-form-poisson-v1`; the UI names each failed gate. This is a modest improvement in probability scores, not evidence of reliably higher future accuracy or profitable bets.
+This change audits all six football competitions. Only La Liga passes the frozen promotion rules and receives the fitted model. The other five keep `football-form-poisson-v1`; the admin panel names each failed gate. This is a modest improvement in probability scores, not evidence of reliably higher future accuracy or profitable bets. Sparse teams can now use the separately versioned recent-form supplement described in `football-recent-form.md`; that supplement is not a validated calibration.
 
 ## Data and time separation
 
@@ -31,7 +31,7 @@ La Liga holdout accuracy falls from 54.34% to 52.38%, despite better probability
 
 - Fitted parameters apply only after artifact creation and before 2027-03-26T12:35:04Z; expiry falls back to baseline.
 - Live team feeds override old archive rows. Conflicting live records are quarantined rather than silently chosen; they cannot be reintroduced from archive.
-- A failed current-season feed suspends analysis. Previous-season failures may use the archive only if the archive cutoff is after that season ends. Archive use/date and low sample warnings are visible.
+- A failed current-season feed suspends analysis unless a verified all-competition team feed for that same season succeeds. Previous-season failures may use the archive only if the archive cutoff is after that season ends. Archive use/date and low sample warnings are inspectable in the admin diagnostics.
 - A changed kickoff, venue status or team identity invalidates a displayed report immediately. Visibility resume clears the existing poll timer before starting another chain.
 - Lineups, injuries, xG, opponent strength, odds and prices remain absent. No ROI claim is possible. Champions League newcomers often have too little same-competition history.
 - Scoreboard capture timestamps mean receipt by this service, not provider publication time.
@@ -40,7 +40,7 @@ La Liga holdout accuracy falls from 54.34% to 52.38%, despite better probability
 
 Additive PostgreSQL tables store only public fixture/model data. A validated server-side snapshot must be at least 60 seconds before kickoff and freshly captured. Each fixture/start/version keeps its latest pregame snapshot; post-start writes are rejected. Final scores match on league, provider ID and exact kickoff, excluding extra time/penalties. Different kickoff times do not settle an old prediction. Storage failures are visible and cannot fabricate a success count.
 
-This is view-driven coverage: analysis views save snapshots; visits to completed schedule dates update results. It is not a background collector for every game. The panel shows snapshot counts, per-version paired log loss/Brier/accuracy, or an explicit no-settled-data state. Historical backtests are never inserted into this ledger. There is no automatic online parameter rewrite.
+This is view-driven coverage: analysis views save snapshots; visits to completed schedule dates update results. It is not a background collector for every game. The admin panel shows snapshot counts, per-version paired log loss/Brier/accuracy, or an explicit no-settled-data state. Historical backtests are never inserted into this ledger. There is no automatic online parameter rewrite.
 
 ## Reproduction and verification
 
