@@ -20,7 +20,16 @@ export const sameBoardPick=(a:BoardPick,b:BoardPick)=>a.gameId===b.gameId&&a.key
 export function makeBoardPick(gameId:number,key:BoardPick['key'],side:BoardPick['side'],q:Quote):BoardPick{
  return {gameId,key,market:isTotalMarket(key)?'total':'spread',side,line:q.line,boundary:q.boundary,parts:q.parts,display:q.display,quote:q.signature};
 }
-export function settleBoard(grid:Outcome[],pick:BoardPick):Settlement|null{
+/** Full-game MLB has no drawn result. A genuine zero handicap is the same
+ * winning event as moneyline, and must use the same guarded win model.
+ * An average-zero split line and first-half PK are different settlements. */
+export function isFullGamePk(pick:MarketPick&{key?:string}){
+ return pick.market==='spread'&&(!pick.key||pick.key==='spread'||pick.key==='runline')&&pick.line===0&&
+  ['home','away'].includes(pick.side)&&Number.isFinite(pick.boundary??0)&&Math.abs(pick.boundary??0)<=1&&
+  (pick.parts===undefined||(pick.parts.length>0&&pick.parts.every(line=>line===0)));
+}
+export function settleBoard(grid:Outcome[],pick:BoardPick,fullGameHomeWin:number|null=null):Settlement|null{
+ if(isFullGamePk(pick))return fullGameHomeWin===null?null:binaryOutcome(pick.side==='home'?fullGameHomeWin:1-fullGameHomeWin);
  if(pick.key!=='firstHalfOddEven')return settle(grid,pick);
  if(!grid.length||!['over','under'].includes(pick.side))return null;
  // SUPER's first/second total-price fields carry 單/雙 in the 105 market.
