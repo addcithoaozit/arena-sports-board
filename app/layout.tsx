@@ -5,8 +5,9 @@ export const metadata: Metadata = {
   title: "YJ體育分析",
   description: "MLB、CPBL、NPB、KBO 即時賽事、賽前分析。",
   icons: {
-    icon: "/yj-logo.png",
-    shortcut: "/yj-logo.png",
+    icon: "/yj-app-icon.png",
+    shortcut: "/yj-app-icon.png",
+    apple: "/yj-app-icon.png",
   },
 };
 
