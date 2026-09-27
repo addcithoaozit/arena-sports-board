@@ -64,3 +64,11 @@ test('all fixed team identities exist in archive and remain one-to-one',()=>{
  assert.equal(archive.games.length,23810);assert.equal(archive.sha256,runtime.sourceSha256);
  const quarantine=read('data/football/external-quarantine.json');for(const q of quarantine.matches)assert.ok(!archive.games.some(g=>g[0]===q.id));
 });
+test('2020 Champions League restart retains four home grounds and limits neutral labels to Lisbon final eight',()=>{
+ const archive=read('data/football/external-history-20260927.json');
+ const august=archive.games.filter(g=>g[1]==='uefa.champions'&&g[2]>='2020-08-01'&&g[2]<'2020-09-01');
+ assert.equal(august.filter(g=>!g[9]).length,4);assert.equal(august.filter(g=>g[9]).length,7);
+ const errata=read('docs/football-external-venue-correction.json');
+ for(const id of errata.affectedIds)assert.equal(archive.games.find(g=>g[0]===id)?.[9],false);
+ assert.ok(august.filter(g=>g[9]).every(g=>g[2]>='2020-08-12'));
+});
