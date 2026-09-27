@@ -1,0 +1,594 @@
+{
+  "version": "football-market-v4-20260928",
+  "createdAt": "2026-09-27T19:36:01.254239+00:00",
+  "expiresAt": "2026-12-26T19:36:01.254239+00:00",
+  "auditThrough": "2026-09-27T19:30:04.413788+00:00",
+  "sourceSha256": "3e640e267ecddc415b8548c6b4c4c18e5f8680698c8ba80d30ee2453a6a8debe",
+  "protocolSha256": "908196c244cb3a767b7fc13e4218107c6087fea36f8dd6d39d9ca75a2c900e5c",
+  "selectionSha256": "a566d5cda5eee18cb61dcb2cfc85e1de2f34c22c961c15b461fe0252347113c4",
+  "historyGames": 15508,
+  "replayedGames": 14545,
+  "leagues": {
+    "ger.1": {
+      "enabled": true,
+      "reasons": [],
+      "parameters": {
+        "decayDays": 90,
+        "venueWeight": 0,
+        "blend": 1,
+        "homeIntercept": -0.010959284095134119,
+        "awayIntercept": -0.0008911731159077344,
+        "goalAttack": 0.2876065348219026,
+        "goalDefense": 0.1503680755533557,
+        "elo": 0.577174778724018,
+        "rho": -0.09380296561464642,
+        "overTilt": 0.0,
+        "bttsTilt": 0.0,
+        "drawTilt": 0.0
+      },
+      "sampleSizes": {
+        "training": 1457,
+        "selection": 592,
+        "holdout": 587,
+        "audit2019": 551,
+        "audit2025": 296,
+        "audit2026": 196
+      },
+      "metrics": {
+        "training": {
+          "baseline": {
+            "n": 1457,
+            "logLoss": 1.0401145414197306,
+            "brier": 0.6252785570213018,
+            "accuracy": 0.47494852436513385,
+            "over25Brier": 0.2509300032064762,
+            "bttsBrier": 0.25073118581229714
+          },
+          "candidate": {
+            "n": 1457,
+            "logLoss": 1.0204081658197564,
+            "brier": 0.6113856349262802,
+            "accuracy": 0.49416609471516815,
+            "over25Brier": 0.2453800213730005,
+            "bttsBrier": 0.2469672092970253
+          },
+          "logLossChange": -0.019706375599974235
+        },
+        "selection": {
+          "baseline": {
+            "n": 592,
+            "logLoss": 1.0391580107333664,
+            "brier": 0.624970584456208,
+            "accuracy": 0.47635135135135137,
+            "over25Brier": 0.2466766346629004,
+            "bttsBrier": 0.2517459182597941
+          },
+          "candidate": {
+            "n": 592,
+            "logLoss": 1.0266634004213717,
+            "brier": 0.6159087824709328,
+            "accuracy": 0.4831081081081081,
+            "over25Brier": 0.24435447392219378,
+            "bttsBrier": 0.24849754476275007
+          },
+          "logLossChange": -0.012494610311994725,
+          "logLossChangeCI95": [
+            -0.02542933454237385,
+            0.0008320650277673091
+          ]
+        },
+        "holdout": {
+          "baseline": {
+            "n": 587,
+            "logLoss": 1.0005979869076929,
+            "brier": 0.5957097498804944,
+            "accuracy": 0.5195911413969335,
+            "over25Brier": 0.25099963292979727,
+            "bttsBrier": 0.24548010027216904
+          },
+          "candidate": {
+            "n": 587,
+            "logLoss": 0.9797343260337831,
+            "brier": 0.5819057535054806,
+            "accuracy": 0.514480408858603,
+            "over25Brier": 0.24414071475836088,
+            "bttsBrier": 0.24353376128956072
+          },
+          "logLossChange": -0.020863660873909784,
+          "logLossChangeCI95": [
+            -0.0338733553272967,
+            -0.007252899676237864
+          ]
+        },
+        "audit2019": {
+          "baseline": {
+            "n": 551,
+            "logLoss": 1.0027376296600152,
+            "brier": 0.5981645600592537,
+            "accuracy": 0.5136116152450091,
+            "over25Brier": 0.2312695354517425,
+            "bttsBrier": 0.23938067149663209
+          },
+          "candidate": {
+            "n": 551,
+            "logLoss": 0.9869312207421471,
+            "brier": 0.5880408219652452,
+            "accuracy": 0.52994555353902,
+            "over25Brier": 0.23050509908794398,
+            "bttsBrier": 0.23976966553400947
+          },
+          "logLossChange": -0.01580640891786811,
+          "logLossChangeCI95": [
+            -0.02985569776471313,
+            -0.00059444719467359
+          ]
+        },
+        "audit2025": {
+          "baseline": {
+            "n": 296,
+            "logLoss": 1.0505916772433785,
+            "brier": 0.632346930312075,
+            "accuracy": 0.44932432432432434,
+            "over25Brier": 0.24112907746570053,
+            "bttsBrier": 0.25894916392383865
+          },
+          "candidate": {
+            "n": 296,
+            "logLoss": 1.0169369128091923,
+            "brier": 0.6088545213400242,
+            "accuracy": 0.5033783783783784,
+            "over25Brier": 0.2386786943178616,
+            "bttsBrier": 0.2531054542912342
+          },
+          "logLossChange": -0.033654764434186246,
+          "logLossChangeCI95": [
+            -0.0628835546728931,
+            -0.005643914056449182
+          ]
+        },
+        "audit2026": {
+          "baseline": {
+            "n": 196,
+            "logLoss": 0.9902033346281088,
+            "brier": 0.5862636892509457,
+            "accuracy": 0.5408163265306123,
+            "over25Brier": 0.21924096078835453,
+            "bttsBrier": 0.2256340559006592
+          },
+          "candidate": {
+            "n": 196,
+            "logLoss": 0.9737919331212586,
+            "brier": 0.5770066122381032,
+            "accuracy": 0.5561224489795918,
+            "over25Brier": 0.21419900586684854,
+            "bttsBrier": 0.2242859192467359
+          },
+          "logLossChange": -0.016411401506850276,
+          "logLossChangeCI95": [
+            -0.03701884352961009,
+            0.0040245155828598405
+          ]
+        }
+      }
+    },
+    "ita.1": {
+      "enabled": true,
+      "reasons": [],
+      "parameters": {
+        "decayDays": 90,
+        "venueWeight": 0.6,
+        "blend": 1,
+        "homeIntercept": 0.0010062972682447417,
+        "awayIntercept": -0.03474928456949834,
+        "goalAttack": 0.18811099865095657,
+        "goalDefense": 0.08318219496793565,
+        "elo": 0.6992612368881534,
+        "rho": 0.032406537553415375,
+        "overTilt": -0.05970740524006345,
+        "bttsTilt": 0.17836407528906864,
+        "drawTilt": 0.137876236795241
+      },
+      "sampleSizes": {
+        "training": 1833,
+        "selection": 726,
+        "holdout": 745,
+        "audit2019": 679,
+        "audit2025": 354,
+        "audit2026": 250
+      },
+      "metrics": {
+        "training": {
+          "baseline": {
+            "n": 1833,
+            "logLoss": 1.01876165002508,
+            "brier": 0.6099392236073143,
+            "accuracy": 0.5013638843426077,
+            "over25Brier": 0.25350468259327935,
+            "bttsBrier": 0.2539231991094637
+          },
+          "candidate": {
+            "n": 1833,
+            "logLoss": 0.989230187782005,
+            "brier": 0.5915228700896299,
+            "accuracy": 0.5117294053464266,
+            "over25Brier": 0.24848355024107216,
+            "bttsBrier": 0.24910624009670482
+          },
+          "logLossChange": -0.029531462243075013
+        },
+        "selection": {
+          "baseline": {
+            "n": 726,
+            "logLoss": 1.0326002692910325,
+            "brier": 0.6210564413431289,
+            "accuracy": 0.5137741046831956,
+            "over25Brier": 0.25050842061897766,
+            "bttsBrier": 0.25221503005886525
+          },
+          "candidate": {
+            "n": 726,
+            "logLoss": 1.0075786908529287,
+            "brier": 0.6043662210667157,
+            "accuracy": 0.5179063360881543,
+            "over25Brier": 0.24594155382262364,
+            "bttsBrier": 0.24979635370470615
+          },
+          "logLossChange": -0.02502157843810382,
+          "logLossChangeCI95": [
+            -0.03797430343887128,
+            -0.012181154248949985
+          ]
+        },
+        "holdout": {
+          "baseline": {
+            "n": 745,
+            "logLoss": 1.020538152561874,
+            "brier": 0.6106924011307577,
+            "accuracy": 0.5006711409395973,
+            "over25Brier": 0.25775515975317953,
+            "bttsBrier": 0.25513512580241926
+          },
+          "candidate": {
+            "n": 745,
+            "logLoss": 0.9952432275633685,
+            "brier": 0.5943838245768536,
+            "accuracy": 0.5288590604026846,
+            "over25Brier": 0.2513595734560288,
+            "bttsBrier": 0.25091955301762503
+          },
+          "logLossChange": -0.025294924998505497,
+          "logLossChangeCI95": [
+            -0.03913026419827636,
+            -0.011604870069193656
+          ]
+        },
+        "audit2019": {
+          "baseline": {
+            "n": 679,
+            "logLoss": 1.0174178230414328,
+            "brier": 0.6081155810642515,
+            "accuracy": 0.5022091310751104,
+            "over25Brier": 0.24337534935610014,
+            "bttsBrier": 0.24352504600486105
+          },
+          "candidate": {
+            "n": 679,
+            "logLoss": 0.9975660385185524,
+            "brier": 0.5951469685012964,
+            "accuracy": 0.5287187039764359,
+            "over25Brier": 0.23963505861873866,
+            "bttsBrier": 0.23774078730391476
+          },
+          "logLossChange": -0.01985178452288039,
+          "logLossChangeCI95": [
+            -0.03532514170158583,
+            -0.003578975180994477
+          ]
+        },
+        "audit2025": {
+          "baseline": {
+            "n": 354,
+            "logLoss": 1.0349668491226895,
+            "brier": 0.6214232790314317,
+            "accuracy": 0.5254237288135594,
+            "over25Brier": 0.25761430059140933,
+            "bttsBrier": 0.2552226022854891
+          },
+          "candidate": {
+            "n": 354,
+            "logLoss": 1.000200369007845,
+            "brier": 0.5981973176619302,
+            "accuracy": 0.5112994350282486,
+            "over25Brier": 0.24977411186350504,
+            "bttsBrier": 0.25099605693676075
+          },
+          "logLossChange": -0.03476648011484462,
+          "logLossChangeCI95": [
+            -0.05465071677716071,
+            -0.0159346973041364
+          ]
+        },
+        "audit2026": {
+          "baseline": {
+            "n": 250,
+            "logLoss": 0.9940556828983913,
+            "brier": 0.5925992532671107,
+            "accuracy": 0.536,
+            "over25Brier": 0.25404247076749736,
+            "bttsBrier": 0.25160833914078967
+          },
+          "candidate": {
+            "n": 250,
+            "logLoss": 0.9811904589616207,
+            "brier": 0.5843270674312628,
+            "accuracy": 0.556,
+            "over25Brier": 0.2540171099957212,
+            "bttsBrier": 0.2499501861796416
+          },
+          "logLossChange": -0.012865223936770587,
+          "logLossChangeCI95": [
+            -0.03314696949719997,
+            0.009854530580737673
+          ]
+        }
+      }
+    }
+  },
+  "protocol": {
+    "version": "football-market-v4-protocol",
+    "recordedAt": "2026-09-27T19:30:04.266467+00:00",
+    "recordedBeforeFitting": true,
+    "leagues": [
+      "ger.1",
+      "ita.1"
+    ],
+    "warmup": "2004",
+    "training": "2005–2009",
+    "selection": "2010–2011",
+    "newLockedHoldout": "2012–2013",
+    "previouslyInspectedAudits": [
+      "2019–2020",
+      "2025",
+      "2026 through collection cutoff"
+    ],
+    "features": "Only previous UTC days, 365-day maximum 20-match goal form, prior-day Elo (1500, K20, home60, scale400, annual shrink .15), league-wide previous-year home/away scoring rates to adapt to scoring era. No xG, odds, future lineups, or target-day outcomes. Regular league only; no playoffs.",
+    "candidates": {
+      "decayDays": [
+        90,
+        180
+      ],
+      "venueWeight": [
+        0,
+        0.6
+      ],
+      "regularization": [
+        0.01,
+        0.05,
+        0.2
+      ],
+      "marketTilts": [
+        false,
+        true
+      ],
+      "blend": [
+        0.25,
+        0.5,
+        0.75,
+        1
+      ]
+    },
+    "fit": "Training-only joint Poisson/Dixon-Coles likelihood, goal attack/defence and signed Elo, home/away intercepts around observed prior-year league rates. Optional bounded exponential tilts of the shared score distribution for over 2.5, BTTS and draw. Coefficients regularized, no market uses a contradictory separate score distribution.",
+    "selectionRule": "Among candidates satisfying selection gates, minimize equal-weight sum of candidate/baseline log loss, 1X2 Brier, over2.5 Brier and BTTS Brier. Select exactly one per league before opening holdout or audits. If none eligible, record best candidate as rejected.",
+    "promotion": {
+      "minimumTrainingGames": 180,
+      "minimumSelectionGames": 80,
+      "minimumHoldoutGames": 160,
+      "minimumAuditGames": 60,
+      "logLossImprovesEveryEvaluation": true,
+      "brierNotWorseEveryEvaluation": true,
+      "maximumBinaryBrierIncrease": 0.002,
+      "periods": [
+        "selection",
+        "holdout",
+        "audit2019",
+        "audit2025",
+        "audit2026"
+      ]
+    },
+    "uncertainty": "Weekly paired block bootstrap 1000 replicates, seed 20260928; report intervals, never optimize them.",
+    "runtime": "Exactly the same regular-match parsing, day cutoff, league-rate features and distribution. At least five matches per team, latest <=120 days, >=180 prior-year league matches, fresh complete current feed; otherwise preserve existing model.",
+    "prohibitions": [
+      "No reduced thresholds",
+      "No repeated selection from holdout/audit outcomes",
+      "No claim that unseen 2012–2013 was part of earlier experiments",
+      "No candidate promotion without all gates",
+      "No hiding a failed experiment"
+    ]
+  },
+  "coverage": {
+    "ita.1:2004": {
+      "total": 338,
+      "eligible": 131
+    },
+    "ger.1:2004": {
+      "total": 306,
+      "eligible": 117
+    },
+    "ita.1:2005": {
+      "total": 390,
+      "eligible": 375
+    },
+    "ger.1:2005": {
+      "total": 306,
+      "eligible": 291
+    },
+    "ita.1:2006": {
+      "total": 389,
+      "eligible": 375
+    },
+    "ger.1:2006": {
+      "total": 306,
+      "eligible": 292
+    },
+    "ita.1:2007": {
+      "total": 368,
+      "eligible": 353
+    },
+    "ger.1:2007": {
+      "total": 306,
+      "eligible": 291
+    },
+    "ita.1:2008": {
+      "total": 382,
+      "eligible": 368
+    },
+    "ger.1:2008": {
+      "total": 306,
+      "eligible": 292
+    },
+    "ita.1:2009": {
+      "total": 377,
+      "eligible": 362
+    },
+    "ger.1:2009": {
+      "total": 306,
+      "eligible": 291
+    },
+    "ita.1:2010": {
+      "total": 381,
+      "eligible": 367
+    },
+    "ger.1:2010": {
+      "total": 306,
+      "eligible": 296
+    },
+    "ita.1:2011": {
+      "total": 373,
+      "eligible": 359
+    },
+    "ger.1:2011": {
+      "total": 306,
+      "eligible": 296
+    },
+    "ita.1:2012": {
+      "total": 400,
+      "eligible": 388
+    },
+    "ger.1:2012": {
+      "total": 306,
+      "eligible": 292
+    },
+    "ita.1:2013": {
+      "total": 370,
+      "eligible": 357
+    },
+    "ger.1:2013": {
+      "total": 305,
+      "eligible": 295
+    },
+    "ita.1:2014": {
+      "total": 370,
+      "eligible": 356
+    },
+    "ger.1:2014": {
+      "total": 307,
+      "eligible": 298
+    },
+    "ita.1:2015": {
+      "total": 389,
+      "eligible": 375
+    },
+    "ger.1:2015": {
+      "total": 306,
+      "eligible": 296
+    },
+    "ita.1:2016": {
+      "total": 389,
+      "eligible": 374
+    },
+    "ger.1:2016": {
+      "total": 297,
+      "eligible": 287
+    },
+    "ita.1:2017": {
+      "total": 390,
+      "eligible": 375
+    },
+    "ger.1:2017": {
+      "total": 315,
+      "eligible": 305
+    },
+    "ita.1:2018": {
+      "total": 382,
+      "eligible": 367
+    },
+    "ger.1:2018": {
+      "total": 306,
+      "eligible": 296
+    },
+    "ger.1:2019": {
+      "total": 306,
+      "eligible": 291
+    },
+    "ita.1:2019": {
+      "total": 359,
+      "eligible": 345
+    },
+    "ita.1:2020": {
+      "total": 349,
+      "eligible": 334
+    },
+    "ger.1:2020": {
+      "total": 270,
+      "eligible": 260
+    },
+    "ger.1:2021": {
+      "total": 342,
+      "eligible": 332
+    },
+    "ita.1:2021": {
+      "total": 431,
+      "eligible": 417
+    },
+    "ita.1:2022": {
+      "total": 341,
+      "eligible": 326
+    },
+    "ger.1:2022": {
+      "total": 288,
+      "eligible": 278
+    },
+    "ita.1:2023": {
+      "total": 410,
+      "eligible": 395
+    },
+    "ger.1:2023": {
+      "total": 314,
+      "eligible": 304
+    },
+    "ita.1:2024": {
+      "total": 378,
+      "eligible": 363
+    },
+    "ger.1:2024": {
+      "total": 297,
+      "eligible": 287
+    },
+    "ita.1:2025": {
+      "total": 368,
+      "eligible": 354
+    },
+    "ger.1:2025": {
+      "total": 306,
+      "eligible": 296
+    },
+    "ita.1:2026": {
+      "total": 264,
+      "eligible": 250
+    },
+    "ger.1:2026": {
+      "total": 207,
+      "eligible": 196
+    }
+  }
+}

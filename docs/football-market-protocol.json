@@ -1,0 +1,71 @@
+{
+  "version": "football-market-v4-protocol",
+  "recordedAt": "2026-09-27T19:30:04.266467+00:00",
+  "recordedBeforeFitting": true,
+  "leagues": [
+    "ger.1",
+    "ita.1"
+  ],
+  "warmup": "2004",
+  "training": "2005–2009",
+  "selection": "2010–2011",
+  "newLockedHoldout": "2012–2013",
+  "previouslyInspectedAudits": [
+    "2019–2020",
+    "2025",
+    "2026 through collection cutoff"
+  ],
+  "features": "Only previous UTC days, 365-day maximum 20-match goal form, prior-day Elo (1500, K20, home60, scale400, annual shrink .15), league-wide previous-year home/away scoring rates to adapt to scoring era. No xG, odds, future lineups, or target-day outcomes. Regular league only; no playoffs.",
+  "candidates": {
+    "decayDays": [
+      90,
+      180
+    ],
+    "venueWeight": [
+      0,
+      0.6
+    ],
+    "regularization": [
+      0.01,
+      0.05,
+      0.2
+    ],
+    "marketTilts": [
+      false,
+      true
+    ],
+    "blend": [
+      0.25,
+      0.5,
+      0.75,
+      1
+    ]
+  },
+  "fit": "Training-only joint Poisson/Dixon-Coles likelihood, goal attack/defence and signed Elo, home/away intercepts around observed prior-year league rates. Optional bounded exponential tilts of the shared score distribution for over 2.5, BTTS and draw. Coefficients regularized, no market uses a contradictory separate score distribution.",
+  "selectionRule": "Among candidates satisfying selection gates, minimize equal-weight sum of candidate/baseline log loss, 1X2 Brier, over2.5 Brier and BTTS Brier. Select exactly one per league before opening holdout or audits. If none eligible, record best candidate as rejected.",
+  "promotion": {
+    "minimumTrainingGames": 180,
+    "minimumSelectionGames": 80,
+    "minimumHoldoutGames": 160,
+    "minimumAuditGames": 60,
+    "logLossImprovesEveryEvaluation": true,
+    "brierNotWorseEveryEvaluation": true,
+    "maximumBinaryBrierIncrease": 0.002,
+    "periods": [
+      "selection",
+      "holdout",
+      "audit2019",
+      "audit2025",
+      "audit2026"
+    ]
+  },
+  "uncertainty": "Weekly paired block bootstrap 1000 replicates, seed 20260928; report intervals, never optimize them.",
+  "runtime": "Exactly the same regular-match parsing, day cutoff, league-rate features and distribution. At least five matches per team, latest <=120 days, >=180 prior-year league matches, fresh complete current feed; otherwise preserve existing model.",
+  "prohibitions": [
+    "No reduced thresholds",
+    "No repeated selection from holdout/audit outcomes",
+    "No claim that unseen 2012–2013 was part of earlier experiments",
+    "No candidate promotion without all gates",
+    "No hiding a failed experiment"
+  ]
+}

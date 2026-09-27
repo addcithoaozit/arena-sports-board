@@ -1,5 +1,7 @@
 # External football data experiment, 27 September 2026
 
+Current update: Bundesliga and Serie A passed the separate second-round score model; see [football-market-calibration.md](football-market-calibration.md). This document preserves the first-round findings.
+
 This update adds a second source of match facts and a separate, frozen model experiment. It does not force every league to pass. English Premier League, Ligue 1 and Champions League candidates passed the pre-recorded gates. La Liga keeps its existing accepted v2 model; Bundesliga and Serie A keep their previous baseline / recent-form fallback.
 
 ## Sources and identity
