@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-09-27T12:22:53Z",
+  "dateAsiaTaipei": "2026-09-27",
+  "workflow": {
+    "runId": 35688889561,
+    "runAttempt": 50,
+    "conclusion": "startup_failure",
+    "latestArtifactId": 10923208463,
+    "latestArtifactCreatedAt": "2026-09-27T04:44:22Z",
+    "acceptedAsCurrent": false
+  },
+  "NPB": {
+    "games": 5,
+    "states": {
+      "final": 5
+    },
+    "sameDayLiveVerified": true,
+    "correction": "official NPB/SportsNavi slate is 5 games; exclude fallback 中日 vs 阪神 extra game"
+  },
+  "KBO": {
+    "games": 4,
+    "states": {
+      "final": 3,
+      "cancelled": 1
+    },
+    "sameDayLiveVerified": true,
+    "correction": "LG-KIA cancelled; Naver cancel=true, 경기취소; discard earlier apparent live state"
+  },
+  "CPBL": {
+    "games": 3,
+    "states": {
+      "final": 3
+    },
+    "sameDayLiveVerified": true,
+    "pitchCount": null,
+    "balls": null,
+    "strikes": null,
+    "outs": null,
+    "bases": null,
+    "lineupConfirmation": "source_listed_not_officially_verified"
+  },
+  "productionChanged": false,
+  "productionDatabaseWritten": false,
+  "deployed": false
+}
