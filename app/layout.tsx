@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "YJ體育分析",
-  description: "MLB、CPBL、NPB、KBO 即時賽事、賽前分析。",
+  description: "MLB 與足球五大聯賽、歐冠即時賽事、比分及賽前分析。",
   icons: {
     icon: "/yj-app-icon.png",
     shortcut: "/yj-app-icon.png",
