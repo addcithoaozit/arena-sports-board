@@ -1,0 +1,16 @@
+{
+  "version": "football-calibration-protocol-v1",
+  "recordedBeforeFitting": true,
+  "warmup": "2021-01-01/2021-12-31",
+  "training": "2022-01-01/2023-12-31",
+  "selection": "2024-01-01/2024-12-31",
+  "lockedHoldout": "2025-01-01/2025-12-31",
+  "recentAudit": "2026-01-01/2026-09-27",
+  "features": "Production footballForm, computed 3 hours before historical kickoff; 365-day history, maximum 20 games; no outcome added until after extraction",
+  "candidates": {"decayDays": [60,90,180],"venueWeight": [0,0.3,0.6]},
+  "fit": "Regularized Poisson goal regression with shared attack/defense coefficients and per-side intercepts, plus bounded Dixon-Coles low-score correction; optimize joint goal negative log likelihood on training only",
+  "select": "Minimum 1X2 log loss on 2024 selection set; no refit after selection",
+  "promotionGate": {"minimumTrainingGames":180,"minimumSelectionGames":80,"minimumHoldoutGames":80,"minimumRecentGames":60,"selectionLogLossMustImprove":true,"holdoutLogLossMustImprove":true,"recentLogLossMustImprove":true,"holdoutBrierMustNotWorsen":true,"recentBrierMustNotWorsen":true,"maximumBinaryBrierIncrease":0.002},
+  "uncertainty": "Paired week-block bootstrap, 1000 replicates, fixed seed 20260927; intervals are descriptive, not a separate tuning signal",
+  "prohibitions": ["no random split","no fitting on holdout or recent audit","no manual parameter changes based on holdout","no ROI claim without betting odds","no calibrated label for rejected leagues"]
+}

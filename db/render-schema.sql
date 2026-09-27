@@ -135,3 +135,24 @@ CREATE TABLE IF NOT EXISTS "international_forecasts" (
 CREATE INDEX IF NOT EXISTS "international_forecast_fixture_version" ON "international_forecasts" ("fixture_key","version","captured_at");
 
 CREATE INDEX IF NOT EXISTS "international_forecast_start" ON "international_forecasts" ("start_time");
+
+-- Public football predictions only; no member/account/bet data is recorded.
+CREATE TABLE IF NOT EXISTS "football_forecasts" (
+  "id" text PRIMARY KEY NOT NULL,
+  "league" text NOT NULL,
+  "game_id" text NOT NULL,
+  "start_time" text NOT NULL,
+  "captured_at" text NOT NULL,
+  "version" text NOT NULL,
+  "payload" text NOT NULL
+);
+CREATE INDEX IF NOT EXISTS "football_forecast_game" ON "football_forecasts" ("league","game_id","start_time");
+CREATE TABLE IF NOT EXISTS "football_results" (
+  "id" text PRIMARY KEY NOT NULL,
+  "league" text NOT NULL,
+  "game_id" text NOT NULL,
+  "start_time" text NOT NULL,
+  "home_goals" bigint NOT NULL,
+  "away_goals" bigint NOT NULL,
+  "fetched_at" text NOT NULL
+);

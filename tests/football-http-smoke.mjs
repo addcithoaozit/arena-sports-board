@@ -8,8 +8,9 @@ let output='';child.stdout.on('data',b=>output+=b);child.stderr.on('data',b=>out
 try{
  let ready=false;for(let i=0;i<80;i++){if(child.exitCode!==null)throw Error(output);try{if((await fetch(origin+'/api/health')).ok){ready=true;break;}}catch{}await delay(250);}
  assert.ok(ready,'server ready');
- for(const [path,auth,expected] of [['/api/football',false,401],['/api/football?league=invalid',true,400],['/api/football?date=2026-02-30',true,400],['/api/football?kind=analysis&game=abc',true,400],['/?league=FOOTBALL',true,200]]){
+ for(const [path,auth,expected] of [['/api/football',false,401],['/api/football?kind=validation',false,401],['/api/football?kind=validation',true,200],['/api/football?league=invalid',true,400],['/api/football?date=2026-02-30',true,400],['/api/football?kind=analysis&game=abc',true,400],['/?league=FOOTBALL',true,200]]){
   const r=await fetch(origin+path,{headers:auth?{cookie}:{}});assert.equal(r.status,expected,path);
+  if(path.includes('kind=validation')&&auth){const d=await r.json();assert.equal(d.validation.historyGames,11033);assert.equal(d.live.available,true);assert.equal(Number(d.live.counts.snapshots),0);}
   if(path.startsWith('/?'))assert.match(await r.text(),/足球/);
  }
  console.log('Football HTTP smoke passed: authentication, invalid input and rendered navigation.');

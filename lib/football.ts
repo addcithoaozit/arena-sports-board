@@ -1,3 +1,4 @@
+import {selectFootballCalibration,calibratedFootballGoals,type FootballCalibrationStatus} from './football-calibration';
 export const FOOTBALL_LEAGUES = [
   {code:'eng.1',name:'英超',fullName:'英格蘭超級聯賽'},
   {code:'esp.1',name:'西甲',fullName:'西班牙甲級聯賽'},
@@ -17,6 +18,8 @@ export type FootballGame = {
 export type FootballForm = {games:number;venueGames:number;scored:number;conceded:number;recent:string[];latest:string|null};
 export type FootballAnalysis = {
   status:'ready'|'waiting'|'closed';reason:string;version:string;capturedAt:string;
+  calibration?:FootballCalibrationStatus;
+  quality?:{label:string;warnings:string[];historyConflicts:number;archiveSupplementGames:number};
   homeForm?:FootballForm;awayForm?:FootballForm;
   expected?:{home:number;away:number};probabilities?:{home:number;draw:number;away:number;over25:number;under25:number;btts:number};
   scores?:{home:number;away:number;probability:number}[];lean?:string;notes:string[];
@@ -56,36 +59,40 @@ export function parseFootballEvents(data:any,league:FootballLeague):FootballGame
   }
   return [...games.values()];
 }
-export function footballForm(teamId:string,venue:'home'|'away',history:FootballGame[],before:number,neutral=false):FootballForm{
+export function footballForm(teamId:string,venue:'home'|'away',history:FootballGame[],before:number,neutral=false,options:{decayDays:number;venueWeight:number}={decayDays:90,venueWeight:.6}):FootballForm{
   const unique=[...new Map(history.map(g=>[g.id,g])).values()];
   // Only confirmed regulation-time finals enter the model. AET/penalty results are not 90-minute scores.
   const rows=unique.filter(g=>g.statusName==='STATUS_FULL_TIME'&&g.state==='final'&&g.homeScore!==null&&g.awayScore!==null&&Date.parse(g.start)<before&&Date.parse(g.start)>=before-365*86400000&&(g.home.id===teamId||g.away.id===teamId)).sort((a,b)=>Date.parse(b.start)-Date.parse(a.start)).slice(0,20);
   const split=rows.filter(g=>!g.neutral&&g[venue].id===teamId);
   function mean(list:FootballGame[],kind:'scored'|'conceded'){
-    let sum=0,weights=0;for(const g of list){const home=g.home.id===teamId,w=Math.exp(-(before-Date.parse(g.start))/(90*86400000));sum+=(kind==='scored'?(home?g.homeScore!:g.awayScore!):(home?g.awayScore!:g.homeScore!))*w;weights+=w;}return weights?sum/weights:0;
+    let sum=0,weights=0;for(const g of list){const home=g.home.id===teamId,w=Math.exp(-(before-Date.parse(g.start))/(options.decayDays*86400000));sum+=(kind==='scored'?(home?g.homeScore!:g.awayScore!):(home?g.awayScore!:g.homeScore!))*w;weights+=w;}return weights?sum/weights:0;
   }
-  const rate=(kind:'scored'|'conceded')=>!neutral&&split.length>=3?.6*mean(split,kind)+.4*mean(rows,kind):mean(rows,kind);
+  const rate=(kind:'scored'|'conceded')=>!neutral&&split.length>=3?options.venueWeight*mean(split,kind)+(1-options.venueWeight)*mean(rows,kind):mean(rows,kind);
   return {games:rows.length,venueGames:split.length,scored:rate('scored'),conceded:rate('conceded'),latest:rows[0]?.start||null,recent:rows.slice(0,5).map(g=>{const delta=g.home.id===teamId?g.homeScore!-g.awayScore!:g.awayScore!-g.homeScore!;return delta>0?'勝':delta<0?'負':'和';})};
 }
-export function footballDistribution(home:number,away:number){
+export function footballDistribution(home:number,away:number,rho=0){
+  if(!Number.isFinite(home)||!Number.isFinite(away)||home<=0||away<=0||!Number.isFinite(rho))throw Error('無效進球參數');
+  rho=Math.max(-Math.min(1/home,1/away)+1e-6,Math.min(1-1e-6,1/(home*away)-1e-6,rho));
   const poisson=(lambda:number)=>{const out=[Math.exp(-lambda)];for(let n=1;n<=20;n++)out.push(out[n-1]*lambda/n);return out;};
   const h=poisson(home),a=poisson(away),scores:{home:number;away:number;probability:number}[]=[];
-  let mass=0;for(let x=0;x<h.length;x++)for(let y=0;y<a.length;y++){const p=h[x]*a[y];scores.push({home:x,away:y,probability:p});mass+=p;}
+  let mass=0;for(let x=0;x<h.length;x++)for(let y=0;y<a.length;y++){const tau=x===0&&y===0?1-home*away*rho:x===0&&y===1?1+home*rho:x===1&&y===0?1+away*rho:x===1&&y===1?1-rho:1;const p=h[x]*a[y]*tau;scores.push({home:x,away:y,probability:p});mass+=p;}
   const probabilities={home:0,draw:0,away:0,over25:0,under25:0,btts:0};
   for(const s of scores){s.probability/=mass;probabilities[s.home>s.away?'home':s.home<s.away?'away':'draw']+=s.probability;probabilities[s.home+s.away>2?'over25':'under25']+=s.probability;if(s.home>0&&s.away>0)probabilities.btts+=s.probability;}
   return {probabilities,scores:scores.sort((a,b)=>b.probability-a.probability).slice(0,3)};
 }
 export function analyzeFootball(game:FootballGame,history:FootballGame[],now=Date.now()):FootballAnalysis{
-  const base={version:'football-form-poisson-v1',capturedAt:new Date(now).toISOString(),notes:['以最近一年同項賽事、最多20場正式90分鐘賽果計算；近期比賽權重較高。','主客場至少3場時採主客場60%＋整體40%；不足時採整體。每隊至少5場。','未納入先發、傷停、實際xG與賠率；尚未回測校準，機率是模型估計。','所有預測均為90分鐘含補時，不含加時與互射十二碼。']};
+  const calibration=selectFootballCalibration(game.league,now),parameters=calibration.parameters;
+  const base={version:calibration.summary.version,calibration:calibration.summary,capturedAt:new Date(now).toISOString(),notes:['以最近一年同項賽事、最多20場正式90分鐘賽果計算；每隊至少5場。',parameters?`已套用分聯賽歷史校準：時間衰減${parameters.decayDays}天，主客場權重${parameters.venueWeight*100}%；保留測試與近期驗收通過。`:'目前保留基礎模型：90天衰減與60%主客場權重，詳見聯賽校準狀態。','未納入先發、傷停、實際xG、對手賽程強度與賠率；機率是模型估計。','所有預測均為90分鐘含補時，不含加時與互射十二碼。']};
   if(game.state!=='scheduled'||Date.parse(game.start)<=now)return {...base,status:'closed',reason:'已開賽、完場或非正常賽程，不提供賽前分析。'};
   if(!game.timeConfirmed)return {...base,status:'waiting',reason:'開賽時間尚未確認。'};
   const cutoff=Math.min(now,Date.parse(game.start)),clean=history.filter(g=>g.league===game.league&&g.id!==game.id);
-  const homeForm=footballForm(game.home.id,'home',clean,cutoff,game.neutral),awayForm=footballForm(game.away.id,'away',clean,cutoff,game.neutral);
+  const options=parameters?{decayDays:parameters.decayDays,venueWeight:parameters.venueWeight}:undefined;
+  const homeForm=footballForm(game.home.id,'home',clean,cutoff,game.neutral,options),awayForm=footballForm(game.away.id,'away',clean,cutoff,game.neutral,options);
   if(homeForm.games<5||awayForm.games<5)return {...base,homeForm,awayForm,status:'waiting',reason:`同賽事歷史不足：主隊${homeForm.games}場、客隊${awayForm.games}場；各需至少5場。`};
   if([homeForm,awayForm].some(f=>!f.latest||cutoff-Date.parse(f.latest)>120*86400000))return {...base,homeForm,awayForm,status:'waiting',reason:'近期賽果超過120天，等待較新的比賽資料。'};
   const clamp=(v:number)=>Math.max(.15,Math.min(5,v));
-  const expected={home:clamp((homeForm.scored+awayForm.conceded)/2),away:clamp((awayForm.scored+homeForm.conceded)/2)};
-  const result=footballDistribution(expected.home,expected.away),p=result.probabilities;
+  const expected=parameters?calibratedFootballGoals(homeForm,awayForm,parameters,game.neutral):{home:clamp((homeForm.scored+awayForm.conceded)/2),away:clamp((awayForm.scored+homeForm.conceded)/2)};
+  const result=footballDistribution(expected.home,expected.away,parameters?.rho||0),p=result.probabilities;
   const best=[{name:'主勝',p:p.home},{name:'和局',p:p.draw},{name:'客勝',p:p.away}].sort((a,b)=>b.p-a.p);
   const lean=best[0].p-best[1].p>=.08?`模型傾向${best[0].name}`:'勝負接近，保留觀望';
   return {...base,status:'ready',reason:'',homeForm,awayForm,expected,...result,lean};

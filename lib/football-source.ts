@@ -1,4 +1,6 @@
 import {analyzeFootball,footballDay,parseFootballEvents,shiftFootballDay,type FootballGame,type FootballLeague} from './football';
+import {archivedFootballHistory,footballArchiveCutoff} from './football-archive';
+import {reconcileFootballHistory} from './football-history';
 const ROOT='https://site.api.espn.com/apis/site/v2/sports/soccer';
 const cache=new Map<string,{expires:number;value:any;fetchedAt:string}>(),pending=new Map<string,Promise<any>>();
 // Share bounded source work across members; only public football data is cached.
@@ -46,7 +48,21 @@ export async function footballGameAnalysis(league:FootballLeague,day:string,id:s
   if(!game)return null;
   if(game.state!=='scheduled'||!game.timeConfirmed||Date.parse(game.start)<=Date.now())return {game,analysis:analyzeFootball(game,[]),sourceFetchedAt:schedule.fetchedAt};
   const years=[game.season,game.season-1];
-  const results=await Promise.all([game.home.id,game.away.id].flatMap(team=>years.map(year=>source(`${league}/teams/${team}/schedule?season=${year}`,60*60000))));
-  const history=results.flatMap(r=>parseFootballEvents(r.value,league));
-  return {game,analysis:analyzeFootball(game,history),sourceFetchedAt:results.map(r=>r.fetchedAt).sort()[0]};
+  const requests=[game.home.id,game.away.id].flatMap(team=>years.map(year=>({team,year})));
+  const results=await Promise.allSettled(requests.map(({team,year})=>source(`${league}/teams/${team}/schedule?season=${year}`,60*60000)));
+  const success=results.flatMap(r=>r.status==='fulfilled'?[r.value]:[]);
+  const missing=results.flatMap((r,i)=>r.status==='rejected'?[requests[i]]:[]);
+  const merged=reconcileFootballHistory(success.flatMap(r=>parseFootballEvents(r.value,league)),archivedFootballHistory(league,game.home.id,game.away.id),league);
+  const analysis=analyzeFootball(game,merged.games),warnings:string[]=[];
+  if(missing.length)warnings.push(`${missing.length}份歷史來源未完成；歷史快照日期 ${footballArchiveCutoff.slice(0,10)}。`);
+  if(merged.conflicts)warnings.push(`${merged.conflicts}場歷史賽果衝突，已排除。`);
+  if([analysis.homeForm,analysis.awayForm].some(f=>f&&f.games<10))warnings.push('至少一隊少於10場樣本，估計較不穩定。');
+  // The archive can fill a previous season only after that season ended.
+  // These European seasons start in the named year and finish by June next year.
+  if(missing.some(r=>r.year===game.season||Date.UTC(r.year+1,6,1)>Date.parse(footballArchiveCutoff))){
+    analysis.status='waiting';analysis.reason='本季賽果來源未完整更新，暫停分析以免遺漏最新比賽。';
+    delete analysis.probabilities;delete analysis.expected;delete analysis.scores;delete analysis.lean;
+  }
+  analysis.quality={label:warnings.length?'資料有限':'基本賽果完整',warnings,historyConflicts:merged.conflicts,archiveSupplementGames:merged.supplemented};
+  return {game,analysis,sourceFetchedAt:success.map(r=>r.fetchedAt).sort()[0]||null,archiveAsOf:merged.supplemented?footballArchiveCutoff:null};
 }

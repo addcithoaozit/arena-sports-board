@@ -1,0 +1,424 @@
+{
+  "version": "football-calibrated-v2-20260927",
+  "createdAt": "2026-09-27T12:46:20.252698+00:00",
+  "auditThrough": "2026-09-27T12:35:04Z",
+  "expiresAt": "2027-03-26T12:35:04Z",
+  "sourceSha256": "908d372808b2344917d24b67646c4217eeb150ae321d618674839b0ad333e600",
+  "historyGames": 11033,
+  "replayedGames": 8315,
+  "leagues": {
+    "eng.1": {
+      "enabled": false,
+      "status": "baseline_retained",
+      "reasons": [
+        "holdout_bttsBrier_worse"
+      ],
+      "parameters": {
+        "decayDays": 180,
+        "venueWeight": 0,
+        "homeIntercept": 0.014151074908522862,
+        "awayIntercept": -0.20919569305803712,
+        "attack": 0.6373083277129785,
+        "defense": 0.5059503858888499,
+        "rho": 0.0558128273068615
+      },
+      "sampleSizes": {
+        "training": 743,
+        "selection": 358,
+        "holdout": 364,
+        "recent": 230
+      },
+      "metrics": {
+        "holdout": {
+          "baseline": {
+            "n": 364,
+            "logLoss": 0.9905928897069547,
+            "brier": 0.5901626257077109,
+            "accuracy": 0.5576923076923077,
+            "over25Brier": 0.24949209648167028,
+            "bttsBrier": 0.2485275780982737
+          },
+          "candidate": {
+            "n": 364,
+            "logLoss": 0.9890789609012398,
+            "brier": 0.5896756640641102,
+            "accuracy": 0.5439560439560439,
+            "over25Brier": 0.24974413657248037,
+            "bttsBrier": 0.2513133366727429
+          },
+          "logLossChangeCI95": [
+            -0.01941816769840893,
+            0.017931192855041897
+          ]
+        },
+        "recent": {
+          "baseline": {
+            "n": 230,
+            "logLoss": 1.0853561121661257,
+            "brier": 0.6573360185667055,
+            "accuracy": 0.4260869565217391,
+            "over25Brier": 0.2651326698471963,
+            "bttsBrier": 0.25044028500459364
+          },
+          "candidate": {
+            "n": 230,
+            "logLoss": 1.083983267002502,
+            "brier": 0.6544058849637387,
+            "accuracy": 0.4391304347826087,
+            "over25Brier": 0.2599810604100177,
+            "bttsBrier": 0.24756511590528169
+          },
+          "logLossChangeCI95": [
+            -0.017119341676385708,
+            0.01482703067268547
+          ]
+        }
+      }
+    },
+    "esp.1": {
+      "enabled": true,
+      "status": "validated",
+      "reasons": [],
+      "parameters": {
+        "decayDays": 180,
+        "venueWeight": 0,
+        "homeIntercept": 0.043601806136497605,
+        "awayIntercept": -0.2530235290525938,
+        "attack": 0.5890685033062047,
+        "defense": 0.5409578438214419,
+        "rho": -0.03282990106300216
+      },
+      "sampleSizes": {
+        "training": 725,
+        "selection": 368,
+        "holdout": 357,
+        "recent": 264
+      },
+      "metrics": {
+        "holdout": {
+          "baseline": {
+            "n": 357,
+            "logLoss": 0.9921849286401165,
+            "brier": 0.591412479555626,
+            "accuracy": 0.5434173669467787,
+            "over25Brier": 0.24929986369092463,
+            "bttsBrier": 0.24990340839301792
+          },
+          "candidate": {
+            "n": 357,
+            "logLoss": 0.987591374947701,
+            "brier": 0.5880659910857348,
+            "accuracy": 0.5238095238095238,
+            "over25Brier": 0.2487388754828788,
+            "bttsBrier": 0.24665180675210055
+          },
+          "logLossChangeCI95": [
+            -0.02264204869581348,
+            0.015941121244241362
+          ]
+        },
+        "recent": {
+          "baseline": {
+            "n": 264,
+            "logLoss": 1.0155440121096295,
+            "brier": 0.6073606087382505,
+            "accuracy": 0.4696969696969697,
+            "over25Brier": 0.24137708818822864,
+            "bttsBrier": 0.24470058607518136
+          },
+          "candidate": {
+            "n": 264,
+            "logLoss": 1.0110702889028216,
+            "brier": 0.6035460789543153,
+            "accuracy": 0.49242424242424243,
+            "over25Brier": 0.24086599689515126,
+            "bttsBrier": 0.24259123536458618
+          },
+          "logLossChangeCI95": [
+            -0.02144624828573525,
+            0.01055253701930804
+          ]
+        }
+      }
+    },
+    "fra.1": {
+      "enabled": false,
+      "status": "baseline_retained",
+      "reasons": [
+        "selection_logloss_not_improved"
+      ],
+      "parameters": {
+        "decayDays": 90,
+        "venueWeight": 0.3,
+        "homeIntercept": -0.027100671078016367,
+        "awayIntercept": -0.186906951848777,
+        "attack": 0.5905638572790418,
+        "defense": 0.5279647440705697,
+        "rho": -0.06581223955712386
+      },
+      "sampleSizes": {
+        "training": 700,
+        "selection": 274,
+        "holdout": 300,
+        "recent": 196
+      },
+      "metrics": {
+        "holdout": {
+          "baseline": {
+            "n": 300,
+            "logLoss": 0.9985359654570205,
+            "brier": 0.5958030902424117,
+            "accuracy": 0.54,
+            "over25Brier": 0.25912027758577444,
+            "bttsBrier": 0.25147958009263627
+          },
+          "candidate": {
+            "n": 300,
+            "logLoss": 0.991359451700796,
+            "brier": 0.5908225051169452,
+            "accuracy": 0.56,
+            "over25Brier": 0.25518571255069844,
+            "bttsBrier": 0.2498125096814931
+          },
+          "logLossChangeCI95": [
+            -0.019177850212885258,
+            0.0052600771759347045
+          ]
+        },
+        "recent": {
+          "baseline": {
+            "n": 196,
+            "logLoss": 1.051481767868135,
+            "brier": 0.6325012341814512,
+            "accuracy": 0.44387755102040816,
+            "over25Brier": 0.25320916426689055,
+            "bttsBrier": 0.25600602989120064
+          },
+          "candidate": {
+            "n": 196,
+            "logLoss": 1.0438927197805827,
+            "brier": 0.6280175195569184,
+            "accuracy": 0.4336734693877551,
+            "over25Brier": 0.25091454110099337,
+            "bttsBrier": 0.254676382190388
+          },
+          "logLossChangeCI95": [
+            -0.020766262277430798,
+            0.005334952890824201
+          ]
+        }
+      }
+    },
+    "ger.1": {
+      "enabled": false,
+      "status": "baseline_retained",
+      "reasons": [
+        "selection_logloss_not_improved",
+        "holdout_logloss_not_improved",
+        "holdout_brier_worse"
+      ],
+      "parameters": {
+        "decayDays": 180,
+        "venueWeight": 0,
+        "homeIntercept": 0.07436759400345053,
+        "awayIntercept": -0.2580590007803167,
+        "attack": 0.6987236472203189,
+        "defense": 0.3453294818362376,
+        "rho": -0.10969894263763301
+      },
+      "sampleSizes": {
+        "training": 582,
+        "selection": 288,
+        "holdout": 296,
+        "recent": 196
+      },
+      "metrics": {
+        "holdout": {
+          "baseline": {
+            "n": 296,
+            "logLoss": 1.0509113387154319,
+            "brier": 0.6326420939215728,
+            "accuracy": 0.44932432432432434,
+            "over25Brier": 0.24104524233870822,
+            "bttsBrier": 0.2589009698382385
+          },
+          "candidate": {
+            "n": 296,
+            "logLoss": 1.0538871892256567,
+            "brier": 0.6333856634676674,
+            "accuracy": 0.4560810810810811,
+            "over25Brier": 0.2406154807107786,
+            "bttsBrier": 0.2539205952251781
+          },
+          "logLossChangeCI95": [
+            -0.030685924430071967,
+            0.03705891195491359
+          ]
+        },
+        "recent": {
+          "baseline": {
+            "n": 196,
+            "logLoss": 0.9902033346281088,
+            "brier": 0.5862636892509457,
+            "accuracy": 0.5408163265306123,
+            "over25Brier": 0.21924096078835453,
+            "bttsBrier": 0.22563405590065921
+          },
+          "candidate": {
+            "n": 196,
+            "logLoss": 0.9782142541261416,
+            "brier": 0.5779513660022755,
+            "accuracy": 0.5255102040816326,
+            "over25Brier": 0.21751721100477112,
+            "bttsBrier": 0.22749476426997942
+          },
+          "logLossChangeCI95": [
+            -0.034511320658336314,
+            0.013207027910733235
+          ]
+        }
+      }
+    },
+    "ita.1": {
+      "enabled": false,
+      "status": "baseline_retained",
+      "reasons": [
+        "recent_logloss_not_improved",
+        "holdout_bttsBrier_worse",
+        "recent_brier_worse"
+      ],
+      "parameters": {
+        "decayDays": 180,
+        "venueWeight": 0,
+        "homeIntercept": -0.03141762490360126,
+        "awayIntercept": -0.2262719697296943,
+        "attack": 0.6106790406546746,
+        "defense": 0.5401948507084932,
+        "rho": -0.032363389346498024
+      },
+      "sampleSizes": {
+        "training": 722,
+        "selection": 363,
+        "holdout": 354,
+        "recent": 250
+      },
+      "metrics": {
+        "holdout": {
+          "baseline": {
+            "n": 354,
+            "logLoss": 1.0349668491226895,
+            "brier": 0.6214232790314317,
+            "accuracy": 0.5254237288135594,
+            "over25Brier": 0.25761430059140933,
+            "bttsBrier": 0.2552226022854891
+          },
+          "candidate": {
+            "n": 354,
+            "logLoss": 1.016750536349378,
+            "brier": 0.6098073017898269,
+            "accuracy": 0.5310734463276836,
+            "over25Brier": 0.2553193821354871,
+            "bttsBrier": 0.25754887874231114
+          },
+          "logLossChangeCI95": [
+            -0.031435384255290584,
+            -0.004168610040048393
+          ]
+        },
+        "recent": {
+          "baseline": {
+            "n": 250,
+            "logLoss": 0.9940556828983913,
+            "brier": 0.5925992532671107,
+            "accuracy": 0.536,
+            "over25Brier": 0.2540424707674973,
+            "bttsBrier": 0.25160833914078967
+          },
+          "candidate": {
+            "n": 250,
+            "logLoss": 0.9959131620678033,
+            "brier": 0.5937510656722803,
+            "accuracy": 0.516,
+            "over25Brier": 0.2537352301484937,
+            "bttsBrier": 0.25073597040655105
+          },
+          "logLossChangeCI95": [
+            -0.016697808009953866,
+            0.022132272841344558
+          ]
+        }
+      }
+    },
+    "uefa.champions": {
+      "enabled": false,
+      "status": "baseline_retained",
+      "reasons": [
+        "training_sample_small",
+        "selection_sample_small",
+        "selection_logloss_not_improved",
+        "holdout_over25Brier_worse"
+      ],
+      "parameters": {
+        "decayDays": 180,
+        "venueWeight": 0.3,
+        "homeIntercept": 0.1993082589969896,
+        "awayIntercept": 0.09339914007616547,
+        "attack": 0.259364770730465,
+        "defense": 0.3685433077662418,
+        "rho": -0.04087256268828648
+      },
+      "sampleSizes": {
+        "training": 126,
+        "selection": 67,
+        "holdout": 114,
+        "recent": 78
+      },
+      "metrics": {
+        "holdout": {
+          "baseline": {
+            "n": 114,
+            "logLoss": 0.9999618005279751,
+            "brier": 0.6007050123683991,
+            "accuracy": 0.49122807017543857,
+            "over25Brier": 0.22409636361544952,
+            "bttsBrier": 0.2440653953232511
+          },
+          "candidate": {
+            "n": 114,
+            "logLoss": 0.9841370793000218,
+            "brier": 0.5878207081211022,
+            "accuracy": 0.5350877192982456,
+            "over25Brier": 0.22762312470589108,
+            "bttsBrier": 0.242095208914492
+          },
+          "logLossChangeCI95": [
+            -0.04658806150798302,
+            0.014583166699128541
+          ]
+        },
+        "recent": {
+          "baseline": {
+            "n": 78,
+            "logLoss": 0.9942667873571367,
+            "brier": 0.5952879748309428,
+            "accuracy": 0.5384615384615384,
+            "over25Brier": 0.24787750409773907,
+            "bttsBrier": 0.24682846117375876
+          },
+          "candidate": {
+            "n": 78,
+            "logLoss": 0.9749197223294379,
+            "brier": 0.5816799480726974,
+            "accuracy": 0.5,
+            "over25Brier": 0.231520819348646,
+            "bttsBrier": 0.23980826050853052
+          },
+          "logLossChangeCI95": [
+            -0.048505645541338606,
+            0.024249833526428663
+          ]
+        }
+      }
+    }
+  }
+}
