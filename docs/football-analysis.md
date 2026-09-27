@@ -1,5 +1,6 @@
 # Render football analysis
 
+Current external-data update: see [football-external-data.md](football-external-data.md). Older experiment results below are retained as historical records.
 Render-only feature: `/?league=FOOTBALL`. Covers Premier League, La Liga,
 Serie A, Bundesliga, Ligue 1 and UEFA Champions League. No GPT Sites changes.
 

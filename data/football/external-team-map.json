@@ -1,0 +1,911 @@
+{
+  "reviewedAt": "2026-09-27",
+  "method": "Reviewed exact/alias names; no fuzzy runtime matching. Fixtures are cross-checked by both mapped team IDs and date before using results.",
+  "teams": {
+    "83": {
+      "name": "Barcelona",
+      "understat": "us:148",
+      "openfootball": "of:ESP:barcelona"
+    },
+    "84": {
+      "name": "Mallorca",
+      "understat": "us:239",
+      "openfootball": null
+    },
+    "85": {
+      "name": "Celta Vigo",
+      "understat": "us:152",
+      "openfootball": null
+    },
+    "86": {
+      "name": "Real Madrid",
+      "understat": "us:150",
+      "openfootball": "of:ESP:realmadrid"
+    },
+    "87": {
+      "name": "Racing Santander",
+      "understat": "us:293",
+      "openfootball": null
+    },
+    "88": {
+      "name": "Espanyol",
+      "understat": "us:141",
+      "openfootball": null
+    },
+    "89": {
+      "name": "Real Sociedad",
+      "understat": "us:140",
+      "openfootball": "of:ESP:realsociedad"
+    },
+    "90": {
+      "name": "Deportivo",
+      "understat": "us:139",
+      "openfootball": null
+    },
+    "92": {
+      "name": "Real Oviedo",
+      "understat": "us:289",
+      "openfootball": null
+    },
+    "93": {
+      "name": "Athletic Club",
+      "understat": "us:147",
+      "openfootball": "of:ESP:athleticclub"
+    },
+    "94": {
+      "name": "Valencia",
+      "understat": "us:146",
+      "openfootball": null
+    },
+    "95": {
+      "name": "Real Valladolid",
+      "understat": "us:231",
+      "openfootball": null
+    },
+    "96": {
+      "name": "Alavés",
+      "understat": "us:158",
+      "openfootball": null
+    },
+    "97": {
+      "name": "Osasuna",
+      "understat": "us:157",
+      "openfootball": null
+    },
+    "98": {
+      "name": "Las Palmas",
+      "understat": "us:144",
+      "openfootball": null
+    },
+    "99": {
+      "name": "Málaga",
+      "understat": "us:137",
+      "openfootball": null
+    },
+    "101": {
+      "name": "Rayo Vallecano",
+      "understat": "us:145",
+      "openfootball": null
+    },
+    "102": {
+      "name": "Villarreal",
+      "understat": "us:154",
+      "openfootball": "of:ESP:villarreal"
+    },
+    "103": {
+      "name": "AC Milan",
+      "understat": "us:111",
+      "openfootball": "of:ITA:milan"
+    },
+    "104": {
+      "name": "AS Roma",
+      "understat": "us:95",
+      "openfootball": "of:ITA:roma"
+    },
+    "105": {
+      "name": "Atalanta",
+      "understat": "us:107",
+      "openfootball": "of:ITA:atalanta"
+    },
+    "107": {
+      "name": "Bologna",
+      "understat": "us:97",
+      "openfootball": "of:ITA:bologna"
+    },
+    "109": {
+      "name": "Fiorentina",
+      "understat": "us:110",
+      "openfootball": null
+    },
+    "110": {
+      "name": "Internazionale",
+      "understat": "us:106",
+      "openfootball": "of:ITA:inter"
+    },
+    "111": {
+      "name": "Juventus",
+      "understat": "us:98",
+      "openfootball": "of:ITA:juventus"
+    },
+    "112": {
+      "name": "Lazio",
+      "understat": "us:96",
+      "openfootball": "of:ITA:lazio"
+    },
+    "113": {
+      "name": "Lecce",
+      "understat": "us:243",
+      "openfootball": null
+    },
+    "114": {
+      "name": "Napoli",
+      "understat": "us:105",
+      "openfootball": "of:ITA:napoli"
+    },
+    "115": {
+      "name": "Parma",
+      "understat": "us:204",
+      "openfootball": null
+    },
+    "118": {
+      "name": "Udinese",
+      "understat": "us:99",
+      "openfootball": null
+    },
+    "119": {
+      "name": "Hellas Verona",
+      "understat": "us:94",
+      "openfootball": null
+    },
+    "121": {
+      "name": "VfL Bochum",
+      "understat": "us:268",
+      "openfootball": null
+    },
+    "122": {
+      "name": "FC Cologne",
+      "understat": "us:134",
+      "openfootball": null
+    },
+    "124": {
+      "name": "Borussia Dortmund",
+      "understat": "us:129",
+      "openfootball": "of:GER:borussiadortmund"
+    },
+    "125": {
+      "name": "Eintracht Frankfurt",
+      "understat": "us:132",
+      "openfootball": "of:GER:eintrachtfrankfurt"
+    },
+    "126": {
+      "name": "SC Freiburg",
+      "understat": "us:135",
+      "openfootball": null
+    },
+    "127": {
+      "name": "Hamburg SV",
+      "understat": "us:118",
+      "openfootball": null
+    },
+    "129": {
+      "name": "Hertha Berlin",
+      "understat": "us:122",
+      "openfootball": null
+    },
+    "131": {
+      "name": "Bayer Leverkusen",
+      "understat": "us:119",
+      "openfootball": "of:GER:bayerleverkusen"
+    },
+    "132": {
+      "name": "Bayern Munich",
+      "understat": "us:117",
+      "openfootball": "of:GER:bayernmunchen"
+    },
+    "133": {
+      "name": "Schalke 04",
+      "understat": "us:124",
+      "openfootball": null
+    },
+    "134": {
+      "name": "VfB Stuttgart",
+      "understat": "us:133",
+      "openfootball": "of:GER:vfbstuttgart"
+    },
+    "137": {
+      "name": "Werder Bremen",
+      "understat": "us:123",
+      "openfootball": null
+    },
+    "138": {
+      "name": "VfL Wolfsburg",
+      "understat": "us:131",
+      "openfootball": "of:GER:vflwolfsburg"
+    },
+    "139": {
+      "name": "Ajax Amsterdam",
+      "understat": null,
+      "openfootball": "of:NED:ajax"
+    },
+    "142": {
+      "name": "Feyenoord Rotterdam",
+      "understat": null,
+      "openfootball": "of:NED:feyenoord"
+    },
+    "148": {
+      "name": "PSV Eindhoven",
+      "understat": null,
+      "openfootball": "of:NED:psv"
+    },
+    "159": {
+      "name": "Bordeaux",
+      "understat": "us:176",
+      "openfootball": null
+    },
+    "160": {
+      "name": "Paris Saint-Germain",
+      "understat": "us:161",
+      "openfootball": "of:FRA:parissaintgermain"
+    },
+    "165": {
+      "name": "Nantes",
+      "understat": "us:168",
+      "openfootball": null
+    },
+    "166": {
+      "name": "Lille",
+      "understat": "us:160",
+      "openfootball": "of:FRA:lille"
+    },
+    "167": {
+      "name": "Lyon",
+      "understat": "us:178",
+      "openfootball": null
+    },
+    "169": {
+      "name": "Stade Rennais",
+      "understat": "us:163",
+      "openfootball": null
+    },
+    "170": {
+      "name": "Troyes",
+      "understat": "us:172",
+      "openfootball": null
+    },
+    "172": {
+      "name": "AJ Auxerre",
+      "understat": "us:275",
+      "openfootball": null
+    },
+    "174": {
+      "name": "AS Monaco",
+      "understat": "us:171",
+      "openfootball": "of:FRA:monaco"
+    },
+    "175": {
+      "name": "Lens",
+      "understat": "us:210",
+      "openfootball": "of:FRA:lens"
+    },
+    "176": {
+      "name": "Marseille",
+      "understat": "us:164",
+      "openfootball": "of:FRA:olympiquemarseille"
+    },
+    "177": {
+      "name": "Metz",
+      "understat": "us:180",
+      "openfootball": null
+    },
+    "178": {
+      "name": "Saint-Étienne",
+      "understat": "us:175",
+      "openfootball": null
+    },
+    "179": {
+      "name": "Toulouse",
+      "understat": "us:174",
+      "openfootball": null
+    },
+    "180": {
+      "name": "Strasbourg",
+      "understat": "us:225",
+      "openfootball": null
+    },
+    "239": {
+      "name": "Torino",
+      "understat": "us:113",
+      "openfootball": null
+    },
+    "243": {
+      "name": "Sevilla",
+      "understat": "us:138",
+      "openfootball": "of:ESP:sevilla"
+    },
+    "244": {
+      "name": "Real Betis",
+      "understat": "us:153",
+      "openfootball": null
+    },
+    "256": {
+      "name": "Celtic",
+      "understat": null,
+      "openfootball": "of:SCO:celtic"
+    },
+    "257": {
+      "name": "Rangers",
+      "understat": null,
+      "openfootball": "of:SCO:rangers"
+    },
+    "268": {
+      "name": "Borussia Mönchengladbach",
+      "understat": "us:130",
+      "openfootball": "of:GER:borussiamonchengladbach"
+    },
+    "270": {
+      "name": "St. Pauli",
+      "understat": "us:288",
+      "openfootball": null
+    },
+    "273": {
+      "name": "Lorient",
+      "understat": "us:179",
+      "openfootball": null
+    },
+    "274": {
+      "name": "Montpellier",
+      "understat": "us:166",
+      "openfootball": null
+    },
+    "301": {
+      "name": "Luton Town",
+      "understat": "us:256",
+      "openfootball": null
+    },
+    "306": {
+      "name": "Hull City",
+      "understat": "us:91",
+      "openfootball": null
+    },
+    "331": {
+      "name": "Brighton & Hove Albion",
+      "understat": "us:220",
+      "openfootball": null
+    },
+    "337": {
+      "name": "Brentford",
+      "understat": "us:244",
+      "openfootball": null
+    },
+    "349": {
+      "name": "AFC Bournemouth",
+      "understat": "us:73",
+      "openfootball": null
+    },
+    "357": {
+      "name": "Leeds United",
+      "understat": "us:245",
+      "openfootball": null
+    },
+    "359": {
+      "name": "Arsenal",
+      "understat": "us:83",
+      "openfootball": "of:ENG:arsenal"
+    },
+    "360": {
+      "name": "Manchester United",
+      "understat": "us:89",
+      "openfootball": "of:ENG:manchesterunited"
+    },
+    "361": {
+      "name": "Newcastle United",
+      "understat": "us:86",
+      "openfootball": "of:ENG:newcastleunited"
+    },
+    "362": {
+      "name": "Aston Villa",
+      "understat": "us:71",
+      "openfootball": "of:ENG:astonvilla"
+    },
+    "363": {
+      "name": "Chelsea",
+      "understat": "us:80",
+      "openfootball": "of:ENG:chelsea"
+    },
+    "364": {
+      "name": "Liverpool",
+      "understat": "us:87",
+      "openfootball": "of:ENG:liverpool"
+    },
+    "366": {
+      "name": "Sunderland",
+      "understat": "us:77",
+      "openfootball": null
+    },
+    "367": {
+      "name": "Tottenham Hotspur",
+      "understat": "us:82",
+      "openfootball": "of:ENG:tottenhamhotspur"
+    },
+    "368": {
+      "name": "Everton",
+      "understat": "us:72",
+      "openfootball": null
+    },
+    "370": {
+      "name": "Fulham",
+      "understat": "us:228",
+      "openfootball": null
+    },
+    "371": {
+      "name": "West Ham United",
+      "understat": "us:81",
+      "openfootball": null
+    },
+    "373": {
+      "name": "Ipswich Town",
+      "understat": "us:285",
+      "openfootball": null
+    },
+    "375": {
+      "name": "Leicester City",
+      "understat": "us:75",
+      "openfootball": null
+    },
+    "376": {
+      "name": "Southampton",
+      "understat": "us:74",
+      "openfootball": null
+    },
+    "379": {
+      "name": "Burnley",
+      "understat": "us:92",
+      "openfootball": null
+    },
+    "380": {
+      "name": "Wolverhampton Wanderers",
+      "understat": "us:229",
+      "openfootball": null
+    },
+    "381": {
+      "name": "Norwich City",
+      "understat": "us:79",
+      "openfootball": null
+    },
+    "382": {
+      "name": "Manchester City",
+      "understat": "us:88",
+      "openfootball": "of:ENG:manchestercity"
+    },
+    "383": {
+      "name": "West Bromwich Albion",
+      "understat": "us:76",
+      "openfootball": null
+    },
+    "384": {
+      "name": "Crystal Palace",
+      "understat": "us:78",
+      "openfootball": null
+    },
+    "388": {
+      "name": "Coventry City",
+      "understat": "us:294",
+      "openfootball": null
+    },
+    "393": {
+      "name": "Nottingham Forest",
+      "understat": "us:249",
+      "openfootball": null
+    },
+    "395": {
+      "name": "Watford",
+      "understat": "us:90",
+      "openfootball": null
+    },
+    "398": {
+      "name": "Sheffield United",
+      "understat": "us:238",
+      "openfootball": null
+    },
+    "432": {
+      "name": "Galatasaray",
+      "understat": null,
+      "openfootball": "of:TUR:galatasaray"
+    },
+    "433": {
+      "name": "Sparta Prague",
+      "understat": null,
+      "openfootball": "of:CZE:spartapraha"
+    },
+    "435": {
+      "name": "Olympiacos",
+      "understat": null,
+      "openfootball": "of:GRE:olympiacos"
+    },
+    "437": {
+      "name": "FC Porto",
+      "understat": null,
+      "openfootball": "of:POR:porto"
+    },
+    "440": {
+      "name": "Dynamo Kyiv",
+      "understat": null,
+      "openfootball": "of:UKR:dinamokiev"
+    },
+    "493": {
+      "name": "Shakhtar Donetsk",
+      "understat": null,
+      "openfootball": "of:UKR:shakhtardonetsk"
+    },
+    "494": {
+      "name": "Slavia Prague",
+      "understat": null,
+      "openfootball": "of:CZE:slaviapraha"
+    },
+    "521": {
+      "name": "Slovan Bratislava",
+      "understat": null,
+      "openfootball": "of:SVK:slovanbratislava"
+    },
+    "570": {
+      "name": "Club Brugge",
+      "understat": null,
+      "openfootball": "of:BEL:clubbrugge"
+    },
+    "597": {
+      "name": "Dinamo Zagreb",
+      "understat": null,
+      "openfootball": "of:CRO:dinamozagreb"
+    },
+    "598": {
+      "name": "1. FC Union Berlin",
+      "understat": "us:240",
+      "openfootball": "of:GER:1unionberlin"
+    },
+    "611": {
+      "name": "Maccabi Haifa",
+      "understat": null,
+      "openfootball": "of:ISR:maccabihaifa"
+    },
+    "614": {
+      "name": "Sheriff Tiraspol",
+      "understat": null,
+      "openfootball": "of:MDA:sheriff"
+    },
+    "887": {
+      "name": "AEK Athens",
+      "understat": null,
+      "openfootball": "of:GRE:aekathen"
+    },
+    "909": {
+      "name": "F.C. København",
+      "understat": null,
+      "openfootball": "of:DEN:kbenhavn"
+    },
+    "1068": {
+      "name": "Atlético Madrid",
+      "understat": "us:143",
+      "openfootball": "of:ESP:atleticomadrid"
+    },
+    "1538": {
+      "name": "Levante",
+      "understat": "us:151",
+      "openfootball": null
+    },
+    "1895": {
+      "name": "Besiktas",
+      "understat": null,
+      "openfootball": "of:TUR:besiktas"
+    },
+    "1929": {
+      "name": "Benfica",
+      "understat": null,
+      "openfootball": "of:POR:benfica"
+    },
+    "2250": {
+      "name": "Sporting CP",
+      "understat": null,
+      "openfootball": "of:POR:sporting"
+    },
+    "2290": {
+      "name": "Red Star Belgrade",
+      "understat": null,
+      "openfootball": "of:SRB:crvenazvezda"
+    },
+    "2502": {
+      "name": "Nice",
+      "understat": "us:170",
+      "openfootball": null
+    },
+    "2503": {
+      "name": "AC Ajaccio",
+      "understat": "us:274",
+      "openfootball": null
+    },
+    "2506": {
+      "name": "Arminia Bielefeld",
+      "understat": "us:262",
+      "openfootball": null
+    },
+    "2528": {
+      "name": "Kairat Almaty",
+      "understat": null,
+      "openfootball": "of:KAZ:kairat"
+    },
+    "2533": {
+      "name": "Zenit St Petersburg",
+      "understat": null,
+      "openfootball": "of:RUS:zenit"
+    },
+    "2572": {
+      "name": "Como",
+      "understat": "us:286",
+      "openfootball": null
+    },
+    "2574": {
+      "name": "Empoli",
+      "understat": "us:108",
+      "openfootball": null
+    },
+    "2697": {
+      "name": "Le Mans",
+      "understat": "us:295",
+      "openfootball": null
+    },
+    "2720": {
+      "name": "Malmö FF",
+      "understat": null,
+      "openfootball": "of:SWE:malmoff"
+    },
+    "2722": {
+      "name": "Young Boys",
+      "understat": null,
+      "openfootball": "of:SUI:youngboys"
+    },
+    "2734": {
+      "name": "Sampdoria",
+      "understat": "us:102",
+      "openfootball": null
+    },
+    "2790": {
+      "name": "RB Salzburg",
+      "understat": null,
+      "openfootball": "of:AUT:salzburg"
+    },
+    "2922": {
+      "name": "Getafe",
+      "understat": "us:142",
+      "openfootball": null
+    },
+    "2925": {
+      "name": "Cagliari",
+      "understat": "us:116",
+      "openfootball": null
+    },
+    "2950": {
+      "name": "Mainz",
+      "understat": "us:125",
+      "openfootball": null
+    },
+    "2980": {
+      "name": "Bodo/Glimt",
+      "understat": null,
+      "openfootball": "of:NOR:bodglimt"
+    },
+    "2994": {
+      "name": "Braga",
+      "understat": null,
+      "openfootball": "of:POR:braga"
+    },
+    "3070": {
+      "name": "SpVgg Greuther Fürth",
+      "understat": "us:267",
+      "openfootball": null
+    },
+    "3170": {
+      "name": "Dijon FCO",
+      "understat": "us:181",
+      "openfootball": null
+    },
+    "3171": {
+      "name": "Clermont Foot",
+      "understat": "us:270",
+      "openfootball": null
+    },
+    "3173": {
+      "name": "Crotone",
+      "understat": "us:115",
+      "openfootball": null
+    },
+    "3236": {
+      "name": "Le Havre AC",
+      "understat": "us:282",
+      "openfootball": null
+    },
+    "3240": {
+      "name": "Salernitana",
+      "understat": "us:264",
+      "openfootball": null
+    },
+    "3243": {
+      "name": "Stade de Reims",
+      "understat": "us:177",
+      "openfootball": null
+    },
+    "3263": {
+      "name": "Genoa",
+      "understat": "us:101",
+      "openfootball": null
+    },
+    "3307": {
+      "name": "SC Paderborn 07",
+      "understat": "us:205",
+      "openfootball": null
+    },
+    "3746": {
+      "name": "SK Sturm Graz",
+      "understat": null,
+      "openfootball": "of:AUT:sturmgraz"
+    },
+    "3747": {
+      "name": "Granada",
+      "understat": "us:155",
+      "openfootball": null
+    },
+    "3751": {
+      "name": "Elche",
+      "understat": "us:207",
+      "openfootball": null
+    },
+    "3752": {
+      "name": "Eibar",
+      "understat": "us:156",
+      "openfootball": null
+    },
+    "3812": {
+      "name": "SV Darmstadt 98",
+      "understat": "us:127",
+      "openfootball": null
+    },
+    "3841": {
+      "name": "FC Augsburg",
+      "understat": "us:121",
+      "openfootball": null
+    },
+    "3842": {
+      "name": "Cádiz",
+      "understat": "us:261",
+      "openfootball": null
+    },
+    "3956": {
+      "name": "Pisa",
+      "understat": "us:291",
+      "openfootball": null
+    },
+    "3997": {
+      "name": "Sassuolo",
+      "understat": "us:104",
+      "openfootball": null
+    },
+    "4007": {
+      "name": "Monza",
+      "understat": "us:271",
+      "openfootball": null
+    },
+    "4050": {
+      "name": "Cremonese",
+      "understat": "us:272",
+      "openfootball": null
+    },
+    "4056": {
+      "name": "Spezia",
+      "understat": "us:260",
+      "openfootball": null
+    },
+    "4057": {
+      "name": "Frosinone",
+      "understat": "us:112",
+      "openfootball": null
+    },
+    "4059": {
+      "name": "Benevento",
+      "understat": "us:222",
+      "openfootball": null
+    },
+    "5413": {
+      "name": "Huesca",
+      "understat": "us:232",
+      "openfootball": null
+    },
+    "5807": {
+      "name": "Union St.-Gilloise",
+      "understat": null,
+      "openfootball": "of:BEL:royaleunionsaintgilloise"
+    },
+    "6418": {
+      "name": "1. FC Heidenheim 1846",
+      "understat": "us:280",
+      "openfootball": null
+    },
+    "6832": {
+      "name": "Almería",
+      "understat": "us:208",
+      "openfootball": null
+    },
+    "6851": {
+      "name": "Paris FC",
+      "understat": "us:290",
+      "openfootball": null
+    },
+    "6997": {
+      "name": "Brest",
+      "understat": "us:241",
+      "openfootball": "of:FRA:brest"
+    },
+    "7730": {
+      "name": "Nimes",
+      "understat": "us:235",
+      "openfootball": null
+    },
+    "7868": {
+      "name": "Angers",
+      "understat": "us:167",
+      "openfootball": null
+    },
+    "7884": {
+      "name": "Holstein Kiel",
+      "understat": "us:287",
+      "openfootball": null
+    },
+    "7911": {
+      "name": "TSG Hoffenheim",
+      "understat": "us:120",
+      "openfootball": null
+    },
+    "9812": {
+      "name": "Girona",
+      "understat": "us:223",
+      "openfootball": "of:ESP:girona"
+    },
+    "10388": {
+      "name": "SV Elversberg",
+      "understat": "us:296",
+      "openfootball": null
+    },
+    "10414": {
+      "name": "FK Qarabag",
+      "understat": null,
+      "openfootball": "of:AZE:qarabag"
+    },
+    "11420": {
+      "name": "RB Leipzig",
+      "understat": "us:136",
+      "openfootball": "of:GER:rbleipzig"
+    },
+    "11706": {
+      "name": "Viktoria Plzen",
+      "understat": null,
+      "openfootball": "of:CZE:viktoriaplzen"
+    },
+    "17530": {
+      "name": "Venezia",
+      "understat": "us:265",
+      "openfootball": null
+    },
+    "17534": {
+      "name": "Leganés",
+      "understat": "us:159",
+      "openfootball": null
+    },
+    "17544": {
+      "name": "Antwerp",
+      "understat": null,
+      "openfootball": "of:BEL:royalantwerp"
+    },
+    "22281": {
+      "name": "Pafos",
+      "understat": null,
+      "openfootball": "of:CYP:paphos"
+    }
+  }
+}

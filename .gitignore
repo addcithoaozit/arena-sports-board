@@ -46,3 +46,5 @@ next-env.d.ts
 /.football-research/
 *.tsbuildinfo
 !.env.example
+
+/.firecrawl/

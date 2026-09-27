@@ -23,6 +23,8 @@ export default function FootballDiagnostics({league}:{league:FootballLeague}){
   {busy&&<p role="status">讀取中…</p>}{error&&<p role="alert">{error}</p>}
   {a&&<div><p>{a.calibration?.label}・版本 {a.version}</p>{a.reason&&<p>{a.reason}</p>}
    <div className="football-audit-scroll"><table><thead><tr><th>球隊</th><th>採用場數</th><th>跨賽事場數</th><th>近五場</th><th>最新賽果</th></tr></thead><tbody>{(['home','away'] as const).map(side=>{const f=a[side==='home'?'homeForm':'awayForm'];return <tr key={side}><th>{report.game[side].name}</th><td>{f?.games??0}</td><td>{f?.supplementGames??0}</td><td>{f?.recent.join('／')||'—'}</td><td>{f?.latest?footballDay(f.latest):'—'}</td></tr>;})}</tbody></table></div>
+   {a.external&&<p>外部資料：{a.external.sources.join('＋')}；主隊 xG {a.external.homeXgGames} 場、客隊 {a.external.awayXgGames} 場；排除衝突 {a.external.conflicts} 場。{a.external.modelApplied?'已套用外部資料模型':'使用原模型'}。抓取時間：{a.external.fetchedAt}</p>}
+   {a.external?.reasons.map(r=><p key={r}>{r}</p>)}
    {a.quality?.warnings.map(w=><p key={w}>{w}</p>)}{a.calibration?.reasons.map(r=><p key={r}>{r}</p>)}{a.notes.map(n=><p key={n}>{n}</p>)}
    {report.sourceFetchedAt&&<p>來源抓取：{report.sourceFetchedAt}</p>}{report.archiveAsOf&&<p>歷史快照：{report.archiveAsOf}</p>}<p>賽前快照：{report.snapshotSaved?'已保存':'未保存'}</p>
   </div>}
