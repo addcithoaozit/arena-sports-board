@@ -1,6 +1,7 @@
 import {analyzeFootball,footballDay,needsFootballRecentForm,parseFootballEvents,parseFootballTeamHistory,shiftFootballDay,type FootballGame,type FootballLeague} from './football';
 import {archivedFootballHistory,footballArchiveCutoff} from './football-archive';
 import {reconcileFootballHistory} from './football-history';
+import {applyExternalFootballAnalysis,loadExternalFootballContext} from './football-external-source';
 const ROOT='https://site.api.espn.com/apis/site/v2/sports/soccer';
 const cache=new Map<string,{expires:number;value:any;fetchedAt:string}>(),pending=new Map<string,Promise<any>>();
 // Share bounded source work across members; only public football data is cached.
@@ -47,6 +48,7 @@ export async function footballGameAnalysis(league:FootballLeague,day:string,id:s
   const schedule=await footballSchedule(league,day),game=schedule.games.find(g=>g.id===id);
   if(!game)return null;
   if(game.state!=='scheduled'||!game.timeConfirmed||Date.parse(game.start)<=Date.now())return {game,analysis:analyzeFootball(game,[]),sourceFetchedAt:schedule.fetchedAt};
+  const externalRequest=loadExternalFootballContext(league).catch(()=>null);
   const years=[game.season,game.season-1];
   const requests=[game.home.id,game.away.id].flatMap(team=>years.map(year=>({team,year})));
   const results=await Promise.allSettled(requests.map(async({team,year})=>{
@@ -68,7 +70,7 @@ export async function footballGameAnalysis(league:FootballLeague,day:string,id:s
   // Reconcile all feeds together so a quarantined ID cannot return via fallback.
   // Preserve each competition identity; lower-division scores are never relabeled.
   const merged=reconcileFootballHistory([...live,...extraSuccess.flatMap(r=>r.games)],archive);
-  const analysis=analyzeFootball(game,merged.games,Date.now(),merged.games),warnings:string[]=[];
+  let analysis=analyzeFootball(game,merged.games,Date.now(),merged.games);const warnings:string[]=[];
   if(missing.length)warnings.push(`${missing.length}份歷史來源未完成；歷史快照日期 ${footballArchiveCutoff.slice(0,10)}。`);
   if(merged.conflicts)warnings.push(`${merged.conflicts}場歷史賽果衝突，已排除。`);
   if(extraResults.some(r=>r.status==='rejected'))warnings.push('部分跨賽事近況未完成，僅採用已核對的賽果。');
@@ -81,5 +83,7 @@ export async function footballGameAnalysis(league:FootballLeague,day:string,id:s
     delete analysis.probabilities;delete analysis.expected;delete analysis.scores;delete analysis.lean;
   }
   analysis.quality={label:warnings.length?'資料有限':'基本賽果完整',warnings,historyConflicts:merged.conflicts,archiveSupplementGames:merged.supplemented};
+  const external=await externalRequest;
+  if(external)analysis=applyExternalFootballAnalysis(game,analysis,merged.games,external);
   return {game,analysis,sourceFetchedAt:[...success,...extraSuccess].map(r=>r.fetchedAt).sort()[0]||null,archiveAsOf:merged.supplemented?footballArchiveCutoff:null};
 }

@@ -1,0 +1,106 @@
+{
+  "version": "football-external-xg-protocol-v1",
+  "recordedAt": "2026-09-27T14:48:16.715869+00:00",
+  "recordedBeforeFitting": true,
+  "sources": [
+    "Understat: historical match-level scores and xG for five domestic leagues",
+    "OpenFootball CC0: earlier Champions League results"
+  ],
+  "xgExperiment": {
+    "warmup": "2014",
+    "training": "2015-01-01/2016-12-31",
+    "selection": "2017-01-01/2018-12-31",
+    "newLockedHoldout": "2019-01-01/2020-12-31",
+    "previouslyInspectedAudits": [
+      "2025",
+      "2026 through collection cutoff"
+    ],
+    "features": "Prior completed matches only, exclude all fixtures on target UTC calendar day; rolling 365 days and maximum 20 matches; goal and xG scored/conceded, team Elo difference updated only after previous days",
+    "candidates": {
+      "decayDays": [
+        90,
+        180
+      ],
+      "venueWeight": [
+        0,
+        0.6
+      ],
+      "baselineBlend": [
+        0.25,
+        0.5,
+        0.75,
+        1
+      ]
+    },
+    "fit": "Regularized Poisson regression of goals on log rolling goal and xG attack/defence plus signed Elo difference, per-side intercepts and bounded Dixon-Coles rho; training data only",
+    "elo": {
+      "initial": 1500,
+      "k": 20,
+      "homeAdvantage": 60,
+      "scale": 400,
+      "annualShrink": 0.15
+    },
+    "select": "Selection-set 1X2 log loss, restricted to candidates with no worse selection 1X2 Brier and <=0.002 increase in selection totals/BTTS Brier; never tune on holdout or audits",
+    "promotion": {
+      "minimumTrainingGames": 180,
+      "minimumSelectionGames": 80,
+      "minimumHoldoutGames": 160,
+      "minimumAuditGames": 60,
+      "logLossImprovesEveryEvaluation": true,
+      "brierNotWorseEveryEvaluation": true,
+      "maximumBinaryBrierIncrease": 0.002,
+      "compareCurrentDeployedModelWhereAvailable": true
+    },
+    "uncertainty": "Paired week-block bootstrap 1000 replicates, fixed seed 20260927; report intervals, never use them to tune",
+    "runtime": "Promote only explicitly accepted leagues with verified current source freshness, identities and xG coverage. Otherwise preserve current model. Cross-competition fallback never receives same-league xG validation by implication.",
+    "blendDefinition": "Linear blend of base and fitted expected goals; fitted rho multiplied by the same blend weight, then one shared score distribution."
+  },
+  "championsExpansion": {
+    "warmup": "2011",
+    "training": "2012-01-01/2016-12-31",
+    "selection": "2017-01-01/2018-12-31",
+    "newLockedHoldout": "2019-01-01/2020-12-31",
+    "previouslyInspectedAudits": [
+      "2025",
+      "2026 through collection cutoff"
+    ],
+    "features": "same rolling goals and Elo; no xG assumed for Champions League",
+    "candidates": {
+      "decayDays": [
+        90,
+        180
+      ],
+      "venueWeight": [
+        0,
+        0.6
+      ],
+      "baselineBlend": [
+        0.25,
+        0.5,
+        0.75,
+        1
+      ]
+    },
+    "fit": "Same joint score likelihood and regularization, xG coefficients fixed to zero",
+    "promotion": {
+      "minimumTrainingGames": 180,
+      "minimumSelectionGames": 80,
+      "minimumHoldoutGames": 80,
+      "minimumAuditGames": 60,
+      "logLossImprovesEveryEvaluation": true,
+      "brierNotWorseEveryEvaluation": true,
+      "maximumBinaryBrierIncrease": 0.002,
+      "compareCurrentDeployedModelWhereAvailable": true
+    },
+    "parsing": "Exclude extra-time/penalty scores and ambiguous records; date-only cutoffs exclude the target day; finals and 2020 August knockout fixtures are neutral."
+  },
+  "prohibitions": [
+    "no future target-match xG as a pregame feature",
+    "no random train/test split",
+    "no held-out or audited outcome tuning",
+    "no lowered acceptance threshold after seeing results",
+    "no invented missing xG",
+    "no re-labeling cross-competition results",
+    "no claim that additional data guarantees validation or future winnings"
+  ]
+}

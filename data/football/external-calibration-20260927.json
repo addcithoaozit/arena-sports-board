@@ -1,0 +1,3891 @@
+{
+  "version": "football-external-v3-20260927",
+  "createdAt": "2026-09-27T14:58:43.990410+00:00",
+  "expiresAt": "2026-12-26T14:58:43.990410+00:00",
+  "sourceSha256": "fa524a6f5d9c9101f5f78e992512e00a858eddd3065a406d4509ab45d37f2358",
+  "auditThrough": "2026-09-27T14:47:05.960166+00:00",
+  "historyGames": 23810,
+  "replayedGames": 21840,
+  "protocolSha256": "dd38653398a8fdc919a83d2be319630db8d0943cec6be9fe9e6df1698bd25b23",
+  "protocol": {
+    "version": "football-external-xg-protocol-v1",
+    "recordedAt": "2026-09-27T14:48:16.715869+00:00",
+    "recordedBeforeFitting": true,
+    "sources": [
+      "Understat: historical match-level scores and xG for five domestic leagues",
+      "OpenFootball CC0: earlier Champions League results"
+    ],
+    "xgExperiment": {
+      "warmup": "2014",
+      "training": "2015-01-01/2016-12-31",
+      "selection": "2017-01-01/2018-12-31",
+      "newLockedHoldout": "2019-01-01/2020-12-31",
+      "previouslyInspectedAudits": [
+        "2025",
+        "2026 through collection cutoff"
+      ],
+      "features": "Prior completed matches only, exclude all fixtures on target UTC calendar day; rolling 365 days and maximum 20 matches; goal and xG scored/conceded, team Elo difference updated only after previous days",
+      "candidates": {
+        "decayDays": [
+          90,
+          180
+        ],
+        "venueWeight": [
+          0,
+          0.6
+        ],
+        "baselineBlend": [
+          0.25,
+          0.5,
+          0.75,
+          1
+        ]
+      },
+      "fit": "Regularized Poisson regression of goals on log rolling goal and xG attack/defence plus signed Elo difference, per-side intercepts and bounded Dixon-Coles rho; training data only",
+      "elo": {
+        "initial": 1500,
+        "k": 20,
+        "homeAdvantage": 60,
+        "scale": 400,
+        "annualShrink": 0.15
+      },
+      "select": "Selection-set 1X2 log loss, restricted to candidates with no worse selection 1X2 Brier and <=0.002 increase in selection totals/BTTS Brier; never tune on holdout or audits",
+      "promotion": {
+        "minimumTrainingGames": 180,
+        "minimumSelectionGames": 80,
+        "minimumHoldoutGames": 160,
+        "minimumAuditGames": 60,
+        "logLossImprovesEveryEvaluation": true,
+        "brierNotWorseEveryEvaluation": true,
+        "maximumBinaryBrierIncrease": 0.002,
+        "compareCurrentDeployedModelWhereAvailable": true
+      },
+      "uncertainty": "Paired week-block bootstrap 1000 replicates, fixed seed 20260927; report intervals, never use them to tune",
+      "runtime": "Promote only explicitly accepted leagues with verified current source freshness, identities and xG coverage. Otherwise preserve current model. Cross-competition fallback never receives same-league xG validation by implication.",
+      "blendDefinition": "Linear blend of base and fitted expected goals; fitted rho multiplied by the same blend weight, then one shared score distribution."
+    },
+    "championsExpansion": {
+      "warmup": "2011",
+      "training": "2012-01-01/2016-12-31",
+      "selection": "2017-01-01/2018-12-31",
+      "newLockedHoldout": "2019-01-01/2020-12-31",
+      "previouslyInspectedAudits": [
+        "2025",
+        "2026 through collection cutoff"
+      ],
+      "features": "same rolling goals and Elo; no xG assumed for Champions League",
+      "candidates": {
+        "decayDays": [
+          90,
+          180
+        ],
+        "venueWeight": [
+          0,
+          0.6
+        ],
+        "baselineBlend": [
+          0.25,
+          0.5,
+          0.75,
+          1
+        ]
+      },
+      "fit": "Same joint score likelihood and regularization, xG coefficients fixed to zero",
+      "promotion": {
+        "minimumTrainingGames": 180,
+        "minimumSelectionGames": 80,
+        "minimumHoldoutGames": 80,
+        "minimumAuditGames": 60,
+        "logLossImprovesEveryEvaluation": true,
+        "brierNotWorseEveryEvaluation": true,
+        "maximumBinaryBrierIncrease": 0.002,
+        "compareCurrentDeployedModelWhereAvailable": true
+      },
+      "parsing": "Exclude extra-time/penalty scores and ambiguous records; date-only cutoffs exclude the target day; finals and 2020 August knockout fixtures are neutral."
+    },
+    "prohibitions": [
+      "no future target-match xG as a pregame feature",
+      "no random train/test split",
+      "no held-out or audited outcome tuning",
+      "no lowered acceptance threshold after seeing results",
+      "no invented missing xG",
+      "no re-labeling cross-competition results",
+      "no claim that additional data guarantees validation or future winnings"
+    ]
+  },
+  "coverage": {
+    "uefa.champions:2011": {
+      "total": 96,
+      "eligible": 16
+    },
+    "uefa.champions:2012": {
+      "total": 121,
+      "eligible": 63
+    },
+    "uefa.champions:2013": {
+      "total": 125,
+      "eligible": 73
+    },
+    "uefa.champions:2014": {
+      "total": 124,
+      "eligible": 71
+    },
+    "fra.1:2014": {
+      "total": 189,
+      "eligible": 139
+    },
+    "eng.1:2014": {
+      "total": 190,
+      "eligible": 140
+    },
+    "ger.1:2014": {
+      "total": 153,
+      "eligible": 108
+    },
+    "esp.1:2014": {
+      "total": 159,
+      "eligible": 109
+    },
+    "ita.1:2014": {
+      "total": 160,
+      "eligible": 110
+    },
+    "eng.1:2015": {
+      "total": 380,
+      "eligible": 366
+    },
+    "esp.1:2015": {
+      "total": 390,
+      "eligible": 375
+    },
+    "ita.1:2015": {
+      "total": 389,
+      "eligible": 375
+    },
+    "fra.1:2015": {
+      "total": 381,
+      "eligible": 368
+    },
+    "ger.1:2015": {
+      "total": 306,
+      "eligible": 296
+    },
+    "uefa.champions:2015": {
+      "total": 123,
+      "eligible": 69
+    },
+    "eng.1:2016": {
+      "total": 378,
+      "eligible": 364
+    },
+    "esp.1:2016": {
+      "total": 370,
+      "eligible": 355
+    },
+    "ita.1:2016": {
+      "total": 389,
+      "eligible": 374
+    },
+    "fra.1:2016": {
+      "total": 378,
+      "eligible": 364
+    },
+    "ger.1:2016": {
+      "total": 297,
+      "eligible": 287
+    },
+    "uefa.champions:2016": {
+      "total": 122,
+      "eligible": 62
+    },
+    "eng.1:2017": {
+      "total": 401,
+      "eligible": 387
+    },
+    "esp.1:2017": {
+      "total": 390,
+      "eligible": 375
+    },
+    "ita.1:2017": {
+      "total": 390,
+      "eligible": 375
+    },
+    "fra.1:2017": {
+      "total": 382,
+      "eligible": 368
+    },
+    "ger.1:2017": {
+      "total": 315,
+      "eligible": 305
+    },
+    "uefa.champions:2017": {
+      "total": 124,
+      "eligible": 66
+    },
+    "eng.1:2018": {
+      "total": 371,
+      "eligible": 356
+    },
+    "ita.1:2018": {
+      "total": 382,
+      "eligible": 367
+    },
+    "esp.1:2018": {
+      "total": 380,
+      "eligible": 366
+    },
+    "ger.1:2018": {
+      "total": 306,
+      "eligible": 296
+    },
+    "fra.1:2018": {
+      "total": 369,
+      "eligible": 359
+    },
+    "uefa.champions:2018": {
+      "total": 125,
+      "eligible": 63
+    },
+    "eng.1:2019": {
+      "total": 379,
+      "eligible": 364
+    },
+    "esp.1:2019": {
+      "total": 391,
+      "eligible": 376
+    },
+    "fra.1:2019": {
+      "total": 388,
+      "eligible": 378
+    },
+    "ger.1:2019": {
+      "total": 306,
+      "eligible": 291
+    },
+    "ita.1:2019": {
+      "total": 359,
+      "eligible": 345
+    },
+    "uefa.champions:2019": {
+      "total": 124,
+      "eligible": 69
+    },
+    "eng.1:2020": {
+      "total": 336,
+      "eligible": 322
+    },
+    "esp.1:2020": {
+      "total": 355,
+      "eligible": 342
+    },
+    "ita.1:2020": {
+      "total": 349,
+      "eligible": 334
+    },
+    "fra.1:2020": {
+      "total": 260,
+      "eligible": 242
+    },
+    "ger.1:2020": {
+      "total": 270,
+      "eligible": 260
+    },
+    "uefa.champions:2020": {
+      "total": 94,
+      "eligible": 46
+    },
+    "eng.1:2021": {
+      "total": 408,
+      "eligible": 394
+    },
+    "esp.1:2021": {
+      "total": 407,
+      "eligible": 393
+    },
+    "ger.1:2021": {
+      "total": 342,
+      "eligible": 332
+    },
+    "ita.1:2021": {
+      "total": 431,
+      "eligible": 417
+    },
+    "fra.1:2021": {
+      "total": 400,
+      "eligible": 391
+    },
+    "uefa.champions:2021": {
+      "total": 123,
+      "eligible": 63
+    },
+    "eng.1:2022": {
+      "total": 361,
+      "eligible": 346
+    },
+    "esp.1:2022": {
+      "total": 348,
+      "eligible": 335
+    },
+    "ita.1:2022": {
+      "total": 341,
+      "eligible": 326
+    },
+    "ger.1:2022": {
+      "total": 288,
+      "eligible": 278
+    },
+    "fra.1:2022": {
+      "total": 352,
+      "eligible": 337
+    },
+    "uefa.champions:2022": {
+      "total": 123,
+      "eligible": 59
+    },
+    "eng.1:2023": {
+      "total": 412,
+      "eligible": 397
+    },
+    "fra.1:2023": {
+      "total": 373,
+      "eligible": 363
+    },
+    "ita.1:2023": {
+      "total": 410,
+      "eligible": 395
+    },
+    "esp.1:2023": {
+      "total": 410,
+      "eligible": 395
+    },
+    "ger.1:2023": {
+      "total": 314,
+      "eligible": 304
+    },
+    "uefa.champions:2023": {
+      "total": 149,
+      "eligible": 59
+    },
+    "eng.1:2024": {
+      "total": 372,
+      "eligible": 358
+    },
+    "esp.1:2024": {
+      "total": 381,
+      "eligible": 368
+    },
+    "ita.1:2024": {
+      "total": 378,
+      "eligible": 363
+    },
+    "ger.1:2024": {
+      "total": 297,
+      "eligible": 287
+    },
+    "fra.1:2024": {
+      "total": 289,
+      "eligible": 274
+    },
+    "uefa.champions:2024": {
+      "total": 134,
+      "eligible": 68
+    },
+    "eng.1:2025": {
+      "total": 378,
+      "eligible": 364
+    },
+    "esp.1:2025": {
+      "total": 370,
+      "eligible": 357
+    },
+    "fra.1:2025": {
+      "total": 314,
+      "eligible": 300
+    },
+    "ita.1:2025": {
+      "total": 368,
+      "eligible": 354
+    },
+    "ger.1:2025": {
+      "total": 306,
+      "eligible": 296
+    },
+    "uefa.champions:2025": {
+      "total": 187,
+      "eligible": 116
+    },
+    "eng.1:2026": {
+      "total": 244,
+      "eligible": 230
+    },
+    "fra.1:2026": {
+      "total": 207,
+      "eligible": 197
+    },
+    "ita.1:2026": {
+      "total": 264,
+      "eligible": 250
+    },
+    "esp.1:2026": {
+      "total": 278,
+      "eligible": 264
+    },
+    "ger.1:2026": {
+      "total": 207,
+      "eligible": 196
+    },
+    "uefa.champions:2026": {
+      "total": 78,
+      "eligible": 78
+    }
+  },
+  "leagues": {
+    "eng.1": {
+      "enabled": true,
+      "reasons": [],
+      "parameters": {
+        "decayDays": 180,
+        "venueWeight": 0.6,
+        "blend": 1,
+        "homeIntercept": 0.09699320622615766,
+        "awayIntercept": -0.052556620083839364,
+        "goalAttack": 0.042802483272355626,
+        "goalDefense": 0.07166169506973864,
+        "xgAttack": 0.41007214257987995,
+        "xgDefense": 0.2827932919088908,
+        "elo": 0.5505693135653538,
+        "rho": -0.003994213685603078,
+        "usesXg": true
+      },
+      "sampleSizes": {
+        "training": 730,
+        "selection": 743,
+        "holdout": 686,
+        "audit2025": 364,
+        "audit2026": 230
+      },
+      "metrics": {
+        "training": {
+          "baseline": {
+            "n": 730,
+            "logLoss": 1.0264126443330572,
+            "brier": 0.6146048220618295,
+            "accuracy": 0.5013698630136987,
+            "over25Brier": 0.2565498169226225,
+            "bttsBrier": 0.25379912951530303
+          },
+          "candidate": {
+            "n": 730,
+            "logLoss": 1.0006089634485338,
+            "brier": 0.5970150924548128,
+            "accuracy": 0.5123287671232877,
+            "over25Brier": 0.24842146186846686,
+            "bttsBrier": 0.24954547860675153
+          },
+          "logLossChange": -0.02580368088452345
+        },
+        "selection": {
+          "baseline": {
+            "n": 743,
+            "logLoss": 0.9724156882637802,
+            "brier": 0.5767418629057045,
+            "accuracy": 0.5437415881561238,
+            "over25Brier": 0.2476638199403876,
+            "bttsBrier": 0.24905652353563082
+          },
+          "candidate": {
+            "n": 743,
+            "logLoss": 0.9334040896701015,
+            "brier": 0.5502478235469702,
+            "accuracy": 0.5787348586810229,
+            "over25Brier": 0.2417687888547582,
+            "bttsBrier": 0.2461829902943381
+          },
+          "logLossChange": -0.039011598593678753,
+          "logLossChangeCI95": [
+            -0.05247913042270318,
+            -0.025720397987342623
+          ]
+        },
+        "holdout": {
+          "baseline": {
+            "n": 686,
+            "logLoss": 0.9978816168220523,
+            "brier": 0.5949744359956185,
+            "accuracy": 0.5189504373177842,
+            "over25Brier": 0.25447109326606526,
+            "bttsBrier": 0.2547052962973161
+          },
+          "candidate": {
+            "n": 686,
+            "logLoss": 0.9672236591968801,
+            "brier": 0.5737278720581918,
+            "accuracy": 0.5291545189504373,
+            "over25Brier": 0.24789432568684003,
+            "bttsBrier": 0.25015074358309186
+          },
+          "logLossChange": -0.030657957625172205,
+          "logLossChangeCI95": [
+            -0.04593447702040718,
+            -0.015224147203489804
+          ]
+        },
+        "audit2025": {
+          "baseline": {
+            "n": 364,
+            "logLoss": 0.9905920152238691,
+            "brier": 0.5901617294094764,
+            "accuracy": 0.5576923076923077,
+            "over25Brier": 0.24949223846242127,
+            "bttsBrier": 0.24852737100953787
+          },
+          "candidate": {
+            "n": 364,
+            "logLoss": 0.9605631494632554,
+            "brier": 0.5706506600139483,
+            "accuracy": 0.5741758241758241,
+            "over25Brier": 0.2436125794112624,
+            "bttsBrier": 0.24792355623732718
+          },
+          "logLossChange": -0.0300288657606137,
+          "logLossChangeCI95": [
+            -0.052213808813788294,
+            -0.008616264665283225
+          ]
+        },
+        "audit2026": {
+          "baseline": {
+            "n": 230,
+            "logLoss": 1.0853554444951627,
+            "brier": 0.6573356556098042,
+            "accuracy": 0.4260869565217391,
+            "over25Brier": 0.2651324933770455,
+            "bttsBrier": 0.2504399723849699
+          },
+          "candidate": {
+            "n": 230,
+            "logLoss": 1.0800318894702112,
+            "brier": 0.6545942082467553,
+            "accuracy": 0.43478260869565216,
+            "over25Brier": 0.2568831424477506,
+            "bttsBrier": 0.24573967629064808
+          },
+          "logLossChange": -0.005323555024951521,
+          "logLossChangeCI95": [
+            -0.029397845132796523,
+            0.02026145689251567
+          ]
+        }
+      },
+      "selectionCandidates": [
+        {
+          "option": {
+            "decayDays": 90,
+            "venueWeight": 0
+          },
+          "index": 0,
+          "theta": [
+            0.11339723583152561,
+            -0.15799154575517121,
+            0.0746154445374032,
+            0.08314611748612152,
+            0.4272753356363962,
+            0.35414188770142235,
+            0.4808477241149968,
+            -0.006077820090731418
+          ],
+          "blend": 0.25,
+          "selectionMetrics": {
+            "n": 743,
+            "logLoss": 0.9594414351406264,
+            "brier": 0.5676763221970754,
+            "accuracy": 0.5531628532974427,
+            "over25Brier": 0.24455447870877628,
+            "bttsBrier": 0.24750393172864546
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 90,
+            "venueWeight": 0
+          },
+          "index": 0,
+          "theta": [
+            0.11339723583152561,
+            -0.15799154575517121,
+            0.0746154445374032,
+            0.08314611748612152,
+            0.4272753356363962,
+            0.35414188770142235,
+            0.4808477241149968,
+            -0.006077820090731418
+          ],
+          "blend": 0.5,
+          "selectionMetrics": {
+            "n": 743,
+            "logLoss": 0.9492675384005359,
+            "brier": 0.5607553590794127,
+            "accuracy": 0.5612382234185733,
+            "over25Brier": 0.2422658006941886,
+            "bttsBrier": 0.2462591066320291
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 90,
+            "venueWeight": 0
+          },
+          "index": 0,
+          "theta": [
+            0.11339723583152561,
+            -0.15799154575517121,
+            0.0746154445374032,
+            0.08314611748612152,
+            0.4272753356363962,
+            0.35414188770142235,
+            0.4808477241149968,
+            -0.006077820090731418
+          ],
+          "blend": 0.75,
+          "selectionMetrics": {
+            "n": 743,
+            "logLoss": 0.9417239274997053,
+            "brier": 0.5558037713987467,
+            "accuracy": 0.5652759084791387,
+            "over25Brier": 0.24078430844185422,
+            "bttsBrier": 0.2453640045750255
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 90,
+            "venueWeight": 0
+          },
+          "index": 0,
+          "theta": [
+            0.11339723583152561,
+            -0.15799154575517121,
+            0.0746154445374032,
+            0.08314611748612152,
+            0.4272753356363962,
+            0.35414188770142235,
+            0.4808477241149968,
+            -0.006077820090731418
+          ],
+          "blend": 1,
+          "selectionMetrics": {
+            "n": 743,
+            "logLoss": 0.9367083798650127,
+            "brier": 0.5526577436297775,
+            "accuracy": 0.5733512786002691,
+            "over25Brier": 0.24008599298348576,
+            "bttsBrier": 0.24489349112252268
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 90,
+            "venueWeight": 0.6
+          },
+          "index": 1,
+          "theta": [
+            0.134277050113769,
+            -0.030070858805342503,
+            0.04451448564020504,
+            0.06650941635972038,
+            0.3709878023507748,
+            0.23486457113954345,
+            0.5917772395824993,
+            -0.0045135404057772876
+          ],
+          "blend": 0.25,
+          "selectionMetrics": {
+            "n": 743,
+            "logLoss": 0.9590695298926156,
+            "brier": 0.5674029803949415,
+            "accuracy": 0.5518169582772544,
+            "over25Brier": 0.2450916202961524,
+            "bttsBrier": 0.24786614214708438
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 90,
+            "venueWeight": 0.6
+          },
+          "index": 1,
+          "theta": [
+            0.134277050113769,
+            -0.030070858805342503,
+            0.04451448564020504,
+            0.06650941635972038,
+            0.3709878023507748,
+            0.23486457113954345,
+            0.5917772395824993,
+            -0.0045135404057772876
+          ],
+          "blend": 0.5,
+          "selectionMetrics": {
+            "n": 743,
+            "logLoss": 0.9482916175327517,
+            "brier": 0.5600160511498129,
+            "accuracy": 0.566621803499327,
+            "over25Brier": 0.2433102423502567,
+            "bttsBrier": 0.24695324835357785
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 90,
+            "venueWeight": 0.6
+          },
+          "index": 1,
+          "theta": [
+            0.134277050113769,
+            -0.030070858805342503,
+            0.04451448564020504,
+            0.06650941635972038,
+            0.3709878023507748,
+            0.23486457113954345,
+            0.5917772395824993,
+            -0.0045135404057772876
+          ],
+          "blend": 0.75,
+          "selectionMetrics": {
+            "n": 743,
+            "logLoss": 0.9399079612275871,
+            "brier": 0.5544117803291659,
+            "accuracy": 0.576043068640646,
+            "over25Brier": 0.24230461904429929,
+            "bttsBrier": 0.2463541795412925
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 90,
+            "venueWeight": 0.6
+          },
+          "index": 1,
+          "theta": [
+            0.134277050113769,
+            -0.030070858805342503,
+            0.04451448564020504,
+            0.06650941635972038,
+            0.3709878023507748,
+            0.23486457113954345,
+            0.5917772395824993,
+            -0.0045135404057772876
+          ],
+          "blend": 1,
+          "selectionMetrics": {
+            "n": 743,
+            "logLoss": 0.9338047752548663,
+            "brier": 0.5504335965109134,
+            "accuracy": 0.5787348586810229,
+            "over25Brier": 0.2420508476403901,
+            "bttsBrier": 0.24613083349257547
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 180,
+            "venueWeight": 0
+          },
+          "index": 2,
+          "theta": [
+            0.08294534651152059,
+            -0.1862878835871582,
+            0.06984323534630553,
+            0.10883715844406068,
+            0.4607219121128097,
+            0.3861361476049738,
+            0.4403203892172892,
+            -0.0058435542173030566
+          ],
+          "blend": 0.25,
+          "selectionMetrics": {
+            "n": 743,
+            "logLoss": 0.9595088363103266,
+            "brier": 0.5677327960681146,
+            "accuracy": 0.5531628532974427,
+            "over25Brier": 0.24461054771451676,
+            "bttsBrier": 0.24750492203446944
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 180,
+            "venueWeight": 0
+          },
+          "index": 2,
+          "theta": [
+            0.08294534651152059,
+            -0.1862878835871582,
+            0.06984323534630553,
+            0.10883715844406068,
+            0.4607219121128097,
+            0.3861361476049738,
+            0.4403203892172892,
+            -0.0058435542173030566
+          ],
+          "blend": 0.5,
+          "selectionMetrics": {
+            "n": 743,
+            "logLoss": 0.9494006320953167,
+            "brier": 0.560859816630307,
+            "accuracy": 0.5612382234185733,
+            "over25Brier": 0.2423213186230522,
+            "bttsBrier": 0.2462696143004747
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 180,
+            "venueWeight": 0
+          },
+          "index": 2,
+          "theta": [
+            0.08294534651152059,
+            -0.1862878835871582,
+            0.06984323534630553,
+            0.10883715844406068,
+            0.4607219121128097,
+            0.3861361476049738,
+            0.4403203892172892,
+            -0.0058435542173030566
+          ],
+          "blend": 0.75,
+          "selectionMetrics": {
+            "n": 743,
+            "logLoss": 0.9419347743734261,
+            "brier": 0.5559677322999831,
+            "accuracy": 0.5652759084791387,
+            "over25Brier": 0.24078707376910238,
+            "bttsBrier": 0.24539394329616376
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 180,
+            "venueWeight": 0
+          },
+          "index": 2,
+          "theta": [
+            0.08294534651152059,
+            -0.1862878835871582,
+            0.06984323534630553,
+            0.10883715844406068,
+            0.4607219121128097,
+            0.3861361476049738,
+            0.4403203892172892,
+            -0.0058435542173030566
+          ],
+          "blend": 1,
+          "selectionMetrics": {
+            "n": 743,
+            "logLoss": 0.9370196405306276,
+            "brier": 0.552907454103714,
+            "accuracy": 0.566621803499327,
+            "over25Brier": 0.23998899739081714,
+            "bttsBrier": 0.24495527167380743
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 180,
+            "venueWeight": 0.6
+          },
+          "index": 3,
+          "theta": [
+            0.09699320622615766,
+            -0.052556620083839364,
+            0.042802483272355626,
+            0.07166169506973864,
+            0.41007214257987995,
+            0.2827932919088908,
+            0.5505693135653538,
+            -0.003994213685603078
+          ],
+          "blend": 0.25,
+          "selectionMetrics": {
+            "n": 743,
+            "logLoss": 0.9589347169225285,
+            "brier": 0.5673147517515302,
+            "accuracy": 0.5531628532974427,
+            "over25Brier": 0.2450662520961296,
+            "bttsBrier": 0.2478641646676619
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 180,
+            "venueWeight": 0.6
+          },
+          "index": 3,
+          "theta": [
+            0.09699320622615766,
+            -0.052556620083839364,
+            0.042802483272355626,
+            0.07166169506973864,
+            0.41007214257987995,
+            0.2827932919088908,
+            0.5505693135653538,
+            -0.003994213685603078
+          ],
+          "blend": 0.5,
+          "selectionMetrics": {
+            "n": 743,
+            "logLoss": 0.9480418869161099,
+            "brier": 0.5598604508313529,
+            "accuracy": 0.5625841184387618,
+            "over25Brier": 0.24322753261041277,
+            "bttsBrier": 0.24695831368449375
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 180,
+            "venueWeight": 0.6
+          },
+          "index": 3,
+          "theta": [
+            0.09699320622615766,
+            -0.052556620083839364,
+            0.042802483272355626,
+            0.07166169506973864,
+            0.41007214257987995,
+            0.2827932919088908,
+            0.5505693135653538,
+            -0.003994213685603078
+          ],
+          "blend": 0.75,
+          "selectionMetrics": {
+            "n": 743,
+            "logLoss": 0.9395685405184676,
+            "brier": 0.5542208842962015,
+            "accuracy": 0.5679676985195155,
+            "over25Brier": 0.24213531383312906,
+            "bttsBrier": 0.2463765466192202
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 180,
+            "venueWeight": 0.6
+          },
+          "index": 3,
+          "theta": [
+            0.09699320622615766,
+            -0.052556620083839364,
+            0.042802483272355626,
+            0.07166169506973864,
+            0.41007214257987995,
+            0.2827932919088908,
+            0.5505693135653538,
+            -0.003994213685603078
+          ],
+          "blend": 1,
+          "selectionMetrics": {
+            "n": 743,
+            "logLoss": 0.9334040896701015,
+            "brier": 0.5502478235469702,
+            "accuracy": 0.5787348586810229,
+            "over25Brier": 0.2417687888547582,
+            "bttsBrier": 0.2461829902943381
+          },
+          "selectionReasons": []
+        }
+      ]
+    },
+    "esp.1": {
+      "enabled": false,
+      "reasons": [
+        "audit2025_over25Brier_worse",
+        "audit2025_bttsBrier_worse"
+      ],
+      "parameters": {
+        "decayDays": 90,
+        "venueWeight": 0,
+        "blend": 1,
+        "homeIntercept": 0.08112662609137329,
+        "awayIntercept": -0.2832074549847444,
+        "goalAttack": 0.14486968241475282,
+        "goalDefense": 0.13225351282452577,
+        "xgAttack": 0.44740307147976294,
+        "xgDefense": 0.37640821841833205,
+        "elo": 0.6069159432474883,
+        "rho": -0.0331525517010675,
+        "usesXg": true
+      },
+      "sampleSizes": {
+        "training": 730,
+        "selection": 741,
+        "holdout": 718,
+        "audit2025": 357,
+        "audit2026": 264
+      },
+      "metrics": {
+        "training": {
+          "baseline": {
+            "n": 730,
+            "logLoss": 0.97238337712625,
+            "brier": 0.5770332930375228,
+            "accuracy": 0.5397260273972603,
+            "over25Brier": 0.25018070344469623,
+            "bttsBrier": 0.25054898794811803
+          },
+          "candidate": {
+            "n": 730,
+            "logLoss": 0.934375166745877,
+            "brier": 0.552541481436749,
+            "accuracy": 0.541095890410959,
+            "over25Brier": 0.2420749221977626,
+            "bttsBrier": 0.2461977198084975
+          },
+          "logLossChange": -0.03800821038037305
+        },
+        "selection": {
+          "baseline": {
+            "n": 741,
+            "logLoss": 0.9929524735296291,
+            "brier": 0.5914420741705396,
+            "accuracy": 0.5236167341430499,
+            "over25Brier": 0.2383618261129034,
+            "bttsBrier": 0.2491576524766586
+          },
+          "candidate": {
+            "n": 741,
+            "logLoss": 0.9550338148369705,
+            "brier": 0.5660335307081794,
+            "accuracy": 0.5425101214574899,
+            "over25Brier": 0.23693278147366797,
+            "bttsBrier": 0.2450437338940289
+          },
+          "logLossChange": -0.03791865869265865,
+          "logLossChangeCI95": [
+            -0.0555551051622237,
+            -0.01799984592122263
+          ]
+        },
+        "holdout": {
+          "baseline": {
+            "n": 718,
+            "logLoss": 1.039394446496181,
+            "brier": 0.6251749685557008,
+            "accuracy": 0.47214484679665736,
+            "over25Brier": 0.2501757586589936,
+            "bttsBrier": 0.2548232098479504
+          },
+          "candidate": {
+            "n": 718,
+            "logLoss": 0.9987347333643536,
+            "brier": 0.5971842911970168,
+            "accuracy": 0.5111420612813371,
+            "over25Brier": 0.2485956133278926,
+            "bttsBrier": 0.2483421429834454
+          },
+          "logLossChange": -0.04065971313182748,
+          "logLossChangeCI95": [
+            -0.0560466766422452,
+            -0.023400452829431165
+          ]
+        },
+        "audit2025": {
+          "baseline": {
+            "n": 357,
+            "logLoss": 0.9875849819136246,
+            "brier": 0.5880621589533729,
+            "accuracy": 0.5238095238095238,
+            "over25Brier": 0.2487371704657923,
+            "bttsBrier": 0.24664937812759954
+          },
+          "candidate": {
+            "n": 357,
+            "logLoss": 0.9531247923465462,
+            "brier": 0.5649427667479946,
+            "accuracy": 0.5602240896358543,
+            "over25Brier": 0.25288874797014443,
+            "bttsBrier": 0.2506521679761815
+          },
+          "logLossChange": -0.034460189567078414,
+          "logLossChangeCI95": [
+            -0.0619591300377465,
+            -0.005682741348547641
+          ]
+        },
+        "audit2026": {
+          "baseline": {
+            "n": 264,
+            "logLoss": 1.0110690882502265,
+            "brier": 0.6035459410803117,
+            "accuracy": 0.49242424242424243,
+            "over25Brier": 0.24086613086141678,
+            "bttsBrier": 0.24259276638643917
+          },
+          "candidate": {
+            "n": 264,
+            "logLoss": 0.9916613240306072,
+            "brier": 0.5900088645779467,
+            "accuracy": 0.48484848484848486,
+            "over25Brier": 0.23998241459528089,
+            "bttsBrier": 0.2363589563438691
+          },
+          "logLossChange": -0.019407764219619206,
+          "logLossChangeCI95": [
+            -0.04266379724179731,
+            0.005524873790434797
+          ]
+        }
+      },
+      "selectionCandidates": [
+        {
+          "option": {
+            "decayDays": 90,
+            "venueWeight": 0
+          },
+          "index": 0,
+          "theta": [
+            0.08112662609137329,
+            -0.2832074549847444,
+            0.14486968241475282,
+            0.13225351282452577,
+            0.44740307147976294,
+            0.37640821841833205,
+            0.6069159432474883,
+            -0.0331525517010675
+          ],
+          "blend": 0.25,
+          "selectionMetrics": {
+            "n": 741,
+            "logLoss": 0.9760814789452134,
+            "brier": 0.5800016701946595,
+            "accuracy": 0.5236167341430499,
+            "over25Brier": 0.23618989230937135,
+            "bttsBrier": 0.24752008935013295
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 90,
+            "venueWeight": 0
+          },
+          "index": 0,
+          "theta": [
+            0.08112662609137329,
+            -0.2832074549847444,
+            0.14486968241475282,
+            0.13225351282452577,
+            0.44740307147976294,
+            0.37640821841833205,
+            0.6069159432474883,
+            -0.0331525517010675
+          ],
+          "blend": 0.5,
+          "selectionMetrics": {
+            "n": 741,
+            "logLoss": 0.9644454224779636,
+            "brier": 0.5723499063218177,
+            "accuracy": 0.5290148448043185,
+            "over25Brier": 0.2352988106058837,
+            "bttsBrier": 0.24616707013511807
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 90,
+            "venueWeight": 0
+          },
+          "index": 0,
+          "theta": [
+            0.08112662609137329,
+            -0.2832074549847444,
+            0.14486968241475282,
+            0.13225351282452577,
+            0.44740307147976294,
+            0.37640821841833205,
+            0.6069159432474883,
+            -0.0331525517010675
+          ],
+          "blend": 0.75,
+          "selectionMetrics": {
+            "n": 741,
+            "logLoss": 0.9575292701014029,
+            "brier": 0.567864322395566,
+            "accuracy": 0.5384615384615384,
+            "over25Brier": 0.2355803135638181,
+            "bttsBrier": 0.24526165698112415
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 90,
+            "venueWeight": 0
+          },
+          "index": 0,
+          "theta": [
+            0.08112662609137329,
+            -0.2832074549847444,
+            0.14486968241475282,
+            0.13225351282452577,
+            0.44740307147976294,
+            0.37640821841833205,
+            0.6069159432474883,
+            -0.0331525517010675
+          ],
+          "blend": 1,
+          "selectionMetrics": {
+            "n": 741,
+            "logLoss": 0.9550338148369705,
+            "brier": 0.5660335307081794,
+            "accuracy": 0.5425101214574899,
+            "over25Brier": 0.23693278147366797,
+            "bttsBrier": 0.2450437338940289
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 90,
+            "venueWeight": 0.6
+          },
+          "index": 1,
+          "theta": [
+            0.07250260903806752,
+            -0.12713672565468556,
+            0.05646680502050877,
+            0.04940671106397303,
+            0.44468096376140764,
+            0.34759696070959506,
+            0.737534297691654,
+            -0.03254453112726687
+          ],
+          "blend": 0.25,
+          "selectionMetrics": {
+            "n": 741,
+            "logLoss": 0.9762064857862194,
+            "brier": 0.580160819194539,
+            "accuracy": 0.5263157894736842,
+            "over25Brier": 0.2366610800529594,
+            "bttsBrier": 0.24787438635142556
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 90,
+            "venueWeight": 0.6
+          },
+          "index": 1,
+          "theta": [
+            0.07250260903806752,
+            -0.12713672565468556,
+            0.05646680502050877,
+            0.04940671106397303,
+            0.44468096376140764,
+            0.34759696070959506,
+            0.737534297691654,
+            -0.03254453112726687
+          ],
+          "blend": 0.5,
+          "selectionMetrics": {
+            "n": 741,
+            "logLoss": 0.9651019613044991,
+            "brier": 0.5729590343544542,
+            "accuracy": 0.5357624831309041,
+            "over25Brier": 0.2363402856296657,
+            "bttsBrier": 0.2469679485850955
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 90,
+            "venueWeight": 0.6
+          },
+          "index": 1,
+          "theta": [
+            0.07250260903806752,
+            -0.12713672565468556,
+            0.05646680502050877,
+            0.04940671106397303,
+            0.44468096376140764,
+            0.34759696070959506,
+            0.737534297691654,
+            -0.03254453112726687
+          ],
+          "blend": 0.75,
+          "selectionMetrics": {
+            "n": 741,
+            "logLoss": 0.9590718574128863,
+            "brier": 0.5691324988837738,
+            "accuracy": 0.5371120107962213,
+            "over25Brier": 0.23728710451787466,
+            "bttsBrier": 0.2466412730648327
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 90,
+            "venueWeight": 0.6
+          },
+          "index": 1,
+          "theta": [
+            0.07250260903806752,
+            -0.12713672565468556,
+            0.05646680502050877,
+            0.04940671106397303,
+            0.44468096376140764,
+            0.34759696070959506,
+            0.737534297691654,
+            -0.03254453112726687
+          ],
+          "blend": 1,
+          "selectionMetrics": {
+            "n": 741,
+            "logLoss": 0.957791821599436,
+            "brier": 0.5681026262973267,
+            "accuracy": 0.5452091767881242,
+            "over25Brier": 0.2393942040096323,
+            "bttsBrier": 0.24718266325871663
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 180,
+            "venueWeight": 0
+          },
+          "index": 2,
+          "theta": [
+            0.04534996220179811,
+            -0.313543355602024,
+            0.15989493961070317,
+            0.15613242458940663,
+            0.4677558867629391,
+            0.40969710522698355,
+            0.5495251577131783,
+            -0.033423445366054176
+          ],
+          "blend": 0.25,
+          "selectionMetrics": {
+            "n": 741,
+            "logLoss": 0.9762580590993787,
+            "brier": 0.580179112394967,
+            "accuracy": 0.5222672064777328,
+            "over25Brier": 0.236106187476919,
+            "bttsBrier": 0.2474390569944978
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 180,
+            "venueWeight": 0
+          },
+          "index": 2,
+          "theta": [
+            0.04534996220179811,
+            -0.313543355602024,
+            0.15989493961070317,
+            0.15613242458940663,
+            0.4677558867629391,
+            0.40969710522698355,
+            0.5495251577131783,
+            -0.033423445366054176
+          ],
+          "blend": 0.5,
+          "selectionMetrics": {
+            "n": 741,
+            "logLoss": 0.9647011838648502,
+            "brier": 0.5726261560566211,
+            "accuracy": 0.5357624831309041,
+            "over25Brier": 0.23514809389260843,
+            "bttsBrier": 0.2460449406561335
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 180,
+            "venueWeight": 0
+          },
+          "index": 2,
+          "theta": [
+            0.04534996220179811,
+            -0.313543355602024,
+            0.15989493961070317,
+            0.15613242458940663,
+            0.4677558867629391,
+            0.40969710522698355,
+            0.5495251577131783,
+            -0.033423445366054176
+          ],
+          "blend": 0.75,
+          "selectionMetrics": {
+            "n": 741,
+            "logLoss": 0.9577828878650876,
+            "brier": 0.5681900486023926,
+            "accuracy": 0.5411605937921727,
+            "over25Brier": 0.23538224646891204,
+            "bttsBrier": 0.24512182001660324
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 180,
+            "venueWeight": 0
+          },
+          "index": 2,
+          "theta": [
+            0.04534996220179811,
+            -0.313543355602024,
+            0.15989493961070317,
+            0.15613242458940663,
+            0.4677558867629391,
+            0.40969710522698355,
+            0.5495251577131783,
+            -0.033423445366054176
+          ],
+          "blend": 1,
+          "selectionMetrics": {
+            "n": 741,
+            "logLoss": 0.9552107997330311,
+            "brier": 0.5663861334184562,
+            "accuracy": 0.5398110661268556,
+            "over25Brier": 0.23670781740612082,
+            "bttsBrier": 0.2448922137994738
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 180,
+            "venueWeight": 0.6
+          },
+          "index": 3,
+          "theta": [
+            0.04376869929304818,
+            -0.14248807469342414,
+            0.06009416968206415,
+            0.06513990203181795,
+            0.472791719107457,
+            0.36196676042880926,
+            0.6992713948541756,
+            -0.03251624043033456
+          ],
+          "blend": 0.25,
+          "selectionMetrics": {
+            "n": 741,
+            "logLoss": 0.9766406305021429,
+            "brier": 0.5805151155929703,
+            "accuracy": 0.5263157894736842,
+            "over25Brier": 0.23649915287944562,
+            "bttsBrier": 0.24778663285914945
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 180,
+            "venueWeight": 0.6
+          },
+          "index": 3,
+          "theta": [
+            0.04376869929304818,
+            -0.14248807469342414,
+            0.06009416968206415,
+            0.06513990203181795,
+            0.472791719107457,
+            0.36196676042880926,
+            0.6992713948541756,
+            -0.03251624043033456
+          ],
+          "blend": 0.5,
+          "selectionMetrics": {
+            "n": 741,
+            "logLoss": 0.9658556578972541,
+            "brier": 0.5736011310920637,
+            "accuracy": 0.5357624831309041,
+            "over25Brier": 0.23603683237015757,
+            "bttsBrier": 0.24685061719477047
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 180,
+            "venueWeight": 0.6
+          },
+          "index": 3,
+          "theta": [
+            0.04376869929304818,
+            -0.14248807469342414,
+            0.06009416968206415,
+            0.06513990203181795,
+            0.472791719107457,
+            0.36196676042880926,
+            0.6992713948541756,
+            -0.03251624043033456
+          ],
+          "blend": 0.75,
+          "selectionMetrics": {
+            "n": 741,
+            "logLoss": 0.9600554107386546,
+            "brier": 0.5700302402106991,
+            "accuracy": 0.5330634278002699,
+            "over25Brier": 0.23687508370891752,
+            "bttsBrier": 0.24653683243511557
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 180,
+            "venueWeight": 0.6
+          },
+          "index": 3,
+          "theta": [
+            0.04376869929304818,
+            -0.14248807469342414,
+            0.06009416968206415,
+            0.06513990203181795,
+            0.472791719107457,
+            0.36196676042880926,
+            0.6992713948541756,
+            -0.03251624043033456
+          ],
+          "blend": 1,
+          "selectionMetrics": {
+            "n": 741,
+            "logLoss": 0.9589268920105786,
+            "brier": 0.5692480717505374,
+            "accuracy": 0.5452091767881242,
+            "over25Brier": 0.23891418062181435,
+            "bttsBrier": 0.24711953131161551
+          },
+          "selectionReasons": []
+        }
+      ]
+    },
+    "fra.1": {
+      "enabled": true,
+      "reasons": [],
+      "parameters": {
+        "decayDays": 180,
+        "venueWeight": 0,
+        "blend": 1,
+        "homeIntercept": 0.11658572908351983,
+        "awayIntercept": -0.19257833397441823,
+        "goalAttack": 0.15150178768102282,
+        "goalDefense": 0.1739655632486983,
+        "xgAttack": 0.4230610162170295,
+        "xgDefense": 0.20520258802835536,
+        "elo": 0.6013073578427863,
+        "rho": -0.06398075993985708,
+        "usesXg": true
+      },
+      "sampleSizes": {
+        "training": 732,
+        "selection": 727,
+        "holdout": 620,
+        "audit2025": 300,
+        "audit2026": 197
+      },
+      "metrics": {
+        "training": {
+          "baseline": {
+            "n": 732,
+            "logLoss": 1.031437613781695,
+            "brier": 0.6192004412000126,
+            "accuracy": 0.4726775956284153,
+            "over25Brier": 0.24677186361826603,
+            "bttsBrier": 0.25140826480201983
+          },
+          "candidate": {
+            "n": 732,
+            "logLoss": 1.0070739325183264,
+            "brier": 0.6031602141030381,
+            "accuracy": 0.5013661202185792,
+            "over25Brier": 0.24207855835207892,
+            "bttsBrier": 0.24933981591453602
+          },
+          "logLossChange": -0.02436368126336852
+        },
+        "selection": {
+          "baseline": {
+            "n": 727,
+            "logLoss": 1.008442736620333,
+            "brier": 0.6030123956158928,
+            "accuracy": 0.5103163686382394,
+            "over25Brier": 0.24183704389344163,
+            "bttsBrier": 0.25225298393198153
+          },
+          "candidate": {
+            "n": 727,
+            "logLoss": 0.9819147654745318,
+            "brier": 0.5864331329978729,
+            "accuracy": 0.5185694635488308,
+            "over25Brier": 0.24065258350889157,
+            "bttsBrier": 0.24938762595526595
+          },
+          "logLossChange": -0.026527971145801188,
+          "logLossChangeCI95": [
+            -0.041331793720613914,
+            -0.011115821185600599
+          ]
+        },
+        "holdout": {
+          "baseline": {
+            "n": 620,
+            "logLoss": 1.0336189255542496,
+            "brier": 0.6218898881028015,
+            "accuracy": 0.4838709677419355,
+            "over25Brier": 0.24374977842060877,
+            "bttsBrier": 0.25346121978172215
+          },
+          "candidate": {
+            "n": 620,
+            "logLoss": 1.006123355828591,
+            "brier": 0.6021905801293428,
+            "accuracy": 0.5225806451612903,
+            "over25Brier": 0.2365871182613071,
+            "bttsBrier": 0.24902681972344146
+          },
+          "logLossChange": -0.027495569725658697,
+          "logLossChangeCI95": [
+            -0.046727537932375975,
+            -0.010464082218747615
+          ]
+        },
+        "audit2025": {
+          "baseline": {
+            "n": 300,
+            "logLoss": 0.9985351085316925,
+            "brier": 0.5958023204604159,
+            "accuracy": 0.54,
+            "over25Brier": 0.2591199138053113,
+            "bttsBrier": 0.2514792932862082
+          },
+          "candidate": {
+            "n": 300,
+            "logLoss": 0.9759525704380013,
+            "brier": 0.5796148179723406,
+            "accuracy": 0.54,
+            "over25Brier": 0.25621099367168665,
+            "bttsBrier": 0.2515827969103795
+          },
+          "logLossChange": -0.02258253809369115,
+          "logLossChangeCI95": [
+            -0.050008672500109444,
+            0.00391057685353752
+          ]
+        },
+        "audit2026": {
+          "baseline": {
+            "n": 197,
+            "logLoss": 1.053152125006607,
+            "brier": 0.6335105943097759,
+            "accuracy": 0.4467005076142132,
+            "over25Brier": 0.25705567253906997,
+            "bttsBrier": 0.25874791408336323
+          },
+          "candidate": {
+            "n": 197,
+            "logLoss": 1.0273907686983825,
+            "brier": 0.6178264453697753,
+            "accuracy": 0.49238578680203043,
+            "over25Brier": 0.2447562662034054,
+            "bttsBrier": 0.24970981485763294
+          },
+          "logLossChange": -0.025761356308224403,
+          "logLossChangeCI95": [
+            -0.06997555689067735,
+            0.02120785194587923
+          ]
+        }
+      },
+      "selectionCandidates": [
+        {
+          "option": {
+            "decayDays": 90,
+            "venueWeight": 0
+          },
+          "index": 0,
+          "theta": [
+            0.13512360413838215,
+            -0.17728038440062835,
+            0.15401122409360862,
+            0.1260818405129634,
+            0.39511430001277315,
+            0.22171216829999468,
+            0.6353855024182542,
+            -0.06597444110126298
+          ],
+          "blend": 0.25,
+          "selectionMetrics": {
+            "n": 727,
+            "logLoss": 0.9960604661690071,
+            "brier": 0.5947378255493339,
+            "accuracy": 0.5199449793672627,
+            "over25Brier": 0.24038103554628587,
+            "bttsBrier": 0.25098514127311955
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 90,
+            "venueWeight": 0
+          },
+          "index": 0,
+          "theta": [
+            0.13512360413838215,
+            -0.17728038440062835,
+            0.15401122409360862,
+            0.1260818405129634,
+            0.39511430001277315,
+            0.22171216829999468,
+            0.6353855024182542,
+            -0.06597444110126298
+          ],
+          "blend": 0.5,
+          "selectionMetrics": {
+            "n": 727,
+            "logLoss": 0.9877336489816324,
+            "brier": 0.5894756225976915,
+            "accuracy": 0.530949105914718,
+            "over25Brier": 0.23972917058946977,
+            "bttsBrier": 0.2500261666071998
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 90,
+            "venueWeight": 0
+          },
+          "index": 0,
+          "theta": [
+            0.13512360413838215,
+            -0.17728038440062835,
+            0.15401122409360862,
+            0.1260818405129634,
+            0.39511430001277315,
+            0.22171216829999468,
+            0.6353855024182542,
+            -0.06597444110126298
+          ],
+          "blend": 0.75,
+          "selectionMetrics": {
+            "n": 727,
+            "logLoss": 0.9832527607856156,
+            "brier": 0.5868904023320093,
+            "accuracy": 0.5226960110041265,
+            "over25Brier": 0.2398377938207041,
+            "bttsBrier": 0.24943996928759335
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 90,
+            "venueWeight": 0
+          },
+          "index": 0,
+          "theta": [
+            0.13512360413838215,
+            -0.17728038440062835,
+            0.15401122409360862,
+            0.1260818405129634,
+            0.39511430001277315,
+            0.22171216829999468,
+            0.6353855024182542,
+            -0.06597444110126298
+          ],
+          "blend": 1,
+          "selectionMetrics": {
+            "n": 727,
+            "logLoss": 0.9825256716368531,
+            "brier": 0.5866652481625279,
+            "accuracy": 0.517193947730399,
+            "over25Brier": 0.24066335416313034,
+            "bttsBrier": 0.24935198637700798
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 90,
+            "venueWeight": 0.6
+          },
+          "index": 1,
+          "theta": [
+            0.12197524692768294,
+            -0.06893148790574102,
+            0.19607392641526425,
+            0.08869877148289536,
+            0.2624110199046489,
+            0.17056574432449223,
+            0.7152615880996661,
+            -0.06408927119507445
+          ],
+          "blend": 0.25,
+          "selectionMetrics": {
+            "n": 727,
+            "logLoss": 0.9975132883204492,
+            "brier": 0.5958187939623466,
+            "accuracy": 0.5213204951856947,
+            "over25Brier": 0.24058382379325285,
+            "bttsBrier": 0.2507950470238593
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 90,
+            "venueWeight": 0.6
+          },
+          "index": 1,
+          "theta": [
+            0.12197524692768294,
+            -0.06893148790574102,
+            0.19607392641526425,
+            0.08869877148289536,
+            0.2624110199046489,
+            0.17056574432449223,
+            0.7152615880996661,
+            -0.06408927119507445
+          ],
+          "blend": 0.5,
+          "selectionMetrics": {
+            "n": 727,
+            "logLoss": 0.990149424098543,
+            "brier": 0.5912961074890193,
+            "accuracy": 0.5240715268225584,
+            "over25Brier": 0.23994184341087893,
+            "bttsBrier": 0.24957267089114263
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 90,
+            "venueWeight": 0.6
+          },
+          "index": 1,
+          "theta": [
+            0.12197524692768294,
+            -0.06893148790574102,
+            0.19607392641526425,
+            0.08869877148289536,
+            0.2624110199046489,
+            0.17056574432449223,
+            0.7152615880996661,
+            -0.06408927119507445
+          ],
+          "blend": 0.75,
+          "selectionMetrics": {
+            "n": 727,
+            "logLoss": 0.9862205942520524,
+            "brier": 0.5891722108093824,
+            "accuracy": 0.5226960110041265,
+            "over25Brier": 0.239888723434755,
+            "bttsBrier": 0.24866428451577066
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 90,
+            "venueWeight": 0.6
+          },
+          "index": 1,
+          "theta": [
+            0.12197524692768294,
+            -0.06893148790574102,
+            0.19607392641526425,
+            0.08869877148289536,
+            0.2624110199046489,
+            0.17056574432449223,
+            0.7152615880996661,
+            -0.06408927119507445
+          ],
+          "blend": 1,
+          "selectionMetrics": {
+            "n": 727,
+            "logLoss": 0.9856831609508754,
+            "brier": 0.5891840349791763,
+            "accuracy": 0.517193947730399,
+            "over25Brier": 0.24040233015146928,
+            "bttsBrier": 0.248198798132378
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 180,
+            "venueWeight": 0
+          },
+          "index": 2,
+          "theta": [
+            0.11658572908351983,
+            -0.19257833397441823,
+            0.15150178768102282,
+            0.1739655632486983,
+            0.4230610162170295,
+            0.20520258802835536,
+            0.6013073578427863,
+            -0.06398075993985708
+          ],
+          "blend": 0.25,
+          "selectionMetrics": {
+            "n": 727,
+            "logLoss": 0.995841793701289,
+            "brier": 0.5946123487791691,
+            "accuracy": 0.5240715268225584,
+            "over25Brier": 0.24039690963873592,
+            "bttsBrier": 0.251018881360999
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 180,
+            "venueWeight": 0
+          },
+          "index": 2,
+          "theta": [
+            0.11658572908351983,
+            -0.19257833397441823,
+            0.15150178768102282,
+            0.1739655632486983,
+            0.4230610162170295,
+            0.20520258802835536,
+            0.6013073578427863,
+            -0.06398075993985708
+          ],
+          "blend": 0.5,
+          "selectionMetrics": {
+            "n": 727,
+            "logLoss": 0.9873470631010379,
+            "brier": 0.5892736804269101,
+            "accuracy": 0.5337001375515819,
+            "over25Brier": 0.23975030942629053,
+            "bttsBrier": 0.25008594206507023
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 180,
+            "venueWeight": 0
+          },
+          "index": 2,
+          "theta": [
+            0.11658572908351983,
+            -0.19257833397441823,
+            0.15150178768102282,
+            0.1739655632486983,
+            0.4230610162170295,
+            0.20520258802835536,
+            0.6013073578427863,
+            -0.06398075993985708
+          ],
+          "blend": 0.75,
+          "selectionMetrics": {
+            "n": 727,
+            "logLoss": 0.982738623202576,
+            "brier": 0.5866564725952202,
+            "accuracy": 0.5213204951856947,
+            "over25Brier": 0.23985125090078482,
+            "bttsBrier": 0.24950483489616457
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 180,
+            "venueWeight": 0
+          },
+          "index": 2,
+          "theta": [
+            0.11658572908351983,
+            -0.19257833397441823,
+            0.15150178768102282,
+            0.1739655632486983,
+            0.4230610162170295,
+            0.20520258802835536,
+            0.6013073578427863,
+            -0.06398075993985708
+          ],
+          "blend": 1,
+          "selectionMetrics": {
+            "n": 727,
+            "logLoss": 0.9819147654745318,
+            "brier": 0.5864331329978729,
+            "accuracy": 0.5185694635488308,
+            "over25Brier": 0.24065258350889157,
+            "bttsBrier": 0.24938762595526595
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 180,
+            "venueWeight": 0.6
+          },
+          "index": 3,
+          "theta": [
+            0.09265481458852062,
+            -0.0849807424086454,
+            0.19490082209130422,
+            0.16108428198329008,
+            0.3079247047343169,
+            0.13394120214982486,
+            0.6647887690591867,
+            -0.06341589854914008
+          ],
+          "blend": 0.25,
+          "selectionMetrics": {
+            "n": 727,
+            "logLoss": 0.9972022843493086,
+            "brier": 0.5956290529183371,
+            "accuracy": 0.5199449793672627,
+            "over25Brier": 0.24054501381812549,
+            "bttsBrier": 0.2508947960870606
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 180,
+            "venueWeight": 0.6
+          },
+          "index": 3,
+          "theta": [
+            0.09265481458852062,
+            -0.0849807424086454,
+            0.19490082209130422,
+            0.16108428198329008,
+            0.3079247047343169,
+            0.13394120214982486,
+            0.6647887690591867,
+            -0.06341589854914008
+          ],
+          "blend": 0.5,
+          "selectionMetrics": {
+            "n": 727,
+            "logLoss": 0.9895292192729793,
+            "brier": 0.5909277259246178,
+            "accuracy": 0.5254470426409904,
+            "over25Brier": 0.23984131381178547,
+            "bttsBrier": 0.2497415848983561
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 180,
+            "venueWeight": 0.6
+          },
+          "index": 3,
+          "theta": [
+            0.09265481458852062,
+            -0.0849807424086454,
+            0.19490082209130422,
+            0.16108428198329008,
+            0.3079247047343169,
+            0.13394120214982486,
+            0.6647887690591867,
+            -0.06341589854914008
+          ],
+          "blend": 0.75,
+          "selectionMetrics": {
+            "n": 727,
+            "logLoss": 0.9852835272138933,
+            "brier": 0.5886317620019288,
+            "accuracy": 0.5337001375515819,
+            "over25Brier": 0.23969873655600182,
+            "bttsBrier": 0.24885843485230288
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 180,
+            "venueWeight": 0.6
+          },
+          "index": 3,
+          "theta": [
+            0.09265481458852062,
+            -0.0849807424086454,
+            0.19490082209130422,
+            0.16108428198329008,
+            0.3079247047343169,
+            0.13394120214982486,
+            0.6647887690591867,
+            -0.06341589854914008
+          ],
+          "blend": 1,
+          "selectionMetrics": {
+            "n": 727,
+            "logLoss": 0.9844098817514145,
+            "brier": 0.5884705736678444,
+            "accuracy": 0.5213204951856947,
+            "over25Brier": 0.2400901236057288,
+            "bttsBrier": 0.24835789357637522
+          },
+          "selectionReasons": []
+        }
+      ]
+    },
+    "ger.1": {
+      "enabled": false,
+      "reasons": [
+        "holdout_bttsBrier_worse"
+      ],
+      "parameters": {
+        "decayDays": 90,
+        "venueWeight": 0,
+        "blend": 1,
+        "homeIntercept": 0.05700642112324511,
+        "awayIntercept": -0.2502704226819906,
+        "goalAttack": 0.15567406853997423,
+        "goalDefense": 0.0,
+        "xgAttack": 0.4202277241655137,
+        "xgDefense": 0.4980329404113525,
+        "elo": 0.4378383896591239,
+        "rho": -0.11564974629630068,
+        "usesXg": true
+      },
+      "sampleSizes": {
+        "training": 583,
+        "selection": 601,
+        "holdout": 551,
+        "audit2025": 296,
+        "audit2026": 196
+      },
+      "metrics": {
+        "training": {
+          "baseline": {
+            "n": 583,
+            "logLoss": 1.0072850600279806,
+            "brier": 0.6013396100729796,
+            "accuracy": 0.5042881646655232,
+            "over25Brier": 0.2543059824808977,
+            "bttsBrier": 0.25171842239888237
+          },
+          "candidate": {
+            "n": 583,
+            "logLoss": 0.9943844872993989,
+            "brier": 0.5938835708125498,
+            "accuracy": 0.5025728987993139,
+            "over25Brier": 0.24201466656236845,
+            "bttsBrier": 0.24402248017405395
+          },
+          "logLossChange": -0.012900572728581694
+        },
+        "selection": {
+          "baseline": {
+            "n": 601,
+            "logLoss": 1.0332482788608226,
+            "brier": 0.6203296289203067,
+            "accuracy": 0.4875207986688852,
+            "over25Brier": 0.2554438290774093,
+            "bttsBrier": 0.24646060363719244
+          },
+          "candidate": {
+            "n": 601,
+            "logLoss": 1.0073804002414537,
+            "brier": 0.6025026892851536,
+            "accuracy": 0.502495840266223,
+            "over25Brier": 0.24546430727450405,
+            "bttsBrier": 0.2434131178240849
+          },
+          "logLossChange": -0.0258678786193689,
+          "logLossChangeCI95": [
+            -0.043101249473170705,
+            -0.008134398751427319
+          ]
+        },
+        "holdout": {
+          "baseline": {
+            "n": 551,
+            "logLoss": 1.002738802686791,
+            "brier": 0.5981655092174708,
+            "accuracy": 0.5136116152450091,
+            "over25Brier": 0.2312701195495214,
+            "bttsBrier": 0.23938093376412384
+          },
+          "candidate": {
+            "n": 551,
+            "logLoss": 0.9919610747326513,
+            "brier": 0.5926365019995565,
+            "accuracy": 0.5136116152450091,
+            "over25Brier": 0.22907105226766641,
+            "bttsBrier": 0.24144393490992855
+          },
+          "logLossChange": -0.010777727954139671,
+          "logLossChangeCI95": [
+            -0.03174410127475568,
+            0.012098790547454837
+          ]
+        },
+        "audit2025": {
+          "baseline": {
+            "n": 296,
+            "logLoss": 1.0505927748221842,
+            "brier": 0.6323476077545123,
+            "accuracy": 0.44932432432432434,
+            "over25Brier": 0.24113244614378163,
+            "bttsBrier": 0.2589518752293579
+          },
+          "candidate": {
+            "n": 296,
+            "logLoss": 1.0176840754400271,
+            "brier": 0.6073601489083886,
+            "accuracy": 0.4864864864864865,
+            "over25Brier": 0.23986304042262968,
+            "bttsBrier": 0.25332696423952283
+          },
+          "logLossChange": -0.032908699382157014,
+          "logLossChangeCI95": [
+            -0.07416185709300374,
+            0.010332291851226968
+          ]
+        },
+        "audit2026": {
+          "baseline": {
+            "n": 196,
+            "logLoss": 0.9902036192049366,
+            "brier": 0.586263898780758,
+            "accuracy": 0.5408163265306123,
+            "over25Brier": 0.2192410141736276,
+            "bttsBrier": 0.22563413506762672
+          },
+          "candidate": {
+            "n": 196,
+            "logLoss": 0.9609739839505902,
+            "brier": 0.5649275270447189,
+            "accuracy": 0.5612244897959183,
+            "over25Brier": 0.20959284895447097,
+            "bttsBrier": 0.22248039984331916
+          },
+          "logLossChange": -0.02922963525434641,
+          "logLossChangeCI95": [
+            -0.058367371010921626,
+            0.006373459495819012
+          ]
+        }
+      },
+      "selectionCandidates": [
+        {
+          "option": {
+            "decayDays": 90,
+            "venueWeight": 0
+          },
+          "index": 0,
+          "theta": [
+            0.05700642112324511,
+            -0.2502704226819906,
+            0.15567406853997423,
+            0.0,
+            0.4202277241655137,
+            0.4980329404113525,
+            0.4378383896591239,
+            -0.11564974629630068
+          ],
+          "blend": 0.25,
+          "selectionMetrics": {
+            "n": 601,
+            "logLoss": 1.022330319052993,
+            "brier": 0.6127821375905323,
+            "accuracy": 0.49584026622296173,
+            "over25Brier": 0.25206412989149507,
+            "bttsBrier": 0.24507881401455606
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 90,
+            "venueWeight": 0
+          },
+          "index": 0,
+          "theta": [
+            0.05700642112324511,
+            -0.2502704226819906,
+            0.15567406853997423,
+            0.0,
+            0.4202277241655137,
+            0.4980329404113525,
+            0.4378383896591239,
+            -0.11564974629630068
+          ],
+          "blend": 0.5,
+          "selectionMetrics": {
+            "n": 601,
+            "logLoss": 1.0143719709950367,
+            "brier": 0.6073595999668846,
+            "accuracy": 0.5008319467554077,
+            "over25Brier": 0.24925758144503984,
+            "bttsBrier": 0.24407706438633706
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 90,
+            "venueWeight": 0
+          },
+          "index": 0,
+          "theta": [
+            0.05700642112324511,
+            -0.2502704226819906,
+            0.15567406853997423,
+            0.0,
+            0.4202277241655137,
+            0.4980329404113525,
+            0.4378383896591239,
+            -0.11564974629630068
+          ],
+          "blend": 0.75,
+          "selectionMetrics": {
+            "n": 601,
+            "logLoss": 1.009366963920383,
+            "brier": 0.6039679022860692,
+            "accuracy": 0.5041597337770383,
+            "over25Brier": 0.24705019531415653,
+            "bttsBrier": 0.24349331753563028
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 90,
+            "venueWeight": 0
+          },
+          "index": 0,
+          "theta": [
+            0.05700642112324511,
+            -0.2502704226819906,
+            0.15567406853997423,
+            0.0,
+            0.4202277241655137,
+            0.4980329404113525,
+            0.4378383896591239,
+            -0.11564974629630068
+          ],
+          "blend": 1,
+          "selectionMetrics": {
+            "n": 601,
+            "logLoss": 1.0073804002414537,
+            "brier": 0.6025026892851536,
+            "accuracy": 0.502495840266223,
+            "over25Brier": 0.24546430727450405,
+            "bttsBrier": 0.2434131178240849
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 90,
+            "venueWeight": 0.6
+          },
+          "index": 1,
+          "theta": [
+            0.08413884300251256,
+            -0.08028150552943371,
+            0.07492770641247058,
+            0.0,
+            0.3866342669281861,
+            0.3599823745855972,
+            0.5736179909524288,
+            -0.11316916373212756
+          ],
+          "blend": 0.25,
+          "selectionMetrics": {
+            "n": 601,
+            "logLoss": 1.0230147248318355,
+            "brier": 0.6132707803949464,
+            "accuracy": 0.49417637271214643,
+            "over25Brier": 0.2517608018226206,
+            "bttsBrier": 0.24519941124783
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 90,
+            "venueWeight": 0.6
+          },
+          "index": 1,
+          "theta": [
+            0.08413884300251256,
+            -0.08028150552943371,
+            0.07492770641247058,
+            0.0,
+            0.3866342669281861,
+            0.3599823745855972,
+            0.5736179909524288,
+            -0.11316916373212756
+          ],
+          "blend": 0.5,
+          "selectionMetrics": {
+            "n": 601,
+            "logLoss": 1.0156577149003778,
+            "brier": 0.608246797634286,
+            "accuracy": 0.49417637271214643,
+            "over25Brier": 0.2486060438600048,
+            "bttsBrier": 0.24428982808533933
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 90,
+            "venueWeight": 0.6
+          },
+          "index": 1,
+          "theta": [
+            0.08413884300251256,
+            -0.08028150552943371,
+            0.07492770641247058,
+            0.0,
+            0.3866342669281861,
+            0.3599823745855972,
+            0.5736179909524288,
+            -0.11316916373212756
+          ],
+          "blend": 0.75,
+          "selectionMetrics": {
+            "n": 601,
+            "logLoss": 1.011158268735754,
+            "brier": 0.6051554446910813,
+            "accuracy": 0.4925124792013311,
+            "over25Brier": 0.246001777090142,
+            "bttsBrier": 0.2437688429636546
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 90,
+            "venueWeight": 0.6
+          },
+          "index": 1,
+          "theta": [
+            0.08413884300251256,
+            -0.08028150552943371,
+            0.07492770641247058,
+            0.0,
+            0.3866342669281861,
+            0.3599823745855972,
+            0.5736179909524288,
+            -0.11316916373212756
+          ],
+          "blend": 1,
+          "selectionMetrics": {
+            "n": 601,
+            "logLoss": 1.0095675713910346,
+            "brier": 0.6038838461741728,
+            "accuracy": 0.49750415973377704,
+            "over25Brier": 0.2439660482274702,
+            "bttsBrier": 0.2437189043104189
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 180,
+            "venueWeight": 0
+          },
+          "index": 2,
+          "theta": [
+            0.007532314161213035,
+            -0.29383860990438054,
+            0.16473231561893256,
+            0.08865577842074548,
+            0.484930192237103,
+            0.459588395201453,
+            0.3695072442127344,
+            -0.11757722799467678
+          ],
+          "blend": 0.25,
+          "selectionMetrics": {
+            "n": 601,
+            "logLoss": 1.0227312362818461,
+            "brier": 0.6130134190198038,
+            "accuracy": 0.49584026622296173,
+            "over25Brier": 0.25221669862718465,
+            "bttsBrier": 0.24523802872796205
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 180,
+            "venueWeight": 0
+          },
+          "index": 2,
+          "theta": [
+            0.007532314161213035,
+            -0.29383860990438054,
+            0.16473231561893256,
+            0.08865577842074548,
+            0.484930192237103,
+            0.459588395201453,
+            0.3695072442127344,
+            -0.11757722799467678
+          ],
+          "blend": 0.5,
+          "selectionMetrics": {
+            "n": 601,
+            "logLoss": 1.0151643498001743,
+            "brier": 0.6077958447886173,
+            "accuracy": 0.5058236272878536,
+            "over25Brier": 0.24953443855116073,
+            "bttsBrier": 0.24434642111146937
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 180,
+            "venueWeight": 0
+          },
+          "index": 2,
+          "theta": [
+            0.007532314161213035,
+            -0.29383860990438054,
+            0.16473231561893256,
+            0.08865577842074548,
+            0.484930192237103,
+            0.459588395201453,
+            0.3695072442127344,
+            -0.11757722799467678
+          ],
+          "blend": 0.75,
+          "selectionMetrics": {
+            "n": 601,
+            "logLoss": 1.0105453818216499,
+            "brier": 0.6045729767146028,
+            "accuracy": 0.5074875207986689,
+            "over25Brier": 0.24741619380541013,
+            "bttsBrier": 0.2438202718948358
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 180,
+            "venueWeight": 0
+          },
+          "index": 2,
+          "theta": [
+            0.007532314161213035,
+            -0.29383860990438054,
+            0.16473231561893256,
+            0.08865577842074548,
+            0.484930192237103,
+            0.459588395201453,
+            0.3695072442127344,
+            -0.11757722799467678
+          ],
+          "blend": 1,
+          "selectionMetrics": {
+            "n": 601,
+            "logLoss": 1.008936812868766,
+            "brier": 0.6032298032210155,
+            "accuracy": 0.5008319467554077,
+            "over25Brier": 0.2458781799640882,
+            "bttsBrier": 0.24373852611107596
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 180,
+            "venueWeight": 0.6
+          },
+          "index": 3,
+          "theta": [
+            0.044109681778864276,
+            -0.10400693878603952,
+            0.0729112368647986,
+            0.0,
+            0.4494844670631415,
+            0.38484798867239206,
+            0.536271325292293,
+            -0.11470961628262748
+          ],
+          "blend": 0.25,
+          "selectionMetrics": {
+            "n": 601,
+            "logLoss": 1.0229191671463633,
+            "brier": 0.6131418646900169,
+            "accuracy": 0.4875207986688852,
+            "over25Brier": 0.2517131405232373,
+            "bttsBrier": 0.24522393024956876
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 180,
+            "venueWeight": 0.6
+          },
+          "index": 3,
+          "theta": [
+            0.044109681778864276,
+            -0.10400693878603952,
+            0.0729112368647986,
+            0.0,
+            0.4494844670631415,
+            0.38484798867239206,
+            0.536271325292293,
+            -0.11470961628262748
+          ],
+          "blend": 0.5,
+          "selectionMetrics": {
+            "n": 601,
+            "logLoss": 1.0156695598907468,
+            "brier": 0.608121193650898,
+            "accuracy": 0.4925124792013311,
+            "over25Brier": 0.2485517255839397,
+            "bttsBrier": 0.24432974850391656
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 180,
+            "venueWeight": 0.6
+          },
+          "index": 3,
+          "theta": [
+            0.044109681778864276,
+            -0.10400693878603952,
+            0.0729112368647986,
+            0.0,
+            0.4494844670631415,
+            0.38484798867239206,
+            0.536271325292293,
+            -0.11470961628262748
+          ],
+          "blend": 0.75,
+          "selectionMetrics": {
+            "n": 601,
+            "logLoss": 1.011476418043134,
+            "brier": 0.6051494516641824,
+            "accuracy": 0.4875207986688852,
+            "over25Brier": 0.245981635091995,
+            "bttsBrier": 0.24381530947941502
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 180,
+            "venueWeight": 0.6
+          },
+          "index": 3,
+          "theta": [
+            0.044109681778864276,
+            -0.10400693878603952,
+            0.0729112368647986,
+            0.0,
+            0.4494844670631415,
+            0.38484798867239206,
+            0.536271325292293,
+            -0.11470961628262748
+          ],
+          "blend": 1,
+          "selectionMetrics": {
+            "n": 601,
+            "logLoss": 1.0103942905737622,
+            "brier": 0.6040955793962676,
+            "accuracy": 0.49417637271214643,
+            "over25Brier": 0.24402041097091634,
+            "bttsBrier": 0.2437683214873887
+          },
+          "selectionReasons": []
+        }
+      ]
+    },
+    "ita.1": {
+      "enabled": false,
+      "reasons": [
+        "audit2026_over25Brier_worse"
+      ],
+      "parameters": {
+        "decayDays": 180,
+        "venueWeight": 0,
+        "blend": 1,
+        "homeIntercept": 0.0662577360090713,
+        "awayIntercept": -0.21215978803057198,
+        "goalAttack": 0.10057923493103596,
+        "goalDefense": 0.03616031026338933,
+        "xgAttack": 0.5387591664010308,
+        "xgDefense": 0.441463551341767,
+        "elo": 0.4426054953203181,
+        "rho": -0.05332915271016136,
+        "usesXg": true
+      },
+      "sampleSizes": {
+        "training": 749,
+        "selection": 742,
+        "holdout": 679,
+        "audit2025": 354,
+        "audit2026": 250
+      },
+      "metrics": {
+        "training": {
+          "baseline": {
+            "n": 749,
+            "logLoss": 1.017494938331464,
+            "brier": 0.6099300770078583,
+            "accuracy": 0.4993324432576769,
+            "over25Brier": 0.2526373993795053,
+            "bttsBrier": 0.25180386934793797
+          },
+          "candidate": {
+            "n": 749,
+            "logLoss": 0.9848321618683604,
+            "brier": 0.5882853728702029,
+            "accuracy": 0.5260347129506008,
+            "over25Brier": 0.24549369933001863,
+            "bttsBrier": 0.24700554657474566
+          },
+          "logLossChange": -0.03266277646310356
+        },
+        "selection": {
+          "baseline": {
+            "n": 742,
+            "logLoss": 0.974673958424373,
+            "brier": 0.5776135190445661,
+            "accuracy": 0.5566037735849056,
+            "over25Brier": 0.24977929305201427,
+            "bttsBrier": 0.24980197252295383
+          },
+          "candidate": {
+            "n": 742,
+            "logLoss": 0.9265512809691366,
+            "brier": 0.5464645130038566,
+            "accuracy": 0.5700808625336927,
+            "over25Brier": 0.24554375193325415,
+            "bttsBrier": 0.24799259752470812
+          },
+          "logLossChange": -0.04812267745523635,
+          "logLossChangeCI95": [
+            -0.06326854734315608,
+            -0.03174738982626562
+          ]
+        },
+        "holdout": {
+          "baseline": {
+            "n": 679,
+            "logLoss": 1.0174188779641091,
+            "brier": 0.608116249911748,
+            "accuracy": 0.5022091310751104,
+            "over25Brier": 0.24337498556079692,
+            "bttsBrier": 0.24352496380034597
+          },
+          "candidate": {
+            "n": 679,
+            "logLoss": 0.9953754508434183,
+            "brier": 0.5931708455941805,
+            "accuracy": 0.5301914580265096,
+            "over25Brier": 0.2327915608671382,
+            "bttsBrier": 0.235622354856284
+          },
+          "logLossChange": -0.02204342712069085,
+          "logLossChangeCI95": [
+            -0.040364743810718626,
+            -0.0026074631823361995
+          ]
+        },
+        "audit2025": {
+          "baseline": {
+            "n": 354,
+            "logLoss": 1.0349657014054854,
+            "brier": 0.621422164485325,
+            "accuracy": 0.5254237288135594,
+            "over25Brier": 0.2576141314141462,
+            "bttsBrier": 0.2552219703210615
+          },
+          "candidate": {
+            "n": 354,
+            "logLoss": 0.9957151752499172,
+            "brier": 0.5959007506738193,
+            "accuracy": 0.5282485875706214,
+            "over25Brier": 0.25657073217990434,
+            "bttsBrier": 0.25544486568988983
+          },
+          "logLossChange": -0.03925052615556823,
+          "logLossChangeCI95": [
+            -0.06693059897086572,
+            -0.014285166487186026
+          ]
+        },
+        "audit2026": {
+          "baseline": {
+            "n": 250,
+            "logLoss": 0.9940550682087688,
+            "brier": 0.5925987757498099,
+            "accuracy": 0.536,
+            "over25Brier": 0.2540429252265209,
+            "bttsBrier": 0.25160865922780723
+          },
+          "candidate": {
+            "n": 250,
+            "logLoss": 0.976153819910127,
+            "brier": 0.5807328595153022,
+            "accuracy": 0.548,
+            "over25Brier": 0.25848721595438817,
+            "bttsBrier": 0.2533774307275914
+          },
+          "logLossChange": -0.017901248298641814,
+          "logLossChangeCI95": [
+            -0.05326717640038228,
+            0.0181967468224343
+          ]
+        }
+      },
+      "selectionCandidates": [
+        {
+          "option": {
+            "decayDays": 90,
+            "venueWeight": 0
+          },
+          "index": 0,
+          "theta": [
+            0.0865797953667489,
+            -0.19671724132347812,
+            0.06756073312177659,
+            0.021249942993252405,
+            0.5516873915070686,
+            0.435523905702116,
+            0.4657446004418192,
+            -0.05225328444600031
+          ],
+          "blend": 0.25,
+          "selectionMetrics": {
+            "n": 742,
+            "logLoss": 0.9565193299940408,
+            "brier": 0.5650922036479955,
+            "accuracy": 0.555256064690027,
+            "over25Brier": 0.247191779020465,
+            "bttsBrier": 0.24858597031508314
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 90,
+            "venueWeight": 0
+          },
+          "index": 0,
+          "theta": [
+            0.0865797953667489,
+            -0.19671724132347812,
+            0.06756073312177659,
+            0.021249942993252405,
+            0.5516873915070686,
+            0.435523905702116,
+            0.4657446004418192,
+            -0.05225328444600031
+          ],
+          "blend": 0.5,
+          "selectionMetrics": {
+            "n": 742,
+            "logLoss": 0.9429655014906991,
+            "brier": 0.5561717723315559,
+            "accuracy": 0.5673854447439353,
+            "over25Brier": 0.24568007206758316,
+            "bttsBrier": 0.2478038273191268
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 90,
+            "venueWeight": 0
+          },
+          "index": 0,
+          "theta": [
+            0.0865797953667489,
+            -0.19671724132347812,
+            0.06756073312177659,
+            0.021249942993252405,
+            0.5516873915070686,
+            0.435523905702116,
+            0.4657446004418192,
+            -0.05225328444600031
+          ],
+          "blend": 0.75,
+          "selectionMetrics": {
+            "n": 742,
+            "logLoss": 0.9335358376647958,
+            "brier": 0.5503992580408468,
+            "accuracy": 0.5673854447439353,
+            "over25Brier": 0.24517653528443903,
+            "bttsBrier": 0.24749029394470273
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 90,
+            "venueWeight": 0
+          },
+          "index": 0,
+          "theta": [
+            0.0865797953667489,
+            -0.19671724132347812,
+            0.06756073312177659,
+            0.021249942993252405,
+            0.5516873915070686,
+            0.435523905702116,
+            0.4657446004418192,
+            -0.05225328444600031
+          ],
+          "blend": 1,
+          "selectionMetrics": {
+            "n": 742,
+            "logLoss": 0.9279185965537162,
+            "brier": 0.5473541528349205,
+            "accuracy": 0.5660377358490566,
+            "over25Brier": 0.24560236759049275,
+            "bttsBrier": 0.24775307123076956
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 90,
+            "venueWeight": 0.6
+          },
+          "index": 1,
+          "theta": [
+            0.08203279152789991,
+            -0.062058215459145576,
+            0.0,
+            0.0,
+            0.5044200109518608,
+            0.37268744122764813,
+            0.5824118893582079,
+            -0.052220119889949054
+          ],
+          "blend": 0.25,
+          "selectionMetrics": {
+            "n": 742,
+            "logLoss": 0.9568433122312183,
+            "brier": 0.5653385998894501,
+            "accuracy": 0.5579514824797843,
+            "over25Brier": 0.24732042462372608,
+            "bttsBrier": 0.24857558794519488
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 90,
+            "venueWeight": 0.6
+          },
+          "index": 1,
+          "theta": [
+            0.08203279152789991,
+            -0.062058215459145576,
+            0.0,
+            0.0,
+            0.5044200109518608,
+            0.37268744122764813,
+            0.5824118893582079,
+            -0.052220119889949054
+          ],
+          "blend": 0.5,
+          "selectionMetrics": {
+            "n": 742,
+            "logLoss": 0.9434810279421973,
+            "brier": 0.5565869335208138,
+            "accuracy": 0.5606469002695418,
+            "over25Brier": 0.245869052285273,
+            "bttsBrier": 0.2477501076433724
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 90,
+            "venueWeight": 0.6
+          },
+          "index": 1,
+          "theta": [
+            0.08203279152789991,
+            -0.062058215459145576,
+            0.0,
+            0.0,
+            0.5044200109518608,
+            0.37268744122764813,
+            0.5824118893582079,
+            -0.052220119889949054
+          ],
+          "blend": 0.75,
+          "selectionMetrics": {
+            "n": 742,
+            "logLoss": 0.9341468495850915,
+            "brier": 0.5509393255981018,
+            "accuracy": 0.5700808625336927,
+            "over25Brier": 0.2453708082401852,
+            "bttsBrier": 0.24736331439043452
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 90,
+            "venueWeight": 0.6
+          },
+          "index": 1,
+          "theta": [
+            0.08203279152789991,
+            -0.062058215459145576,
+            0.0,
+            0.0,
+            0.5044200109518608,
+            0.37268744122764813,
+            0.5824118893582079,
+            -0.052220119889949054
+          ],
+          "blend": 1,
+          "selectionMetrics": {
+            "n": 742,
+            "logLoss": 0.9285579982462248,
+            "brier": 0.5480001347343095,
+            "accuracy": 0.5673854447439353,
+            "over25Brier": 0.24575906550021262,
+            "bttsBrier": 0.24752494129359812
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 180,
+            "venueWeight": 0
+          },
+          "index": 2,
+          "theta": [
+            0.0662577360090713,
+            -0.21215978803057198,
+            0.10057923493103596,
+            0.03616031026338933,
+            0.5387591664010308,
+            0.441463551341767,
+            0.4426054953203181,
+            -0.05332915271016136
+          ],
+          "blend": 0.25,
+          "selectionMetrics": {
+            "n": 742,
+            "logLoss": 0.9561569214571973,
+            "brier": 0.5648325231261221,
+            "accuracy": 0.5606469002695418,
+            "over25Brier": 0.24724136823727208,
+            "bttsBrier": 0.24868138518427096
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 180,
+            "venueWeight": 0
+          },
+          "index": 2,
+          "theta": [
+            0.0662577360090713,
+            -0.21215978803057198,
+            0.10057923493103596,
+            0.03616031026338933,
+            0.5387591664010308,
+            0.441463551341767,
+            0.4426054953203181,
+            -0.05332915271016136
+          ],
+          "blend": 0.5,
+          "selectionMetrics": {
+            "n": 742,
+            "logLoss": 0.9422380428335229,
+            "brier": 0.5556626611745284,
+            "accuracy": 0.5646900269541779,
+            "over25Brier": 0.2457279927698532,
+            "bttsBrier": 0.24796470097703271
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 180,
+            "venueWeight": 0
+          },
+          "index": 2,
+          "theta": [
+            0.0662577360090713,
+            -0.21215978803057198,
+            0.10057923493103596,
+            0.03616031026338933,
+            0.5387591664010308,
+            0.441463551341767,
+            0.4426054953203181,
+            -0.05332915271016136
+          ],
+          "blend": 0.75,
+          "selectionMetrics": {
+            "n": 742,
+            "logLoss": 0.9324676906722085,
+            "brier": 0.5496757157820827,
+            "accuracy": 0.5700808625336927,
+            "over25Brier": 0.24518474554194916,
+            "bttsBrier": 0.24769600050306956
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 180,
+            "venueWeight": 0
+          },
+          "index": 2,
+          "theta": [
+            0.0662577360090713,
+            -0.21215978803057198,
+            0.10057923493103596,
+            0.03616031026338933,
+            0.5387591664010308,
+            0.441463551341767,
+            0.4426054953203181,
+            -0.05332915271016136
+          ],
+          "blend": 1,
+          "selectionMetrics": {
+            "n": 742,
+            "logLoss": 0.9265512809691366,
+            "brier": 0.5464645130038566,
+            "accuracy": 0.5700808625336927,
+            "over25Brier": 0.24554375193325415,
+            "bttsBrier": 0.24799259752470812
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 180,
+            "venueWeight": 0.6
+          },
+          "index": 3,
+          "theta": [
+            0.06830783489862031,
+            -0.07148095074349638,
+            0.007436089596218914,
+            0.0,
+            0.5095688002813887,
+            0.3860169786179635,
+            0.5749979747630103,
+            -0.05388421577428075
+          ],
+          "blend": 0.25,
+          "selectionMetrics": {
+            "n": 742,
+            "logLoss": 0.956219635566788,
+            "brier": 0.5648779891525082,
+            "accuracy": 0.5579514824797843,
+            "over25Brier": 0.24733313481581815,
+            "bttsBrier": 0.24861261872363727
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 180,
+            "venueWeight": 0.6
+          },
+          "index": 3,
+          "theta": [
+            0.06830783489862031,
+            -0.07148095074349638,
+            0.007436089596218914,
+            0.0,
+            0.5095688002813887,
+            0.3860169786179635,
+            0.5749979747630103,
+            -0.05388421577428075
+          ],
+          "blend": 0.5,
+          "selectionMetrics": {
+            "n": 742,
+            "logLoss": 0.9423253440573948,
+            "brier": 0.5557406438072996,
+            "accuracy": 0.5646900269541779,
+            "over25Brier": 0.24589095764481098,
+            "bttsBrier": 0.247815470515464
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 180,
+            "venueWeight": 0.6
+          },
+          "index": 3,
+          "theta": [
+            0.06830783489862031,
+            -0.07148095074349638,
+            0.007436089596218914,
+            0.0,
+            0.5095688002813887,
+            0.3860169786179635,
+            0.5749979747630103,
+            -0.05388421577428075
+          ],
+          "blend": 0.75,
+          "selectionMetrics": {
+            "n": 742,
+            "logLoss": 0.9325552874059496,
+            "brier": 0.5497893719846243,
+            "accuracy": 0.5700808625336927,
+            "over25Brier": 0.24540517668399958,
+            "bttsBrier": 0.24745678777848754
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 180,
+            "venueWeight": 0.6
+          },
+          "index": 3,
+          "theta": [
+            0.06830783489862031,
+            -0.07148095074349638,
+            0.007436089596218914,
+            0.0,
+            0.5095688002813887,
+            0.3860169786179635,
+            0.5749979747630103,
+            -0.05388421577428075
+          ],
+          "blend": 1,
+          "selectionMetrics": {
+            "n": 742,
+            "logLoss": 0.9266314510182794,
+            "brier": 0.5466301813296806,
+            "accuracy": 0.5633423180592992,
+            "over25Brier": 0.2458145899128729,
+            "bttsBrier": 0.24765728023521155
+          },
+          "selectionReasons": []
+        }
+      ]
+    },
+    "uefa.champions": {
+      "enabled": true,
+      "reasons": [],
+      "parameters": {
+        "decayDays": 90,
+        "venueWeight": 0.6,
+        "blend": 0.75,
+        "homeIntercept": 0.39723595628598934,
+        "awayIntercept": 0.048257985709000986,
+        "goalAttack": 0.17187770792314497,
+        "goalDefense": 0.154618190572236,
+        "xgAttack": 0.0,
+        "xgDefense": 0.0,
+        "elo": 1.2494015350499723,
+        "rho": -0.01101353054684337,
+        "usesXg": false
+      },
+      "sampleSizes": {
+        "training": 338,
+        "selection": 129,
+        "holdout": 115,
+        "audit2025": 116,
+        "audit2026": 78
+      },
+      "metrics": {
+        "training": {
+          "baseline": {
+            "n": 338,
+            "logLoss": 0.9976823743457914,
+            "brier": 0.5917066076661915,
+            "accuracy": 0.5355029585798816,
+            "over25Brier": 0.2632377846423842,
+            "bttsBrier": 0.2619526466400276
+          },
+          "candidate": {
+            "n": 338,
+            "logLoss": 0.9468923470563273,
+            "brier": 0.558605285456747,
+            "accuracy": 0.5650887573964497,
+            "over25Brier": 0.24786692408769484,
+            "bttsBrier": 0.25268586976151347
+          },
+          "logLossChange": -0.050790027289464135
+        },
+        "selection": {
+          "baseline": {
+            "n": 129,
+            "logLoss": 1.0220102699993463,
+            "brier": 0.6094762258937609,
+            "accuracy": 0.5038759689922481,
+            "over25Brier": 0.21740176759047217,
+            "bttsBrier": 0.24779252299071539
+          },
+          "candidate": {
+            "n": 129,
+            "logLoss": 0.9844888239962388,
+            "brier": 0.5809553256162505,
+            "accuracy": 0.5271317829457365,
+            "over25Brier": 0.21605856346394964,
+            "bttsBrier": 0.2404651729489127
+          },
+          "logLossChange": -0.03752144600310747,
+          "logLossChangeCI95": [
+            -0.0815335333257016,
+            0.005465268206769984
+          ]
+        },
+        "holdout": {
+          "baseline": {
+            "n": 115,
+            "logLoss": 0.96073127003699,
+            "brier": 0.5693685069072195,
+            "accuracy": 0.5478260869565217,
+            "over25Brier": 0.2711299689151795,
+            "bttsBrier": 0.27525981395471133
+          },
+          "candidate": {
+            "n": 115,
+            "logLoss": 0.9109324636721241,
+            "brier": 0.5359676642516613,
+            "accuracy": 0.6173913043478261,
+            "over25Brier": 0.24619035122619395,
+            "bttsBrier": 0.26074477588170225
+          },
+          "logLossChange": -0.04979880636486589,
+          "logLossChangeCI95": [
+            -0.12159466571263838,
+            0.019802898994458265
+          ]
+        },
+        "audit2025": {
+          "baseline": {
+            "n": 116,
+            "logLoss": 0.9958637185015052,
+            "brier": 0.5976945499050272,
+            "accuracy": 0.5,
+            "over25Brier": 0.22287454741746485,
+            "bttsBrier": 0.24248391644561254
+          },
+          "candidate": {
+            "n": 116,
+            "logLoss": 0.9775289687428973,
+            "brier": 0.5847732740452736,
+            "accuracy": 0.5,
+            "over25Brier": 0.21847523339531433,
+            "bttsBrier": 0.23963747036303298
+          },
+          "logLossChange": -0.018334749758607938,
+          "logLossChangeCI95": [
+            -0.05800767548311975,
+            0.03755187809975471
+          ]
+        },
+        "audit2026": {
+          "baseline": {
+            "n": 78,
+            "logLoss": 0.9944309029330375,
+            "brier": 0.5954273215399505,
+            "accuracy": 0.5384615384615384,
+            "over25Brier": 0.24751051904375265,
+            "bttsBrier": 0.24645055770504407
+          },
+          "candidate": {
+            "n": 78,
+            "logLoss": 0.9566706664295384,
+            "brier": 0.5683614540687917,
+            "accuracy": 0.5384615384615384,
+            "over25Brier": 0.2375956265240117,
+            "bttsBrier": 0.2399503212489413
+          },
+          "logLossChange": -0.037760236503499134,
+          "logLossChangeCI95": [
+            -0.07055137003121797,
+            0.014106553293685133
+          ]
+        }
+      },
+      "selectionCandidates": [
+        {
+          "option": {
+            "decayDays": 90,
+            "venueWeight": 0
+          },
+          "index": 0,
+          "theta": [
+            0.45221138708177216,
+            0.04711588103662515,
+            0.11887106188416499,
+            0.12489771235417789,
+            0.0,
+            0.0,
+            1.324770475681197,
+            -0.00734904416007325
+          ],
+          "blend": 0.25,
+          "selectionMetrics": {
+            "n": 129,
+            "logLoss": 1.0005857836408991,
+            "brier": 0.5944974227323343,
+            "accuracy": 0.5271317829457365,
+            "over25Brier": 0.21606286534692276,
+            "bttsBrier": 0.24436117304994048
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 90,
+            "venueWeight": 0
+          },
+          "index": 0,
+          "theta": [
+            0.45221138708177216,
+            0.04711588103662515,
+            0.11887106188416499,
+            0.12489771235417789,
+            0.0,
+            0.0,
+            1.324770475681197,
+            -0.00734904416007325
+          ],
+          "blend": 0.5,
+          "selectionMetrics": {
+            "n": 129,
+            "logLoss": 0.9891517711577021,
+            "brier": 0.5854837643910756,
+            "accuracy": 0.5503875968992248,
+            "over25Brier": 0.21705589275242027,
+            "bttsBrier": 0.24218675359125025
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 90,
+            "venueWeight": 0
+          },
+          "index": 0,
+          "theta": [
+            0.45221138708177216,
+            0.04711588103662515,
+            0.11887106188416499,
+            0.12489771235417789,
+            0.0,
+            0.0,
+            1.324770475681197,
+            -0.00734904416007325
+          ],
+          "blend": 0.75,
+          "selectionMetrics": {
+            "n": 129,
+            "logLoss": 0.9872432473197739,
+            "brier": 0.5822221267105744,
+            "accuracy": 0.5581395348837209,
+            "over25Brier": 0.2206406188206653,
+            "bttsBrier": 0.2414159272078992
+          },
+          "selectionReasons": [
+            "over25Brier_worse"
+          ]
+        },
+        {
+          "option": {
+            "decayDays": 90,
+            "venueWeight": 0
+          },
+          "index": 0,
+          "theta": [
+            0.45221138708177216,
+            0.04711588103662515,
+            0.11887106188416499,
+            0.12489771235417789,
+            0.0,
+            0.0,
+            1.324770475681197,
+            -0.00734904416007325
+          ],
+          "blend": 1,
+          "selectionMetrics": {
+            "n": 129,
+            "logLoss": 0.9951568508773362,
+            "brier": 0.5843732098291299,
+            "accuracy": 0.5581395348837209,
+            "over25Brier": 0.22711362906703905,
+            "bttsBrier": 0.24272808967486112
+          },
+          "selectionReasons": [
+            "over25Brier_worse"
+          ]
+        },
+        {
+          "option": {
+            "decayDays": 90,
+            "venueWeight": 0.6
+          },
+          "index": 1,
+          "theta": [
+            0.39723595628598934,
+            0.048257985709000986,
+            0.17187770792314497,
+            0.154618190572236,
+            0.0,
+            0.0,
+            1.2494015350499723,
+            -0.01101353054684337
+          ],
+          "blend": 0.25,
+          "selectionMetrics": {
+            "n": 129,
+            "logLoss": 1.0016698195104332,
+            "brier": 0.595143161995202,
+            "accuracy": 0.5271317829457365,
+            "over25Brier": 0.21521335392903865,
+            "bttsBrier": 0.24434266864879928
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 90,
+            "venueWeight": 0.6
+          },
+          "index": 1,
+          "theta": [
+            0.39723595628598934,
+            0.048257985709000986,
+            0.17187770792314497,
+            0.154618190572236,
+            0.0,
+            0.0,
+            1.2494015350499723,
+            -0.01101353054684337
+          ],
+          "blend": 0.5,
+          "selectionMetrics": {
+            "n": 129,
+            "logLoss": 0.9892521379048319,
+            "brier": 0.5856644993797177,
+            "accuracy": 0.5426356589147286,
+            "over25Brier": 0.2146985494599569,
+            "bttsBrier": 0.24184826117968883
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 90,
+            "venueWeight": 0.6
+          },
+          "index": 1,
+          "theta": [
+            0.39723595628598934,
+            0.048257985709000986,
+            0.17187770792314497,
+            0.154618190572236,
+            0.0,
+            0.0,
+            1.2494015350499723,
+            -0.01101353054684337
+          ],
+          "blend": 0.75,
+          "selectionMetrics": {
+            "n": 129,
+            "logLoss": 0.9844888239962388,
+            "brier": 0.5809553256162505,
+            "accuracy": 0.5271317829457365,
+            "over25Brier": 0.21605856346394964,
+            "bttsBrier": 0.2404651729489127
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 90,
+            "venueWeight": 0.6
+          },
+          "index": 1,
+          "theta": [
+            0.39723595628598934,
+            0.048257985709000986,
+            0.17187770792314497,
+            0.154618190572236,
+            0.0,
+            0.0,
+            1.2494015350499723,
+            -0.01101353054684337
+          ],
+          "blend": 1,
+          "selectionMetrics": {
+            "n": 129,
+            "logLoss": 0.9875792518605334,
+            "brier": 0.5808235692589868,
+            "accuracy": 0.5426356589147286,
+            "over25Brier": 0.21952796226297389,
+            "bttsBrier": 0.2406953151531299
+          },
+          "selectionReasons": [
+            "over25Brier_worse"
+          ]
+        },
+        {
+          "option": {
+            "decayDays": 180,
+            "venueWeight": 0
+          },
+          "index": 2,
+          "theta": [
+            0.3922233749092628,
+            -0.012273756324532318,
+            0.196745937416305,
+            0.190496176967678,
+            0.0,
+            0.0,
+            1.1933253824991297,
+            -0.007093740159240648
+          ],
+          "blend": 0.25,
+          "selectionMetrics": {
+            "n": 129,
+            "logLoss": 1.0020196483065935,
+            "brier": 0.5955245335114415,
+            "accuracy": 0.5271317829457365,
+            "over25Brier": 0.21581017513660444,
+            "bttsBrier": 0.24426710857667466
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 180,
+            "venueWeight": 0
+          },
+          "index": 2,
+          "theta": [
+            0.3922233749092628,
+            -0.012273756324532318,
+            0.196745937416305,
+            0.190496176967678,
+            0.0,
+            0.0,
+            1.1933253824991297,
+            -0.007093740159240648
+          ],
+          "blend": 0.5,
+          "selectionMetrics": {
+            "n": 129,
+            "logLoss": 0.9911767042452432,
+            "brier": 0.587117288178517,
+            "accuracy": 0.5503875968992248,
+            "over25Brier": 0.21613229129938022,
+            "bttsBrier": 0.24178825989158353
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 180,
+            "venueWeight": 0
+          },
+          "index": 2,
+          "theta": [
+            0.3922233749092628,
+            -0.012273756324532318,
+            0.196745937416305,
+            0.190496176967678,
+            0.0,
+            0.0,
+            1.1933253824991297,
+            -0.007093740159240648
+          ],
+          "blend": 0.75,
+          "selectionMetrics": {
+            "n": 129,
+            "logLoss": 0.9890522225222355,
+            "brier": 0.5840798526547973,
+            "accuracy": 0.5426356589147286,
+            "over25Brier": 0.21855039276432664,
+            "bttsBrier": 0.240446285126677
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 180,
+            "venueWeight": 0
+          },
+          "index": 2,
+          "theta": [
+            0.3922233749092628,
+            -0.012273756324532318,
+            0.196745937416305,
+            0.190496176967678,
+            0.0,
+            0.0,
+            1.1933253824991297,
+            -0.007093740159240648
+          ],
+          "blend": 1,
+          "selectionMetrics": {
+            "n": 129,
+            "logLoss": 0.9958355521604645,
+            "brier": 0.5860855285163474,
+            "accuracy": 0.5426356589147286,
+            "over25Brier": 0.22327635268616258,
+            "bttsBrier": 0.24074054425661195
+          },
+          "selectionReasons": [
+            "over25Brier_worse"
+          ]
+        },
+        {
+          "option": {
+            "decayDays": 180,
+            "venueWeight": 0.6
+          },
+          "index": 3,
+          "theta": [
+            0.35169379384115257,
+            0.016737339863555058,
+            0.22007899830576264,
+            0.18907140036011671,
+            0.0,
+            0.0,
+            1.1927812365122499,
+            -0.008587805787894682
+          ],
+          "blend": 0.25,
+          "selectionMetrics": {
+            "n": 129,
+            "logLoss": 1.0028924953537848,
+            "brier": 0.5961442494528097,
+            "accuracy": 0.5193798449612403,
+            "over25Brier": 0.2150569140963979,
+            "bttsBrier": 0.2440423040674024
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 180,
+            "venueWeight": 0.6
+          },
+          "index": 3,
+          "theta": [
+            0.35169379384115257,
+            0.016737339863555058,
+            0.22007899830576264,
+            0.18907140036011671,
+            0.0,
+            0.0,
+            1.1927812365122499,
+            -0.008587805787894682
+          ],
+          "blend": 0.5,
+          "selectionMetrics": {
+            "n": 129,
+            "logLoss": 0.9916170377562045,
+            "brier": 0.5876790300161209,
+            "accuracy": 0.5426356589147286,
+            "over25Brier": 0.2141315122069968,
+            "bttsBrier": 0.24119430754804902
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 180,
+            "venueWeight": 0.6
+          },
+          "index": 3,
+          "theta": [
+            0.35169379384115257,
+            0.016737339863555058,
+            0.22007899830576264,
+            0.18907140036011671,
+            0.0,
+            0.0,
+            1.1927812365122499,
+            -0.008587805787894682
+          ],
+          "blend": 0.75,
+          "selectionMetrics": {
+            "n": 129,
+            "logLoss": 0.9879151336703337,
+            "brier": 0.5840270929201643,
+            "accuracy": 0.5271317829457365,
+            "over25Brier": 0.21479280669074252,
+            "bttsBrier": 0.23935000218240354
+          },
+          "selectionReasons": []
+        },
+        {
+          "option": {
+            "decayDays": 180,
+            "venueWeight": 0.6
+          },
+          "index": 3,
+          "theta": [
+            0.35169379384115257,
+            0.016737339863555058,
+            0.22007899830576264,
+            0.18907140036011671,
+            0.0,
+            0.0,
+            1.1927812365122499,
+            -0.008587805787894682
+          ],
+          "blend": 1,
+          "selectionMetrics": {
+            "n": 129,
+            "logLoss": 0.991960832166299,
+            "brier": 0.5849884823829785,
+            "accuracy": 0.5271317829457365,
+            "over25Brier": 0.21724289067998123,
+            "bttsBrier": 0.23893606272329976
+          },
+          "selectionReasons": []
+        }
+      ]
+    }
+  }
+}

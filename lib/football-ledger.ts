@@ -10,7 +10,7 @@ export function validFootballForecast(game:FootballGame,analysis:FootballAnalysi
 export async function saveFootballForecast(db:Database,game:FootballGame,analysis:FootballAnalysis,now=Date.now()){
   if(!validFootballForecast(game,analysis,now))return false;
   const id=[game.league,game.id,game.start,analysis.version].join('|');
-  const payload=JSON.stringify({home:game.home,away:game.away,probabilities:analysis.probabilities,calibration:analysis.calibration?.status,historyMode:analysis.historyMode,homeForm:analysis.homeForm,awayForm:analysis.awayForm,quality:analysis.quality});
+  const payload=JSON.stringify({home:game.home,away:game.away,probabilities:analysis.probabilities,calibration:analysis.calibration?.status,historyMode:analysis.historyMode,homeForm:analysis.homeForm,awayForm:analysis.awayForm,quality:analysis.quality,external:analysis.external});
   // Each version keeps its most recent valid pregame observation. Capture and
   // kickoff checks are server-side; after kickoff there is no rewrite path.
   await db.prepare(`INSERT INTO football_forecasts (id,league,game_id,start_time,captured_at,version,payload) VALUES (?,?,?,?,?,?,?) ON CONFLICT (id) DO UPDATE SET captured_at=excluded.captured_at,payload=excluded.payload WHERE football_forecasts.captured_at<excluded.captured_at`).bind(id,game.league,game.id,game.start,analysis.capturedAt,analysis.version,payload).run();

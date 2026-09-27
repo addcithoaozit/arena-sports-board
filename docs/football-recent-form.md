@@ -1,5 +1,6 @@
 # Sparse football history — 2026-09-27
 
+Current external-data update: see [football-external-data.md](football-external-data.md). Older experiment results below are retained as historical records.
 The reported Bundesliga fixture `401884775` (Union Berlin vs SV Elversberg, October 10 Taiwan time) was waiting because Elversberg had only four same-competition results. ESPN's team-specific `all/teams/{id}/schedule?season={year}` endpoints provide its prior Bundesliga 2 results and current official cup results. A reduced, timestamped fixture with source-response hashes is committed in `tests/fixtures/football-recent-form.json`.
 
 ## Collection and model behavior

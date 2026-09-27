@@ -1,5 +1,6 @@
 # Football calibration and known limitations — 2026-09-27
 
+Current external-data update: see [football-external-data.md](football-external-data.md). Older experiment results below are retained as historical records.
 This change audits all six football competitions. Only La Liga passes the frozen promotion rules and receives the fitted model. The other five keep `football-form-poisson-v1`; the admin panel names each failed gate. This is a modest improvement in probability scores, not evidence of reliably higher future accuracy or profitable bets. Sparse teams can now use the separately versioned recent-form supplement described in `football-recent-form.md`; that supplement is not a validated calibration.
 
 ## Data and time separation

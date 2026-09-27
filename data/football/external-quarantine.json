@@ -1,0 +1,22 @@
+{
+  "reviewedAt": "2026-09-27",
+  "policy": "Exclude unresolved cross-provider score/date discrepancies from both backtests and runtime; no tuning based on resulting metrics.",
+  "matches": [
+    {
+      "id": "of:4101e11eb053d8e6d615",
+      "league": "uefa.champions",
+      "day": "2021-11-04",
+      "homeId": "of:GER:rbleipzig",
+      "awayId": "of:FRA:parissaintgermain",
+      "reason": "ESPN and external source disagree on result/date"
+    },
+    {
+      "id": "us:27866",
+      "league": "ger.1",
+      "day": "2024-12-14",
+      "homeId": "us:240",
+      "awayId": "us:268",
+      "reason": "ESPN and external source disagree on result/date"
+    }
+  ]
+}
