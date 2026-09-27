@@ -85,14 +85,11 @@ function FootballCard({game,report,now,unavailable}:{game:FootballGame;report?:R
     <div className="football-match"><div><small>主隊</small><h3 title={game.home.englishName}>{game.home.name}</h3></div><b>{game.homeScore!==null&&game.awayScore!==null?`${game.homeScore} : ${game.awayScore}`:'VS'}</b><div><small>客隊</small><h3 title={game.away.englishName}>{game.away.name}</h3></div></div>
     {(game.venue||game.neutral)&&<p className="football-venue">{game.neutral?'中立場・':''}{game.venue}</p>}
     {ready?<>
-      <div className="football-analysis-title"><strong>{a.lean}</strong><span>{a.calibration?.label||'基礎模型'}</span></div>
+      <div className="football-analysis-title"><strong>{a.lean?.replace('模型傾向','').replace('，保留觀望','')}</strong></div>
       <div className="football-probabilities">{[['主勝',p.home],['和局',p.draw],['客勝',p.away]].map(([label,value])=><div key={String(label)}><span>{label}</span><strong>{percent(Number(value))}</strong></div>)}</div>
       <div className="football-probability-bar" aria-hidden="true"><span style={{width:p.home*100+'%'}}/><span style={{width:p.draw*100+'%'}}/><span style={{width:p.away*100+'%'}}/></div>
       <div className="football-goals"><div><span>大 2.5 球</span><b>{percent(p.over25)}</b></div><div><span>小 2.5 球</span><b>{percent(p.under25)}</b></div><div><span>雙方都進球</span><b>{percent(p.btts)}</b></div></div>
       <div className="football-scores"><span>三組比分預測<small>主：客</small></span>{a.scores?.map(s=><div key={`${s.home}:${s.away}`}><b>{s.home} : {s.away}</b><small>{percent(s.probability)}</small></div>)}</div>
-    </>:<div className="football-waiting" role="status">{unavailable?'資料更新中斷，請更新後再查看分析。':game.state==='live'?'比賽進行中，顯示即時比分。':game.state==='final'?'比賽已完場。':game.state==='other'?'賽事狀態異常，暫停賽前分析。':!game.timeConfirmed?'等待確認開賽時間。':Date.parse(game.start)<=now?'已到開賽時間，等待來源更新比賽狀態。':report?.error||a?.reason||(a?.status==='ready'?'分析資料已過期，正在重新取得。':'正在取得歷史賽果並計算分析…')}</div>}
-    {a?.quality?.warnings.map(w=><p className="football-quality" key={w}>{w}</p>)}
-    {ready&&report?.archiveAsOf&&<p className="football-quality">歷史補充快照：{report.archiveAsOf.slice(0,10)}；最新賽果另向來源確認。</p>}
-    {ready&&report?.snapshotSaved===false&&<p className="football-quality">本次未保存驗證快照（可能接近開賽或儲存暫時失敗），不會計入上線後成效。</p>}
+    </>:eligible&&!unavailable&&!report?<div className="football-loading" role="status" aria-label="分析載入中"><RefreshCw size={18} className="animate-spin"/></div>:null}
   </article>;
 }

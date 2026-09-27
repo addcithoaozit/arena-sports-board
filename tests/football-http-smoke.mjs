@@ -12,7 +12,7 @@ try{
   const r=await fetch(origin+path,{headers:auth?{cookie}:{}});assert.equal(r.status,expected,path);
   if(path==='/api/admin/football-validation'&&auth){const d=await r.json();assert.equal(d.validation.historyGames,11033);assert.equal(d.live.available,true);assert.equal(Number(d.live.counts.snapshots),0);}
   if(path.startsWith('/?')){const html=await r.text();assert.match(html,/足球/);assert.doesNotMatch(html,/回測、模型不足與上線後驗證|分析方式與資料範圍/);}
-  if(path==='/admin'){const html=await r.text();assert.match(html,/足球模型與回測管理/);assert.match(html,/回測、模型不足與上線後驗證/);assert.match(html,/分析方式與資料範圍/);assert.match(html,/查看聯賽/);}
+  if(path==='/admin'){const html=await r.text();assert.match(html,/足球模型與回測管理/);assert.match(html,/回測、模型不足與上線後驗證/);assert.match(html,/分析方式與資料範圍/);assert.match(html,/查看聯賽/);assert.match(html,/賽事近況與資料診斷/);}
  }
  const memberHeaders={cookie:'__Host-arena_tz='+'e'.repeat(64)};
  assert.equal((await fetch(origin+'/api/session',{headers:memberHeaders})).status,200);
