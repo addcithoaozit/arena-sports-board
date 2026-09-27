@@ -88,7 +88,7 @@ for league in sorted({r['league'] for r in data['rows']}):
  print(json.dumps({'league':league,'enabled':not reasons,'reasons':reasons,'samples':results[league]['sampleSizes'],'logLossChanges':{k:round(v['logLossChange'],6) for k,v in reports.items()}}),flush=True)
 
 created=datetime.datetime.now(datetime.timezone.utc);source=json.loads((ROOT/'data/football/external-history-20260927.json').read_text())
-artifact={'version':'football-external-v3-20260927','createdAt':created.isoformat(),'expiresAt':(created+datetime.timedelta(days=90)).isoformat(),'sourceSha256':data['sourceSha256'],'auditThrough':source['cutoff'],'historyGames':len(source['games']),'replayedGames':len(data['rows']),'protocolSha256':hashlib.sha256((ROOT/'docs/football-external-protocol.json').read_bytes()).hexdigest(),'protocol':protocol,'coverage':data['coverage'],'leagues':results}
+artifact={'version':'football-external-v3-20260927-r1','createdAt':created.isoformat(),'expiresAt':(created+datetime.timedelta(days=90)).isoformat(),'sourceSha256':data['sourceSha256'],'auditThrough':source['cutoff'],'historyGames':len(source['games']),'replayedGames':len(data['rows']),'protocolSha256':hashlib.sha256((ROOT/'docs/football-external-protocol.json').read_bytes()).hexdigest(),'protocol':protocol,'coverage':data['coverage'],'leagues':results}
 (ROOT/'data/football/external-calibration-20260927.json').write_text(json.dumps(artifact,ensure_ascii=False,indent=2)+'\n')
 runtime={k:v for k,v in artifact.items() if k not in ['protocol','coverage','leagues']};runtime['leagues']={league:{k:v for k,v in entry.items() if k!='selectionCandidates'} for league,entry in results.items()}
 (ROOT/'data/football/external-calibration-runtime.json').write_text(json.dumps(runtime,ensure_ascii=False,indent=2)+'\n')

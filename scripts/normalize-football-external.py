@@ -56,7 +56,7 @@ for src in manifest['sources']:
     continue
    hn,hc,an,ac,hg,ag=m.groups();hid,aid=club(hn,hc),club(an,ac)
    add_team(hid,hn.strip());add_team(aid,an.strip())
-   neutral=bool(re.match(r'^Final\b',section,re.I)) or (season==2019 and date.month==8 and date.year==2020)
+   neutral=bool(re.match(r'^Final\b',section,re.I)) or (season==2019 and datetime.date(2020,8,12)<=date<=datetime.date(2020,8,23))
    start=date.isoformat()+'T12:00:00Z'
    key='of:'+hashlib.sha256(('|'.join([src['league'],date.isoformat(),hid,aid])).encode()).hexdigest()[:20]
    add([key,src['league'],start,hid,aid,int(hg),int(ag),None,None,neutral]);n+=1

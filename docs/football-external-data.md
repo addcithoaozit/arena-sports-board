@@ -5,7 +5,7 @@ This update adds a second source of match facts and a separate, frozen model exp
 ## Sources and identity
 
 - Understat public league pages and their public `getLeagueData/{slug}/{season}` GET endpoint: five domestic leagues, 2014–2026 seasons. We retain completed match scores and actual match xG, never Understat's forecast probabilities. The normal AJAX headers reproduce the public page request. Requests are bounded and cached for 30 minutes; failures do not fabricate freshness.
-- OpenFootball Champions League, CC0: https://github.com/openfootball/champions-league at revision `abfaeddc2ee3d14f99ecc163c9ddb46cb4d67cef`, `2011-12/cl.txt` through `2025-26/cl.txt`. Date-only records cannot enter target-day features. Extra time / penalty records are excluded; finals and August 2020 knockout matches are neutral.
+- OpenFootball Champions League, CC0: https://github.com/openfootball/champions-league at revision `abfaeddc2ee3d14f99ecc163c9ddb46cb4d67cef`, `2011-12/cl.txt` through `2025-26/cl.txt`. Date-only records cannot enter target-day features. Extra time / penalty records are excluded; finals and the 12–23 August 2020 Lisbon final-eight tournament are neutral. The four 7–8 August round-of-16 matches retained home grounds.
 - ESPN supplies fixture/team identities, current-season scores and a cross-check of overlapping history. External team IDs use an explicit reviewed mapping. There is no fuzzy name matching at request time.
 - Football-Data.co.uk CSVs were not downloaded or used because its published access policy excludes this use.
 
@@ -39,7 +39,7 @@ Weekly block bootstrap intervals (1,000 repetitions, fixed seed) are reported. S
 
 ## Runtime and fallback
 
-`football-external-v3-20260927` is enabled only for the three accepted leagues, for 90 days. Fresh valid source retrieval, exact current team identity, regulation-only results and feature coverage are checked for every prediction. The entire current UTC day is excluded. Score conflicts are removed, not averaged, and duplicate providers cannot inflate sample counts. Current fixture IDs stay ESPN IDs.
+`football-external-v3-20260927-r1` is enabled only for the three accepted leagues, for 90 days. Fresh valid source retrieval, exact current team identity, regulation-only results and feature coverage are checked for every prediction. The entire current UTC day is excluded. Score conflicts are removed, not averaged, and duplicate providers cannot inflate sample counts. Current fixture IDs stay ESPN IDs.
 
 External goals may fill a missing base-model history even when xG coverage is insufficient, without claiming xG validation. Unaccepted, expired, stale, unmapped or insufficient-data cases retain the existing model path. The independent cross-competition fallback remains unvalidated as before. The front match cards receive no new diagnostic text; the admin model panel shows source coverage, actual model used, failures, full metrics and uncertainty. Saved pregame forecasts include external-source metadata and model version.
 
@@ -58,3 +58,7 @@ node --test tests/football-external.test.mjs
 ```
 
 To reproduce the frozen fit, run the last three commands against the checked-in archive (the feature script creates `.football-research` if needed). Do not use already inspected holdout/audit outcomes to retune failed candidates. A future iteration needs genuinely new prospective observations or another pre-declared untouched test period. See the full calibration artifact, source metadata and protocol hashes for exact values.
+
+## Venue correction after first audit
+
+The original frozen protocol overstated the scope of the August 2020 neutral tournament. UEFA confirmed the four remaining round-of-16 second legs stayed at home grounds: https://www.uefa.com/uefachampionsleague/news/025f-0fd672616416-78aef0820533-1000--round-of-16-venues-confirmed/ . The four labels were corrected together after the initial audit; the original protocol remains intact and `football-external-venue-correction.json` records this erratum. All fitted coefficients, training metrics, selection metrics, candidate choices and thresholds are unchanged. The corrected independent Champions League holdout Log loss is 0.959232 → 0.910497 (115 matches). Recent audits were regenerated as Elo propagates the correction. All acceptance decisions remain unchanged. This is a disclosed data correction after test inspection, not a fresh unseen test. The r1 version preserves the original creation and expiry dates.

@@ -1,0 +1,13 @@
+{
+  "recordedAt": "2026-09-27T15:21:52.825132+00:00",
+  "originalProtocolUnchanged": true,
+  "correction": "Only the 12\u201323 August 2020 Lisbon final-eight tournament was neutral. The four remaining 7\u20138 August round-of-16 second legs retained home grounds.",
+  "source": "https://www.uefa.com/uefachampionsleague/news/025f-0fd672616416-78aef0820533-1000--round-of-16-venues-confirmed/",
+  "affectedIds": [
+    "of:37025f97a36a369bb7e0",
+    "of:b1417c23e707c95bb941",
+    "of:2c470340c24e0a5c7d34",
+    "of:be872d0956bad9426c60"
+  ],
+  "method": "Correct all four factual venue labels, regenerate chronological features and re-evaluate unchanged fitted parameters and acceptance thresholds. Report any changed holdout metric transparently; do not tune from it."
+}
