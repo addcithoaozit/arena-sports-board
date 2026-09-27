@@ -14,7 +14,6 @@ import TeamsDirectory from './teams-directory';
 import LiveScoreboard from './live-scoreboard';
 import SessionAccount from './session-account';
 import AdminEntry from './admin-entry';
-import InternationalBoard from './international-board';
 import {useLeagueLive} from './use-league-live';
 import SuperWorkspace,{SuperEntryButton} from './super-workspace';
 
@@ -23,9 +22,6 @@ type LiveGame = { id:number; awayId?:number; homeId?:number; away:string; home:s
 type LeagueCode = 'MLB'|'CPBL'|'NPB'|'KBO';
 const LEAGUES:{code:LeagueCode;label:string;name:string;region:string;provider:string;providerNote:string}[]=[
   {code:'MLB',label:'MLB',name:'美國職棒',region:'美國職棒',provider:'MLB 官方資料',providerNote:'已連線'},
-  {code:'CPBL',label:'CPBL',name:'中華職棒',region:'台灣職棒',provider:'台灣運動數據 API',providerNote:'等待 API Key'},
-  {code:'NPB',label:'NPB',name:'日本職棒',region:'日本職棒',provider:'SportsDataAPI',providerNote:'等待 API Key'},
-  {code:'KBO',label:'KBO',name:'韓國職棒',region:'韓國職棒',provider:'SportsDataAPI',providerNote:'等待 API Key'},
 ];
 const YEAR = new Date().getFullYear();
 const CSV = `https://baseballsavant.mlb.com/leaderboard/statcast?type=batter&year=${YEAR}&position=&team=&min=10&sort=6&sortDir=desc&csv=true`;
@@ -56,7 +52,7 @@ export default function Home(){
   const updateLock=useRef(false);
   const [league,setLeague]=useState<LeagueCode>('MLB');
   const [view,setView]=useState('analysis');
-  useEffect(()=>{const p=new URLSearchParams(window.location.search),next=p.get('league');if(['MLB','CPBL','NPB','KBO'].includes(next||''))setLeague(next as LeagueCode);if(['analysis','overview','teams','standings','live'].includes(p.get('view')||''))setView(p.get('view')!);},[]);
+  useEffect(()=>{const p=new URLSearchParams(window.location.search),next=p.get('league');if(['MLB'].includes(next||''))setLeague(next as LeagueCode);if(['analysis','overview','teams','standings','live'].includes(p.get('view')||''))setView(p.get('view')!);},[]);
   const [scoreFilter,setScoreFilter]=useState('all');
   const [players,setPlayers]=useState<Player[]>([]);
   const [loading,setLoading]=useState(true),[error,setError]=useState(""),[updatedAt,setUpdatedAt]=useState<Date|null>(null);
@@ -94,7 +90,6 @@ export default function Home(){
       <nav className="league-switcher" aria-label="棒球聯盟切換">
         {LEAGUES.map(item=><button key={item.code} type="button" aria-pressed={league===item.code} onClick={()=>setLeague(item.code)}><b>{item.label}</b><span>{item.name}</span>{(item.code==='MLB'?(!scoreError&&!!scoreUpdatedAt&&leagueLive.now-scoreUpdatedAt.getTime()<120000&&liveGames.some(game=>game.live)):leagueLive[item.code])&&<i>LIVE</i>}</button>)}
       </nav>
-      {league!=='MLB'&&<div data-super-league={league}><InternationalBoard key={league} league={league} initialView={view}/></div>}
       <div data-super-league="MLB" hidden={league!=='MLB'}>
       <div className="league-heading arena-league-heading" data-view={view}><div><h1><span className="league-title-code">MLB</span> <span>美國職棒</span></h1></div></div>
       <Tabs value={view} onValueChange={setView} className="league-workspace" data-view={view}>
