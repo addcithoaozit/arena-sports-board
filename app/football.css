@@ -2,7 +2,6 @@
 .football-heading { display:flex;align-items:center;justify-content:space-between;gap:1rem;margin:.5rem 0 1.5rem; }
 .football-heading h1 { font-size:2rem;font-weight:900;letter-spacing:-.03em; }
 .football-heading p { color:#a9b7c8;font-size:.9rem;line-height:1.8; }
-.football-heading .football-eyebrow { color:#ffd538;font-size:.72rem;font-weight:800;letter-spacing:.14em; }
 .football-model-tag { border:1px solid #3c5367;border-radius:2rem;padding:.45rem .75rem;font-size:.8rem;white-space:nowrap; }
 .football-leagues { display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.5rem; }
 .football-board button { cursor:pointer; }
