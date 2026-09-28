@@ -4,7 +4,7 @@ import identities from '../data/football/external-team-map.json';
 import quarantine from '../data/football/external-quarantine.json';
 import {analyzeFootball,footballDistribution,parseFootballEvents,type FootballAnalysis,type FootballGame,type FootballLeague} from './football';
 import {externalAsGame,externalDayCutoff,externalFootballFeatures,FootballElo,type ExternalFootballGame} from './football-xg-features';
-import {externalFootballRates,footballExternalRuntime,selectExternalFootballModel} from './football-external-model';
+import {externalFootballRates,footballExternalRuntime,footballExternalAudit,selectExternalFootballModel} from './football-external-model';
 const SLUGS:Partial<Record<FootballLeague,string>>={'eng.1':'EPL','esp.1':'La_liga','ita.1':'Serie_A','ger.1':'Bundesliga','fra.1':'Ligue_1'};
 const map=identities.teams as Record<string,{name:string;understat:string|null;openfootball:string|null}>;
 const reverse=new Map<string,string>();for(const [id,v] of Object.entries(map))for(const key of [v.understat,v.openfootball])if(key)reverse.set(key,id);
@@ -100,8 +100,9 @@ export function applyExternalFootballAnalysis(game:FootballGame,base:FootballAna
   const asEspn=history.map(g=>{const r=externalAsGame(g),convert=(id:string)=>reverse.get(id)||(id.startsWith('espn:')?id.slice(5):id);r.home.id=convert(g.homeId);r.away.id=convert(g.awayId);return r;});
   result={...analyzeFootball(game,asEspn,now),quality:base.quality,external:evidence};
  }
- if(!p||!features.enough||(p.usesXg&&!features.xgEnough))return result;
- const rates=externalFootballRates(features.values,baseline.values,p),distribution=footballDistribution(rates.home,rates.away,rates.rho),probs=distribution.probabilities,entry=footballExternalRuntime.leagues[game.league];
+ const entry=footballExternalAudit(game.league);
+ if(!p||!entry||!features.enough||(p.usesXg&&!features.xgEnough))return result;
+ const rates=externalFootballRates(features.values,baseline.values,p),distribution=footballDistribution(rates.home,rates.away,rates.rho),probs=distribution.probabilities;
  const best=[{name:'主勝',p:probs.home},{name:'和局',p:probs.draw},{name:'客勝',p:probs.away}].sort((x,y)=>y.p-x.p);
  return {...result,status:'ready',reason:'',capturedAt:new Date(now).toISOString(),version:footballExternalRuntime.version,historyMode:'competition',homeForm:features.home,awayForm:features.away,expected:{home:rates.home,away:rates.away},...distribution,lean:best[0].p-best[1].p>=.08?`模型傾向${best[0].name}`:'勝負接近，保留觀望',external:{...evidence,modelApplied:true},calibration:{status:'applied',label:'外部資料校準・觀察中',version:footballExternalRuntime.version,reasons:[],holdoutGames:entry.sampleSizes.holdout,recentGames:entry.sampleSizes.audit2026,uncertainty:'獨立歷史測試與近期驗收通過，仍需持續觀察上線後表現。'},notes:[`${context.sources.join('＋')}逐場資料；${p.usesXg?'加入歷史xG、':'使用歷史進球、'}對手Elo、時間衰減及場地差異。`,'所有特徵只用預測當日之前的有效賽果；不使用本場賽後xG或收盤賠率。','2019–2020獨立測試；2025、2026另行驗收。候選未通過的聯賽保留原模型。','尚未納入確認先發與傷停；歷史改善不保證未來命中率或獲利。']};
 }

@@ -6,6 +6,7 @@ export const FOOTBALL_LEAGUES = [
   {code:'ger.1',name:'德甲',fullName:'德國甲級聯賽'},
   {code:'fra.1',name:'法甲',fullName:'法國甲級聯賽'},
   {code:'uefa.champions',name:'歐冠',fullName:'歐洲冠軍聯賽'},
+  {code:'uefa.nations',name:'歐國聯',fullName:'歐洲足總國家聯賽'},
 ] as const;
 export type FootballLeague = typeof FOOTBALL_LEAGUES[number]['code'];
 export type FootballTeam = {id:string;name:string;englishName:string};
@@ -28,6 +29,7 @@ export type FootballAnalysis = {
   scores?:{home:number;away:number;probability:number}[];lean?:string;notes:string[];
 };
 const TEAM_NAMES:Record<string,string> = {
+  'England':'英格蘭','Scotland':'蘇格蘭','Wales':'威爾斯','Northern Ireland':'北愛爾蘭','Republic of Ireland':'愛爾蘭','Ireland':'愛爾蘭','France':'法國','Germany':'德國','Italy':'義大利','Spain':'西班牙','Portugal':'葡萄牙','Netherlands':'荷蘭','Belgium':'比利時','Switzerland':'瑞士','Austria':'奧地利','Denmark':'丹麥','Norway':'挪威','Sweden':'瑞典','Finland':'芬蘭','Iceland':'冰島','Poland':'波蘭','Czechia':'捷克','Czech Republic':'捷克','Slovakia':'斯洛伐克','Slovenia':'斯洛維尼亞','Croatia':'克羅埃西亞','Serbia':'塞爾維亞','Bosnia-Herzegovina':'波士尼亞與赫塞哥維納','Bosnia and Herzegovina':'波士尼亞與赫塞哥維納','Montenegro':'蒙特內哥羅','North Macedonia':'北馬其頓','Albania':'阿爾巴尼亞','Kosovo':'科索沃','Greece':'希臘','Türkiye':'土耳其','Turkey':'土耳其','Hungary':'匈牙利','Romania':'羅馬尼亞','Bulgaria':'保加利亞','Ukraine':'烏克蘭','Belarus':'白俄羅斯','Moldova':'摩爾多瓦','Estonia':'愛沙尼亞','Latvia':'拉脫維亞','Lithuania':'立陶宛','Georgia':'喬治亞','Armenia':'亞美尼亞','Azerbaijan':'亞塞拜然','Kazakhstan':'哈薩克','Israel':'以色列','Cyprus':'賽普勒斯','Malta':'馬爾他','Luxembourg':'盧森堡','Liechtenstein':'列支敦斯登','Andorra':'安道爾','San Marino':'聖馬利諾','Gibraltar':'直布羅陀','Faroe Islands':'法羅群島',
   'AFC Bournemouth':'伯恩茅斯','Racing Santander':'桑坦德競技','Venezia':'威尼斯','Troyes':'特魯瓦','Le Mans':'勒芒',
   'Arsenal':'阿森納','Manchester City':'曼城','Manchester United':'曼聯','Liverpool':'利物浦','Chelsea':'切爾西','Tottenham Hotspur':'熱刺','Newcastle United':'紐卡索聯','Aston Villa':'阿斯頓維拉','Brighton & Hove Albion':'布萊頓','Fulham':'富勒姆','Everton':'艾佛頓','Brentford':'布倫特福德','Crystal Palace':'水晶宮','Nottingham Forest':'諾丁漢森林','West Ham United':'西漢姆聯','Leeds United':'里茲聯','Bournemouth':'伯恩茅斯','Wolverhampton Wanderers':'狼隊','Burnley':'伯恩利','Sunderland':'桑德蘭','Hull City':'赫爾城','Coventry City':'考文垂','Ipswich Town':'伊普斯維奇',
   'Real Madrid':'皇家馬德里','Barcelona':'巴塞隆納','Atlético Madrid':'馬德里競技','Atletico Madrid':'馬德里競技','Athletic Club':'畢爾包','Real Sociedad':'皇家社會','Real Betis':'皇家貝提斯','Sevilla':'塞維利亞','Villarreal':'比利亞雷亞爾','Valencia':'瓦倫西亞','Girona':'赫羅納','Espanyol':'西班牙人','Getafe':'赫塔費','Osasuna':'奧薩蘇納','Celta Vigo':'塞爾塔','Mallorca':'馬略卡','Rayo Vallecano':'巴列卡諾','Alavés':'阿拉維斯','Levante':'萊萬特','Elche':'埃爾切',
@@ -74,14 +76,15 @@ export function footballForm(teamId:string,venue:'home'|'away',history:FootballG
   return {games:rows.length,venueGames:split.length,supplementGames:options.competition?rows.filter(g=>g.league!==options.competition).length:0,scored:rate('scored'),conceded:rate('conceded'),latest:rows[0]?.start||null,recent:rows.slice(0,5).map(g=>{const delta=g.home.id===teamId?g.homeScore!-g.awayScore!:g.awayScore!-g.homeScore!;return delta>0?'勝':delta<0?'負':'和';})};
 }
 export const needsFootballRecentForm=(form:FootballForm|undefined,before:number)=>!form||form.games<10||!form.latest||before-Date.parse(form.latest)>120*86400000;
-// Only identified senior club competitions may supplement a sparse league record.
+// Only identified senior competitions in the same club/national family may supplement history.
 // In particular, friendly scores must not make an analysis appear ready.
-export const isFootballFormCompetition=(league:string)=>/^[a-z]{3}\.[1-4]$/.test(league)||['uefa.champions','uefa.europa','uefa.europa.conf','eng.fa','eng.league_cup','esp.copa_del_rey','ger.dfb_pokal','ita.coppa_italia','fra.coupe_de_france'].includes(league);
-export function parseFootballTeamHistory(data:any,teamId:string):FootballGame<string>[]{
+export const isFootballNationalCompetition=(league:string)=>['uefa.nations','uefa.euro','uefa.euroq','fifa.world','fifa.worldq.uefa'].includes(league);
+export const isFootballFormCompetition=(league:string,targetCompetition?:string)=>targetCompetition&&isFootballNationalCompetition(targetCompetition)?isFootballNationalCompetition(league):/^[a-z]{3}\.[1-4]$/.test(league)||['uefa.champions','uefa.europa','uefa.europa.conf','eng.fa','eng.league_cup','esp.copa_del_rey','ger.dfb_pokal','ita.coppa_italia','fra.coupe_de_france'].includes(league);
+export function parseFootballTeamHistory(data:any,teamId:string,targetCompetition?:string):FootballGame<string>[]{
   if(String(data?.team?.id)!==teamId||!Array.isArray(data?.events))throw Error('球隊歷史來源身分不符');
   return data.events.flatMap((event:any)=>{
     const league=event.league?.slug;
-    if(typeof league!=='string'||!isFootballFormCompetition(league))return [];
+    if(typeof league!=='string'||!isFootballFormCompetition(league,targetCompetition))return [];
     return parseFootballEvents({events:[event]},league).filter(g=>g.home.id===teamId||g.away.id===teamId);
   });
 }
@@ -96,7 +99,7 @@ export function footballDistribution(home:number,away:number,rho=0){
   return {probabilities,scores:scores.sort((a,b)=>b.probability-a.probability).slice(0,3)};
 }
 export function analyzeFootball(game:FootballGame,history:FootballGame<string>[],now=Date.now(),recentHistory:FootballGame<string>[]=[]):FootballAnalysis{
-  const calibration=selectFootballCalibration(game.league,now);let parameters=calibration.parameters;
+  const calibration=selectFootballCalibration(game.league,now),national=isFootballNationalCompetition(game.league);let parameters=calibration.parameters;
   const base={version:calibration.summary.version,calibration:calibration.summary,capturedAt:new Date(now).toISOString(),notes:['以最近一年同項賽事、最多20場正式90分鐘賽果計算；每隊至少5場。',parameters?`已套用分聯賽歷史校準：時間衰減${parameters.decayDays}天，主客場權重${parameters.venueWeight*100}%；保留測試與近期驗收通過。`:'目前保留基礎模型：90天衰減與60%主客場權重，詳見聯賽校準狀態。','未納入先發、傷停、實際xG、對手賽程強度與賠率；機率是模型估計。','所有預測均為90分鐘含補時，不含加時與互射十二碼。']};
   if(game.state!=='scheduled'||Date.parse(game.start)<=now)return {...base,status:'closed',reason:'已開賽、完場或非正常賽程，不提供賽前分析。'};
   if(!game.timeConfirmed)return {...base,status:'waiting',reason:'開賽時間尚未確認。'};
@@ -104,7 +107,7 @@ export function analyzeFootball(game:FootballGame,history:FootballGame<string>[]
   const options=parameters?{decayDays:parameters.decayDays,venueWeight:parameters.venueWeight}:undefined;
   let homeForm=footballForm(game.home.id,'home',clean,cutoff,game.neutral,options),awayForm=footballForm(game.away.id,'away',clean,cutoff,game.neutral,options);
   let historyMode:FootballAnalysis['historyMode']='competition';
-  const extra=recentHistory.filter(g=>g.id!==game.id&&isFootballFormCompetition(g.league));
+  const extra=recentHistory.filter(g=>g.id!==game.id&&isFootballFormCompetition(g.league,game.league));
   const supplement=(teamId:string,venue:'home'|'away',form:FootballForm)=>{
     if(!needsFootballRecentForm(form,cutoff))return footballForm(teamId,venue,clean,cutoff,game.neutral);
     const recent=footballForm(teamId,venue,[...extra,...clean],cutoff,game.neutral,{decayDays:90,venueWeight:.6,competition:game.league,otherCompetitionWeight:.35});
@@ -113,9 +116,10 @@ export function analyzeFootball(game:FootballGame,history:FootballGame<string>[]
   const h=supplement(game.home.id,'home',homeForm),a=supplement(game.away.id,'away',awayForm);
   if(h.supplementGames||a.supplementGames){
     homeForm=h;awayForm=a;parameters=null;historyMode='recent-form';
-    base.version='football-recent-form-v1';
+    base.version=national?'football-national-form-v1':'football-recent-form-v1';
     base.calibration={...base.calibration,status:'baseline',label:'近期戰績模型・待驗證',version:base.version,reasons:['跨賽事補充尚未通過獨立驗收'],holdoutGames:0,recentGames:0,uncertainty:'跨賽事補充的強度差異尚未校準，另外累積上線後成效。'};
     base.notes=['同賽事不足10場或近期資料過舊時，補充最近一年、最多20場正式90分鐘賽果；每隊至少5場。','跨賽事賽果乘以0.35權重，另採90天衰減與60%場地權重；友誼賽、加時、十二碼與未完場排除。','此版本尚未完成跨賽事回測，未套用只在同聯賽驗收的係數；賽前快照獨立統計。','未納入先發、傷停、xG與對手強度；機率為90分鐘含補時的模型估計。'];
+    if(national)base.notes.push('國家隊近況僅採國家聯賽、世界盃、歐洲國家盃及歐洲區資格賽；球會、青年隊與女子賽事不混用。');
   }
   if(homeForm.games<5||awayForm.games<5)return {...base,historyMode,homeForm,awayForm,status:'waiting',reason:`歷史不足：主隊${homeForm.games}場、客隊${awayForm.games}場；各需至少5場。`};
   if([homeForm,awayForm].some(f=>!f.latest||cutoff-Date.parse(f.latest)>120*86400000))return {...base,homeForm,awayForm,status:'waiting',reason:'近期賽果超過120天，等待較新的比賽資料。'};

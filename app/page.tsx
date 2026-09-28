@@ -82,7 +82,7 @@ export default function Home(){
     <header className="sticky top-0 z-20 border-b border-white/8 bg-[#081522]/95 backdrop-blur"><div className="mx-auto flex min-h-16 max-w-[1440px] flex-wrap items-center gap-3 px-4 py-3 lg:px-7">
       <div className="flex shrink-0 items-center gap-3"><a href="https://line.me/ti/p/ZuZetvA6NY" target="_blank" rel="noopener noreferrer" aria-label="透過 LINE 聯絡 YJ（另開視窗）" className="shrink-0 rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#ffd538]"><img src="/yj-logo.png" alt="YJ" width={40} height={40} className="size-10 object-contain"/></a><span className="whitespace-nowrap text-lg font-black">YJ體育分析</span></div>
       {league==='MLB'?<><div className="ml-auto flex items-center gap-2 text-sm text-slate-400"><TimerReset className="size-4 shrink-0"/><span>最後更新時間：{updatedAt?updatedAt.toLocaleString("zh-TW",{timeZone:"Asia/Taipei",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit"}):"等待同步"}</span></div>
-      <div className="flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/5 px-3 py-1.5 text-xs font-bold text-emerald-300">{error?<WifiOff className="size-3.5"/>:<Wifi className="size-3.5"/>}{error?"連線異常":loading?"正在同步":"資料已連線"}</div></>:<div className="ml-auto text-sm text-slate-400">{league==='NPB'?'棒球・NPB 日本職棒':'足球・五大聯賽＋歐冠'}</div>}
+      <div className="flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/5 px-3 py-1.5 text-xs font-bold text-emerald-300">{error?<WifiOff className="size-3.5"/>:<Wifi className="size-3.5"/>}{error?"連線異常":loading?"正在同步":"資料已連線"}</div></>:<div className="ml-auto text-sm text-slate-400">{league==='NPB'?'棒球・NPB 日本職棒':'足球・五大聯賽＋歐冠＋歐國聯'}</div>}
       <Button onClick={()=>void updateAll()} disabled={updatingAll} className="bg-[#ffd538] font-black text-[#06101b] hover:bg-[#ffe36f]"><RefreshCw className={updatingAll?"animate-spin":""}/>{updatingAll?"更新中":"立即更新"}</Button>
       <SuperEntryButton/>
       <AdminEntry/>
@@ -92,7 +92,7 @@ export default function Home(){
     <div className="mx-auto max-w-[1440px] px-4 py-6 lg:px-7">
       <nav className="league-switcher" aria-label="運動項目切換">
         <button type="button" aria-pressed={league!=='FOOTBALL'} onClick={()=>selectLeague(baseballLeague)}><b>棒球</b><span>MLB・NPB</span>{(leagueLive.NPB||!scoreError&&!!scoreUpdatedAt&&leagueLive.now-scoreUpdatedAt.getTime()<120000&&liveGames.some(game=>game.live))&&<i>LIVE</i>}</button>
-        <button type="button" aria-pressed={league==='FOOTBALL'} onClick={()=>selectLeague('FOOTBALL')}><b>足球</b><span>五大聯賽＋歐冠</span></button>
+        <button type="button" aria-pressed={league==='FOOTBALL'} onClick={()=>selectLeague('FOOTBALL')}><b>足球</b><span>五大聯賽＋歐冠＋歐國聯</span></button>
       </nav>
       {league!=='FOOTBALL'&&<nav className="baseball-league-switcher" aria-label="棒球聯盟切換">{BASEBALL_LEAGUES.map(item=><button type="button" key={item.code} aria-pressed={league===item.code} onClick={()=>selectLeague(item.code)}><b>{item.code}</b><span>{item.name}</span>{(item.code==='NPB'?leagueLive.NPB:!scoreError&&!!scoreUpdatedAt&&leagueLive.now-scoreUpdatedAt.getTime()<120000&&liveGames.some(game=>game.live))&&<i>LIVE</i>}</button>)}</nav>}
       {league==='FOOTBALL'&&<FootballBoard/>}

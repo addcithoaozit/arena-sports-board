@@ -2,8 +2,9 @@ import runtime from '../data/football/external-calibration-runtime.json';
 import type {FootballLeague} from './football';
 export type ExternalFootballParameters={decayDays:number;venueWeight:number;blend:number;homeIntercept:number;awayIntercept:number;goalAttack:number;goalDefense:number;xgAttack:number;xgDefense:number;elo:number;rho:number;usesXg:boolean};
 export const footballExternalRuntime=runtime;
+export function footballExternalAudit(league:FootballLeague){return (runtime.leagues as Partial<Record<FootballLeague,typeof runtime.leagues[keyof typeof runtime.leagues]>>)[league];}
 export function selectExternalFootballModel(league:FootballLeague,now=Date.now()){
- const entry=runtime.leagues[league];
+ const entry=footballExternalAudit(league);
  return entry?.enabled&&now>=Date.parse(runtime.createdAt)&&now<Date.parse(runtime.expiresAt)?entry.parameters as ExternalFootballParameters:null;
 }
 export function externalFootballRates(input:number[],baseline:number[],p:ExternalFootballParameters){
