@@ -15,7 +15,7 @@ export function playLabel(text){const hit=rules.find(([re])=>re.test(text));retu
 function summary(name,label,outs){return label.event==='文字紀錄'?'':`${name?name+'：':''}${label.event}${outs===null?'':`；${outs} 出局`}`;}
 function emptyCount(){return {balls:null,strikes:null,outs:null};}
 function stateFields(s){return {count:{balls:integer(s?.ball,4),strikes:integer(s?.strike,3),outs:integer(s?.out,3)},bases:s&&['base1','base2','base3'].every(k=>integer(s[k],999999)!==null)?[s.base1,s.base2,s.base3].map(v=>Number(v)>0):null,score:{away:integer(s?.awayScore),home:integer(s?.homeScore)}};}
-const snapshot=(g,p,records,extra={})=>({version:PLAY_TEXT_VERSION,gameKey:g.key,date:g.date,away:g.away.name,home:g.home.name,status:records.length?'available':'unavailable',fetchedAt:p?.fetchedAt??null,sourceUrl:p?.url??g.source.url,records,missingInnings:[],...extra});
+const snapshot=(g,p,records,extra={})=>({version:PLAY_TEXT_VERSION,gameKey:g.key,date:g.date,away:g.away.name,home:g.home.name,awayId:g.away.id,homeId:g.home.id,status:records.length?'available':'unavailable',fetchedAt:p?.fetchedAt??null,sourceUrl:p?.url??g.source.url,records,missingInnings:[],...extra});
 const sortRecords=rows=>rows.sort((a,b)=>a.inning-b.inning||(a.half===b.half?0:a.half==='top'?-1:1)||a.sequence-b.sequence);
 /** Only source-owned relay events are used. Inning totals never become at-bats. */
 export function parseKboPlayText(relay,g,p,requestedInning){
@@ -58,12 +58,12 @@ export function parseNpbPlayText(html,g,p){
   if(!team||String(g[side].id)!==team)throw new Error('NPB text batting team mismatch');
   let index=0;
   for(const item of blocks(content,'li','bb-liveText__item')){
-   index++;const body=item[1],b=blocks(body,'p','bb-liveText__batter')[0]?.[1]||'',player=b.match(/<a\b[^>]*href=["']\/npb\/player\/(\d+)\/top["'][^>]*>([\s\S]*?)<\/a>/i),order=clean(blocks(b,'span','bb-liveText__order')[0]?.[1]).match(/(\d+)番/);
+   index++;const body=item[1],sourceNumber=integer(clean(blocks(body,'p','bb-liveText__number')[0]?.[1]).replace(/[：:]$/,''),1000),sequence=sourceNumber||index,b=blocks(body,'p','bb-liveText__batter')[0]?.[1]||'',player=b.match(/<a\b[^>]*href=["']\/npb\/player\/(\d+)\/top["'][^>]*>([\s\S]*?)<\/a>/i),order=clean(blocks(b,'span','bb-liveText__order')[0]?.[1]).match(/(\d+)番/);
    const batter=player?{id:player[1],name:clean(player[2]),order:order?Number(order[1]):null}:null;
-   const paragraphs=blocks(body,'p','bb-liveText__summary'),actions=paragraphs.filter(m=>/bb-liveText__summary--change/.test(m[0])).map((m,i)=>({id:`${inning}:${half}:${index}:a:${i}`,event:playLabel(clean(m[1])).event,description:clean(m[1]).replace(/投手交代/g,'換投').replace(/守備交代/g,'守備更換').replace(/守備変更/g,'守備調整')}));
+   const paragraphs=blocks(body,'p','bb-liveText__summary'),actions=paragraphs.filter(m=>/bb-liveText__summary--change/.test(m[0])).map((m,i)=>({id:`${inning}:${half}:${sequence}:a:${i}`,event:playLabel(clean(m[1])).event,description:clean(m[1]).replace(/投手交代/g,'換投').replace(/守備交代/g,'守備更換').replace(/守備変更/g,'守備調整')}));
    const originalText=paragraphs.filter(m=>!/bb-liveText__summary--change/.test(m[0])).map(m=>clean(m[1])).filter(Boolean);if(!originalText.length&&!actions.length)continue;
-   const resultText=originalText.join('；'),label=playLabel(resultText),outs=[...resultText.matchAll(/([123])アウト/g)].at(-1),id=`${g.key}:sportsnavi:${inning}:${half}:${index}`;if(seen.has(id))continue;seen.add(id);
-   records.push({id,inning,half,sequence:index,batter,event:label.event,tone:label.tone,description:summary(batter?.name,label,outs?Number(outs[1]):null)||resultText,originalText,language:'ja',actions,pitches:[],count:{...emptyCount(),outs:outs?Number(outs[1]):null},bases:null,score:{away:null,home:null},scoring:paragraphs.some(m=>/bb-liveText__summary--point/.test(m[0])),isComplete:true,fetchedAt:p.fetchedAt});
+   const resultText=originalText.join('；'),label=playLabel(resultText),outs=[...resultText.matchAll(/([123])アウト/g)].at(-1),id=`${g.key}:sportsnavi:${inning}:${half}:${sequence}`;if(seen.has(id))continue;seen.add(id);
+   records.push({id,inning,half,sequence,batter,event:label.event,tone:label.tone,description:summary(batter?.name,label,outs?Number(outs[1]):null)||resultText,originalText,language:'ja',actions,pitches:[],count:{...emptyCount(),outs:outs?Number(outs[1]):null},bases:null,score:{away:null,home:null},scoring:paragraphs.some(m=>/bb-liveText__summary--point/.test(m[0])),isComplete:true,fetchedAt:p.fetchedAt});
   }
  }
  return snapshot(g,p,sortRecords(records));
@@ -72,12 +72,12 @@ const cache=new Map();
 async function parallel(items,fn,limit=3){let cursor=0;const out=[];await Promise.all(Array.from({length:Math.min(limit,items.length)},async()=>{while(cursor<items.length){const i=cursor++;out[i]=await fn(items[i]);}}));return out;}
 function identity(g){return `${g.key}:${g.date}:${g.away.id}:${g.home.id}`;}
 async function cachedText(key,ttl,load,store,now){const old=store.get(key);if(old&&now-old.savedAt<ttl)return old.data;const data=await load();store.set(key,{savedAt:now,data});while(store.size>160)store.delete(store.keys().next().value);return data;}
-export async function enrichGamePlayText(g,{fetcher=fetch,store=cache,now=Date.now()}={}){
+export async function enrichGamePlayText(g,{fetcher=fetch,store=cache,now=Date.now(),npbTextPages}={}){
  if(!['live','final','suspended'].includes(g.status))return g;
  const fail=reason=>snapshot(g,null,[],{reason,checkedAt:new Date(now).toISOString()});
  try{
   const baseKey=identity(g)+':'+g.status;let text;
-  if(g.league==='NPB')text=await cachedText(baseKey,g.status==='final'?900000:45000,async()=>{const p=await fetchPublic(`https://baseball.yahoo.co.jp/npb/game/${g.id}/text`,fetcher);return parseNpbPlayText(p.text,g,p);},store,now);
+  if(g.league==='NPB')text=await cachedText(baseKey,g.status==='final'?900000:45000,async()=>{const prefetched=npbTextPages?.get(String(g.id));if(prefetched===null)throw new Error('NPB text unavailable');const p=prefetched||await fetchPublic(`https://baseball.yahoo.co.jp/npb/game/${g.id}/text`,fetcher);return parseNpbPlayText(p.text,g,p);},store,now);
   else if(g.league==='KBO'){
    const max=Math.min(30,Math.max(g.inning||0,...['away','home'].flatMap(s=>(g.innings[s]||[]).filter(r=>r.runs!==null).map(r=>r.inning))));
    if(!max||!Number.isFinite(max))return {...g,playText:fail('尚未取得已進行局數，暫無文字紀錄')};
