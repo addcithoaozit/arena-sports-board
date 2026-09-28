@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-09-28T14:16:31Z",
+  "dateAsiaTaipei": "2026-09-28",
+  "purpose": "current feed validation; not production deployment",
+  "collectionMode": "fresh public-source fallback because the validated GitHub Actions collector run cannot currently be retried",
+  "workflow": {
+    "runId": 35688889561,
+    "lastKnownRunAttempt": 50,
+    "latestJobsObserved": 0,
+    "latestArtifactId": 10923208463,
+    "latestArtifactCreatedAt": "2026-09-27T04:44:22Z",
+    "acceptedAsCurrent": false,
+    "rerunAttempted": true,
+    "rerunSucceeded": false,
+    "rerunError": "HTTP 403: This workflow run cannot be retried"
+  },
+  "NPB": {
+    "games": 3,
+    "states": {
+      "final": 3
+    },
+    "sameDayLiveVerified": true,
+    "source": "NPB official current scores plus retained same-day live proof",
+    "sourceUrl": "https://npb.jp/games/2026/",
+    "sourceUpdatedAt": "2026-09-28T14:08:00Z",
+    "gamesSummary": [
+      {
+        "key": "NPB:2021048563",
+        "away": "広島",
+        "home": "DeNA",
+        "status": "final",
+        "awayScore": 4,
+        "homeScore": 3
+      },
+      {
+        "key": "NPB:2021039468",
+        "away": "楽天",
+        "home": "西武",
+        "status": "final",
+        "awayScore": 4,
+        "homeScore": 2
+      },
+      {
+        "key": "NPB:2021039469",
+        "away": "日本ハム",
+        "home": "ロッテ",
+        "status": "final",
+        "awayScore": 8,
+        "homeScore": 3
+      }
+    ],
+    "unsupportedNormalizedFields": {
+      "balls": null,
+      "strikes": null,
+      "outs": null,
+      "bases": null
+    }
+  },
+  "KBO": {
+    "games": 0,
+    "states": {},
+    "sameDayLiveVerified": false,
+    "notApplicableToday": true,
+    "source": "naver/kbo public schedule validation retained for 2026-09-28",
+    "note": "No 2026-09-28 KBO first-team games; non-KBO/Futures baseball categories excluded."
+  },
+  "CPBL": {
+    "games": 3,
+    "states": {
+      "final": 3
+    },
+    "sameDayLiveVerified": true,
+    "source": "fresh final-result cross-check; indexed CPBL advanced-data snapshot was stale and was not used as final authority",
+    "sourceUrl": "https://www.nownews.com/news/6878842",
+    "sourcePublishedAt": "2026-09-28T13:54:11Z",
+    "sourceUpdatedAt": "2026-09-28T13:55:06Z",
+    "gamesSummary": [
+      {
+        "key": "CPBL:260928358",
+        "away": "台鋼雄鷹",
+        "home": "中信兄弟",
+        "status": "final",
+        "awayScore": 10,
+        "homeScore": 19
+      },
+      {
+        "key": "CPBL:260928359",
+        "away": "統一7-ELEVEn獅",
+        "home": "樂天桃猿",
+        "status": "final",
+        "awayScore": 7,
+        "homeScore": 4
+      },
+      {
+        "key": "CPBL:260928360",
+        "away": "味全龍",
+        "home": "富邦悍將",
+        "status": "final",
+        "awayScore": 4,
+        "homeScore": 2
+      }
+    ],
+    "pitchCount": null,
+    "balls": null,
+    "strikes": null,
+    "outs": null,
+    "bases": null,
+    "lineupConfirmation": "source_listed_not_officially_verified",
+    "dataQualityNote": "A web-indexed stats.cpbl.com.tw snapshot still showed games as in-progress, so final-state ingestion must prefer fresher corroborated results until that snapshot catches up."
+  },
+  "sourcePolicy": {
+    "noAccessChallengeBypass": true,
+    "oldArtifactNotAcceptedAsCurrent": true,
+    "unknownFieldsNotFilledWithZero": true
+  },
+  "productionChanged": false,
+  "productionDatabaseWritten": false,
+  "deployed": false
+}
