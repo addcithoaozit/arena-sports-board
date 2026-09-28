@@ -1,0 +1,400 @@
+{
+  "id": "2021039468",
+  "key": "NPB:2021039468",
+  "league": "NPB",
+  "date": "2026-09-28",
+  "status": "live",
+  "inning": 1,
+  "half": "top",
+  "away": {
+    "id": "376",
+    "name": "東北樂天金鷲",
+    "score": 1,
+    "hits": 2,
+    "errors": 0
+  },
+  "home": {
+    "id": "7",
+    "name": "西武獅",
+    "score": 0,
+    "hits": 0,
+    "errors": 1
+  },
+  "innings": {
+    "away": [
+      {
+        "inning": 1,
+        "runs": 1
+      },
+      {
+        "inning": 2,
+        "runs": null
+      },
+      {
+        "inning": 3,
+        "runs": null
+      },
+      {
+        "inning": 4,
+        "runs": null
+      },
+      {
+        "inning": 5,
+        "runs": null
+      },
+      {
+        "inning": 6,
+        "runs": null
+      },
+      {
+        "inning": 7,
+        "runs": null
+      },
+      {
+        "inning": 8,
+        "runs": null
+      },
+      {
+        "inning": 9,
+        "runs": null
+      }
+    ],
+    "home": [
+      {
+        "inning": 1,
+        "runs": null
+      },
+      {
+        "inning": 2,
+        "runs": null
+      },
+      {
+        "inning": 3,
+        "runs": null
+      },
+      {
+        "inning": 4,
+        "runs": null
+      },
+      {
+        "inning": 5,
+        "runs": null
+      },
+      {
+        "inning": 6,
+        "runs": null
+      },
+      {
+        "inning": 7,
+        "runs": null
+      },
+      {
+        "inning": 8,
+        "runs": null
+      },
+      {
+        "inning": 9,
+        "runs": null
+      }
+    ]
+  },
+  "lineups": {
+    "away": [],
+    "home": []
+  },
+  "batting": {
+    "away": [
+      {
+        "id": null,
+        "name": "中島 大輔",
+        "stats": {
+          "AT_BATS": 1,
+          "RUNS": 1,
+          "HITS": 1,
+          "RBIS": 0,
+          "HOME_RUNS": 0,
+          "WALKS": 0,
+          "STRIKEOUTS": 0
+        }
+      },
+      {
+        "id": null,
+        "name": "宗山 塁",
+        "stats": {
+          "AT_BATS": 1,
+          "RUNS": 0,
+          "HITS": 0,
+          "RBIS": 0,
+          "HOME_RUNS": 0,
+          "WALKS": 0,
+          "STRIKEOUTS": 0
+        }
+      },
+      {
+        "id": null,
+        "name": "小深田 大翔",
+        "stats": {
+          "AT_BATS": 1,
+          "RUNS": 0,
+          "HITS": 1,
+          "RBIS": 0,
+          "HOME_RUNS": 0,
+          "WALKS": 0,
+          "STRIKEOUTS": 0
+        }
+      },
+      {
+        "id": null,
+        "name": "YG安田",
+        "stats": {
+          "AT_BATS": 1,
+          "RUNS": 0,
+          "HITS": 0,
+          "RBIS": 1,
+          "HOME_RUNS": 0,
+          "WALKS": 0,
+          "STRIKEOUTS": 0
+        }
+      },
+      {
+        "id": null,
+        "name": "マッカスカー",
+        "stats": {
+          "AT_BATS": 0,
+          "RUNS": 0,
+          "HITS": 0,
+          "RBIS": 0,
+          "HOME_RUNS": 0,
+          "WALKS": 0,
+          "STRIKEOUTS": 0
+        }
+      },
+      {
+        "id": null,
+        "name": "辰己 涼介",
+        "stats": {
+          "AT_BATS": 0,
+          "RUNS": 0,
+          "HITS": 0,
+          "RBIS": 0,
+          "HOME_RUNS": 0,
+          "WALKS": 0,
+          "STRIKEOUTS": 0
+        }
+      },
+      {
+        "id": null,
+        "name": "村林 一輝",
+        "stats": {
+          "AT_BATS": 0,
+          "RUNS": 0,
+          "HITS": 0,
+          "RBIS": 0,
+          "HOME_RUNS": 0,
+          "WALKS": 0,
+          "STRIKEOUTS": 0
+        }
+      },
+      {
+        "id": null,
+        "name": "堀内 謙伍",
+        "stats": {
+          "AT_BATS": 0,
+          "RUNS": 0,
+          "HITS": 0,
+          "RBIS": 0,
+          "HOME_RUNS": 0,
+          "WALKS": 0,
+          "STRIKEOUTS": 0
+        }
+      },
+      {
+        "id": null,
+        "name": "小郷 裕哉",
+        "stats": {
+          "AT_BATS": 0,
+          "RUNS": 0,
+          "HITS": 0,
+          "RBIS": 0,
+          "HOME_RUNS": 0,
+          "WALKS": 0,
+          "STRIKEOUTS": 0
+        }
+      }
+    ],
+    "home": [
+      {
+        "id": null,
+        "name": "カナリオ",
+        "stats": {
+          "AT_BATS": 0,
+          "RUNS": 0,
+          "HITS": 0,
+          "RBIS": 0,
+          "HOME_RUNS": 0,
+          "WALKS": 0,
+          "STRIKEOUTS": 0
+        }
+      },
+      {
+        "id": null,
+        "name": "平沢 大河",
+        "stats": {
+          "AT_BATS": 0,
+          "RUNS": 0,
+          "HITS": 0,
+          "RBIS": 0,
+          "HOME_RUNS": 0,
+          "WALKS": 0,
+          "STRIKEOUTS": 0
+        }
+      },
+      {
+        "id": null,
+        "name": "小島 大河",
+        "stats": {
+          "AT_BATS": 0,
+          "RUNS": 0,
+          "HITS": 0,
+          "RBIS": 0,
+          "HOME_RUNS": 0,
+          "WALKS": 0,
+          "STRIKEOUTS": 0
+        }
+      },
+      {
+        "id": null,
+        "name": "ネビン",
+        "stats": {
+          "AT_BATS": 0,
+          "RUNS": 0,
+          "HITS": 0,
+          "RBIS": 0,
+          "HOME_RUNS": 0,
+          "WALKS": 0,
+          "STRIKEOUTS": 0
+        }
+      },
+      {
+        "id": null,
+        "name": "渡部 聖弥",
+        "stats": {
+          "AT_BATS": 0,
+          "RUNS": 0,
+          "HITS": 0,
+          "RBIS": 0,
+          "HOME_RUNS": 0,
+          "WALKS": 0,
+          "STRIKEOUTS": 0
+        }
+      },
+      {
+        "id": null,
+        "name": "石井 一成",
+        "stats": {
+          "AT_BATS": 0,
+          "RUNS": 0,
+          "HITS": 0,
+          "RBIS": 0,
+          "HOME_RUNS": 0,
+          "WALKS": 0,
+          "STRIKEOUTS": 0
+        }
+      },
+      {
+        "id": null,
+        "name": "長谷川 信哉",
+        "stats": {
+          "AT_BATS": 0,
+          "RUNS": 0,
+          "HITS": 0,
+          "RBIS": 0,
+          "HOME_RUNS": 0,
+          "WALKS": 0,
+          "STRIKEOUTS": 0
+        }
+      },
+      {
+        "id": null,
+        "name": "外崎 修汰",
+        "stats": {
+          "AT_BATS": 0,
+          "RUNS": 0,
+          "HITS": 0,
+          "RBIS": 0,
+          "HOME_RUNS": 0,
+          "WALKS": 0,
+          "STRIKEOUTS": 0
+        }
+      },
+      {
+        "id": null,
+        "name": "滝澤 夏央",
+        "stats": {
+          "AT_BATS": 0,
+          "RUNS": 0,
+          "HITS": 0,
+          "RBIS": 0,
+          "HOME_RUNS": 0,
+          "WALKS": 0,
+          "STRIKEOUTS": 0
+        }
+      }
+    ]
+  },
+  "pitching": {
+    "away": [
+      {
+        "id": null,
+        "name": "岸 孝之",
+        "stats": {
+          "INNINGS_PITCHED": 0,
+          "PITCHES_THROWN": 0,
+          "HITS_ALLOWED": 0,
+          "EARNED_RUNS": 0,
+          "RUNS_ALLOWED": 0,
+          "WALKS_ALLOWED": 0,
+          "STRIKEOUTS_THROWN": 0
+        },
+        "pitchCount": 0,
+        "outsRecorded": 0
+      }
+    ],
+    "home": [
+      {
+        "id": null,
+        "name": "隅田 知一郎",
+        "stats": {
+          "INNINGS_PITCHED": 0.1,
+          "PITCHES_THROWN": 12,
+          "HITS_ALLOWED": 2,
+          "EARNED_RUNS": 1,
+          "RUNS_ALLOWED": 1,
+          "WALKS_ALLOWED": 0,
+          "STRIKEOUTS_THROWN": 0
+        },
+        "pitchCount": 12,
+        "outsRecorded": 1
+      },
+      {
+        "id": null,
+        "name": "山田 陽翔",
+        "stats": {
+          "INNINGS_PITCHED": 0,
+          "PITCHES_THROWN": 5,
+          "HITS_ALLOWED": 0,
+          "EARNED_RUNS": 0,
+          "RUNS_ALLOWED": 0,
+          "WALKS_ALLOWED": 0,
+          "STRIKEOUTS_THROWN": 0
+        },
+        "pitchCount": 5,
+        "outsRecorded": 0
+      }
+    ]
+  },
+  "starters": {
+    "away": null,
+    "home": null
+  }
+}

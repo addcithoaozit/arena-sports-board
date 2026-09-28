@@ -17,14 +17,12 @@ import AdminEntry from './admin-entry';
 import {useLeagueLive} from './use-league-live';
 import SuperWorkspace,{SuperEntryButton} from './super-workspace';
 import FootballBoard from './football-board';
+import InternationalBoard from './international-board';
+import {BASEBALL_LEAGUES,frontSelection,leaguePageHref,type FrontLeague} from '@/lib/sport-navigation';
 import './football.css';
 
 type Player = { name:string; playerId:string; attempts:number; avgHitSpeed:number; maxHitSpeed:number; sweetSpot:number; hardHit:number; barrels:number; barrelRate:number };
 type LiveGame = { id:number; awayId?:number; homeId?:number; away:string; home:string; awayScore:number|null; homeScore:number|null; status:string; detail:string; start:string; live:boolean; final:boolean; line:any; pitchCount:number|null; detailError:boolean; detailFetchedAt:string|null };
-type LeagueCode = 'MLB'|'CPBL'|'NPB'|'KBO';
-const LEAGUES:{code:LeagueCode;label:string;name:string;region:string;provider:string;providerNote:string}[]=[
-  {code:'MLB',label:'MLB',name:'美國職棒',region:'美國職棒',provider:'MLB 官方資料',providerNote:'已連線'},
-];
 const YEAR = new Date().getFullYear();
 const CSV = `https://baseballsavant.mlb.com/leaderboard/statcast?type=batter&year=${YEAR}&position=&team=&min=10&sort=6&sortDir=desc&csv=true`;
 const REFRESH_MS = 20 * 60 * 1000;
@@ -52,9 +50,11 @@ export default function Home(){
   const leagueLive=useLeagueLive();
   const [updatingAll,setUpdatingAll]=useState(false),[updateNotice,setUpdateNotice]=useState('');
   const updateLock=useRef(false);
-  const [league,setLeague]=useState<LeagueCode|'FOOTBALL'>('MLB');
+  const [league,setLeague]=useState<FrontLeague>('MLB'),[baseballLeague,setBaseballLeague]=useState<'MLB'|'NPB'>('MLB');
   const [view,setView]=useState('analysis');
-  useEffect(()=>{const p=new URLSearchParams(window.location.search),next=p.get('league');if(['MLB','FOOTBALL'].includes(next||''))setLeague(next as LeagueCode|'FOOTBALL');if(['analysis','overview','teams','standings','live'].includes(p.get('view')||''))setView(p.get('view')!);},[]);
+  useEffect(()=>{const read=()=>{const next=frontSelection(window.location.search);setLeague(next.league);if(next.league!=='FOOTBALL')setBaseballLeague(next.league);setView(next.view);};read();window.addEventListener('popstate',read);return()=>window.removeEventListener('popstate',read);},[]);
+  function selectLeague(next:FrontLeague){setLeague(next);if(next!=='FOOTBALL')setBaseballLeague(next);setUpdateNotice('');window.history.replaceState(null,'',leaguePageHref(next,view));}
+  function selectView(next:string){setView(next);window.history.replaceState(null,'',leaguePageHref(league,next));}
   const [scoreFilter,setScoreFilter]=useState('all');
   const [players,setPlayers]=useState<Player[]>([]);
   const [loading,setLoading]=useState(true),[error,setError]=useState(""),[updatedAt,setUpdatedAt]=useState<Date|null>(null);
@@ -82,7 +82,7 @@ export default function Home(){
     <header className="sticky top-0 z-20 border-b border-white/8 bg-[#081522]/95 backdrop-blur"><div className="mx-auto flex min-h-16 max-w-[1440px] flex-wrap items-center gap-3 px-4 py-3 lg:px-7">
       <div className="flex shrink-0 items-center gap-3"><a href="https://line.me/ti/p/ZuZetvA6NY" target="_blank" rel="noopener noreferrer" aria-label="透過 LINE 聯絡 YJ（另開視窗）" className="shrink-0 rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#ffd538]"><img src="/yj-logo.png" alt="YJ" width={40} height={40} className="size-10 object-contain"/></a><span className="whitespace-nowrap text-lg font-black">YJ體育分析</span></div>
       {league==='MLB'?<><div className="ml-auto flex items-center gap-2 text-sm text-slate-400"><TimerReset className="size-4 shrink-0"/><span>最後更新時間：{updatedAt?updatedAt.toLocaleString("zh-TW",{timeZone:"Asia/Taipei",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit"}):"等待同步"}</span></div>
-      <div className="flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/5 px-3 py-1.5 text-xs font-bold text-emerald-300">{error?<WifiOff className="size-3.5"/>:<Wifi className="size-3.5"/>}{error?"連線異常":loading?"正在同步":"資料已連線"}</div></>:<div className="ml-auto text-sm text-slate-400">足球・五大聯賽＋歐冠</div>}
+      <div className="flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/5 px-3 py-1.5 text-xs font-bold text-emerald-300">{error?<WifiOff className="size-3.5"/>:<Wifi className="size-3.5"/>}{error?"連線異常":loading?"正在同步":"資料已連線"}</div></>:<div className="ml-auto text-sm text-slate-400">{league==='NPB'?'棒球・NPB 日本職棒':'足球・五大聯賽＋歐冠'}</div>}
       <Button onClick={()=>void updateAll()} disabled={updatingAll} className="bg-[#ffd538] font-black text-[#06101b] hover:bg-[#ffe36f]"><RefreshCw className={updatingAll?"animate-spin":""}/>{updatingAll?"更新中":"立即更新"}</Button>
       <SuperEntryButton/>
       <AdminEntry/>
@@ -91,13 +91,15 @@ export default function Home(){
     </div>{updateNotice&&<p role="status" className="mx-auto max-w-[1440px] px-4 pb-2 text-xs text-amber-200">{updateNotice}</p>}</header>
     <div className="mx-auto max-w-[1440px] px-4 py-6 lg:px-7">
       <nav className="league-switcher" aria-label="運動項目切換">
-        {LEAGUES.map(item=><button key={item.code} type="button" aria-pressed={league===item.code} onClick={()=>setLeague(item.code)}><b>{item.label}</b><span>{item.name}</span>{(item.code==='MLB'?(!scoreError&&!!scoreUpdatedAt&&leagueLive.now-scoreUpdatedAt.getTime()<120000&&liveGames.some(game=>game.live)):leagueLive[item.code])&&<i>LIVE</i>}</button>)}
-        <button type="button" aria-pressed={league==='FOOTBALL'} onClick={()=>setLeague('FOOTBALL')}><b>足球</b><span>五大聯賽＋歐冠</span></button>
+        <button type="button" aria-pressed={league!=='FOOTBALL'} onClick={()=>selectLeague(baseballLeague)}><b>棒球</b><span>MLB・NPB</span>{(leagueLive.NPB||!scoreError&&!!scoreUpdatedAt&&leagueLive.now-scoreUpdatedAt.getTime()<120000&&liveGames.some(game=>game.live))&&<i>LIVE</i>}</button>
+        <button type="button" aria-pressed={league==='FOOTBALL'} onClick={()=>selectLeague('FOOTBALL')}><b>足球</b><span>五大聯賽＋歐冠</span></button>
       </nav>
+      {league!=='FOOTBALL'&&<nav className="baseball-league-switcher" aria-label="棒球聯盟切換">{BASEBALL_LEAGUES.map(item=><button type="button" key={item.code} aria-pressed={league===item.code} onClick={()=>selectLeague(item.code)}><b>{item.code}</b><span>{item.name}</span>{(item.code==='NPB'?leagueLive.NPB:!scoreError&&!!scoreUpdatedAt&&leagueLive.now-scoreUpdatedAt.getTime()<120000&&liveGames.some(game=>game.live))&&<i>LIVE</i>}</button>)}</nav>}
       {league==='FOOTBALL'&&<FootballBoard/>}
+      {league==='NPB'&&<div data-super-league="NPB"><InternationalBoard league="NPB" initialView={view} onViewChange={selectView}/></div>}
       <div data-super-league="MLB" hidden={league!=='MLB'}>
       <div className="league-heading arena-league-heading" data-view={view}><div><h1><span className="league-title-code">MLB</span> <span>美國職棒</span></h1></div></div>
-      <Tabs value={view} onValueChange={setView} className="league-workspace" data-view={view}>
+      <Tabs value={view} onValueChange={selectView} className="league-workspace" data-view={view}>
         <TabsList className="league-tabs" aria-label="美國職棒頁面"><TabsTrigger value="overview">概覽</TabsTrigger><TabsTrigger value="standings">戰績排名</TabsTrigger><TabsTrigger value="teams">球隊一覽</TabsTrigger><TabsTrigger value="live">即時比分</TabsTrigger><TabsTrigger value="analysis">賽前分析・串關</TabsTrigger></TabsList>
         <TabsContent value={view} className="space-y-6">
         {view==='teams'&&<TeamsDirectory/>}

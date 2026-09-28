@@ -3,6 +3,7 @@ import {isSiteAdmin} from '@/app/admin-access';
 import {readSession} from '@/lib/arena-session';
 import {dayInTaipei} from '@/server/baseball-current.mjs';
 import {getInternationalLive as getFeed} from '@/lib/international-feed';
+import {withNpbLivePhotos} from '@/lib/international-player-photos';
 export const dynamic='force-dynamic';
 const headers={'Cache-Control':'private, no-store'};
 export async function GET(request:Request){
@@ -15,6 +16,6 @@ export async function GET(request:Request){
   const date=url.searchParams.get('date')||dayInTaipei();
   if(!/^\d{4}-\d{2}-\d{2}$/.test(date))return Response.json({error:'日期格式不正確。'},{status:400,headers});
   const value=await getFeed(league,date);
-  return Response.json(value,{status:value.status==='unavailable'?503:200,headers});
+  return Response.json({...value,games:value.games?.map(withNpbLivePhotos)},{status:value.status==='unavailable'?503:200,headers});
  }catch{return Response.json({error:'使用權或資料服務暫時無法使用。'},{status:503,headers});}
 }
