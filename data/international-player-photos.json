@@ -2360,6 +2360,13 @@
         "url": "https://sports-baseball.west.edge.storage-yahoo.jp/npb/images/player/square/12/1700066.jpg",
         "source": "https://baseball.yahoo.co.jp/npb/teams/12/players",
         "alternatives": []
+      },
+      "コックス": {
+        "url": "/player-photos/npb/2026/db-austin-cox.jpg",
+        "source": "https://npb.jp/bis/players/83385152.html",
+        "alternatives": [
+          "https://p.npb.jp/players_photo/2026/180/db/042_83385152.jpg"
+        ]
       }
     },
     "NPB:d": {
@@ -2667,6 +2674,20 @@
         "url": "https://sports-baseball.west.edge.storage-yahoo.jp/npb/images/player/square/4/2105295.jpg",
         "source": "https://baseball.yahoo.co.jp/npb/teams/4/players",
         "alternatives": []
+      },
+      "森駿太": {
+        "url": "/player-photos/npb/2026/d-shunta-mori.jpg",
+        "source": "https://baseball.yahoo.co.jp/npb/teams/4/players",
+        "alternatives": [
+          "https://sports-baseball.west.edge.storage-yahoo.jp/npb/images/player/square/4/2117699.jpg"
+        ]
+      },
+      "宮内春輝": {
+        "url": "/player-photos/npb/2026/d-haruki-miyauchi.jpg",
+        "source": "https://baseball.yahoo.co.jp/npb/teams/4/players",
+        "alternatives": [
+          "https://sports-baseball.west.edge.storage-yahoo.jp/npb/images/player/square/4/2107958.jpg"
+        ]
       }
     },
     "NPB:c": {
@@ -2939,6 +2960,13 @@
         "url": "https://sports-baseball.west.edge.storage-yahoo.jp/npb/images/player/square/6/2000061.jpg",
         "source": "https://baseball.yahoo.co.jp/npb/teams/6/players",
         "alternatives": []
+      },
+      "叶人清水": {
+        "url": "/player-photos/npb/2026/c-kanato-shimizu.jpg",
+        "source": "https://baseball.yahoo.co.jp/npb/teams/6/players",
+        "alternatives": [
+          "https://sports-baseball.west.edge.storage-yahoo.jp/npb/images/player/square/6/2100102.jpg"
+        ]
       }
     },
     "NPB:s": {
@@ -3241,6 +3269,13 @@
         "url": "https://sports-baseball.west.edge.storage-yahoo.jp/npb/images/player/square/2/2122334.jpg",
         "source": "https://baseball.yahoo.co.jp/npb/teams/2/players",
         "alternatives": []
+      },
+      "中村優斗": {
+        "url": "/player-photos/npb/2026/s-yuto-nakamura.jpg",
+        "source": "https://baseball.yahoo.co.jp/npb/teams/2/players",
+        "alternatives": [
+          "https://sports-baseball.west.edge.storage-yahoo.jp/npb/images/player/square/2/2113273.jpg"
+        ]
       }
     },
     "NPB:h": {
@@ -3830,6 +3865,20 @@
         "url": "https://sports-baseball.west.edge.storage-yahoo.jp/npb/images/player/square/8/2117491.jpg",
         "source": "https://baseball.yahoo.co.jp/npb/teams/8/players",
         "alternatives": []
+      },
+      "中島卓也": {
+        "url": "/player-photos/npb/2026/f-takuya-nakashima.jpg",
+        "source": "https://baseball.yahoo.co.jp/npb/teams/8/players",
+        "alternatives": [
+          "https://sports-baseball.west.edge.storage-yahoo.jp/npb/images/player/square/8/900069.jpg"
+        ]
+      },
+      "松岡洸希": {
+        "url": "/player-photos/npb/2026/f-koki-matsuoka.jpg",
+        "source": "https://baseball.yahoo.co.jp/npb/teams/8/players",
+        "alternatives": [
+          "https://sports-baseball.west.edge.storage-yahoo.jp/npb/images/player/square/8/1900063.jpg"
+        ]
       }
     },
     "NPB:b": {
@@ -4142,6 +4191,13 @@
         "url": "https://sports-baseball.west.edge.storage-yahoo.jp/npb/images/player/square/11/1800090.jpg",
         "source": "https://baseball.yahoo.co.jp/npb/teams/11/players",
         "alternatives": []
+      },
+      "睦衡陳": {
+        "url": "/player-photos/npb/2026/b-chen-mu-heng.jpg",
+        "source": "https://baseball.yahoo.co.jp/npb/teams/11/players",
+        "alternatives": [
+          "https://sports-baseball.west.edge.storage-yahoo.jp/npb/images/player/square/11/2116949.jpg"
+        ]
       }
     },
     "NPB:e": {
@@ -4444,6 +4500,13 @@
         "url": "https://sports-baseball.west.edge.storage-yahoo.jp/npb/images/player/square/376/2105140.jpg",
         "source": "https://baseball.yahoo.co.jp/npb/teams/376/players",
         "alternatives": []
+      },
+      "ゴンザレス": {
+        "url": "/player-photos/npb/2026/e-oscar-gonzalez.jpg",
+        "source": "https://npb.jp/bis/players/93095150.html",
+        "alternatives": [
+          "https://p.npb.jp/players_photo/2026/180/e/012_93095150.jpg"
+        ]
       }
     },
     "NPB:l": {
@@ -7582,5 +7645,6 @@
         "alternatives": []
       }
     }
-  }
+  },
+  "npbCheckedAt": "2026-09-28T09:03:53Z"
 }

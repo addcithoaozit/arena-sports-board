@@ -7,5 +7,5 @@ export function withPlayerPhotos(data:any,league:string,code:string,year:number)
  const team=(catalog.teams as Record<string,Record<string,{url:string;source:string;alternatives?:string[]}>>)[`${league}:${code}`]||{};
  const photos={...(data.photos||{})},photoAlternatives:Record<string,string[]>={},photoSources:Record<string,string>={};
  for(const table of [data.bat,data.pit])for(const row of table?.rows||[]){const entry=team[playerPhotoKey(row[0])];if(!entry)continue;const urls=[entry.url,...entry.alternatives||[],photos[row[0]]].filter(Boolean);photos[row[0]]=urls[0];photoAlternatives[row[0]]=[...new Set(urls)];photoSources[row[0]]=entry.source;}
- return {...data,photos,photoAlternatives,photoSources,photosUpdatedAt:catalog.checkedAt};
+ return {...data,photos,photoAlternatives,photoSources,photosUpdatedAt:league==='NPB'?catalog.npbCheckedAt:catalog.checkedAt};
 }
