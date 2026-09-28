@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-09-28T12:56:54Z",
+  "dateAsiaTaipei": "2026-09-28",
+  "purpose": "current feed validation; not production deployment",
+  "workflow": {
+    "runId": 35688889561,
+    "runAttempt": 50,
+    "conclusion": "startup_failure",
+    "latestArtifactId": 10923208463,
+    "latestArtifactCreatedAt": "2026-09-27T04:44:22Z",
+    "acceptedAsCurrent": false,
+    "rerunLatestVerifiedJob": {
+      "attempted": true,
+      "success": false,
+      "error": "blocked by connector safety checks"
+    }
+  },
+  "NPB": {
+    "games": 3,
+    "states": {
+      "final": 3
+    },
+    "sameDayLiveVerified": true,
+    "source": "sportsnavi",
+    "finals": [
+      {
+        "away": "広島",
+        "home": "DeNA",
+        "awayScore": 4,
+        "homeScore": 3
+      },
+      {
+        "away": "楽天",
+        "home": "西武",
+        "awayScore": 4,
+        "homeScore": 2
+      },
+      {
+        "away": "日本ハム",
+        "home": "ロッテ",
+        "awayScore": 8,
+        "homeScore": 3
+      }
+    ],
+    "evidenceObservationPath": "data/live/2026-09-28T095522Z.json"
+  },
+  "KBO": {
+    "games": 0,
+    "states": {},
+    "sameDayLiveVerified": false,
+    "source": "naver",
+    "note": "No 2026-09-28 KBO first-team games; non-KBO baseball categories excluded."
+  },
+  "CPBL": {
+    "games": 3,
+    "states": {
+      "live": 2,
+      "final": 1
+    },
+    "source": "playsport-fallback",
+    "observationsSeparatedByAtLeast65Seconds": true,
+    "qualifiedNumericChangesThisRun": 0,
+    "current": [
+      {
+        "away": "台鋼",
+        "home": "兄弟",
+        "status": "live",
+        "awayScore": 10,
+        "homeScore": 17,
+        "awayHits": 16,
+        "homeHits": 16,
+        "awayErrors": 2,
+        "homeErrors": 1
+      },
+      {
+        "away": "統一",
+        "home": "樂天",
+        "status": "live",
+        "awayScore": 4,
+        "homeScore": 3,
+        "awayHits": 15,
+        "homeHits": 7,
+        "awayErrors": 0,
+        "homeErrors": 0
+      },
+      {
+        "away": "味全",
+        "home": "富邦",
+        "status": "final",
+        "awayScore": 4,
+        "homeScore": 2,
+        "awayHits": 10,
+        "homeHits": 9,
+        "awayErrors": 1,
+        "homeErrors": 1
+      }
+    ],
+    "unsupportedNormalizedFields": {
+      "pitchCount": null,
+      "balls": null,
+      "strikes": null,
+      "outs": null,
+      "bases": null
+    },
+    "lineupConfirmation": "source_listed_not_officially_verified",
+    "note": "Two fresh PlaySport observations >=65 seconds apart were unchanged in collector-qualified fields; no new live-change proof created this run."
+  },
+  "sourcePolicy": {
+    "noAccessChallengeBypass": true,
+    "oldArtifactNotAcceptedAsCurrent": true,
+    "unknownFieldsNotFilledWithZero": true
+  },
+  "productionChanged": false,
+  "productionDatabaseWritten": false,
+  "deployed": false
+}
