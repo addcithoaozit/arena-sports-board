@@ -1,16 +1,17 @@
 'use client';
 import {FOOTBALL_LEAGUES,type FootballLeague} from '@/lib/football';
-import {footballExternalRuntime as audit,selectExternalFootballModel} from '@/lib/football-external-model';
+import {footballExternalRuntime as audit,footballExternalAudit,selectExternalFootballModel} from '@/lib/football-external-model';
 import {selectFootballMarketModel} from '@/lib/football-market-model';
 import {selectFootballCalibration} from '@/lib/football-calibration';
 const decimal=(n:number)=>n.toFixed(4);
 const reason=(r:string)=>r.replace('audit2025','2025驗收').replace('audit2026','2026驗收').replace('holdout','2019–2020獨立測試').replace('over25Brier_worse','大小2.5球誤差超標').replace('bttsBrier_worse','雙方進球誤差超標').replaceAll('_','：');
 export default function FootballExternalValidation({league}:{league:FootballLeague}){
- const x=audit.leagues[league];
+ const x=footballExternalAudit(league);
  const state=(code:FootballLeague)=>selectFootballMarketModel(code)?'第二輪比分模型已通過（見上方）':selectExternalFootballModel(code)?'新模型通過・觀察中':selectFootballCalibration(code).parameters?'保留原校準模型':'保留基礎模型';
+ if(!x)return <details className="football-method" open><summary>國家聯賽資料與模型驗證</summary><p>使用最近一年國家隊正式賽果，包括國家聯賽、世界盃、歐洲國家盃與歐洲區資格賽；各隊至少5場，最多20場。依近期程度與主客場加權，其他正式賽事採0.35權重。</p><p>此賽事尚未完成獨立校準；不套用球會聯賽的xG或校準係數。賽前快照以國家隊模型版本獨立累積，可在下方查看上線後驗證。</p></details>;
  return <details className="football-method" open><summary>外部資料補強與模型驗收</summary>
   <p>本區為第一輪候選紀錄；德甲與義甲最新狀態請見第二輪驗收。已核對 {audit.historyGames.toLocaleString()} 場賽果：Understat 提供五大聯賽比分與逐場 xG，OpenFootball 補齊2011年起歐冠歷史。ESPN 更新現季資料並交叉核對，兩場已知比分衝突已排除。</p>
-  <div className="football-audit-scroll"><table><caption>第一輪候選 Log loss：原模型 → 候選，越低越好</caption><thead><tr><th>聯賽／目前狀態</th><th>2019–2020獨立測試</th><th>2025驗收</th><th>2026驗收</th></tr></thead><tbody>{FOOTBALL_LEAGUES.map(l=>{const e=audit.leagues[l.code];return <tr key={l.code}><th>{l.name}<small>{state(l.code)}</small></th>{(['holdout','audit2025','audit2026'] as const).map(k=><td key={k}>{decimal(e.metrics[k].baseline.logLoss)} → {decimal(e.metrics[k].candidate.logLoss)}<small>{e.sampleSizes[k]} 場</small></td>)}</tr>;})}</tbody></table></div>
+  <div className="football-audit-scroll"><table><caption>第一輪候選 Log loss：原模型 → 候選，越低越好</caption><thead><tr><th>聯賽／目前狀態</th><th>2019–2020獨立測試</th><th>2025驗收</th><th>2026驗收</th></tr></thead><tbody>{FOOTBALL_LEAGUES.map(l=>{const e=footballExternalAudit(l.code);return <tr key={l.code}><th>{l.name}<small>{state(l.code)}</small></th>{e?(['holdout','audit2025','audit2026'] as const).map(k=><td key={k}>{decimal(e.metrics[k].baseline.logLoss)} → {decimal(e.metrics[k].candidate.logLoss)}<small>{e.sampleSizes[k]} 場</small></td>):<td colSpan={3}>尚未完成獨立驗收</td>}</tr>;})}</tbody></table></div>
   <h3>{FOOTBALL_LEAGUES.find(l=>l.code===league)?.name}：{state(league)}</h3>
   {!!x.reasons.length&&<p>第一輪候選未啟用：{x.reasons.map(reason).join('；')}。</p>}
   <p>訓練 {x.sampleSizes.training} 場、選參數 {x.sampleSizes.selection} 場。五大聯賽採2015–2016訓練，歐冠採2012–2016訓練；2017–2018選參數，2019–2020是此次首次使用的獨立測試。2025及2026曾檢視過，另列近期驗收，不當成新的未見測試。</p>
