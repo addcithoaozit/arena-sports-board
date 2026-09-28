@@ -1,0 +1,153 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-09-28T09:55:22Z",
+  "dateAsiaTaipei": "2026-09-28",
+  "purpose": "current feed validation; not production deployment",
+  "workflow": {
+    "runId": 35688889561,
+    "runAttempt": 50,
+    "conclusion": "startup_failure",
+    "latestArtifactId": 10923208463,
+    "latestArtifactCreatedAt": "2026-09-27T04:44:22Z",
+    "acceptedAsCurrent": false,
+    "rerunCurrentFailedRun": {
+      "attempted": true,
+      "success": false,
+      "error": "HTTP 403: This workflow run cannot be retried"
+    }
+  },
+  "NPB": {
+    "games": 3,
+    "states": {
+      "live": 3
+    },
+    "sameDayLiveVerified": true,
+    "source": "sportsnavi",
+    "verificationMethod": "fresh 2026-09-28 public-source observation compared with retained same-day observation >=65 seconds earlier; all three live games showed score and/or inning changes",
+    "observationWindow": {
+      "firstCapturedAt": "2026-09-28T09:29:45.775Z",
+      "secondCapturedAt": "2026-09-28T09:55:22Z",
+      "separationSeconds": 1536.225
+    },
+    "verifiedGames": [
+      {
+        "key": "NPB:2021048563",
+        "away": "広島",
+        "home": "DeNA",
+        "before": {
+          "score": {
+            "away": 1,
+            "home": 0
+          },
+          "inning": 2,
+          "half": "bottom"
+        },
+        "after": {
+          "score": {
+            "away": 1,
+            "home": 1
+          },
+          "inning": 3,
+          "half": "top"
+        },
+        "changes": [
+          "homeScore:0->1",
+          "inningHalf:2-bottom->3-top"
+        ]
+      },
+      {
+        "key": "NPB:2021039468",
+        "away": "楽天",
+        "home": "西武",
+        "before": {
+          "score": {
+            "away": 2,
+            "home": 0
+          },
+          "inning": 1,
+          "half": "top"
+        },
+        "after": {
+          "score": {
+            "away": 3,
+            "home": 1
+          },
+          "inning": 2,
+          "half": "bottom"
+        },
+        "changes": [
+          "awayScore:2->3",
+          "homeScore:0->1",
+          "inningHalf:1-top->2-bottom"
+        ]
+      },
+      {
+        "key": "NPB:2021039469",
+        "away": "日本ハム",
+        "home": "ロッテ",
+        "before": {
+          "score": {
+            "away": 0,
+            "home": 0
+          },
+          "inning": 2,
+          "half": "top"
+        },
+        "after": {
+          "score": {
+            "away": 1,
+            "home": 0
+          },
+          "inning": 3,
+          "half": "bottom"
+        },
+        "changes": [
+          "awayScore:0->1",
+          "inningHalf:2-top->3-bottom"
+        ]
+      }
+    ],
+    "unsupportedNormalizedFields": {
+      "balls": null,
+      "strikes": null,
+      "outs": null,
+      "bases": null
+    }
+  },
+  "KBO": {
+    "games": 0,
+    "states": {},
+    "sameDayLiveVerified": false,
+    "source": "naver",
+    "note": "No 2026-09-28 KBO first-team games; non-KBO baseball categories excluded."
+  },
+  "CPBL": {
+    "games": 3,
+    "states": {
+      "pregame": 3
+    },
+    "sameDayLiveVerified": false,
+    "source": "stats.cpbl.com.tw with public schedule cross-check",
+    "scheduledMatchups": [
+      "台鋼雄鷹 vs 中信兄弟",
+      "統一7-ELEVEn獅 vs 樂天桃猿",
+      "味全龍 vs 富邦悍將"
+    ],
+    "sourceStatusNote": "At this observation the public CPBL advanced-data pages still reported all three games as 未開始; no live numeric proof accepted.",
+    "pitchCount": null,
+    "balls": null,
+    "strikes": null,
+    "outs": null,
+    "bases": null,
+    "lineupConfirmation": "source_listed_not_officially_verified"
+  },
+  "sourcePolicy": {
+    "noAccessChallengeBypass": true,
+    "oldArtifactNotAcceptedAsCurrent": true,
+    "unknownFieldsNotFilledWithZero": true,
+    "sportifyBotBlockNotBypassed": true
+  },
+  "productionChanged": false,
+  "productionDatabaseWritten": false,
+  "deployed": false
+}
