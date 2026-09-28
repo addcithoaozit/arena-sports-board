@@ -104,14 +104,16 @@ async function nationalGameAnalysis(game:FootballGame){
   const results=await Promise.allSettled(requests.map(async({team,season})=>{
     const r=await source(`all/teams/${team}/schedule?season=${season}&limit=100`,60*60000,20000);
     if(r.value.events.length>=100)throw Error('國家隊歷史來源超出分頁上限');
-    return {...r,games:parseFootballTeamHistory(r.value,team,game.league)};
+    return {...r,games:parseFootballTeamHistory(r.value,team,game.league,true)};
   }));
   const success=results.flatMap(r=>r.status==='fulfilled'?[r.value]:[]),missing=results.flatMap((r,i)=>r.status==='rejected'?[requests[i]]:[]);
   const merged=reconcileFootballHistory(success.flatMap(r=>r.games),[]);
   const analysis=analyzeFootball(game,merged.games,Date.now(),merged.games),warnings:string[]=[];
-  if(missing.length)warnings.push(`${missing.length}份國家隊歷史來源未完成，僅採用已核對的正式賽果。`);
+  if(missing.length)warnings.push(`${missing.length}份國家隊歷史來源未完成，僅採用已核對的賽果。`);
   if(merged.conflicts)warnings.push(`${merged.conflicts}場歷史賽果衝突，已排除。`);
-  if([analysis.homeForm,analysis.awayForm].some(f=>f&&f.games<10))warnings.push('至少一隊少於10場近期正式賽，估計較不穩定。');
+  if([analysis.homeForm,analysis.awayForm].some(f=>f&&f.games<10))warnings.push('至少一隊少於10場近期賽果，估計較不穩定。');
+  const friendlyGames=(analysis.homeForm?.friendlyGames||0)+(analysis.awayForm?.friendlyGames||0);
+  if(friendlyGames)warnings.push(`近期表現補入國際友誼賽：主隊${analysis.homeForm?.friendlyGames||0}場、客隊${analysis.awayForm?.friendlyGames||0}場；權重0.2。`);
   if(missing.some(r=>r.season===year)){
     analysis.status='waiting';analysis.reason='本年國家隊賽果來源尚未完整更新，等待最新資料。';
     delete analysis.probabilities;delete analysis.expected;delete analysis.scores;delete analysis.lean;

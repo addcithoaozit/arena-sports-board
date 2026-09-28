@@ -16,8 +16,8 @@ export type FootballGame<L extends string=FootballLeague> = {
   state:'scheduled'|'live'|'final'|'other';statusName:string;statusLabel:string;
   neutral:boolean;venue:string;sourceUrl:string;
 };
-export type FootballForm = {games:number;venueGames:number;scored:number;conceded:number;recent:string[];latest:string|null;supplementGames:number};
-export type FootballFormOptions = {decayDays:number;venueWeight:number;competition?:string;otherCompetitionWeight?:number};
+export type FootballForm = {games:number;venueGames:number;scored:number;conceded:number;recent:string[];latest:string|null;supplementGames:number;friendlyGames?:number};
+export type FootballFormOptions = {decayDays:number;venueWeight:number;competition?:string;otherCompetitionWeight?:number;friendlyWeight?:number};
 export type FootballAnalysis = {
   status:'ready'|'waiting'|'closed';reason:string;version:string;capturedAt:string;
   calibration?:FootballCalibrationStatus;
@@ -70,21 +70,22 @@ export function footballForm(teamId:string,venue:'home'|'away',history:FootballG
   const rows=unique.filter(g=>g.statusName==='STATUS_FULL_TIME'&&g.state==='final'&&g.homeScore!==null&&g.awayScore!==null&&Date.parse(g.start)<before&&Date.parse(g.start)>=before-365*86400000&&(g.home.id===teamId||g.away.id===teamId)).sort((a,b)=>Date.parse(b.start)-Date.parse(a.start)).slice(0,20);
   const split=rows.filter(g=>!g.neutral&&g[venue].id===teamId);
   function mean(list:FootballGame<string>[],kind:'scored'|'conceded'){
-    let sum=0,weights=0;for(const g of list){const home=g.home.id===teamId,w=Math.exp(-(before-Date.parse(g.start))/(options.decayDays*86400000))*(options.competition&&g.league!==options.competition?(options.otherCompetitionWeight??.35):1);sum+=(kind==='scored'?(home?g.homeScore!:g.awayScore!):(home?g.awayScore!:g.homeScore!))*w;weights+=w;}return weights?sum/weights:0;
+    let sum=0,weights=0;for(const g of list){const home=g.home.id===teamId,w=Math.exp(-(before-Date.parse(g.start))/(options.decayDays*86400000))*(g.league==='fifa.friendly'&&options.friendlyWeight!==undefined?options.friendlyWeight:options.competition&&g.league!==options.competition?(options.otherCompetitionWeight??.35):1);sum+=(kind==='scored'?(home?g.homeScore!:g.awayScore!):(home?g.awayScore!:g.homeScore!))*w;weights+=w;}return weights?sum/weights:0;
   }
   const rate=(kind:'scored'|'conceded')=>!neutral&&split.length>=3?options.venueWeight*mean(split,kind)+(1-options.venueWeight)*mean(rows,kind):mean(rows,kind);
-  return {games:rows.length,venueGames:split.length,supplementGames:options.competition?rows.filter(g=>g.league!==options.competition).length:0,scored:rate('scored'),conceded:rate('conceded'),latest:rows[0]?.start||null,recent:rows.slice(0,5).map(g=>{const delta=g.home.id===teamId?g.homeScore!-g.awayScore!:g.awayScore!-g.homeScore!;return delta>0?'勝':delta<0?'負':'和';})};
+  return {games:rows.length,venueGames:split.length,supplementGames:options.competition?rows.filter(g=>g.league!==options.competition).length:0,...(options.friendlyWeight!==undefined?{friendlyGames:rows.filter(g=>g.league==='fifa.friendly').length}:{}),scored:rate('scored'),conceded:rate('conceded'),latest:rows[0]?.start||null,recent:rows.slice(0,5).map(g=>{const delta=g.home.id===teamId?g.homeScore!-g.awayScore!:g.awayScore!-g.homeScore!;return delta>0?'勝':delta<0?'負':'和';})};
 }
 export const needsFootballRecentForm=(form:FootballForm|undefined,before:number)=>!form||form.games<10||!form.latest||before-Date.parse(form.latest)>120*86400000;
 // Only identified senior competitions in the same club/national family may supplement history.
-// In particular, friendly scores must not make an analysis appear ready.
+// Senior national friendlies are opt-in for the sparse national-form fallback.
+// Club, youth and women's friendlies are never accepted here.
 export const isFootballNationalCompetition=(league:string)=>['uefa.nations','uefa.euro','uefa.euroq','fifa.world','fifa.worldq.uefa'].includes(league);
-export const isFootballFormCompetition=(league:string,targetCompetition?:string)=>targetCompetition&&isFootballNationalCompetition(targetCompetition)?isFootballNationalCompetition(league):/^[a-z]{3}\.[1-4]$/.test(league)||['uefa.champions','uefa.europa','uefa.europa.conf','eng.fa','eng.league_cup','esp.copa_del_rey','ger.dfb_pokal','ita.coppa_italia','fra.coupe_de_france'].includes(league);
-export function parseFootballTeamHistory(data:any,teamId:string,targetCompetition?:string):FootballGame<string>[]{
+export const isFootballFormCompetition=(league:string,targetCompetition?:string,includeNationalFriendlies=false)=>targetCompetition&&isFootballNationalCompetition(targetCompetition)?isFootballNationalCompetition(league)||(includeNationalFriendlies&&league==='fifa.friendly'):/^[a-z]{3}\.[1-4]$/.test(league)||['uefa.champions','uefa.europa','uefa.europa.conf','eng.fa','eng.league_cup','esp.copa_del_rey','ger.dfb_pokal','ita.coppa_italia','fra.coupe_de_france'].includes(league);
+export function parseFootballTeamHistory(data:any,teamId:string,targetCompetition?:string,includeNationalFriendlies=false):FootballGame<string>[]{
   if(String(data?.team?.id)!==teamId||!Array.isArray(data?.events))throw Error('球隊歷史來源身分不符');
   return data.events.flatMap((event:any)=>{
     const league=event.league?.slug;
-    if(typeof league!=='string'||!isFootballFormCompetition(league,targetCompetition))return [];
+    if(typeof league!=='string'||!isFootballFormCompetition(league,targetCompetition,includeNationalFriendlies))return [];
     return parseFootballEvents({events:[event]},league).filter(g=>g.home.id===teamId||g.away.id===teamId);
   });
 }
@@ -120,6 +121,20 @@ export function analyzeFootball(game:FootballGame,history:FootballGame<string>[]
     base.calibration={...base.calibration,status:'baseline',label:'近期戰績模型・待驗證',version:base.version,reasons:['跨賽事補充尚未通過獨立驗收'],holdoutGames:0,recentGames:0,uncertainty:'跨賽事補充的強度差異尚未校準，另外累積上線後成效。'};
     base.notes=['同賽事不足10場或近期資料過舊時，補充最近一年、最多20場正式90分鐘賽果；每隊至少5場。','跨賽事賽果乘以0.35權重，另採90天衰減與60%場地權重；友誼賽、加時、十二碼與未完場排除。','此版本尚未完成跨賽事回測，未套用只在同聯賽驗收的係數；賽前快照獨立統計。','未納入先發、傷停、xG與對手強度；機率為90分鐘含補時的模型估計。'];
     if(national)base.notes.push('國家隊近況僅採國家聯賽、世界盃、歐洲國家盃及歐洲區資格賽；球會、青年隊與女子賽事不混用。');
+  }
+  if(national){
+    const nationalRecent=recentHistory.filter(g=>g.id!==game.id&&isFootballFormCompetition(g.league,game.league,true));
+    const fill=(teamId:string,venue:'home'|'away',form:FootballForm)=>{
+      if(form.games>=5&&form.latest&&cutoff-Date.parse(form.latest)<=120*86400000)return form;
+      const recent=footballForm(teamId,venue,[...nationalRecent,...clean],cutoff,game.neutral,{decayDays:90,venueWeight:.6,competition:game.league,otherCompetitionWeight:.35,friendlyWeight:.2});
+      return recent.friendlyGames&&(recent.games>form.games||Date.parse(recent.latest||'')>Date.parse(form.latest||''))?recent:form;
+    };
+    homeForm=fill(game.home.id,'home',homeForm);awayForm=fill(game.away.id,'away',awayForm);
+    if(homeForm.friendlyGames||awayForm.friendlyGames){
+      parameters=null;historyMode='recent-form';base.version='football-national-recent-v1';
+      base.calibration={...base.calibration,status:'baseline',label:'國家隊近期表現・待驗證',version:base.version,reasons:['國家隊近期表現補充尚未完成獨立驗收'],holdoutGames:0,recentGames:0,uncertainty:'包含低權重國際友誼賽，獨立累積賽前快照驗證。'};
+      base.notes=['國家隊正式賽不足5場或最新賽果超過120天時，以最近一年成年國家隊國際友誼賽補充；合計至少5場、最多20場，最新賽果仍須在120天內。','國家聯賽權重1、其他正式賽0.35、國際友誼賽0.2；另採90天衰減與60%場地權重。樣本已足夠的球隊保留原正式賽分析。','排除球會、青年與女子賽事，以及加時、十二碼、未完場、比分缺漏或衝突賽果。','此版本尚未完成獨立校準，不套用球會模型係數；賽前快照另行驗證。','未納入先發、傷停、xG與對手強度；機率為90分鐘含補時的模型估計。'];
+    }
   }
   if(homeForm.games<5||awayForm.games<5)return {...base,historyMode,homeForm,awayForm,status:'waiting',reason:`歷史不足：主隊${homeForm.games}場、客隊${awayForm.games}場；各需至少5場。`};
   if([homeForm,awayForm].some(f=>!f.latest||cutoff-Date.parse(f.latest)>120*86400000))return {...base,homeForm,awayForm,status:'waiting',reason:'近期賽果超過120天，等待較新的比賽資料。'};
