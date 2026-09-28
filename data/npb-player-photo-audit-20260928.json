@@ -1,0 +1,173 @@
+{
+  "season": 2026,
+  "checkedAt": "2026-09-28T09:03:53Z",
+  "scope": "NPB 12 teams: current first-team batting/pitching statistics and the existing fallback roster; names deduplicated with playerPhotoKey within each team.",
+  "playersChecked": 736,
+  "catalogGapsResolved": [
+    {
+      "team": "NPB:db",
+      "name": "* コックス",
+      "key": "コックス",
+      "url": "/player-photos/npb/2026/db-austin-cox.jpg",
+      "source": "https://npb.jp/bis/players/83385152.html",
+      "originalImage": "https://p.npb.jp/players_photo/2026/180/db/042_83385152.jpg",
+      "sha256": "5f30f326a16541e3e6de6df8acecefd727be83b855e6efb2c1ffa0d8c65f85ff",
+      "checkedAt": "2026-09-28T09:03:53Z"
+    },
+    {
+      "team": "NPB:d",
+      "name": "* 森 駿太",
+      "key": "森駿太",
+      "url": "/player-photos/npb/2026/d-shunta-mori.jpg",
+      "source": "https://baseball.yahoo.co.jp/npb/teams/4/players",
+      "originalImage": "https://sports-baseball.west.edge.storage-yahoo.jp/npb/images/player/square/4/2117699.jpg",
+      "sha256": "6dd1af2ce76db1b401f43325ae99d51a070dbba1bcf5f94c43107dc1c5c0435d",
+      "checkedAt": "2026-09-28T09:03:53Z"
+    },
+    {
+      "team": "NPB:d",
+      "name": "宮内 春輝",
+      "key": "宮内春輝",
+      "url": "/player-photos/npb/2026/d-haruki-miyauchi.jpg",
+      "source": "https://baseball.yahoo.co.jp/npb/teams/4/players",
+      "originalImage": "https://sports-baseball.west.edge.storage-yahoo.jp/npb/images/player/square/4/2107958.jpg",
+      "sha256": "7dfb86fd60eca3f5702fde6c1487843c2108cf9d758f2f24f39c0d290a4d1b81",
+      "checkedAt": "2026-09-28T09:03:53Z"
+    },
+    {
+      "team": "NPB:c",
+      "name": "* 清水 叶人",
+      "key": "叶人清水",
+      "url": "/player-photos/npb/2026/c-kanato-shimizu.jpg",
+      "source": "https://baseball.yahoo.co.jp/npb/teams/6/players",
+      "originalImage": "https://sports-baseball.west.edge.storage-yahoo.jp/npb/images/player/square/6/2100102.jpg",
+      "sha256": "d31982528812d9419ca5cf00be0002f5f7344873dcf9f8cf600ac2e46915a5ee",
+      "checkedAt": "2026-09-28T09:03:53Z"
+    },
+    {
+      "team": "NPB:s",
+      "name": "中村 優斗",
+      "key": "中村優斗",
+      "url": "/player-photos/npb/2026/s-yuto-nakamura.jpg",
+      "source": "https://baseball.yahoo.co.jp/npb/teams/2/players",
+      "originalImage": "https://sports-baseball.west.edge.storage-yahoo.jp/npb/images/player/square/2/2113273.jpg",
+      "sha256": "f728728961fc278522fc2696abb35a820840b7d008136161ee97d9f57d087a4d",
+      "checkedAt": "2026-09-28T09:03:53Z"
+    },
+    {
+      "team": "NPB:f",
+      "name": "* 中島 卓也",
+      "key": "中島卓也",
+      "url": "/player-photos/npb/2026/f-takuya-nakashima.jpg",
+      "source": "https://baseball.yahoo.co.jp/npb/teams/8/players",
+      "originalImage": "https://sports-baseball.west.edge.storage-yahoo.jp/npb/images/player/square/8/900069.jpg",
+      "sha256": "d02b704486e019f7967564a1c5685ce739da703bd7aea0be7dc327613df45833",
+      "checkedAt": "2026-09-28T09:03:53Z"
+    },
+    {
+      "team": "NPB:f",
+      "name": "松岡 洸希",
+      "key": "松岡洸希",
+      "url": "/player-photos/npb/2026/f-koki-matsuoka.jpg",
+      "source": "https://baseball.yahoo.co.jp/npb/teams/8/players",
+      "originalImage": "https://sports-baseball.west.edge.storage-yahoo.jp/npb/images/player/square/8/1900063.jpg",
+      "sha256": "99bec5a9e87535920e2c863025d78262da16ab9d16bee38b28991f172fdc1e67",
+      "checkedAt": "2026-09-28T09:03:53Z"
+    },
+    {
+      "team": "NPB:b",
+      "name": "陳 睦衡",
+      "key": "睦衡陳",
+      "url": "/player-photos/npb/2026/b-chen-mu-heng.jpg",
+      "source": "https://baseball.yahoo.co.jp/npb/teams/11/players",
+      "originalImage": "https://sports-baseball.west.edge.storage-yahoo.jp/npb/images/player/square/11/2116949.jpg",
+      "sha256": "784c51b9c1986a6e181b8c887c333059cdba536a1790f25018ac1359a224cdf3",
+      "checkedAt": "2026-09-28T09:03:53Z"
+    },
+    {
+      "team": "NPB:e",
+      "name": "ゴンザレス",
+      "key": "ゴンザレス",
+      "url": "/player-photos/npb/2026/e-oscar-gonzalez.jpg",
+      "source": "https://npb.jp/bis/players/93095150.html",
+      "originalImage": "https://p.npb.jp/players_photo/2026/180/e/012_93095150.jpg",
+      "sha256": "2b437da9bac4f430aab1ca0a01f63b72526b4b169419c606b9f6873b1604d1bc",
+      "checkedAt": "2026-09-28T09:03:53Z"
+    }
+  ],
+  "unresolved": [],
+  "teams": [
+    {
+      "team": "NPB:g",
+      "playersChecked": 65,
+      "battingSource": "https://npb.jp/bis/2026/stats/idb1_g.html",
+      "pitchingSource": "https://npb.jp/bis/2026/stats/idp1_g.html"
+    },
+    {
+      "team": "NPB:t",
+      "playersChecked": 62,
+      "battingSource": "https://npb.jp/bis/2026/stats/idb1_t.html",
+      "pitchingSource": "https://npb.jp/bis/2026/stats/idp1_t.html"
+    },
+    {
+      "team": "NPB:db",
+      "playersChecked": 66,
+      "battingSource": "https://npb.jp/bis/2026/stats/idb1_db.html",
+      "pitchingSource": "https://npb.jp/bis/2026/stats/idp1_db.html"
+    },
+    {
+      "team": "NPB:d",
+      "playersChecked": 63,
+      "battingSource": "https://npb.jp/bis/2026/stats/idb1_d.html",
+      "pitchingSource": "https://npb.jp/bis/2026/stats/idp1_d.html"
+    },
+    {
+      "team": "NPB:c",
+      "playersChecked": 55,
+      "battingSource": "https://npb.jp/bis/2026/stats/idb1_c.html",
+      "pitchingSource": "https://npb.jp/bis/2026/stats/idp1_c.html"
+    },
+    {
+      "team": "NPB:s",
+      "playersChecked": 61,
+      "battingSource": "https://npb.jp/bis/2026/stats/idb1_s.html",
+      "pitchingSource": "https://npb.jp/bis/2026/stats/idp1_s.html"
+    },
+    {
+      "team": "NPB:h",
+      "playersChecked": 58,
+      "battingSource": "https://npb.jp/bis/2026/stats/idb1_h.html",
+      "pitchingSource": "https://npb.jp/bis/2026/stats/idp1_h.html"
+    },
+    {
+      "team": "NPB:f",
+      "playersChecked": 61,
+      "battingSource": "https://npb.jp/bis/2026/stats/idb1_f.html",
+      "pitchingSource": "https://npb.jp/bis/2026/stats/idp1_f.html"
+    },
+    {
+      "team": "NPB:b",
+      "playersChecked": 63,
+      "battingSource": "https://npb.jp/bis/2026/stats/idb1_b.html",
+      "pitchingSource": "https://npb.jp/bis/2026/stats/idp1_b.html"
+    },
+    {
+      "team": "NPB:e",
+      "playersChecked": 61,
+      "battingSource": "https://npb.jp/bis/2026/stats/idb1_e.html",
+      "pitchingSource": "https://npb.jp/bis/2026/stats/idp1_e.html"
+    },
+    {
+      "team": "NPB:l",
+      "playersChecked": 60,
+      "battingSource": "https://npb.jp/bis/2026/stats/idb1_l.html",
+      "pitchingSource": "https://npb.jp/bis/2026/stats/idp1_l.html"
+    },
+    {
+      "team": "NPB:m",
+      "playersChecked": 61,
+      "battingSource": "https://npb.jp/bis/2026/stats/idb1_m.html",
+      "pitchingSource": "https://npb.jp/bis/2026/stats/idp1_m.html"
+    }
+  ]
+}
