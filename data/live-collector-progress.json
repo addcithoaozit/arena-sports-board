@@ -8,16 +8,16 @@
   "baselineRunId": 34926808234,
   "baselineJobId": 104246472890,
   "baselineArtifactId": 10380098816,
-  "observedAt": "2026-09-26T14:10:52.631Z",
-  "dateAsiaTaipei": "2026-09-26",
+  "observedAt": "2026-09-28T14:16:31Z",
+  "dateAsiaTaipei": "2026-09-28",
   "currentGames": {
-    "NPB": 5,
-    "KBO": 3,
+    "NPB": 3,
+    "KBO": 0,
     "CPBL": 3
   },
   "currentStates": {
     "NPB": "final",
-    "KBO": "final",
+    "KBO": "no_games",
     "CPBL": "final"
   },
   "databaseTest": {
@@ -35,9 +35,9 @@
     "CPBL": "16:05"
   },
   "sourceURLs": {
-    "NPB": "https://baseball.yahoo.co.jp/npb/schedule/?date=2026-09-26",
-    "KBO": "https://api-gw.sports.naver.com/schedule/games?upperCategoryId=kbaseball&fromDate=2026-09-26&toDate=2026-09-26&page=1&pageSize=100",
-    "CPBL": "https://tw.sports.yahoo.com/cpbl/"
+    "NPB": "https://npb.jp/games/2026/",
+    "KBO": "https://api-gw.sports.naver.com/schedule/games?upperCategoryId=kbaseball&fromDate=2026-09-28&toDate=2026-09-28&page=1&pageSize=100",
+    "CPBL": "https://www.nownews.com/news/6878842"
   },
   "liveChangeProof": {
     "NPB": {
@@ -391,6 +391,61 @@
         "cpblLiveObserved": true,
         "cpblSameDayLiveVerified": true
       }
+    },
+    "2026-09-28": {
+      "NPB": {
+        "verified": true,
+        "source": "sportsnavi/NPB official",
+        "state": "final",
+        "games": 3
+      },
+      "KBO": {
+        "verified": false,
+        "source": "naver",
+        "notApplicableToday": true,
+        "state": "no_games",
+        "games": 0
+      },
+      "CPBL": {
+        "verified": true,
+        "source": "yahoo-tw/public fallback",
+        "state": "final",
+        "games": 3
+      },
+      "allScheduledLeaguesVerified": true,
+      "allThreeLeaguesLiveVerified": false,
+      "reason": "NPB and CPBL retain qualifying same-day live proof and are now final. KBO had no first-team games on 2026-09-28, so live verification is not applicable.",
+      "evidenceRetainedIn": "data/live/",
+      "latestObservation": {
+        "capturedAt": "2026-09-28T14:16:31Z",
+        "liveGames": 0,
+        "pregameGames": {
+          "NPB": 0,
+          "KBO": 0,
+          "CPBL": 0
+        },
+        "finalGames": {
+          "NPB": 3,
+          "KBO": 0,
+          "CPBL": 3
+        },
+        "cancelledGames": {
+          "NPB": 0,
+          "KBO": 0,
+          "CPBL": 0
+        },
+        "secondCapturePerformed": false,
+        "captureIntervalSeconds": null,
+        "qualifiedNumericChanges": 0,
+        "artifactId": null,
+        "artifactCreatedAt": null,
+        "runId": 35688889561,
+        "runAttempt": 50,
+        "jobId": null,
+        "observationPath": "data/live/2026-09-28T141631Z.json",
+        "collectorFallback": true,
+        "cpblSameDayLiveVerified": true
+      }
     }
   },
   "parserFixes": [
@@ -450,7 +505,8 @@
     "CPBL live score latency was verified on 2026-09-24 by cross-run live-to-live score changes, and pitcher outsRecorded is available from innings pitched; all three CPBL games are now final. Inning/half, ball/strike/out/base states and pitch counts remain null; pitch counts must stay null, never zero.",
     "CPBL source-listed lineup is not proof of an officially confirmed lineup.",
     "Provider publication timestamps remain unavailable; fetchedAt/httpDate are recorded separately.",
-    "CPBL:260920343 final score is 1-2 while parsed inning run sums are 1-1; home inning-by-inning scoring is not authoritative until source/parser mismatch is resolved."
+    "CPBL:260920343 final score is 1-2 while parsed inning run sums are 1-1; home inning-by-inning scoring is not authoritative until source/parser mismatch is resolved.",
+    "GitHub Actions current collector run 35688889561 cannot currently be retried (HTTP 403); latest artifact is from 2026-09-27 and must not be treated as current."
   ],
   "dataQualityIssues": [
     {
@@ -476,6 +532,13 @@
       "warning": "live_status_without_verifiable_numeric_state",
       "status": "resolved_by_cross_run_live_score_change",
       "resolution": "Mark 2026-09-24 CPBL same-day live verified using live-to-live cross-run score changes; keep unsupported fields null."
+    },
+    {
+      "firstObservedAt": "2026-09-28T14:16:31Z",
+      "league": "CPBL",
+      "warning": "stale_indexed_final_state_2026-09-28",
+      "status": "open",
+      "resolutionAction": "Do not let a stale indexed in-progress snapshot overwrite fresher corroborated final results."
     }
   ],
   "transientSourceIncidents": [
@@ -491,77 +554,48 @@
     }
   ],
   "currentDayLiveChangeProof": {
-    "date": "2026-09-26",
+    "date": "2026-09-28",
     "evidenceRetainedIn": "data/live/",
     "evidenceObservationPaths": [
-      "data/live/2026-09-26T051707Z.json",
-      "data/live/2026-09-26T094250Z.json",
-      "data/live/2026-09-26T110642Z.json",
-      "data/live/2026-09-26T121139Z.json",
-      "data/live/2026-09-26T141052Z.json"
+      "data/live/2026-09-28T095522Z.json",
+      "data/live/2026-09-28T141631Z.json"
     ],
     "NPB": {
       "verified": true,
-      "verifiedAt": "2026-09-26T05:17:04.801Z",
-      "lastVerifiedAt": "2026-09-26T12:11:39.000Z",
-      "source": "sportsnavi",
       "state": "final",
-      "games": 5,
-      "liveGames": 0,
-      "pregameGames": 0,
-      "finalGames": 5,
-      "verifiedGames": [
-        "NPB:2021048559"
-      ],
-      "parserFixLiveStatsPreserved": true,
-      "lineupRows": 0,
-      "pitchingRows": 41
-    },
-    "KBO": {
-      "verified": true,
-      "verifiedAt": "2026-09-26T08:12:50.174Z",
-      "lastVerifiedAt": "2026-09-26T09:42:48.796Z",
-      "source": "naver",
       "games": 3,
-      "state": "final",
       "liveGames": 0,
       "pregameGames": 0,
       "finalGames": 3,
-      "verifiedGames": [
-        "KBO:20260926HHNC02026",
-        "KBO:20260926LGHT02026",
-        "KBO:20260926WOKT02026"
-      ]
+      "source": "sportsnavi/NPB official"
+    },
+    "KBO": {
+      "verified": false,
+      "notApplicableToday": true,
+      "state": "no_games",
+      "games": 0,
+      "liveGames": 0,
+      "pregameGames": 0,
+      "finalGames": 0,
+      "source": "naver"
     },
     "CPBL": {
       "verified": true,
-      "verifiedAt": "2026-09-26T11:06:42.069Z",
-      "lastVerifiedAt": "2026-09-26T12:11:39.000Z",
-      "source": "yahoo-tw",
-      "games": 3,
       "state": "final",
+      "games": 3,
       "liveGames": 0,
       "pregameGames": 0,
       "finalGames": 3,
-      "liveObserved": true,
-      "liveObservedAt": "2026-09-26T09:41:41.623Z",
-      "verificationMethod": "same-day cross-run live score changes separated by >=65 seconds",
-      "pitchCountPolicy": "null unless source supplies and field is verified",
-      "lineupConfirmation": "source_listed_not_officially_verified"
+      "source": "yahoo-tw/public fallback",
+      "pitchCount": null,
+      "balls": null,
+      "strikes": null,
+      "outs": null,
+      "bases": null
     },
-    "allVerified": true,
-    "latestRun": {
-      "capturedAt": "2026-09-26T14:10:52.631Z",
-      "runId": 35688889561,
-      "runAttempt": 48,
-      "jobId": 108419583233,
-      "artifactId": 10907951868,
-      "artifactCreatedAt": "2026-09-26T14:10:55Z",
-      "observationPath": "data/live/2026-09-26T141052Z.json",
-      "liveGames": 0,
-      "secondCapturePerformed": false,
-      "productionWritten": false
-    }
+    "allScheduledLeaguesVerified": true,
+    "allThreeLeaguesLiveVerified": false,
+    "latestObservationPath": "data/live/2026-09-28T141631Z.json"
   },
   "nextAction": "Continue 2026-09-26 collection and re-verify CPBL while live using observations at least 65 seconds apart. Keep CPBL pitchCount and unsupported inning/B-S-O/base fields null. Do not modify main, Render, or production database.",
   "latestRun": {
