@@ -15,6 +15,12 @@ try{
   if(path==='/admin'){const html=await r.text();assert.match(html,/足球模型與回測管理/);assert.match(html,/外部資料補強與模型驗收/);assert.match(html,/德甲、義甲：第二輪比分模型驗收/);assert.match(html,/原版本回測與上線後驗證/);assert.match(html,/分析方式與資料範圍/);assert.match(html,/查看聯賽/);assert.match(html,/賽事近況與資料診斷/);}
  }
  const memberHeaders={cookie:'__Host-arena_tz='+'e'.repeat(64)};
+ for(const [path,expected]of [['/api/football-team?league=invalid&team=579',400],['/api/football-team?league=uefa.nations&team=abc',400],['/teams/football/uefa.nations/579?date=2026-09-29',200],['/teams/football/invalid/579',404],['/teams/football/uefa.nations/abc',404]]){
+  const r=await fetch(origin+path,{headers:memberHeaders});assert.equal(r.status,expected,path);
+  if(path.startsWith('/teams/football/uefa.nations/579')){const html=await r.text();assert.match(html,/返回足球分析/);assert.match(html,/competition=uefa.nations/);assert.match(html,/date=2026-09-29/);}
+ }
+ assert.equal((await fetch(origin+'/api/football-team?league=uefa.nations&team=579')).status,401);
+ assert.equal((await fetch(origin+'/teams/football/uefa.nations/579',{redirect:'manual'})).status,307);
  assert.equal((await fetch(origin+'/api/session',{headers:memberHeaders})).status,200);
  assert.equal((await fetch(origin+'/api/admin/football-validation',{headers:memberHeaders})).status,403);
  const memberFront=await fetch(origin+'/?league=FOOTBALL',{headers:memberHeaders});assert.equal(memberFront.status,200);assert.doesNotMatch(await memberFront.text(),/第二輪比分模型驗收|外部資料補強與模型驗收|原版本回測與上線後驗證|分析方式與資料範圍/);

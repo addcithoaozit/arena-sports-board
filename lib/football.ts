@@ -42,6 +42,7 @@ export const footballDay=(date:Date|string=new Date())=>new Intl.DateTimeFormat(
 export const shiftFootballDay=(day:string,offset:number)=>new Date(Date.parse(day+'T12:00:00Z')+offset*86400000).toISOString().slice(0,10);
 export function validFootballDay(day:string){return /^\d{4}-\d{2}-\d{2}$/.test(day)&&Number.isFinite(Date.parse(day))&&new Date(day).toISOString().slice(0,10)===day;}
 export function isFootballLeague(value:string):value is FootballLeague{return FOOTBALL_LEAGUES.some(l=>l.code===value);}
+export const footballTeamName=(name:string)=>TEAM_NAMES[name]||name;
 function goals(raw:any):number|null{
   const value=typeof raw==='object'&&raw!==null?raw.value:raw;
   if(value===null||value===undefined||value==='')return null;
@@ -59,7 +60,7 @@ export function parseFootballEvents<L extends string>(data:any,league:L):Footbal
     const state:FootballGame['state']=statusName==='STATUS_SCHEDULED'&&type?.state==='pre'?'scheduled':type?.state==='in'&&!/POSTPONED|CANCELED|SUSPENDED|ABANDONED/.test(statusName)?'live':type?.completed===true&&type?.state==='post'?'final':'other';
     const labels:Record<string,string>={STATUS_POSTPONED:'延期',STATUS_CANCELED:'取消',STATUS_CANCELLED:'取消',STATUS_SUSPENDED:'暫停',STATUS_ABANDONED:'中止',STATUS_FULL_TIME:'完場',STATUS_FINAL_AET:'加時完場',STATUS_FINAL_PEN:'互射十二碼完場',STATUS_HALFTIME:'中場休息'};
     const timeConfirmed=(c?.timeValid??event.timeValid)===true;
-    const team=(value:any):FootballTeam=>{const englishName=String(value.team.displayName||value.team.name||'未知球隊');return {id:String(value.team.id),name:TEAM_NAMES[englishName]||englishName,englishName};};
+    const team=(value:any):FootballTeam=>{const englishName=String(value.team.displayName||value.team.name||'未知球隊');return {id:String(value.team.id),name:footballTeamName(englishName),englishName};};
     games.set(String(event.id),{id:String(event.id),league,season:Number(event.season?.year)||new Date(start).getUTCFullYear(),start:new Date(start).toISOString(),timeConfirmed,home:team(home),away:team(away),homeScore:state==='live'||state==='final'?goals(home.score):null,awayScore:state==='live'||state==='final'?goals(away.score):null,state,statusName,statusLabel:labels[statusName]||(state==='live'?`進行中 ${String(status.displayClock||'')}`:state==='scheduled'?(timeConfirmed?'未開賽':'開賽時間待定'):'狀態待確認'),neutral:c?.neutralSite===true,venue:String(c?.venue?.fullName||''),sourceUrl:`https://www.espn.com/soccer/match/_/gameId/${event.id}`});
   }
   return [...games.values()];

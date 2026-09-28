@@ -3,6 +3,7 @@
 import {useId} from 'react';
 import {createPortal} from 'react-dom';
 import type {FootballGame,FootballLeague} from '@/lib/football';
+import {footballTeamHref} from '@/lib/football-team-profile';
 import {footballRecommendations,footballSourceStale,type FootballReport,type ReadyFootballAnalysis} from '@/lib/football-recommendations';
 import {useSuperWorkspace} from './super-workspace';
 
@@ -34,7 +35,7 @@ export default function FootballRecommendationsPane(props:Props){
       <div className="football-recommendations-context"><strong>{props.leagueName}</strong><span>{props.day}・{rows.length} 場</span></div>
       {rows.length?rows.map(row=><article className="football-recommendation-card" key={row.game.id}>
         <header><time dateTime={row.game.start}>{time(row.game.start)}</time><span>90 分鐘</span></header>
-        <div className="football-recommendation-match"><div><small>主隊</small><strong>{row.game.home.name}</strong></div><b>VS</b><div><small>客隊</small><strong>{row.game.away.name}</strong></div></div>
+        <div className="football-recommendation-match"><div><small>主隊</small><a className="football-team-link" href={footballTeamHref(props.league,row.game.home.id,props.day)} aria-label={`查看${row.game.home.name}球隊數據`}><strong>{row.game.home.name}</strong></a></div><b>VS</b><div><small>客隊</small><a className="football-team-link" href={footballTeamHref(props.league,row.game.away.id,props.day)} aria-label={`查看${row.game.away.name}球隊數據`}><strong>{row.game.away.name}</strong></a></div></div>
         <dl className="football-recommendation-directions">{[['勝負推薦',row.result],['大小球推薦',row.total],['雙方進球',row.btts]].map(([label,pick])=>typeof pick==='object'&&pick&&<div key={String(label)}><dt>{String(label)}</dt><dd><strong>{pick.label}</strong><b>{percent(pick.probability)}</b></dd></div>)}</dl>
         <FootballAnalysisNumbers analysis={row.analysis}/>
       </article>):<p className="football-recommendations-empty" role="status">{unavailable?'推薦資料暫時無法取得':pending?'正在整理足球推薦…':'目前沒有可用的賽前推薦'}</p>}
