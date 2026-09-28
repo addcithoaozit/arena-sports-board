@@ -78,7 +78,7 @@ export default function Home(){
   }
 
   const filteredGames=liveGames.filter(g=>scoreFilter==='all'||scoreFilter==='live'&&g.live||scoreFilter==='final'&&g.final||scoreFilter==='upcoming'&&!g.live&&!g.final);
-  return <SuperWorkspace league={league}><main className="arena-shell min-h-screen text-slate-100">
+  return <SuperWorkspace league={league}><main className="arena-shell min-h-screen text-slate-100" data-sport={league==='FOOTBALL'?'football':'baseball'}>
     <header className="sticky top-0 z-20 border-b border-white/8 bg-[#081522]/95 backdrop-blur"><div className="mx-auto flex min-h-16 max-w-[1440px] flex-wrap items-center gap-3 px-4 py-3 lg:px-7">
       <div className="flex shrink-0 items-center gap-3"><a href="https://line.me/ti/p/ZuZetvA6NY" target="_blank" rel="noopener noreferrer" aria-label="透過 LINE 聯絡 YJ（另開視窗）" className="shrink-0 rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#ffd538]"><img src="/yj-logo.png" alt="YJ" width={40} height={40} className="size-10 object-contain"/></a><span className="whitespace-nowrap text-lg font-black">YJ體育分析</span></div>
       {league==='MLB'?<><div className="ml-auto flex items-center gap-2 text-sm text-slate-400"><TimerReset className="size-4 shrink-0"/><span>最後更新時間：{updatedAt?updatedAt.toLocaleString("zh-TW",{timeZone:"Asia/Taipei",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit"}):"等待同步"}</span></div>

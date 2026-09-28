@@ -1,0 +1,10 @@
+Football stadium background
+
+Asset: public/backgrounds/football-stadium-v1.webp
+Created: 2026-09-28
+Method: OpenAI built-in image generation; generated specifically for YJ's football view.
+Web delivery: WebP compression with Sharp (quality 83); no visual compositing.
+
+Prompt:
+Use case: photorealistic-natural. Asset type: production website full-viewport background for a dark sports analytics dashboard. Primary request: a realistic association football (soccer) stadium at night, broad emerald green grass pitch with correct soccer white lines, visible goal and net, softly illuminated surrounding stands and floodlights, deep blue evening sky. Wide landscape composition 16:9 at 1920x1080 or similar, camera from a low stand at the corner, with the near touchline and goal recognizable even when cropped to the center for mobile. The stadium fills the frame with open field, no close-up people, no ball in foreground, no text, no lettering, no logos, no brand signs, no watermark. Elegant realistic sports photography, atmospheric but clearly recognizable football pitch, moderate illumination suitable behind white UI text, crisp natural grass and architecture, no exaggerated light flares.
+
