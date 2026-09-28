@@ -1,13 +1,14 @@
 'use client';
 import {useEffect,useRef,useState} from 'react';
 import {ArrowLeft,ArrowRight,CalendarDays,RefreshCw} from 'lucide-react';
-import {FOOTBALL_LEAGUES,footballDay,shiftFootballDay,type FootballAnalysis,type FootballGame,type FootballLeague} from '@/lib/football';
+import {FOOTBALL_LEAGUES,footballDay,shiftFootballDay,type FootballGame,type FootballLeague} from '@/lib/football';
+import {footballFixtureKey,footballSourceStale,readyFootballAnalysis,type FootballReport} from '@/lib/football-recommendations';
 import FootballTeamIdentity from './football-team';
+import FootballRecommendationsPane,{FootballAnalysisNumbers} from './football-recommendations';
 
 type Board={games:FootballGame[];fetchedAt:string;day:string;league:FootballLeague};
-type Report={game?:FootballGame;analysis?:FootballAnalysis;error?:string;sourceFetchedAt?:string;archiveAsOf?:string;snapshotSaved?:boolean};
-const fixtureKey=(g?:FootballGame)=>g&&[g.league,g.id,g.start,g.home.id,g.away.id,g.neutral,g.timeConfirmed].join('|');
-const percent=(n:number)=>(n*100).toFixed(1)+'%';
+type Report=FootballReport;
+const fixtureKey=footballFixtureKey;
 const time=(value:string)=>new Date(value).toLocaleString('zh-TW',{timeZone:'Asia/Taipei',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false});
 async function request(url:string,signal:AbortSignal){
   const r=await fetch(url,{cache:'no-store',signal:AbortSignal.any([signal,AbortSignal.timeout(55000)])});
@@ -64,8 +65,11 @@ export default function FootballBoard(){
     catch(e){if(!controller.signal.aborted)setNotice(e instanceof Error?e.message:'查詢失敗');}
     finally{if(!controller.signal.aborted)setNextBusy(false);}
   }
-  const games=board?.games.filter(g=>filter==='all'||g.state===filter)||[];
-  const stale=!!board&&now-Date.parse(board.fetchedAt)>120000;
+  const current=board?.league===league&&board.day===day;
+  const games=current?board.games.filter(g=>filter==='all'||g.state===filter):[];
+  const clock=Math.max(now,Date.now());
+  const stale=!!board&&footballSourceStale(board.fetchedAt,clock);
+  const unavailable=!!error||stale||(!current&&!loading);
   return <section className="football-board" data-super-league="FOOTBALL" aria-label="足球分析">
     <div className="football-heading"><div><h1>足球分析</h1><p>五大聯賽與歐冠・賽程、比分與賽前機率</p></div><span className="football-model-tag">90分鐘分析</span></div>
     <nav className="football-leagues" aria-label="足球聯賽">{FOOTBALL_LEAGUES.map(l=><button type="button" key={l.code} onClick={()=>setLeague(l.code)} aria-pressed={l.code===league}>{l.name}</button>)}</nav>
@@ -74,23 +78,20 @@ export default function FootballBoard(){
     <div className="football-filters" role="group" aria-label="足球賽事狀態">{[['all','全部'],['scheduled','未開賽'],['live','進行中'],['final','已完場']].map(([value,label])=><button type="button" key={value} aria-pressed={filter===value} onClick={()=>setFilter(value)}>{label}</button>)}</div>
     {error&&<div className="football-alert" role="alert">{error} {board?'目前顯示上次取得的賽程；分析暫停顯示。':''}<button type="button" onClick={()=>setReload(n=>n+1)}>重新載入</button></div>}
     {loading&&!board?<div className="football-empty" role="status"><RefreshCw className="animate-spin"/><h3>正在取得{selected.name}賽程</h3><p>賽程載入後會自動計算可分析的比賽。</p></div>:board&&!games.length?<div className="football-empty"><CalendarDays size={30}/><h3>{board.games.length?'沒有符合篩選條件的比賽':`${day} 沒有${selected.name}賽事`}</h3><p>{board.games.length?'可切換至全部查看當日賽程。':'可查看下一個比賽日，或自行選擇日期。'}</p>{!board.games.length&&<button type="button" className="football-primary" disabled={nextBusy} onClick={()=>void nextMatch()}>{nextBusy?'正在查詢…':'下一個比賽日'}<ArrowRight size={16}/></button>}{notice&&<p role="status">{notice}</p>}</div>:null}
-    <div className="football-games">{games.map(game=><FootballCard key={game.id} game={game} report={reports[game.id]} now={now} unavailable={!!error||stale}/>)}</div>
+    <div className="football-games">{games.map(game=><FootballCard key={game.id} game={game} report={reports[game.id]} now={clock} unavailable={unavailable}/>)}</div>
+    <FootballRecommendationsPane games={games} reports={reports} league={league} leagueName={selected.name} day={day} now={clock} sourceFetchedAt={current?board.fetchedAt:undefined} unavailable={unavailable} loading={loading}/>
   </section>;
 }
 function FootballCard({game,report,now,unavailable}:{game:FootballGame;report?:Report;now:number;unavailable:boolean}){
-  const a=report?.analysis,p=a?.probabilities;
+  const a=readyFootballAnalysis(game,report,now,unavailable);
   const eligible=game.state==='scheduled'&&game.timeConfirmed&&Date.parse(game.start)>now;
-  const ready=eligible&&!unavailable&&fixtureKey(report?.game)===fixtureKey(game)&&a?.status==='ready'&&p&&now-Date.parse(a.capturedAt)<15*60000;
   return <article className="football-card">
     <div className="football-card-top"><span className={game.state==='live'?'football-live':''}>{game.state==='live'&&<i/>}{game.statusLabel}</span><span>{game.timeConfirmed?time(game.start):'時間待定'}</span></div>
     <div className="football-match"><FootballTeamIdentity team={game.home} side="home"/><b>{game.homeScore!==null&&game.awayScore!==null?`${game.homeScore} : ${game.awayScore}`:'VS'}</b><FootballTeamIdentity team={game.away} side="away"/></div>
     {(game.venue||game.neutral)&&<p className="football-venue">{game.neutral?'中立場・':''}{game.venue}</p>}
-    {ready?<>
+    {a?<>
       <div className="football-analysis-title"><strong>{a.lean?.replace('模型傾向','').replace('，保留觀望','')}</strong></div>
-      <div className="football-probabilities">{[['主勝',p.home],['和局',p.draw],['客勝',p.away]].map(([label,value])=><div key={String(label)}><span>{label}</span><strong>{percent(Number(value))}</strong></div>)}</div>
-      <div className="football-probability-bar" aria-hidden="true"><span style={{width:p.home*100+'%'}}/><span style={{width:p.draw*100+'%'}}/><span style={{width:p.away*100+'%'}}/></div>
-      <div className="football-goals"><div><span>大 2.5 球</span><b>{percent(p.over25)}</b></div><div><span>小 2.5 球</span><b>{percent(p.under25)}</b></div><div><span>雙方都進球</span><b>{percent(p.btts)}</b></div></div>
-      <div className="football-scores"><span>三組比分預測<small>主：客</small></span>{a.scores?.map(s=><div key={`${s.home}:${s.away}`}><b>{s.home} : {s.away}</b><small>{percent(s.probability)}</small></div>)}</div>
+      <FootballAnalysisNumbers analysis={a}/>
     </>:eligible&&!unavailable&&!report?<div className="football-loading" role="status" aria-label="分析載入中"><RefreshCw size={18} className="animate-spin"/></div>:null}
   </article>;
 }
