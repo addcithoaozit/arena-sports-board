@@ -1,0 +1,144 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-09-28T09:29:45.775Z",
+  "dateAsiaTaipei": "2026-09-28",
+  "purpose": "current feed validation; not production deployment",
+  "workflow": {
+    "runId": 35688889561,
+    "runAttempt": 50,
+    "conclusion": "startup_failure",
+    "latestArtifactId": 10923208463,
+    "latestArtifactCreatedAt": "2026-09-27T04:44:22Z",
+    "acceptedAsCurrent": false,
+    "latestVerifiedJobId": 108428290165,
+    "rerunLatestVerifiedJob": {
+      "attempted": true,
+      "success": false,
+      "error": "HTTP 403: Only jobs from the current attempt can be re-run"
+    }
+  },
+  "NPB": {
+    "games": 3,
+    "states": {
+      "live": 3
+    },
+    "sameDayLiveVerified": true,
+    "source": "sportsnavi",
+    "verificationMethod": "two fresh public-source live observations separated by at least 81.676825 seconds with actual in-game numeric/state changes",
+    "observationWindow": {
+      "firstCompletedNoLaterThan": "2026-09-28T09:25:27.296837Z",
+      "secondStartedNoEarlierThan": "2026-09-28T09:26:48.973662Z",
+      "minimumSeparationSeconds": 81.676825
+    },
+    "verifiedGames": [
+      {
+        "key": "NPB:2021048563",
+        "away": "広島",
+        "home": "DeNA",
+        "score": {
+          "away": 1,
+          "home": 0
+        },
+        "before": {
+          "inning": 2,
+          "half": "top"
+        },
+        "after": {
+          "inning": 2,
+          "half": "bottom"
+        },
+        "changes": [
+          "half:top->bottom"
+        ]
+      },
+      {
+        "key": "NPB:2021039468",
+        "away": "楽天",
+        "home": "西武",
+        "score": {
+          "away": 2,
+          "home": 0
+        },
+        "before": {
+          "inning": 1,
+          "half": "top",
+          "currentPitcher": "山田 陽翔",
+          "pitchCount": 15
+        },
+        "after": {
+          "inning": 1,
+          "half": "top",
+          "currentPitcher": "山田 陽翔",
+          "pitchCount": 17
+        },
+        "changes": [
+          "currentPitcherPitchCount:15->17"
+        ]
+      },
+      {
+        "key": "NPB:2021039469",
+        "away": "日本ハム",
+        "home": "ロッテ",
+        "score": {
+          "away": 0,
+          "home": 0
+        },
+        "before": {
+          "inning": 2,
+          "half": "top",
+          "currentPitcher": "ジャクソン",
+          "pitchCount": 31
+        },
+        "after": {
+          "inning": 2,
+          "half": "top",
+          "currentPitcher": "ジャクソン",
+          "pitchCount": 33
+        },
+        "changes": [
+          "currentPitcherPitchCount:31->33"
+        ]
+      }
+    ],
+    "unsupportedNormalizedFields": {
+      "balls": null,
+      "strikes": null,
+      "outs": null,
+      "bases": null
+    }
+  },
+  "KBO": {
+    "games": 0,
+    "states": {},
+    "sameDayLiveVerified": false,
+    "source": "naver",
+    "note": "2026-09-28 schedule response contained two categoryId=kbaseballetc entries and zero categoryId=kbo first-team games; non-KBO entries excluded."
+  },
+  "CPBL": {
+    "games": 3,
+    "states": {
+      "pregame": 3
+    },
+    "sameDayLiveVerified": false,
+    "source": "yahoo-tw plus same-day public schedule cross-check",
+    "scheduledMatchups": [
+      "中信兄弟 vs 台鋼雄鷹",
+      "樂天桃猿 vs 統一獅",
+      "富邦悍將 vs 味全龍"
+    ],
+    "pitchCount": null,
+    "balls": null,
+    "strikes": null,
+    "outs": null,
+    "bases": null,
+    "lineupConfirmation": "source_listed_not_officially_verified"
+  },
+  "sourcePolicy": {
+    "noAccessChallengeBypass": true,
+    "oldArtifactNotAcceptedAsCurrent": true,
+    "unknownFieldsNotFilledWithZero": true
+  },
+  "productionChanged": false,
+  "productionDatabaseWritten": false,
+  "deployed": false
+}
