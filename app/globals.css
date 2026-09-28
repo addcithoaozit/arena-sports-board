@@ -17,6 +17,8 @@ button,input { font:inherit; }
 /* League overview: compact navigation, separated fixtures, consistent working surfaces. */
 .arena-shell { position:relative; isolation:isolate; background:#080f19; }
 .arena-shell::before { content:""; position:fixed; inset:0; z-index:-1; pointer-events:none; background-image:linear-gradient(rgba(8,15,25,.48),rgba(8,15,25,.68)),url('/backgrounds/yankee-stadium.jpg'); background-size:cover; background-position:center bottom; background-repeat:no-repeat; }
+.arena-shell[data-sport="football"]::before { background-image:linear-gradient(rgba(8,15,25,.38),rgba(8,15,25,.62)),url('/backgrounds/football-stadium-v1.webp'); }
+@media(max-width:800px) { .arena-shell[data-sport="football"]::before { background-position:85% bottom; } }
 .arena-shell header { background:#0b1420; }
 .header-action { display:inline-flex; align-items:center; gap:.45rem; min-height:2.5rem; padding:.55rem .75rem; border:1px solid #425269; border-radius:.5rem; color:#e2e8f0; font-size:.875rem; font-weight:700; }
 .header-action:hover,.header-action:focus-visible { color:#ffd538; border-color:#ffd538; outline:none; }
