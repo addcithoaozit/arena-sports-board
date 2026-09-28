@@ -4,6 +4,7 @@ import {reconcileFootballHistory} from './football-history';
 import {applyExternalFootballAnalysis,loadExternalFootballContext} from './football-external-source';
 import {loadFootballMarketContext,applyFootballMarketAnalysis} from './football-market-source';
 import {selectFootballMarketModel} from './football-market-model';
+import {footballProfileTeam,footballProfileResults,footballProfileUpcoming,type FootballTeamProfileData} from './football-team-profile';
 const ROOT='https://site.api.espn.com/apis/site/v2/sports/soccer';
 const cache=new Map<string,{expires:number;value:any;fetchedAt:string}>(),pending=new Map<string,Promise<any>>();
 // Share bounded source work across members; only public football data is cached.
@@ -120,4 +121,18 @@ async function nationalGameAnalysis(game:FootballGame){
   }
   analysis.quality={label:warnings.length?'資料有限':'國家隊正式賽果完整',warnings,historyConflicts:merged.conflicts,archiveSupplementGames:0};
   return {game,analysis,sourceFetchedAt:success.map(r=>r.fetchedAt).sort()[0]||null,archiveAsOf:null};
+}
+
+export async function footballTeamProfile(league:FootballLeague,teamId:string):Promise<FootballTeamProfileData>{
+ const year=new Date(Date.now()).getUTCFullYear();
+ const paths=[`all/teams/${teamId}/schedule?season=${year}&limit=100`,`all/teams/${teamId}/schedule?season=${year-1}&limit=100`,...[year,year-1].map(season=>`${league}/teams/${teamId}/schedule?season=${season}&fixture=true&limit=100`)];
+ const rows=await Promise.allSettled(paths.map(async path=>{
+  const r=await source(path,path.includes('fixture=true')?5*60000:60*60000,20000);
+  const team=footballProfileTeam(r.value.team,teamId);if(r.value.events.length>=100)throw Error('球隊資料超出分頁上限');
+  return {...r,team,games:parseFootballTeamHistory(r.value,teamId,league,true)};
+ }));
+ // Never present an older feed as current after the latest team source fails.
+ if(rows[0].status==='rejected')throw Error('球隊近期資料暫時無法讀取');
+ const current=rows[0].value,history=rows.slice(0,2).flatMap(r=>r.status==='fulfilled'?r.value.games:[]),fixtures=rows.slice(2).flatMap(r=>r.status==='fulfilled'?[r.value]:[]);
+ return {league,team:current.team,results:footballProfileResults(history,league,teamId),upcoming:fixtures.length?footballProfileUpcoming(fixtures.flatMap(r=>r.games),league,teamId):null,fetchedAt:rows.flatMap(r=>r.status==='fulfilled'?[r.value.fetchedAt]:[]).sort()[0]};
 }

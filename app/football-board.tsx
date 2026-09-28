@@ -1,7 +1,7 @@
 'use client';
 import {useEffect,useRef,useState} from 'react';
 import {ArrowLeft,ArrowRight,CalendarDays,RefreshCw} from 'lucide-react';
-import {FOOTBALL_LEAGUES,footballDay,shiftFootballDay,type FootballGame,type FootballLeague} from '@/lib/football';
+import {FOOTBALL_LEAGUES,footballDay,shiftFootballDay,isFootballLeague,validFootballDay,type FootballGame,type FootballLeague} from '@/lib/football';
 import {footballFixtureKey,footballSourceStale,readyFootballAnalysis,type FootballReport} from '@/lib/football-recommendations';
 import FootballTeamIdentity from './football-team';
 import FootballRecommendationsPane,{FootballAnalysisNumbers} from './football-recommendations';
@@ -22,6 +22,7 @@ export default function FootballBoard(){
   const [filter,setFilter]=useState('all'),[reload,setReload]=useState(0),[now,setNow]=useState(Date.now);
   const nextController=useRef<AbortController|null>(null);
   const selected=FOOTBALL_LEAGUES.find(l=>l.code===league)!;
+  useEffect(()=>{const p=new URLSearchParams(window.location.search),competition=p.get('competition'),date=p.get('date');if(competition&&isFootballLeague(competition))setLeague(competition);if(date&&validFootballDay(date)&&Math.abs(Date.parse(date)-Date.parse(footballDay()))<=365*86400000)setDay(date);},[]);
   useEffect(()=>{const timer=setInterval(()=>setNow(Date.now()),15000);return()=>clearInterval(timer);},[]);
   useEffect(()=>{
     const refresh=()=>setReload(n=>n+1);window.addEventListener('arena-refresh-all',refresh);
@@ -87,7 +88,7 @@ function FootballCard({game,report,now,unavailable}:{game:FootballGame;report?:R
   const eligible=game.state==='scheduled'&&game.timeConfirmed&&Date.parse(game.start)>now;
   return <article className="football-card">
     <div className="football-card-top"><span className={game.state==='live'?'football-live':''}>{game.state==='live'&&<i/>}{game.statusLabel}</span><span>{game.timeConfirmed?time(game.start):'時間待定'}</span></div>
-    <div className="football-match"><FootballTeamIdentity team={game.home} side="home"/><b>{game.homeScore!==null&&game.awayScore!==null?`${game.homeScore} : ${game.awayScore}`:'VS'}</b><FootballTeamIdentity team={game.away} side="away"/></div>
+    <div className="football-match"><FootballTeamIdentity team={game.home} side="home" league={game.league} day={footballDay(game.start)}/><b>{game.homeScore!==null&&game.awayScore!==null?`${game.homeScore} : ${game.awayScore}`:'VS'}</b><FootballTeamIdentity team={game.away} side="away" league={game.league} day={footballDay(game.start)}/></div>
     {(game.venue||game.neutral)&&<p className="football-venue">{game.neutral?'中立場・':''}{game.venue}</p>}
     {a?<>
       <div className="football-analysis-title"><strong>{a.lean?.replace('模型傾向','').replace('，保留觀望','')}</strong></div>
