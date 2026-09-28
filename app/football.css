@@ -1,4 +1,16 @@
 .football-board { color:#e8eef5; }
+.football-recommendations { padding:12px;color:#e8eef5; }
+.football-recommendations-context { display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px;font-size:12px;color:#aebdd0; }
+.football-recommendations-context strong { font-size:14px;color:#ffd538; }
+.football-recommendation-card { overflow:hidden;margin-bottom:12px;border:1px solid #34485f;border-radius:10px;background:#091521; }
+.football-recommendation-card:last-child { margin-bottom:0; }
+.football-recommendation-card>header { display:flex;justify-content:space-between;gap:8px;padding:10px 12px;border-bottom:1px solid #293b50;font-size:11px;color:#aebdd0; }
+.football-recommendation-match { display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:8px;padding:12px;text-align:center; }
+.football-recommendation-match div { min-width:0; }.football-recommendation-match small { display:block;color:#95a7bc;font-size:11px; }.football-recommendation-match strong { display:block;overflow-wrap:anywhere;font-size:15px;line-height:1.5; }.football-recommendation-match>b { font-size:12px;color:#ffd538; }
+.football-recommendation-directions { margin:0 12px 12px;padding:8px 10px;border-radius:7px;background:#172739;font-size:12px; }
+.football-recommendation-directions>div { display:grid;grid-template-columns:76px minmax(0,1fr);gap:8px;align-items:center;padding:4px 0; }.football-recommendation-directions dt { color:#aebdd0; }.football-recommendation-directions dd { display:flex;align-items:center;justify-content:space-between;gap:8px; }.football-recommendation-directions strong { color:#ffd538; }.football-recommendation-directions b { color:#6ee7b7;font-variant-numeric:tabular-nums; }
+.football-recommendation-card .football-probabilities strong { font-size:1.15rem; }.football-recommendation-card .football-goals,.football-recommendation-card .football-scores { gap:5px;margin-right:12px;margin-left:12px; }.football-recommendation-card .football-goals b,.football-recommendation-card .football-scores b { font-size:.9rem; }
+.football-recommendations-empty { padding:16px 4px;color:#aebdd0;font-size:13px;line-height:1.6; }
 .football-heading { display:flex;align-items:center;justify-content:space-between;gap:1rem;margin:.5rem 0 1.5rem; }
 .football-heading h1 { font-size:2rem;font-weight:900;letter-spacing:-.03em; }
 .football-heading p { color:#a9b7c8;font-size:.9rem;line-height:1.8; }
