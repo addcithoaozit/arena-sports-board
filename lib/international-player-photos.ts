@@ -2,12 +2,20 @@ import catalog from '@/data/international-player-photos.json';
 // NPB handedness markers are not part of a name. English name order and hyphens
 // vary between FanGraphs and KBO; never compare names across different teams.
 export function playerPhotoKey(name:string){return String(name||'').normalize('NFKC').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/^[\s*＊+＋#＃]+/,'').replace(/[.,'’·・-]/g,' ').trim().toLowerCase().split(/\s+/).filter(Boolean).sort().join('');}
+export function npbCatalogPlayer(name:string,code:string){
+ const entry=(catalog.teams as Record<string,Record<string,{url:string;source:string;alternatives?:string[]}>>)[`NPB:${code}`]?.[playerPhotoKey(name)];
+ if(!entry)return null;
+ const urls=[entry.url,...entry.alternatives||[]];
+ const id=urls.map(url=>url.match(/^https:\/\/sports-baseball\.west\.edge\.storage-yahoo\.jp\/npb\/images\/player\/(?:portrait|square)\/\d+\/([1-9]\d{3,8})\.jpg$/)?.[1]).find(Boolean);
+ return {id,photoUrls:[...new Set(urls)]};
+}
 export function withPlayerPhotos(data:any,league:string,code:string,year:number){
  if(year!==catalog.season)return data;
  const team=(catalog.teams as Record<string,Record<string,{url:string;source:string;alternatives?:string[]}>>)[`${league}:${code}`]||{};
- const photos={...(data.photos||{})},photoAlternatives:Record<string,string[]>={},photoSources:Record<string,string>={};
+ const photos={...(data.photos||{})},photoAlternatives:Record<string,string[]>={},photoSources:Record<string,string>={},playerLinks:Record<string,string>={};
  for(const table of [data.bat,data.pit])for(const row of table?.rows||[]){const entry=team[playerPhotoKey(row[0])];if(!entry)continue;const urls=[entry.url,...entry.alternatives||[],photos[row[0]]].filter(Boolean);photos[row[0]]=urls[0];photoAlternatives[row[0]]=[...new Set(urls)];photoSources[row[0]]=entry.source;}
- return {...data,photos,photoAlternatives,photoSources,photosUpdatedAt:league==='NPB'?catalog.npbCheckedAt:catalog.checkedAt};
+ if(league==='NPB')for(const table of [data.bat,data.pit])for(const row of table?.rows||[]){const id=npbCatalogPlayer(row[0],code)?.id;if(id)playerLinks[row[0]]=`/players/international/npb/${id}`;}
+ return {...data,photos,photoAlternatives,photoSources,playerLinks,photosUpdatedAt:league==='NPB'?catalog.npbCheckedAt:catalog.checkedAt};
 }
 
 const npbCodes:Record<string,string>={'1':'g','2':'s','3':'db','4':'d','5':'t','6':'c','7':'l','8':'f','9':'m','11':'b','12':'h','376':'e'};
