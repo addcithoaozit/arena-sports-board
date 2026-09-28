@@ -20,6 +20,10 @@
 .football-card-top { display:flex;align-items:center;justify-content:space-between;gap:1rem;border-bottom:1px solid #2e3d50;padding:.8rem 1rem;font-size:.75rem;color:#b4c1d1; }
 .football-card-top .football-live { color:#fda4af;font-weight:800;display:flex;gap:.4rem;align-items:center; }.football-live i { width:6px;height:6px;border-radius:50%;background:#fb7185; }
 .football-match { display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:.75rem;padding:1.4rem 1rem 1rem;text-align:center; }
+.football-team { min-width:0; }
+.football-team-identity { display:flex;align-items:center;justify-content:center;gap:.6rem;min-width:0;margin-top:.35rem; }
+.football-team-identity h3 { min-width:0; }
+.football-team-logo { display:block;width:44px;height:44px;flex:0 0 44px;object-fit:contain;border-radius:.5rem;background:#f8fafc;padding:3px; }
 .football-match small { color:#95a7bc;font-size:.72rem; }.football-match h3 { overflow-wrap:anywhere;font-size:clamp(.95rem,1.4vw,1.2rem);font-weight:900;line-height:1.5; }.football-match>b { font-size:1.15rem;font-variant-numeric:tabular-nums;color:#ffd538;white-space:nowrap; }
 .football-venue { padding:0 1rem .8rem;text-align:center;font-size:.7rem;color:#91a3b8; }
 .football-analysis-title { display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.4rem;margin:0 1rem;padding:.7rem 0;border-top:1px solid #2e3d50; }.football-analysis-title strong { font-size:.85rem;color:#ffd538; }.football-analysis-title span { font-size:.67rem;color:#a4b2c2; }
@@ -32,4 +36,5 @@
 .football-alert { padding:1rem;border:1px solid #aa5a53;background:#3e2424;color:#ffd0ca;border-radius:.5rem;font-size:.85rem;margin:1rem 0; }.football-alert button { margin-left:1rem;text-decoration:underline; }
 .football-method { margin-top:1.5rem;padding:1rem;background:#0c1827ed;border:1px solid #2d425a;border-radius:.6rem;color:#a8b8cc;font-size:.8rem;line-height:1.8; }.football-method summary { color:#dbe7f5;cursor:pointer;font-weight:700; }.football-method p { margin-top:.7rem; }
 @media(max-width:800px){.football-games{grid-template-columns:minmax(0,1fr);}.football-heading h1{font-size:1.65rem;}.football-leagues{gap:.4rem;}.football-leagues button{min-width:calc(33.333% - .4rem);flex:1 0 30%;}.football-match h3{font-size:1.15rem;}.football-probabilities strong{font-size:1.6rem;}}
+@media(max-width:480px){.football-team-identity{flex-direction:column;gap:.4rem;}.football-team-logo{width:40px;height:40px;flex-basis:40px;}}
 @media(max-width:400px){.football-date{gap:.25rem;}.football-date label{padding:.4rem;}.football-date label>svg{display:none;}.football-date input{width:124px;}.football-date button{padding:.4rem .5rem;}.football-filters{gap:.3rem;}.football-filters button{padding:.5rem .65rem;}.football-model-tag{font-size:.7rem;}.football-heading{gap:.5rem;}}

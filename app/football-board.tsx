@@ -2,6 +2,7 @@
 import {useEffect,useRef,useState} from 'react';
 import {ArrowLeft,ArrowRight,CalendarDays,RefreshCw} from 'lucide-react';
 import {FOOTBALL_LEAGUES,footballDay,shiftFootballDay,type FootballAnalysis,type FootballGame,type FootballLeague} from '@/lib/football';
+import FootballTeamIdentity from './football-team';
 
 type Board={games:FootballGame[];fetchedAt:string;day:string;league:FootballLeague};
 type Report={game?:FootballGame;analysis?:FootballAnalysis;error?:string;sourceFetchedAt?:string;archiveAsOf?:string;snapshotSaved?:boolean};
@@ -82,7 +83,7 @@ function FootballCard({game,report,now,unavailable}:{game:FootballGame;report?:R
   const ready=eligible&&!unavailable&&fixtureKey(report?.game)===fixtureKey(game)&&a?.status==='ready'&&p&&now-Date.parse(a.capturedAt)<15*60000;
   return <article className="football-card">
     <div className="football-card-top"><span className={game.state==='live'?'football-live':''}>{game.state==='live'&&<i/>}{game.statusLabel}</span><span>{game.timeConfirmed?time(game.start):'時間待定'}</span></div>
-    <div className="football-match"><div><small>主隊</small><h3 title={game.home.englishName}>{game.home.name}</h3></div><b>{game.homeScore!==null&&game.awayScore!==null?`${game.homeScore} : ${game.awayScore}`:'VS'}</b><div><small>客隊</small><h3 title={game.away.englishName}>{game.away.name}</h3></div></div>
+    <div className="football-match"><FootballTeamIdentity team={game.home} side="home"/><b>{game.homeScore!==null&&game.awayScore!==null?`${game.homeScore} : ${game.awayScore}`:'VS'}</b><FootballTeamIdentity team={game.away} side="away"/></div>
     {(game.venue||game.neutral)&&<p className="football-venue">{game.neutral?'中立場・':''}{game.venue}</p>}
     {ready?<>
       <div className="football-analysis-title"><strong>{a.lean?.replace('模型傾向','').replace('，保留觀望','')}</strong></div>
