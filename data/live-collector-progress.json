@@ -8,17 +8,17 @@
   "baselineRunId": 34926808234,
   "baselineJobId": 104246472890,
   "baselineArtifactId": 10380098816,
-  "observedAt": "2026-09-28T14:16:31Z",
-  "dateAsiaTaipei": "2026-09-28",
+  "observedAt": "2026-09-29T07:24:58.509Z",
+  "dateAsiaTaipei": "2026-09-29",
   "currentGames": {
-    "NPB": 3,
-    "KBO": 0,
-    "CPBL": 3
+    "NPB": 4,
+    "KBO": 5,
+    "CPBL": 0
   },
   "currentStates": {
-    "NPB": "final",
-    "KBO": "no_games",
-    "CPBL": "final"
+    "NPB": "pregame",
+    "KBO": "pregame",
+    "CPBL": "no_games"
   },
   "databaseTest": {
     "environment": "isolated GitHub Actions PostgreSQL 16; not Render",
@@ -30,9 +30,9 @@
     "passed": true
   },
   "firstStartTaipei": {
-    "NPB": "13:00",
-    "KBO": "16:00",
-    "CPBL": "16:05"
+    "NPB": "17:00",
+    "KBO": "17:30",
+    "CPBL": null
   },
   "sourceURLs": {
     "NPB": "https://npb.jp/games/2026/",
@@ -445,6 +445,63 @@
         "observationPath": "data/live/2026-09-28T141631Z.json",
         "collectorFallback": true,
         "cpblSameDayLiveVerified": true
+      }
+    },
+    "2026-09-29": {
+      "NPB": {
+        "verified": false,
+        "verifiedAt": null,
+        "source": "sportsnavi",
+        "state": "pregame",
+        "games": 4
+      },
+      "KBO": {
+        "verified": false,
+        "verifiedAt": null,
+        "source": "naver",
+        "state": "pregame",
+        "games": 5
+      },
+      "CPBL": {
+        "verified": false,
+        "verifiedAt": null,
+        "source": "public-fallback",
+        "notApplicableToday": true,
+        "state": "no_games",
+        "games": 0
+      },
+      "allScheduledLeaguesVerified": false,
+      "allThreeLeaguesLiveVerified": false,
+      "reason": "NPB and KBO are pregame only; CPBL has no first-team game today. No live state yet, so same-day live-change verification is pending.",
+      "evidenceRetainedIn": "data/live/",
+      "latestObservation": {
+        "capturedAt": "2026-09-29T07:24:58.509Z",
+        "liveGames": 0,
+        "pregameGames": {
+          "NPB": 4,
+          "KBO": 5,
+          "CPBL": 0
+        },
+        "finalGames": {
+          "NPB": 0,
+          "KBO": 0,
+          "CPBL": 0
+        },
+        "cancelledGames": {
+          "NPB": 0,
+          "KBO": 0,
+          "CPBL": 0
+        },
+        "secondCapturePerformed": false,
+        "captureIntervalSeconds": null,
+        "qualifiedNumericChanges": 0,
+        "artifactId": null,
+        "artifactCreatedAt": null,
+        "runId": 35688889561,
+        "runAttempt": 50,
+        "jobId": null,
+        "observationPath": "data/live/20260929T072458Z.json",
+        "collectorFallback": true
       }
     }
   },
