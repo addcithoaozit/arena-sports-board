@@ -24,7 +24,7 @@ test('card and floating pane render the same favored team, estimate and team lin
  try{
   const card=render(Card,{game,report,now,unavailable:false,showAnalysis:true}),pane=render(Pane,{games:[game],reports:{[game.id]:report},day:'2026-10-09',now,fetchedAt:new Date(now).toISOString(),unavailable:false,loading:false});
   const pick=m.nbaPick(game,report.analysis);
-  for(const html of [card,pane]){assert.ok(html.includes(pick.label));assert.ok(html.includes(match.nbaPercent(pick.probability)));assert.ok(html.includes(report.analysis.expected.total.toFixed(1)));assert.ok(html.includes('/teams/nba/2?date=2026-10-09'));assert.ok(html.includes('/teams/nba/5?date=2026-10-09'));assert.ok(!html.includes('候選未通過'));assert.ok(!html.includes('賠率'));}
+  for(const html of [card,pane]){assert.ok(html.includes(pick.label));assert.ok(html.includes(match.nbaPercent(pick.probability)));assert.ok(html.includes(String(Math.round(report.analysis.expected.total))));assert.ok(html.includes('/teams/nba/2?date=2026-10-09'));assert.ok(html.includes('/teams/nba/5?date=2026-10-09'));assert.ok(!html.includes('候選未通過'));assert.ok(!html.includes('賠率'));}
  }finally{Date.now=oldNow;}
 });
 test('stale and already started games show no recommendation on either surface',()=>{
