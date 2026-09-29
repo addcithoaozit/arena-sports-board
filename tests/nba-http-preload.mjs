@@ -8,6 +8,12 @@ const read=name=>JSON.parse(readFileSync(new URL(`./fixtures/nba/${name}.json`,i
 globalThis.fetch=async(input,options)=>{
  const u=new URL(typeof input==='string'||input instanceof URL?String(input):input.url);
  if(['localhost','127.0.0.1'].includes(u.hostname))return native(input,options);
+ if(u.hostname==='site.api.espn.com'&&u.pathname.startsWith('/apis/site/v2/sports/basketball/wnba/')){
+  const team=u.pathname.match(/teams\/(\d+)\/(schedule|roster)/);
+  const file=team?(team[2]==='roster'?`roster-${team[1]}`:`team-${team[1]}-${u.searchParams.get('season')}-${u.searchParams.get('seasontype')}`):`day-${u.searchParams.get('dates')}`;
+  if(process.env.NBA_TEST_HISTORY_FAILURE==='1'&&team?.[2]==='schedule'&&u.searchParams.get('seasontype')==='3')return new Response('',{status:503});
+  try{return Response.json(JSON.parse(readFileSync(new URL(`./fixtures/wnba/${file}.json`,import.meta.url),'utf8')));}catch{return new Response('',{status:503});}
+ }
  if(u.hostname==='www.nba.com'){
   let data;
   if(u.pathname==='/players')data={props:{pageProps:{players:[{PERSON_ID:1628369,PLAYER_SLUG:'jayson-tatum'}]}}};
