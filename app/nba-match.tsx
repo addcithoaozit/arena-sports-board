@@ -16,7 +16,7 @@ export function NbaAnalysisNumbers({game,analysis}:{game:NbaGame;analysis:NbaAna
  return <div className="nba-analysis-numbers">
   <div className="nba-probabilities"><div><span>客勝</span><strong>{nbaPercent(p.away)}</strong></div><span>近況推估</span><div><span>主勝</span><strong>{nbaPercent(p.home)}</strong></div></div>
   <div className="nba-probability-bar" aria-hidden="true"><i style={{width:`${p.away*100}%`}}/><i style={{width:`${p.home*100}%`}}/></div>
-  <div className="nba-estimates"><div><span>預估比分・客：主</span><b>{e.away.toFixed(1)} : {e.home.toFixed(1)}</b></div><div><span>預估總分</span><b>{e.total.toFixed(1)}</b></div><div><span>預估分差</span><b>{e.margin===0?'持平':`${e.margin>0?'主':'客'} +${Math.abs(e.margin).toFixed(1)}`}</b></div></div>
+  <div className="nba-estimates"><div><span>預估比分・客：主</span><b>{Math.round(e.away)} : {Math.round(e.home)}</b></div><div><span>預估總分</span><b>{e.total.toFixed(1)}</b></div><div><span>預估分差</span><b>{e.margin===0?'持平':`${e.margin>0?'主':'客'} +${Math.abs(e.margin).toFixed(1)}`}</b></div></div>
   <div className="nba-pick" data-nba-recommendation={game.id}><span>勝負推薦</span><strong>{pick?<a href={nbaTeamHref(pick.team.id,nbaDay(game.start))}>{pick.label}</a>:'兩隊接近'}</strong>{pick&&<b>{nbaPercent(pick.probability)}</b>}</div>
  </div>;
 }
