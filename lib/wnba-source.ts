@@ -1,5 +1,7 @@
+import {efficiencyGameAnalysis} from './basketball-efficiency-source';
+import {analyzeEfficiency,DEFAULT_WEIGHTS,type Weights} from './basketball-efficiency';
 import {wnbaFirstSeason,wnbaDay,wnbaHistory,wnbaSeason,wnbaTeam,parseWnbaEvents,reconcileWnbaGames,shiftWnbaDay,validWnbaDay,type WnbaBoard} from './wnba';
-import {analyzeWnba,wnbaEligible} from './wnba-analysis';
+import {wnbaEligible} from './wnba-analysis';
 const ROOT='https://site.api.espn.com/apis/site/v2/sports/basketball/wnba';
 const cache=new Map<string,{value:any;fetchedAt:string;expires:number}>(),pending=new Map<string,Promise<{value:any;fetchedAt:string;expires:number}>>();
 let active=0;const queue:(()=>void)[]=[];
@@ -52,11 +54,11 @@ async function history(teamIds:string[],season:number){
  const rows=await Promise.all(teamIds.flatMap(team=>[season,season-1].flatMap(year=>[2,3].map(phase=>teamSeason(team,year,phase)))));
  return {games:reconcileWnbaGames(rows.flatMap(r=>r.games)),fetchedAt:rows.map(r=>r.fetchedAt).sort()[0]};
 }
-export async function wnbaGameAnalysis(day:string,id:string){
+export async function wnbaGameAnalysis(day:string,id:string,weights:Weights=DEFAULT_WEIGHTS){
  const schedule=await wnbaSchedule(day),game=schedule.games.find(g=>g.id===id);if(!game)return null;
- if(!wnbaEligible(game))return {game,analysis:analyzeWnba(game,[]),sourceFetchedAt:schedule.fetchedAt};
+ if(!wnbaEligible(game))return {game,analysis:analyzeEfficiency(game,[],[],'WNBA',weights),sourceFetchedAt:schedule.fetchedAt};
  const data=await history([game.home.id,game.away.id],wnbaSeason(wnbaDay()));
- return {game,analysis:analyzeWnba(game,data.games),sourceFetchedAt:data.fetchedAt};
+ return {game,analysis:await efficiencyGameAnalysis(game,data.games,'WNBA',weights),sourceFetchedAt:data.fetchedAt};
 }
 export async function wnbaTeamProfile(teamId:string){
  const team=wnbaTeam(teamId);if(!team)throw Error('球隊不存在');

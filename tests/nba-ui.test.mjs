@@ -40,3 +40,5 @@ test('all 30 team identities expose real logo URLs and working profile links',()
 test('quarter score renderer labels overtime and retains null as unknown rather than zero',()=>{
  const g={...game,homeScore:120,awayScore:118,quarters:[{period:5,home:12,away:null}]};const html=render(match.NbaQuarters,{game:g});assert.ok(html.includes('延長1'));assert.ok(html.includes('—'));assert.ok(html.includes('120'));assert.ok(html.includes('118'));
 });
+
+test('displayed complementary win rates sum to 100 after one-decimal rounding',()=>{for(const home of [.0025,.3845,.5005,.9975]){const d=match.nbaDisplayedProbabilities({home,away:1-home});assert.equal(Math.round((parseFloat(d.home)+parseFloat(d.away))*10),1000);}});

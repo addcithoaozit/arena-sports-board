@@ -2,6 +2,7 @@
 import {useEffect,useRef,useState} from 'react';
 import {ArrowLeft,ArrowRight,CalendarDays,RefreshCw} from 'lucide-react';
 import {NBA_TEAMS,nbaDay,nbaFixtureKey,nbaPhase,shiftNbaDay,validNbaDay,type NbaBoard as Board,type NbaGame} from '@/lib/nba';
+import {DEFAULT_WEIGHTS,normalizedWeights,weightKey,type Weights} from '@/lib/basketball-efficiency';
 import {WNBA_TEAMS} from '@/lib/wnba';
 import {nbaEligible,nbaSourceStale,readyNbaAnalysis,type NbaReport} from '@/lib/nba-analysis';
 import {NbaAnalysisNumbers,NbaMatch,NbaQuarters,NbaTeamIdentity,nbaTime} from './nba-match';
@@ -10,6 +11,9 @@ import {nbaRequest} from './nba-request';
 import './nba.css';
 export default function NbaBoard({view,onViewChange,league='NBA'}:{league?:'NBA'|'WNBA';view:string;onViewChange:(view:string)=>void}){
  const teams=league==='WNBA'?WNBA_TEAMS:NBA_TEAMS,api=`/api/${league.toLowerCase()}`;
+ const [draftWeights,setDraftWeights]=useState<Weights>([...DEFAULT_WEIGHTS]),[weights,setWeights]=useState<Weights>([...DEFAULT_WEIGHTS]);
+ const weightsQuery=weights.join(','),expectedWeights=weightKey(draftWeights),displayWeights=normalizedWeights(draftWeights);
+ useEffect(()=>{const timer=setTimeout(()=>setWeights([...draftWeights]),350);return()=>clearTimeout(timer);},[draftWeights]);
  const tab=['analysis','teams','live'].includes(view)?view:'analysis';
  const [day,setDay]=useState(nbaDay),[board,setBoard]=useState<Board|null>(null),[reports,setReports]=useState<Record<string,NbaReport>>({});
  const [loading,setLoading]=useState(true),[error,setError]=useState(''),[filter,setFilter]=useState('all'),[reload,setReload]=useState(0),[now,setNow]=useState(Date.now);
@@ -28,14 +32,14 @@ export default function NbaBoard({view,onViewChange,league='NBA'}:{league?:'NBA'
     setBoard(data);setError('');setLoading(false);
     const todo=data.games.filter(g=>nbaEligible(g)&&!queued.has(g.id)&&(!known[g.id]?.analysis||nbaFixtureKey(known[g.id].game!)!==nbaFixtureKey(g)||nbaSourceStale(known[g.id].sourceFetchedAt,Date.now(),5*60000)));
     todo.forEach(g=>queued.add(g.id));
-    async function worker(){while(todo.length&&!controller.signal.aborted){const g=todo.shift()!;try{const report=await nbaRequest(base+`&kind=analysis&game=${g.id}`,controller.signal);if(!controller.signal.aborted){known[g.id]=report;setReports({...known});}}catch(e){if(!controller.signal.aborted){known[g.id]={error:e instanceof Error?e.message:'分析暫時無法取得'};setReports({...known});}}finally{queued.delete(g.id);}}}
+    async function worker(){while(todo.length&&!controller.signal.aborted){const g=todo.shift()!;try{const report=await nbaRequest(base+`&kind=analysis&game=${g.id}&weights=${weightsQuery}`,controller.signal);if(!controller.signal.aborted){known[g.id]=report;setReports({...known});}}catch(e){if(!controller.signal.aborted){known[g.id]={error:e instanceof Error?e.message:'分析暫時無法取得'};setReports({...known});}}finally{queued.delete(g.id);}}}
     void Promise.all([worker(),worker()]);
    }catch(e){if(!controller.signal.aborted)setError(e instanceof Error?e.message:`${league} 資料更新失敗`);}
    finally{busy=false;if(!controller.signal.aborted){setLoading(false);timer=setTimeout(()=>void update(),30000);}}
   }
   void update();const resume=()=>{if(document.visibilityState==='visible'){setNow(Date.now());void update();}};document.addEventListener('visibilitychange',resume);
   return()=>{controller.abort();clearTimeout(timer);document.removeEventListener('visibilitychange',resume);};
- },[day,reload,api]);
+ },[day,reload,api,weightsQuery]);
  function selectDay(value:string){if(!validNbaDay(value)||Math.abs(Date.parse(value)-Date.parse(nbaDay()))>365*86400000)return;setDay(value);const p=new URLSearchParams(window.location.search);p.set('date',value);window.history.replaceState(null,'',`/?${p}`);}
  async function nextMatch(){
   nextController.current?.abort();const controller=new AbortController();nextController.current=controller;setNextBusy(true);setNotice('');
@@ -49,16 +53,17 @@ export default function NbaBoard({view,onViewChange,league='NBA'}:{league?:'NBA'
   <nav className="nba-tabs" aria-label={`${league} 頁面`}>{[['analysis','賽前分析'],['live','賽程・比分'],['teams','球隊一覽']].map(([v,label])=><button type="button" key={v} aria-pressed={tab===v} onClick={()=>onViewChange(v)}>{label}</button>)}</nav>
   {tab==='teams'?<div className="nba-team-directory">{teams.map(team=><NbaTeamIdentity key={team.id} team={team}/>)}</div>:<>
    <div className="nba-toolbar"><div><h2>{new Date(day+'T12:00:00+08:00').toLocaleDateString('zh-TW',{timeZone:'Asia/Taipei',month:'long',day:'numeric',weekday:'long'})}</h2><small>台灣時間 UTC+8</small></div><div className="nba-date"><button type="button" aria-label="前一天" onClick={()=>selectDay(shiftNbaDay(day,-1))}><ArrowLeft size={18}/></button><label><CalendarDays size={18}/><span className="sr-only">{league} 比賽日期</span><input type="date" value={day} min={shiftNbaDay(nbaDay(),-365)} max={shiftNbaDay(nbaDay(),365)} onChange={e=>selectDay(e.target.value)}/></label><button type="button" aria-label="後一天" onClick={()=>selectDay(shiftNbaDay(day,1))}><ArrowRight size={18}/></button><button type="button" className="nba-today" onClick={()=>selectDay(nbaDay())}>今天</button><button type="button" disabled={loading} aria-label={`更新 ${league} 資料`} onClick={()=>setReload(n=>n+1)}><RefreshCw size={18} className={loading?'animate-spin':''}/></button></div></div>
+   {tab==='analysis'&&<details className="nba-weight-panel"><summary>分析權重</summary><div className="nba-weight-controls">{['進攻效率','防守能力','三分火力','罰球製造','比賽節奏'].map((label,i)=><label key={label}><span>{label}<b>{(displayWeights[i]*100).toFixed(1)}%</b></span><input type="range" aria-label={label} min={0} max={100} step={1} value={draftWeights[i]} onChange={e=>{const next=[...draftWeights] as Weights;next[i]=Number(e.target.value);if(next.some(v=>v>0))setDraftWeights(next);}}/></label>)}</div><button type="button" onClick={()=>setDraftWeights([...DEFAULT_WEIGHTS])}>重設為各 20%</button></details>}
    <div className="nba-board-meta"><div className="nba-filters" role="group" aria-label={`${league} 賽事狀態`}>{[['all','全部'],['scheduled','未開賽'],['live','進行中'],['final','已完賽']].map(([v,label])=><button type="button" key={v} aria-pressed={filter===v} onClick={()=>setFilter(v)}>{label}{current&&<span>{v==='all'?board.games.length:board.games.filter(g=>g.state===v).length}</span>}</button>)}</div><span className="nba-updated">{current?`更新 ${nbaTime(board.fetchedAt)}`:'正在取得賽程'}</span></div>
    {error&&<p className="nba-alert" role="alert">{error}<button type="button" onClick={()=>setReload(n=>n+1)}>重試</button></p>}
    {loading&&!current?<p className="nba-empty" role="status">正在取得 {league} 賽程…</p>:current&&!games.length?<div className="nba-empty"><CalendarDays size={32}/><h3>{board.games.length?'沒有符合篩選的比賽':`${day} 沒有 ${league} 賽事`}</h3>{!board.games.length&&<button type="button" className="nba-primary" disabled={nextBusy} onClick={()=>void nextMatch()}>{nextBusy?'查詢中…':'下一個比賽日'}<ArrowRight size={16}/></button>}{notice&&<p role="status">{notice}</p>}</div>:null}
-   <div className="nba-games" data-view={tab}>{games.map(game=><NbaCard key={game.id} game={game} report={reports[game.id]} now={clock} unavailable={unavailable} showAnalysis={tab==='analysis'}/>)}</div>
+   <div className="nba-games" data-view={tab}>{games.map(game=><NbaCard key={game.id} game={game} report={expectedWeights===weightKey(weights)?reports[game.id]:undefined} expectedWeights={expectedWeights} now={clock} unavailable={unavailable} showAnalysis={tab==='analysis'}/>)}</div>
   </>}
-  <NbaRecommendations league={league} games={current?board.games:[]} reports={reports} day={day} now={clock} fetchedAt={current?board.fetchedAt:undefined} unavailable={unavailable} loading={loading}/>
+  <NbaRecommendations expectedWeights={expectedWeights} league={league} games={current?board.games:[]} reports={reports} day={day} now={clock} fetchedAt={current?board.fetchedAt:undefined} unavailable={unavailable} loading={loading}/>
  </section>;
 }
-function NbaCard({game,report,now,unavailable,showAnalysis}:{game:NbaGame;report?:NbaReport;now:number;unavailable:boolean;showAnalysis:boolean}){
- const a=readyNbaAnalysis(game,report,now,unavailable),form=report?.analysis;
+function NbaCard({game,report,now,unavailable,showAnalysis,expectedWeights}:{game:NbaGame;report?:NbaReport;now:number;unavailable:boolean;showAnalysis:boolean;expectedWeights?:string}){
+ const a=readyNbaAnalysis(game,report,now,unavailable,expectedWeights),form=report?.analysis;
  return <article className="nba-card" data-state={game.state}><header><div className="nba-card-labels"><span className="nba-phase-tag">{nbaPhase(game.phase)}</span><span className={game.state==='live'?'nba-live':'nba-game-status'}><i/>{game.statusLabel}</span></div><time dateTime={game.start}>{game.timeConfirmed?nbaTime(game.start):'時間待定'}</time></header><div className="nba-card-layout" data-analysis={showAnalysis&&(!!a||nbaEligible(game,now))}>
   <div className="nba-match-overview"><NbaMatch game={game}/><NbaQuarters game={game}/>
    {showAnalysis&&a&&form&&<div className="nba-form"><span>近期正式賽</span>{(['away','home'] as const).map(side=>{const f=form[`${side}Form`];return <div key={side}><small>{side==='away'?'客隊':'主隊'}・近 {f.games} 場</small><strong>{f.wins} <em>勝</em> {f.losses} <em>負</em></strong><span>得 {f.pointsFor==null?'—':Math.round(f.pointsFor)} ／ 失 {f.pointsAgainst==null?'—':Math.round(f.pointsAgainst)}</span><div className="nba-streak" aria-label="近五場，最近一場在左">{f.results.map((r,i)=><i key={i} data-result={r}>{r==='W'?'勝':'負'}</i>)}</div></div>;})}</div>}

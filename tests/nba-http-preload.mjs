@@ -8,6 +8,11 @@ const read=name=>JSON.parse(readFileSync(new URL(`./fixtures/nba/${name}.json`,i
 globalThis.fetch=async(input,options)=>{
  const u=new URL(typeof input==='string'||input instanceof URL?String(input):input.url);
  if(['localhost','127.0.0.1'].includes(u.hostname))return native(input,options);
+ const efficiencyLeague=u.pathname.match(/^\/apis\/site\/v2\/sports\/basketball\/(nba|wnba)\/summary$/);
+ if(u.hostname==='site.api.espn.com'&&efficiencyLeague){
+  const boxes=JSON.parse(readFileSync(new URL(`./fixtures/basketball-efficiency/${efficiencyLeague[1]}-boxes.json`,import.meta.url),'utf8')),box=boxes[u.searchParams.get('event')||''];
+  return box?Response.json(box):new Response('',{status:503});
+ }
  if(u.hostname==='site.api.espn.com'&&u.pathname.startsWith('/apis/site/v2/sports/basketball/wnba/')){
   const team=u.pathname.match(/teams\/(\d+)\/(schedule|roster)/);
   const file=team?(team[2]==='roster'?`roster-${team[1]}`:`team-${team[1]}-${u.searchParams.get('season')}-${u.searchParams.get('seasontype')}`):`day-${u.searchParams.get('dates')}`;

@@ -1,5 +1,7 @@
+import type {EfficiencyAnalysis} from './basketball-efficiency';
 import {nbaFixtureKey,nbaForm,nbaHistory,type NbaGame,type NbaForm} from './nba';
-export type NbaAnalysis={status:'ready'|'waiting';capturedAt:string;homeForm:NbaForm;awayForm:NbaForm;expected?:{home:number;away:number;total:number;margin:number};probabilities?:{home:number;away:number};model:'nba-recent-results-v1'|'wnba-recent-results-v1'};
+export type LegacyNbaAnalysis={status:'ready'|'waiting';capturedAt:string;homeForm:NbaForm;awayForm:NbaForm;expected?:{home:number;away:number;total:number;margin:number};probabilities?:{home:number;away:number};model:'nba-recent-results-v1'|'wnba-recent-results-v1'};
+export type NbaAnalysis=LegacyNbaAnalysis|EfficiencyAnalysis;
 export type NbaReport={game?:NbaGame;analysis?:NbaAnalysis;sourceFetchedAt?:string;error?:string};
 const DAY=86400000;
 export function nbaEligible(g:NbaGame,now=Date.now()){return g.state==='scheduled'&&g.timeConfirmed&&Date.parse(g.start)>now&&Date.parse(g.start)<=now+30*DAY;}
@@ -30,12 +32,13 @@ export function analyzeNba(game:NbaGame,history:NbaGame[],now=Date.now()):NbaAna
  a.probabilities={home:probability,away:1-probability};return a;
 }
 export const nbaSourceStale=(at:string|undefined,now=Date.now(),maxAge=120000)=>!at||!Number.isFinite(Date.parse(at))||now-Date.parse(at)>maxAge||Date.parse(at)>now+5000;
-export function readyNbaAnalysis(game:NbaGame,report:NbaReport|undefined,now=Date.now(),unavailable=false):NbaAnalysis|null{
+export function readyNbaAnalysis(game:NbaGame,report:NbaReport|undefined,now=Date.now(),unavailable=false,expectedWeights?:string):NbaAnalysis|null{
  const a=report?.analysis;
- if(a&&a.model!==(game.home.league==='WNBA'?'wnba-recent-results-v1':'nba-recent-results-v1'))return null;
+ if(a&&!((game.home.league==='WNBA'?['wnba-recent-results-v1','wnba-efficiency-monte-carlo-v2']:['nba-recent-results-v1','nba-efficiency-monte-carlo-v2']).includes(a.model)))return null;
+ if(expectedWeights&&(!a||!('weightsKey' in a)||a.weightsKey!==expectedWeights))return null;
  if(unavailable||!nbaEligible(game,now)||!report?.game||nbaFixtureKey(report.game)!==nbaFixtureKey(game)||!a||a.status!=='ready'||nbaSourceStale(a.capturedAt,now,10*60000)||nbaSourceStale(report.sourceFetchedAt,now,10*60000)||!a.expected||!a.probabilities)return null;
  const p=a.probabilities,e=a.expected;
- if(![p.home,p.away,e.home,e.away,e.total,e.margin].every(Number.isFinite)||p.home<=0||p.home>=1||p.away<=0||p.away>=1||Math.abs(p.home+p.away-1)>.00001)return null;
+ if(![p.home,p.away,e.home,e.away,e.total,e.margin].every(Number.isFinite)||p.home<0||p.home>1||p.away<0||p.away>1||Math.abs(p.home+p.away-1)>.00001)return null;
  if(Math.abs(e.home+e.away-e.total)>.15||Math.abs(e.home-e.away-e.margin)>.15||(p.home-.5)*e.margin<0)return null;
  return a;
 }

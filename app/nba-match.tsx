@@ -3,6 +3,7 @@ import {nbaDay,nbaPeriod,basketballTeamHref,type NbaGame,type NbaTeam} from '@/l
 import {nbaPick,type NbaAnalysis} from '@/lib/nba-analysis';
 export const nbaTime=(value:string)=>new Date(value).toLocaleString('zh-TW',{timeZone:'Asia/Taipei',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false});
 export const nbaPercent=(n:number)=>`${(n*100).toFixed(1)}%`;
+export const nbaDisplayedProbabilities=(p:{home:number;away:number})=>{const home=Math.round(p.home*1000);return {home:`${(home/10).toFixed(1)}%`,away:`${((1000-home)/10).toFixed(1)}%`};};
 export function NbaTeamIdentity({team,day,side}:{team:NbaTeam;day?:string;side?:string}){
  return <a className="nba-team" href={basketballTeamHref(team,day)} aria-label={`查看${team.name}球隊數據`}><span className="nba-team-logo"><img src={team.logo} alt="" width={80} height={80} loading="lazy"/></span><strong>{team.name}</strong><small>{side||team.code}</small></a>;
 }
@@ -12,14 +13,14 @@ export function NbaMatch({game}:{game:NbaGame}){
 // Both surfaces render this component and pick helper; never recompute a
 // recommendation from a separate, rounded or market-derived probability.
 export function NbaAnalysisNumbers({game,analysis}:{game:NbaGame;analysis:NbaAnalysis}){
- const p=analysis.probabilities!,e=analysis.expected!,pick=nbaPick(game,analysis);
+ const p=analysis.probabilities!,e=analysis.expected!,pick=nbaPick(game,analysis),display=nbaDisplayedProbabilities(p);
  return <div className="nba-analysis-numbers">
-  <div className="nba-analysis-heading"><span>賽前預測</span><small>近況推估</small></div>
+  <div className="nba-analysis-heading"><span>賽前預測</span><small>{analysis.model.includes('monte-carlo')?'效率模擬':'近況推估'}</small></div>
   <div className="nba-forecast-score"><span>預估比分<small>客：主</small></span><b>{Math.round(e.away)}<i>:</i>{Math.round(e.home)}</b></div>
-  <div className="nba-probabilities"><div><span>客勝</span><strong>{nbaPercent(p.away)}</strong></div><div><span>主勝</span><strong>{nbaPercent(p.home)}</strong></div></div>
+  <div className="nba-probabilities"><div><span>客勝</span><strong>{display.away}</strong></div><div><span>主勝</span><strong>{display.home}</strong></div></div>
   <div className="nba-probability-bar" aria-hidden="true"><i style={{width:`${p.away*100}%`}}/><i style={{width:`${p.home*100}%`}}/></div>
   <div className="nba-estimates"><div><span>預估總分</span><b>{Math.round(e.total)}</b></div><div><span>預估分差</span><b>{e.margin===0?'持平':`${e.margin>0?'主':'客'} +${Math.abs(e.margin).toFixed(1)}`}</b></div></div>
-  <div className="nba-pick" data-nba-recommendation={game.id}><span className="nba-pick-icon" aria-hidden="true">↗</span><div><span>勝負推薦</span><strong>{pick?<a href={basketballTeamHref(pick.team,nbaDay(game.start))}>{pick.label}</a>:'兩隊接近'}</strong></div>{pick&&<b>{nbaPercent(pick.probability)}</b>}</div>
+  <div className="nba-pick" data-nba-recommendation={game.id}><span className="nba-pick-icon" aria-hidden="true">↗</span><div><span>勝負推薦</span><strong>{pick?<a href={basketballTeamHref(pick.team,nbaDay(game.start))}>{pick.label}</a>:'兩隊接近'}</strong></div>{pick&&<b>{display[pick.team.id===game.home.id?'home':'away']}</b>}</div>
  </div>;
 }
 export function NbaQuarters({game}:{game:NbaGame}){
