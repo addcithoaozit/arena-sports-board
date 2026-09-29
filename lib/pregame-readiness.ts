@@ -20,7 +20,7 @@ export function winnerReadiness(game:Match, scheduleOK:boolean, now:number, sour
   // describes the supporting data; it must not pretend to be an input to log5.
   let blocked='';
   if(!scheduleOK)blocked='賽程資料尚未取得或已過期';
-  else if(!isPregame(game,now))blocked='已到開賽時間、賽事狀態不符或非例行賽';
+  else if(!isPregame(game,now))blocked='已到開賽時間、賽事狀態不符或賽事類型不支援';
   else if(baseProbability(game)===null)blocked='戰績不足 20 場或資料缺漏';
   else {
     const missing=(['away','home'] as const).filter(side=>!game[side].pitcherId);

@@ -34,6 +34,15 @@ test('preliminary cards show one green recommendation label, retain their analys
  const buttons=all.filter(n=>n.type==='button');assert.equal(buttons.length,2);assert.ok(buttons.every(n=>n.props.disabled===false));
  assert.ok(text(tree).includes('@1.458'));assert.ok(text(tree).includes('@0.604'));
 });
+test('playoff moneyline cards display estimates and a recommendation using the same renderer',()=>{
+ for(const gameType of ['F','D','L','W']){
+  const tree=render(undefined,{g:{...game,gameType}});
+  assert.equal(tree.props['data-analysis-status'],'preliminary');
+  assert.equal(nodes(tree).filter(n=>n.type==='outcomes').length,2);
+  assert.equal(badges(tree).length,1);
+  assert.ok(nodes(tree).filter(n=>n.type==='button').every(n=>!n.props.disabled));
+ }
+});
 test('full current inputs use the same visible recommendation label without changing the ready state',()=>{
  const tree=render(report());assert.equal(tree.props['data-analysis-status'],'ready');assert.equal(badges(tree).length,1);assert.equal(text(badges(tree)[0]),'推薦');assert.match(badges(tree)[0].props.className,/text-green-400/);assert.equal(nodes(tree).filter(n=>n.type==='outcomes').length,2);
 });
