@@ -15,6 +15,7 @@ import LiveScoreboard from './live-scoreboard';
 import SessionAccount from './session-account';
 import AdminEntry from './admin-entry';
 import {useLeagueLive} from './use-league-live';
+import {useSportLive} from './use-sport-live';
 import SuperWorkspace,{SuperEntryButton} from './super-workspace';
 import FootballBoard from './football-board';
 import NbaBoard from './nba-board';
@@ -48,7 +49,7 @@ function mapGame(game:any):LiveGame{
 }
 
 export default function Home(){
-  const leagueLive=useLeagueLive();
+  const leagueLive=useLeagueLive(),sportLive=useSportLive();
   const [updatingAll,setUpdatingAll]=useState(false),[updateNotice,setUpdateNotice]=useState('');
   const updateLock=useRef(false);
   const [league,setLeague]=useState<FrontLeague>('MLB'),[baseballLeague,setBaseballLeague]=useState<'MLB'|'NPB'>('MLB');
@@ -93,12 +94,12 @@ export default function Home(){
     <div className="mx-auto max-w-[1440px] px-4 py-6 lg:px-7">
       <nav className="league-switcher" aria-label="運動項目切換">
         <button type="button" aria-pressed={league==='MLB'||league==='NPB'} onClick={()=>selectLeague(baseballLeague)}><b>棒球</b><span>MLB・NPB</span>{(leagueLive.NPB||!scoreError&&!!scoreUpdatedAt&&leagueLive.now-scoreUpdatedAt.getTime()<120000&&liveGames.some(game=>game.live))&&<i>LIVE</i>}</button>
-        <button type="button" aria-pressed={league==='FOOTBALL'} onClick={()=>selectLeague('FOOTBALL')}><b>足球</b><span>五大聯賽＋歐冠＋歐國聯</span></button>
-        <button type="button" aria-pressed={league==='NBA'||league==='WNBA'} onClick={()=>selectLeague(league==='WNBA'?'WNBA':'NBA')}><b>籃球</b><span>NBA・WNBA</span></button>
+        <button type="button" aria-pressed={league==='FOOTBALL'} onClick={()=>selectLeague('FOOTBALL')}><b>足球</b><span>五大聯賽＋歐冠＋歐國聯</span>{sportLive.FOOTBALL&&<i>LIVE</i>}</button>
+        <button type="button" aria-pressed={league==='NBA'||league==='WNBA'} onClick={()=>selectLeague(league==='WNBA'?'WNBA':'NBA')}><b>籃球</b><span>NBA・WNBA</span>{(sportLive.NBA||sportLive.WNBA)&&<i>LIVE</i>}</button>
       </nav>
       {(league==='MLB'||league==='NPB')&&<nav className="baseball-league-switcher" aria-label="棒球聯盟切換">{BASEBALL_LEAGUES.map(item=><button type="button" key={item.code} aria-pressed={league===item.code} onClick={()=>selectLeague(item.code)}><b>{item.code}</b><span>{item.name}</span>{(item.code==='NPB'?leagueLive.NPB:!scoreError&&!!scoreUpdatedAt&&leagueLive.now-scoreUpdatedAt.getTime()<120000&&liveGames.some(game=>game.live))&&<i>LIVE</i>}</button>)}</nav>}
       {league==='FOOTBALL'&&<FootballBoard/>}
-      {(league==='NBA'||league==='WNBA')&&<><nav className="baseball-league-switcher" aria-label="籃球聯盟切換">{([['NBA','美國職籃'],['WNBA','美國女子職籃']] as const).map(([code,name])=><button type="button" key={code} aria-pressed={league===code} onClick={()=>selectLeague(code)}><b>{code}</b><span>{name}</span></button>)}</nav><NbaBoard key={league} league={league} view={view} onViewChange={selectView}/></>}
+      {(league==='NBA'||league==='WNBA')&&<><nav className="baseball-league-switcher" aria-label="籃球聯盟切換">{([['NBA','美國職籃'],['WNBA','美國女子職籃']] as const).map(([code,name])=><button type="button" key={code} aria-pressed={league===code} onClick={()=>selectLeague(code)}><b>{code}</b><span>{name}</span>{sportLive[code]&&<i>LIVE</i>}</button>)}</nav><NbaBoard key={league} league={league} view={view} onViewChange={selectView}/></>}
       {league==='NPB'&&<div data-super-league="NPB"><InternationalBoard league="NPB" initialView={view} onViewChange={selectView}/></div>}
       <div data-super-league="MLB" hidden={league!=='MLB'}>
       <div className="league-heading arena-league-heading" data-view={view}><div><h1><span className="league-title-code">MLB</span> <span>美國職棒</span></h1></div></div>
