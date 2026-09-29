@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-09-29T05:25:35Z",
+  "dateAsiaTaipei": "2026-09-29",
+  "purpose": "current feed validation; not production deployment",
+  "collectionMode": "fresh public-source fallback because the validated GitHub Actions collector cannot currently be rerun",
+  "workflow": {
+    "runId": 35688889561,
+    "lastKnownRunAttempt": 50,
+    "latestJobsObserved": 0,
+    "latestArtifactId": 10923208463,
+    "latestArtifactCreatedAt": "2026-09-27T04:44:22Z",
+    "acceptedAsCurrent": false,
+    "rerunAttempted": true,
+    "rerunSucceeded": false,
+    "rerunError": "GitHub connector safety checks blocked rerun request"
+  },
+  "NPB": {
+    "games": 4,
+    "states": {
+      "pregame": 4
+    },
+    "sameDayLiveVerified": false,
+    "source": "sportsnavi schedule, cross-checked with NPB official schedule",
+    "sourceUrl": "https://baseball.yahoo.co.jp/npb/schedule/?date=2026-09-29",
+    "sourceObservedAt": "2026-09-29T05:25:35Z",
+    "gamesSummary": [
+      {
+        "key": "NPB:2021048564",
+        "home": "巨人",
+        "away": "広島",
+        "status": "pregame",
+        "startTimeJapan": "18:00",
+        "startTimeTaipei": "17:00",
+        "homeScore": null,
+        "awayScore": null
+      },
+      {
+        "key": "NPB:2021048565",
+        "home": "阪神",
+        "away": "ヤクルト",
+        "status": "pregame",
+        "startTimeJapan": "18:00",
+        "startTimeTaipei": "17:00",
+        "homeScore": null,
+        "awayScore": null
+      },
+      {
+        "key": "NPB:2021039470",
+        "home": "楽天",
+        "away": "ロッテ",
+        "status": "pregame",
+        "startTimeJapan": "18:00",
+        "startTimeTaipei": "17:00",
+        "homeScore": null,
+        "awayScore": null
+      },
+      {
+        "key": "NPB:2021039471",
+        "home": "西武",
+        "away": "オリックス",
+        "status": "pregame",
+        "startTimeJapan": "18:00",
+        "startTimeTaipei": "17:00",
+        "homeScore": null,
+        "awayScore": null
+      }
+    ],
+    "unsupportedNormalizedFields": {
+      "balls": null,
+      "strikes": null,
+      "outs": null,
+      "bases": null
+    }
+  },
+  "KBO": {
+    "games": 5,
+    "states": {
+      "pregame": 5
+    },
+    "sameDayLiveVerified": false,
+    "source": "Naver public schedule API",
+    "sourceUrl": "https://api-gw.sports.naver.com/schedule/games?upperCategoryId=kbaseball&fromDate=2026-09-29&toDate=2026-09-29&page=1&pageSize=100",
+    "sourceHttpStatus": 200,
+    "sourceObservedAt": "2026-09-29T05:25:35Z",
+    "gamesSummary": [
+      {
+        "key": "KBO:20260929NCOB02026",
+        "away": "NC",
+        "home": "두산",
+        "status": "pregame",
+        "startTimeKorea": "18:30",
+        "startTimeTaipei": "17:30",
+        "awayScore": null,
+        "homeScore": null
+      },
+      {
+        "key": "KBO:20260929LGSK02026",
+        "away": "LG",
+        "home": "SSG",
+        "status": "pregame",
+        "startTimeKorea": "18:30",
+        "startTimeTaipei": "17:30",
+        "awayScore": null,
+        "homeScore": null
+      },
+      {
+        "key": "KBO:20260929KTHT02026",
+        "away": "KT",
+        "home": "KIA",
+        "status": "pregame",
+        "startTimeKorea": "18:30",
+        "startTimeTaipei": "17:30",
+        "awayScore": null,
+        "homeScore": null
+      },
+      {
+        "key": "KBO:20260929HHSS02026",
+        "away": "한화",
+        "home": "삼성",
+        "status": "pregame",
+        "startTimeKorea": "18:30",
+        "startTimeTaipei": "17:30",
+        "awayScore": null,
+        "homeScore": null
+      },
+      {
+        "key": "KBO:20260929WOLT02026",
+        "away": "키움",
+        "home": "롯데",
+        "status": "pregame",
+        "startTimeKorea": "18:30",
+        "startTimeTaipei": "17:30",
+        "awayScore": null,
+        "homeScore": null
+      }
+    ],
+    "excludedNonKboGames": 3
+  },
+  "CPBL": {
+    "games": 0,
+    "states": {},
+    "sameDayLiveVerified": false,
+    "notApplicableNow": true,
+    "source": "CPBL advanced stats public schedule",
+    "sourceUrl": "https://stats.cpbl.com.tw/",
+    "sourceHttpStatus": 200,
+    "sourceObservedAt": "2026-09-29T05:25:35Z",
+    "note": "No 2026-09-29 first-team regular-season game is listed. The only current schedule item is the second-team championship Game 1, which is excluded.",
+    "pitchCount": null,
+    "balls": null,
+    "strikes": null,
+    "outs": null,
+    "bases": null,
+    "lineupConfirmation": "source_listed_not_officially_verified"
+  },
+  "liveVerification": {
+    "liveGamesObserved": 0,
+    "secondCapturePerformed": false,
+    "captureIntervalSeconds": null,
+    "qualifiedNumericChanges": 0,
+    "reason": "No first-team live game was present at this capture time."
+  },
+  "sourcePolicy": {
+    "noAccessChallengeBypass": true,
+    "oldArtifactNotAcceptedAsCurrent": true,
+    "unknownFieldsNotFilledWithZero": true,
+    "firstTeamOnly": true
+  },
+  "productionChanged": false,
+  "productionDatabaseWritten": false,
+  "deployed": false
+}
