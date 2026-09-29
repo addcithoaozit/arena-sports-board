@@ -22,9 +22,9 @@ button,input { font:inherit; }
 .arena-shell header { background:#0b1420; }
 .header-action { display:inline-flex; align-items:center; gap:.45rem; min-height:2.5rem; padding:.55rem .75rem; border:1px solid #425269; border-radius:.5rem; color:#e2e8f0; font-size:.875rem; font-weight:700; }
 .header-action:hover,.header-action:focus-visible { color:#ffd538; border-color:#ffd538; outline:none; }
-.league-switcher { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:.75rem; margin:0 0 1.5rem; padding:.65rem; border:1px solid #34465d; border-radius:.8rem; background:rgba(8,18,30,.92); box-shadow:0 12px 36px #0005; }
-.league-switcher button { position:relative; display:flex; min-width:0; align-items:center; gap:.65rem; min-height:3.75rem; padding:.75rem 1rem; border:1px solid transparent; border-radius:.55rem; color:#aebed1; cursor:pointer; text-align:left; transition:background .15s,border-color .15s,color .15s; }
-.league-switcher button:hover { background:#17283b; color:#fff; }
+.league-switcher { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; margin:0 0 1.5rem; padding:.75rem; border:1px solid #34465d; border-radius:.8rem; background:rgba(8,18,30,.92); box-shadow:0 12px 36px #0005; }
+.league-switcher button { position:relative; display:flex; min-width:0; align-items:center; gap:.65rem; min-height:3.75rem; padding:.75rem 1rem; border:1px solid #41536a; border-radius:.55rem; background:#142132; color:#c7d3e2; cursor:pointer; text-align:left; transition:background .15s,border-color .15s,color .15s; }
+.league-switcher button:hover { background:#1c3048; border-color:#8297b1; color:#fff; }
 .league-switcher button[aria-pressed=true] { color:#07111d; background:#ffd538; border-color:#ffe887; box-shadow:0 6px 20px #ffd53825; }
 .league-switcher b { font-size:1.08rem; font-weight:900; }.league-switcher span { min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-size:.875rem; }.league-switcher i { margin-left:auto; border-radius:999px; padding:.2rem .45rem; background:#ef4444; color:white; font-size:.65rem; font-style:normal; letter-spacing:.04em; }
 .provider-pill { display:flex; align-items:center; gap:.6rem; flex-wrap:wrap; padding:.65rem .85rem; border:1px solid #425269; border-radius:.55rem; background:#101b2a; color:#c7d4e5; font-size:.875rem; }.provider-pill b { color:#fcd34d; }
