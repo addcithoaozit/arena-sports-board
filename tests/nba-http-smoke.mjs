@@ -17,6 +17,17 @@ for(const failure of [false,true]){
   if(!failure){assert.equal(a.analysis.status,'ready');assert.equal(a.analysis.homeForm.games,20);assert.equal(a.analysis.awayForm.games,20);assert.equal(a.analysis.probabilities.home+a.analysis.probabilities.away,1);}else assert.equal(a.analysis,undefined);
   const team=await request('/api/nba?kind=team&team=2');assert.equal(team.status,failure?502:200);if(!failure){const p=await team.json();assert.equal(p.results.length,89);assert.equal(p.upcoming[0].phase,1);}
   assert.equal((await request('/api/nba?kind=team&team=999')).status,404);
+  assert.equal((await fetch(origin+'/players/nba/1628369',{redirect:'manual'})).status,307);
+  assert.equal((await fetch(origin+'/api/nba?kind=player&player=1628369')).status,401);
+  assert.equal((await request('/api/nba?kind=player&player=bad')).status,400);
+  assert.equal((await request('/api/nba?kind=player&player=999')).status,404);
+  assert.equal((await request('/api/nba?kind=team-season&team=2&season=2099&phase=2')).status,400);
+  assert.equal((await request('/api/nba?kind=team-season&team=2&season=2026&phase=8')).status,400);
+  const seasonData=await (await request('/api/nba?kind=team-season&team=2&season=2026&phase=2')).json();assert.equal(seasonData.games.filter(g=>g.state==='final').length,82);
+  const official=await (await request('/api/nba?kind=team-official&team=2')).json();assert.equal(official.roster.length,21);assert.equal(official.rosterSeason,'2026');assert.equal(official.season,'2025-26');assert.equal(official.fantasyNews,undefined);
+  const player=await (await request('/api/nba?kind=player&player=1628369')).json();assert.equal(player.name,'Jayson Tatum');assert.equal(player.games.length,5);assert.equal(player.stats.season,'2025-26');assert.equal(player.cmsBio,undefined);
+  assert.equal((await request('/players/nba/1628369')).status,200);
+
   const profile=await request('/teams/nba/2');assert.equal(profile.status,200);assert.ok((await profile.text()).includes('波士頓塞爾提克'));
   const page=await request('/?league=NBA');assert.equal(page.status,200);assert.ok((await page.text()).includes('NBA 美國職籃'));
   assert.deepEqual(await (await request('/api/nba?kind=next&date=2026-09-29')).json(),{day:'2026-10-09'});
