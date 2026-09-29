@@ -1,0 +1,146 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-09-29T14:37:44.000Z",
+  "dateAsiaTaipei": "2026-09-29",
+  "purpose": "current feed validation; not production deployment",
+  "collectionMode": "fresh public-source final-state validation; latest verified GitHub Actions collector rerun was requested but blocked by connector safety checks",
+  "workflow": {
+    "runId": 35688889561,
+    "runAttempt": 50,
+    "jobsObserved": 0,
+    "latestArtifactId": 10923208463,
+    "latestArtifactCreatedAt": "2026-09-27T04:44:22Z",
+    "acceptedAsCurrent": false,
+    "latestVerifiedJobId": 108552526980,
+    "rerunAttempted": true,
+    "rerunRequestAccepted": false,
+    "rerunBlockedByConnectorSafetyChecks": true
+  },
+  "NPB": {
+    "games": 4,
+    "states": {
+      "final": 3,
+      "cancelled": 1
+    },
+    "sameDayLiveVerified": true,
+    "source": "SportsNavi/Yahoo Japan public NPB schedule",
+    "sourceUrl": "https://baseball.yahoo.co.jp/npb/schedule/?date=2026-09-29",
+    "currentSummary": [
+      {
+        "key": "NPB:2021048564",
+        "away": "廣島",
+        "home": "巨人",
+        "status": "final",
+        "awayScore": 1,
+        "homeScore": 3
+      },
+      {
+        "key": "NPB:2021048565",
+        "away": "養樂多",
+        "home": "阪神",
+        "status": "cancelled",
+        "awayScore": null,
+        "homeScore": null
+      },
+      {
+        "key": "NPB:2021039470",
+        "away": "羅德",
+        "home": "樂天",
+        "status": "final",
+        "awayScore": 6,
+        "homeScore": 3
+      },
+      {
+        "key": "NPB:2021039471",
+        "away": "歐力士",
+        "home": "西武",
+        "status": "final",
+        "awayScore": 1,
+        "homeScore": 2
+      }
+    ],
+    "retainedSameDayLiveProofObservation": "data/live/20260929T120306Z.json",
+    "normalizedUnsupportedFields": {
+      "balls": null,
+      "strikes": null,
+      "outs": null,
+      "bases": null
+    }
+  },
+  "KBO": {
+    "games": 5,
+    "states": {
+      "final": 5
+    },
+    "sameDayLiveVerified": true,
+    "source": "Naver public baseball schedule API; categoryId=kbo only",
+    "sourceUrl": "https://api-gw.sports.naver.com/schedule/games?upperCategoryId=kbaseball&fromDate=2026-09-29&toDate=2026-09-29&page=1&pageSize=100",
+    "excludedNonKboRows": 3,
+    "currentSummary": [
+      {
+        "key": "KBO:20260929HHSS02026",
+        "away": "韓華",
+        "home": "三星",
+        "status": "final",
+        "awayScore": 5,
+        "homeScore": 10
+      },
+      {
+        "key": "KBO:20260929KTHT02026",
+        "away": "KT",
+        "home": "KIA",
+        "status": "final",
+        "awayScore": 8,
+        "homeScore": 5
+      },
+      {
+        "key": "KBO:20260929LGSK02026",
+        "away": "LG",
+        "home": "SSG",
+        "status": "final",
+        "awayScore": 1,
+        "homeScore": 7
+      },
+      {
+        "key": "KBO:20260929NCOB02026",
+        "away": "NC",
+        "home": "斗山",
+        "status": "final",
+        "awayScore": 2,
+        "homeScore": 5
+      },
+      {
+        "key": "KBO:20260929WOLT02026",
+        "away": "培證",
+        "home": "樂天",
+        "status": "final",
+        "awayScore": 2,
+        "homeScore": 4
+      }
+    ],
+    "retainedSameDayLiveProofObservation": "data/live/20260929T133910Z.json"
+  },
+  "CPBL": {
+    "games": 0,
+    "states": {},
+    "sameDayLiveVerified": false,
+    "notApplicableToday": true,
+    "source": "PlaySport public CPBL live listing",
+    "sourceUrl": "https://www.playsport.cc/livescore/6",
+    "pitchCount": null,
+    "balls": null,
+    "strikes": null,
+    "outs": null,
+    "bases": null,
+    "lineupConfirmation": "source_listed_not_officially_verified"
+  },
+  "sourcePolicy": {
+    "noAccessChallengeBypass": true,
+    "oldArtifactNotAcceptedAsCurrent": true,
+    "unknownFieldsNotFilledWithZero": true,
+    "onlyFirstTeamOfficialGames": true
+  },
+  "productionChanged": false,
+  "productionDatabaseWritten": false,
+  "deployed": false
+}
