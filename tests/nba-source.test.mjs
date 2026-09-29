@@ -8,6 +8,7 @@ let serial=0;
 async function setup(run,override){
  const paths=[];globalThis.Date=class extends RealDate{constructor(...a){super(...(a.length?a:[now]));}static now(){return now;}};
  globalThis.fetch=async input=>{const u=new URL(input);paths.push(u.pathname+u.search);const fault=override?.(u);if(fault)return fault;
+  if(u.pathname.endsWith('/summary'))return Response.json(JSON.parse(readFileSync('tests/fixtures/basketball-efficiency/nba-boxes.json','utf8'))[u.searchParams.get('event')]);
   const team=u.pathname.match(/teams\/(\d+)\/schedule/);if(team)return Response.json(read(Number(u.searchParams.get('seasontype'))===1?'current':`team-${team[1]}-${u.searchParams.get('season')}-${u.searchParams.get('seasontype')}`));
   const day=u.searchParams.get('dates');if(day==='20261008')return Response.json(read('future'));
   const empty=read('today');empty.leagues[0].calendar=['2026-10-08T07:00Z'];return Response.json(empty);

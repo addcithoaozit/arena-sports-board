@@ -1,3 +1,4 @@
+import {parseWeights} from '@/lib/basketball-efficiency';
 import {officialTeamProfile,officialPlayerProfile} from '@/lib/nba-official';
 import {nbaDay,nbaSeason,nbaTeam,validNbaDay} from '@/lib/nba';
 import {nbaGameAnalysis,nbaSchedule,nbaTeamProfile,nbaTeamSeasonProfile,nextNbaDay} from '@/lib/nba-source';
@@ -22,7 +23,8 @@ export async function GET(request:Request){
   if(kind==='next')return Response.json(await nextNbaDay(day),{headers});
   if(kind==='analysis'){
    const id=p.get('game')||'';if(!/^\d{1,12}$/.test(id))return Response.json({error:'賽事編號錯誤'},{status:400,headers});
-   const result=await nbaGameAnalysis(day,id);return result?Response.json(result,{headers}):Response.json({error:'本日查無此賽事'},{status:404,headers});
+   let weights;try{weights=parseWeights(p.get('weights'));}catch{return Response.json({error:'分析權重錯誤'},{status:400,headers});}
+   const result=await nbaGameAnalysis(day,id,weights);return result?Response.json(result,{headers}):Response.json({error:'本日查無此賽事'},{status:404,headers});
   }
   return Response.json(await nbaSchedule(day),{headers});
  }catch{return Response.json({error:'NBA 資料暫時無法更新，請稍後重試。'},{status:502,headers});}

@@ -37,10 +37,13 @@ for(const failure of [false,true]){
   assert.equal((await request('/api/wnba?kind=team&team=999')).status,404);
   assert.equal((await request('/api/wnba?date=2026-02-31')).status,400);
   const wb=await (await request('/api/wnba?date=2026-10-01')).json();assert.equal(wb.games.length,2);assert.ok(wb.games.every(g=>g.home.league==='WNBA'&&g.phase===3));
-  const wr=await request('/api/wnba?date=2026-10-01&kind=analysis&game=401918019');assert.equal(wr.status,failure?502:200);if(!failure){const report=await wr.json();assert.equal(report.analysis.status,'ready');assert.equal(report.analysis.model,'wnba-recent-results-v1');}
+  const wr=await request('/api/wnba?date=2026-10-01&kind=analysis&game=401918019');assert.equal(wr.status,failure?502:200);if(!failure){const report=await wr.json();assert.equal(report.analysis.status,'ready');assert.equal(report.analysis.model,'wnba-efficiency-monte-carlo-v2');assert.equal(report.analysis.simulation.iterations,10000);assert.equal(report.analysis.simulation.sigma,10.5);}
   assert.equal((await request('/api/wnba?date=2026-10-01&kind=analysis&game=401898392')).status,404);
   assert.equal((await request('/api/wnba?kind=team-season&team=16&season=2027&phase=2')).status,400);
   const wt=await (await request('/api/wnba?kind=team-season&team=16&season=2026&phase=2')).json();assert.equal(wt.games.length,44);
+  assert.equal((await request('/api/wnba?date=2026-10-01&kind=analysis&game=401918019&weights=0,0,0,0,0')).status,400);
+  assert.equal((await request('/api/nba?date=2026-10-09&kind=analysis&game=401898392&weights=101,0,0,0,0')).status,400);
+  if(!failure){const custom=await (await request('/api/wnba?date=2026-10-01&kind=analysis&game=401918019&weights=0,0,0,0,100')).json();assert.deepEqual(custom.analysis.inputs.calculation.weights,[0,0,0,0,1]);assert.equal(custom.analysis.simulation.iterations,10000);}
   const roster=await (await request('/api/wnba?kind=team-official&team=16')).json();assert.equal(roster.roster.length,14);
   const wp=await request('/teams/wnba/16');assert.equal(wp.status,200);assert.ok((await wp.text()).includes('華盛頓神秘人'));
   console.log(`WNBA HTTP passed: member auth, Taiwan dates, playoffs, own-league analysis, team records, roster, failure isolation.`);
