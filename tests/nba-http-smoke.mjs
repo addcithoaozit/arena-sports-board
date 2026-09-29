@@ -29,9 +29,21 @@ for(const failure of [false,true]){
   assert.equal((await request('/players/nba/1628369')).status,200);
 
   const profile=await request('/teams/nba/2');assert.equal(profile.status,200);assert.ok((await profile.text()).includes('波士頓塞爾提克'));
-  const page=await request('/?league=NBA');assert.equal(page.status,200);assert.ok((await page.text()).includes('NBA 美國職籃'));
+  const page=await request('/?league=NBA');assert.equal(page.status,200);assert.ok((await page.text()).includes('NBA・WNBA'));
   assert.deepEqual(await (await request('/api/nba?kind=next&date=2026-09-29')).json(),{day:'2026-10-09'});
   const playoff=await (await request('/api/nba?date=2026-05-04')).json();assert.equal(playoff.games.length,2);assert.ok(playoff.games.every(g=>g.phase===3&&g.state==='final'));
+  assert.equal((await fetch(origin+'/api/wnba')).status,401);
+  assert.equal((await fetch(origin+'/teams/wnba/16',{redirect:'manual'})).status,307);
+  assert.equal((await request('/api/wnba?kind=team&team=999')).status,404);
+  assert.equal((await request('/api/wnba?date=2026-02-31')).status,400);
+  const wb=await (await request('/api/wnba?date=2026-10-01')).json();assert.equal(wb.games.length,2);assert.ok(wb.games.every(g=>g.home.league==='WNBA'&&g.phase===3));
+  const wr=await request('/api/wnba?date=2026-10-01&kind=analysis&game=401918019');assert.equal(wr.status,failure?502:200);if(!failure){const report=await wr.json();assert.equal(report.analysis.status,'ready');assert.equal(report.analysis.model,'wnba-recent-results-v1');}
+  assert.equal((await request('/api/wnba?date=2026-10-01&kind=analysis&game=401898392')).status,404);
+  assert.equal((await request('/api/wnba?kind=team-season&team=16&season=2027&phase=2')).status,400);
+  const wt=await (await request('/api/wnba?kind=team-season&team=16&season=2026&phase=2')).json();assert.equal(wt.games.length,44);
+  const roster=await (await request('/api/wnba?kind=team-official&team=16')).json();assert.equal(roster.roster.length,14);
+  const wp=await request('/teams/wnba/16');assert.equal(wp.status,200);assert.ok((await wp.text()).includes('華盛頓神秘人'));
+  console.log(`WNBA HTTP passed: member auth, Taiwan dates, playoffs, own-league analysis, team records, roster, failure isolation.`);
   console.log(`NBA HTTP passed: member access, navigation, schedule, playoffs, next date, profiles; history ${failure?'unavailable (no forecast)':'available (real-data forecast)'}.`);
  }catch(e){console.error(output);throw e;}finally{child.kill('SIGTERM');if(child.exitCode===null)await new Promise(resolve=>child.once('exit',resolve));}
 }

@@ -1,4 +1,4 @@
-export type NbaTeam={id:string;name:string;code:string;logo:string};
+export type NbaTeam={id:string;name:string;code:string;logo:string;league?:'NBA'|'WNBA'};
 // ESPN NBA IDs; keep identity separate from translated presentation names.
 const identities:[string,string,string][]=[['1','ATL','亞特蘭大老鷹'],['2','BOS','波士頓塞爾提克'],['17','BKN','布魯克林籃網'],['30','CHA','夏洛特黃蜂'],['4','CHI','芝加哥公牛'],['5','CLE','克里夫蘭騎士'],['6','DAL','達拉斯獨行俠'],['7','DEN','丹佛金塊'],['8','DET','底特律活塞'],['9','GS','金州勇士'],['10','HOU','休士頓火箭'],['11','IND','印第安納溜馬'],['12','LAC','洛杉磯快艇'],['13','LAL','洛杉磯湖人'],['29','MEM','曼菲斯灰熊'],['14','MIA','邁阿密熱火'],['15','MIL','密爾瓦基公鹿'],['16','MIN','明尼蘇達灰狼'],['3','NO','紐奧良鵜鶘'],['18','NY','紐約尼克'],['25','OKC','奧克拉荷馬雷霆'],['19','ORL','奧蘭多魔術'],['20','PHI','費城七六人'],['21','PHX','鳳凰城太陽'],['22','POR','波特蘭拓荒者'],['23','SAC','沙加緬度國王'],['24','SA','聖安東尼奧馬刺'],['28','TOR','多倫多暴龍'],['26','UTAH','猶他爵士'],['27','WSH','華盛頓巫師']];
 export const NBA_TEAMS:NbaTeam[]=identities.map(([id,code,name])=>({id,code,name,logo:`https://a.espncdn.com/i/teamlogos/nba/500/${code.toLowerCase()}.png`}));
@@ -37,7 +37,7 @@ export function parseNbaEvents(raw:any,teamId?:string):NbaGame[]{
  }
  return games;
 }
-export const nbaFixtureKey=(g:NbaGame)=>[g.id,g.start,g.season,g.phase,g.home.id,g.away.id,g.neutral].join(':');
+export const nbaFixtureKey=(g:NbaGame)=>[g.id,g.start,g.season,g.phase,g.home.id,g.away.id,g.neutral,g.home.league||'NBA',g.away.league||'NBA'].join(':');
 // Conflicting completed scores/identities are quarantined, not resolved by array order.
 export function reconcileNbaGames(games:NbaGame[]):NbaGame[]{
  const rows=new Map<string,NbaGame>(),conflicts=new Set<string>();
@@ -53,3 +53,5 @@ export function nbaForm(history:NbaGame[],teamId:string,limit=20):NbaForm{
  const wins=rows.filter((_,i)=>own[i]>opp[i]).length;
  return {games:rows.length,wins,losses:rows.length-wins,pointsFor:rows.length?avg(own):null,pointsAgainst:rows.length?avg(opp):null,net:rows.length?avg(own.map((n,i)=>n-opp[i])):null,lastPlayed:rows[0]?.start||null,results:rows.slice(0,5).map((_,i)=>own[i]>opp[i]?'W':'L')};
 }
+
+export const basketballTeamHref=(team:NbaTeam,day?:string)=>team.league==='WNBA'?`/teams/wnba/${encodeURIComponent(team.id)}${day&&validNbaDay(day)?`?date=${day}`:''}`:nbaTeamHref(team.id,day);

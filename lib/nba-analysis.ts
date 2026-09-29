@@ -1,5 +1,5 @@
 import {nbaFixtureKey,nbaForm,nbaHistory,type NbaGame,type NbaForm} from './nba';
-export type NbaAnalysis={status:'ready'|'waiting';capturedAt:string;homeForm:NbaForm;awayForm:NbaForm;expected?:{home:number;away:number;total:number;margin:number};probabilities?:{home:number;away:number};model:'nba-recent-results-v1'};
+export type NbaAnalysis={status:'ready'|'waiting';capturedAt:string;homeForm:NbaForm;awayForm:NbaForm;expected?:{home:number;away:number;total:number;margin:number};probabilities?:{home:number;away:number};model:'nba-recent-results-v1'|'wnba-recent-results-v1'};
 export type NbaReport={game?:NbaGame;analysis?:NbaAnalysis;sourceFetchedAt?:string;error?:string};
 const DAY=86400000;
 export function nbaEligible(g:NbaGame,now=Date.now()){return g.state==='scheduled'&&g.timeConfirmed&&Date.parse(g.start)>now&&Date.parse(g.start)<=now+30*DAY;}
@@ -32,6 +32,7 @@ export function analyzeNba(game:NbaGame,history:NbaGame[],now=Date.now()):NbaAna
 export const nbaSourceStale=(at:string|undefined,now=Date.now(),maxAge=120000)=>!at||!Number.isFinite(Date.parse(at))||now-Date.parse(at)>maxAge||Date.parse(at)>now+5000;
 export function readyNbaAnalysis(game:NbaGame,report:NbaReport|undefined,now=Date.now(),unavailable=false):NbaAnalysis|null{
  const a=report?.analysis;
+ if(a&&a.model!==(game.home.league==='WNBA'?'wnba-recent-results-v1':'nba-recent-results-v1'))return null;
  if(unavailable||!nbaEligible(game,now)||!report?.game||nbaFixtureKey(report.game)!==nbaFixtureKey(game)||!a||a.status!=='ready'||nbaSourceStale(a.capturedAt,now,10*60000)||nbaSourceStale(report.sourceFetchedAt,now,10*60000)||!a.expected||!a.probabilities)return null;
  const p=a.probabilities,e=a.expected;
  if(![p.home,p.away,e.home,e.away,e.total,e.margin].every(Number.isFinite)||p.home<=0||p.home>=1||p.away<=0||p.away>=1||Math.abs(p.home+p.away-1)>.00001)return null;
