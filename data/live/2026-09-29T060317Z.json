@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-09-29T06:03:17Z",
+  "dateAsiaTaipei": "2026-09-29",
+  "purpose": "current feed validation; not production deployment",
+  "workflow": {
+    "runId": 35688889561,
+    "lastKnownRunAttempt": 50,
+    "rerunJobId": 108552526980,
+    "rerunRequestAccepted": true,
+    "latestJobsObserved": 0,
+    "latestArtifactId": 10923208463,
+    "latestArtifactCreatedAt": "2026-09-27T04:44:22Z",
+    "acceptedAsCurrent": false
+  },
+  "NPB": {
+    "games": 4,
+    "states": {"pregame": 4},
+    "sameDayLiveVerified": false,
+    "firstStartTaipei": "18:00"
+  },
+  "KBO": {
+    "games": 5,
+    "states": {"pregame": 5},
+    "sameDayLiveVerified": false,
+    "firstStartTaipei": "18:30",
+    "nonKboRowsExcluded": 3
+  },
+  "CPBL": {
+    "games": 0,
+    "states": {},
+    "sameDayLiveVerified": false,
+    "notApplicableToday": true,
+    "pitchCount": null,
+    "balls": null,
+    "strikes": null,
+    "outs": null,
+    "bases": null,
+    "lineupConfirmation": "source_listed_not_officially_verified"
+  },
+  "sourcePolicy": {
+    "oldArtifactNotAcceptedAsCurrent": true,
+    "unknownFieldsNotFilledWithZero": true,
+    "firstTeamOnly": true
+  },
+  "productionChanged": false,
+  "productionDatabaseWritten": false,
+  "deployed": false
+}
