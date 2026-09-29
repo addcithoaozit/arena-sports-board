@@ -16,7 +16,7 @@ async function roster(id:number){
 }
 async function build(id:number){
  const schedule=await loadSource('schedule'),g:Match|undefined=schedule.games.find((g:Match)=>g.id===id);
- if(!g||!isPregame(g,Date.now()))throw new Error('本場已開賽、非例行賽或不在近期賽程');
+ if(!g||!isPregame(g,Date.now()))throw new Error('本場已開賽、賽事類型不支援或不在近期賽程');
  const tasks:[string,()=>Promise<any>][]=['lineups','bullpen','fg-injuries','fg-bat-left','fg-bat-right','fg-pit-left','fg-pit-right','runs','super007','covers-odds','fg-park'].map(k=>[k,()=>loadSource(k)]);
  for(const s of [g.away,g.home]){tasks.push(['roster-'+s.id,()=>roster(s.id)]);if(s.pitcherId)tasks.push(['pitcher-'+s.pitcherId,()=>loadSource('pitcher-history&pitcherId='+s.pitcherId)]);}
  const input:Record<string,any>={};

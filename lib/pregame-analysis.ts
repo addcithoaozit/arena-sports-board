@@ -9,7 +9,7 @@ import {expectedRuns,scoreGrid,type MarketPick} from './markets';
 import {matchOdds} from './pinnacle';
 import {superOdds} from './super007';
 import {teamZh} from '../app/zh';
-export const ANALYSIS_VERSION='pregame-super007-v5-pk-consistent';
+export const ANALYSIS_VERSION='pregame-super007-v6-pk-consistent-postseason';
 export type AnalysisReport={trialWin?:ReturnType<typeof multifactorWin>;version:string;game:Match;capturedAt:string;issues:string[];notes:string[];features:Record<string,number|null>;context:any;baseline:any;candidate:{status:'waiting_data'|'untrained';probabilities:null;modelApplied:false};sources:Record<string,{fetchedAt:string|null;source:string|null;usable:boolean}>;storage?:{saved:boolean;reason?:string}};
 const norm=(s:string)=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/\s+(?:jr\.?|sr\.?|ii|iii|iv)$/, '').replace(/[^a-z0-9]/g,'');
 const num=(v:unknown)=>typeof v==='number'&&Number.isFinite(v)?v:null;
@@ -83,7 +83,7 @@ export function assembleAnalysis(g:Match,input:Record<string,any>,now=Date.now()
  const runs=get('runs',25*60000),source=get('super007',150000),odds=source?superOdds(source,[g],teamZh):null,expected=runs?expectedRuns(g,runs):null,quote=matchOdds(g,odds);
  const probabilities:any[]=[];
  if(!quote)notes.push('本場即時資料未對應或過期，無法保存資料比較');
- if(!isPregame(g,now))issues.push('已開賽或非可分析的例行賽');
+ if(!isPregame(g,now))issues.push('已開賽或非可分析的賽事');
  const report:AnalysisReport={version:ANALYSIS_VERSION,game:g,capturedAt:new Date(now).toISOString(),issues:[...new Set(issues)],notes,features,context,baseline:{version:'season-runs-v2-pk-winner',expectedRuns:expected,homeWin:baseProbability(g),markets:probabilities},candidate:{status:issues.length?'waiting_data':'untrained',probabilities:null,modelApplied:false},sources};
  report.trialWin=multifactorWin(g,report,now);
  const win=winnerAnalysis(g,report,now,true);

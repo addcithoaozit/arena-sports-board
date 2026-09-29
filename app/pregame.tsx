@@ -3,7 +3,7 @@ import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react'
 import { Button } from '@/components/ui/button';
 import { Select,SelectContent,SelectItem,SelectTrigger,SelectValue } from '@/components/ui/select';
 import { RefreshCw } from 'lucide-react';
-import { doubleheaderLabel,matchStartLabel,canShowPregameMarkets,fresh,isPregame,shiftDay,taipeiDay,type Kind,type Leg,type Match,type Schedule,type Snapshot } from '@/lib/baseball';
+import { doubleheaderLabel,matchStartLabel,isMlbPostseason,canShowPregameMarkets,fresh,isPregame,shiftDay,taipeiDay,type Kind,type Leg,type Match,type Schedule,type Snapshot } from '@/lib/baseball';
 import Markets from './markets';
 import {winnerAnalysis,winnerParlayProbability} from '@/lib/winner-analysis';
 import MatchInningBoard from './match-inning-board';
@@ -110,9 +110,9 @@ export default function Pregame(){
                 <span className="mr-1 text-sm font-medium text-slate-400">預估勝率</span>{prob===null?'待分析':`${Math.round(prob*100)}%`}
               </span>
             </div>
-            <p className="mt-2 text-sm text-slate-400">{team.wins??'—'} 勝 {team.losses??'—'} 敗</p>
+            <p className="mt-2 text-sm text-slate-400">{isMlbPostseason(g.gameType)?'例行賽 ':''}{team.wins??'—'} 勝 {team.losses??'—'} 敗</p>
             </div>
-            <p className="match-pitcher-summary my-2 flex flex-wrap items-center gap-x-3 gap-y-1 break-words text-sm text-slate-400"><span>預計先發：<PlayerLink id={team.pitcherId} season={g.season} gameType={g.gameType}>{team.pitcherName}</PlayerLink></span><span className="whitespace-nowrap">本季防禦率 <strong className="font-semibold tabular-nums text-slate-200">{scheduleOK&&team.pitcherId&&team.pitcherEra!=null?team.pitcherEra.toFixed(2):'—'}</strong></span><span className="whitespace-nowrap" title="本季每局被上壘率（WHIP）">本季 WHIP <strong className="font-semibold tabular-nums text-slate-200">{scheduleOK&&team.pitcherId&&team.pitcherWhip!=null?team.pitcherWhip.toFixed(2):'—'}</strong></span></p>
+            <p className="match-pitcher-summary my-2 flex flex-wrap items-center gap-x-3 gap-y-1 break-words text-sm text-slate-400"><span>預計先發：<PlayerLink id={team.pitcherId} season={g.season} gameType={isMlbPostseason(g.gameType)?'R':g.gameType}>{team.pitcherName}</PlayerLink></span><span className="whitespace-nowrap">{isMlbPostseason(g.gameType)?'例行賽':'本季'}防禦率 <strong className="font-semibold tabular-nums text-slate-200">{scheduleOK&&team.pitcherId&&team.pitcherEra!=null?team.pitcherEra.toFixed(2):'—'}</strong></span><span className="whitespace-nowrap" title="本季每局被上壘率（WHIP）">{isMlbPostseason(g.gameType)?'例行賽':'本季'} WHIP <strong className="font-semibold tabular-nums text-slate-200">{scheduleOK&&team.pitcherId&&team.pitcherWhip!=null?team.pitcherWhip.toFixed(2):'—'}</strong></span></p>
           </div>;
         })}
         {showScoreboard&&<MatchInningBoard match={g} score={score} fetchedAt={scores.data?.date===day?scores.data.fetchedAt:undefined} error={scores.error} now={now}/>}

@@ -16,7 +16,8 @@ import {parseLiveGame,mergeLiveGame} from '@/lib/live-game';
 import {parseLineups,parseBullpen} from '@/lib/rotowire';
 import { validateCollectorSnapshot } from '@/lib/pinnacle';
 import { parseRuns } from '@/lib/markets';
-import { parseStats, shiftDay, taipeiDay, type Kind, type TeamSide } from '@/lib/baseball';
+import { parseStats, shiftDay, taipeiDay, isMlbPostseason, type Kind } from '@/lib/baseball';
+import {parseMlbSchedule,withMlbSeasonRecords} from '@/lib/mlb-schedule';
 export const dynamic='force-dynamic';
 const cache=new Map<string,{data:unknown;expires:number}>();
 const pending=new Map<string,Promise<unknown>>();
@@ -114,7 +115,7 @@ export async function GET(request:Request){
     }
     if(kind==='runs'){
       const data=await cached('runs:'+year,20*60000,async()=>{
-        const source=`https://statsapi.mlb.com/api/v1/teams/stats?season=${year}&sportIds=1&group=hitting,pitching&stats=season`;
+        const source=`https://statsapi.mlb.com/api/v1/teams/stats?season=${year}&sportIds=1&group=hitting,pitching&stats=season&gameType=R`;
         const r=await sourceFetch(source),rows=parseRuns(await r.json());
         const league=rows.reduce((n,r)=>n+r.scored,0)/rows.reduce((n,r)=>n+r.batGames,0);
         return {rows,league,year,source,fetchedAt:new Date().toISOString()};
@@ -151,8 +152,18 @@ export async function GET(request:Request){
       const day=taipeiDay();const data=await cached('schedule:'+day,30000,async()=>{
         const source=`https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=${shiftDay(day,-1)}&endDate=${shiftDay(day,7)}&hydrate=team,probablePitcher`;
         const r=await fetch(source,{signal:AbortSignal.timeout(12000)});if(!r.ok)throw new Error(`賽程來源回覆 ${r.status}`);const json=await r.json();if(!Array.isArray(json.dates))throw new Error('賽程格式錯誤');
-        const side=(s:any):TeamSide=>({id:s.team.id,name:s.team.name,wins:Number.isInteger(s.leagueRecord?.wins)?s.leagueRecord.wins:null,losses:Number.isInteger(s.leagueRecord?.losses)?s.leagueRecord.losses:null,pitcherId:s.probablePitcher?.id??null,pitcherName:s.probablePitcher?.fullName||'先發待公布',pitcherEra:null,pitcherWhip:null});
-        const games=json.dates.flatMap((d:any)=>d.games||[]).filter((g:any)=>g.teams?.away?.team?.id&&g.teams?.home?.team?.id).map((g:any)=>({id:g.gamePk,date:g.gameDate,season:Number(g.season),gameType:g.gameType,state:g.status?.abstractGameState,status:g.status?.detailedState,startTimeTBD:!!g.status?.startTimeTBD,doubleHeader:g.doubleHeader,gameNumber:g.gameNumber,away:side(g.teams.away),home:side(g.teams.home)}));
+        let games=parseMlbSchedule(json);
+        await Promise.all([...new Set(games.filter(g=>isMlbPostseason(g.gameType)).map(g=>g.season))].map(async season=>{
+          try{
+            const raw=await cached(`postseason-records:${season}`,5*60000,async()=>{
+              const response=await fetch(`https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&season=${season}&standingsTypes=regularSeason&hydrate=team`,{signal:AbortSignal.timeout(8000)});
+              if(!response.ok)throw Error('例行賽戰績暫時無法取得');return response.json();
+            });
+            games=withMlbSeasonRecords(games,raw,season);
+          }catch{
+            // Keep the fixture and pitchers visible; missing records remain null.
+          }
+        }));
         await Promise.all([...new Set<number>(games.map((g:any)=>g.season))].map(async season=>{
           const seasonGames=games.filter((g:any)=>g.season===season);
           const ids=[...new Set<number>(seasonGames.flatMap((g:any)=>[g.away.pitcherId,g.home.pitcherId]).filter((id:any)=>Number.isInteger(id)&&id>0))].sort((a,b)=>a-b);
@@ -165,7 +176,7 @@ export async function GET(request:Request){
               return parsePitcherRates(await response.json(),season);
             }) as Record<number,PitcherRates>;
             for(const game of seasonGames)for(const side of [game.away,game.home]){
-              const stats=rates[side.pitcherId];
+              const stats=side.pitcherId?rates[side.pitcherId]:undefined;
               side.pitcherEra=stats?.era??null;side.pitcherWhip=stats?.whip??null;
             }
           }catch{

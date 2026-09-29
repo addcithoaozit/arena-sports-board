@@ -33,10 +33,12 @@ export function log5(aw:number,al:number,hw:number,hl:number):number|null {
   const a=(aw+10)/(aw+al+20),h=(hw+10)/(hw+hl+20);
   return (h-h*a)/(h+a-2*h*a);
 }
-export function isPregame(g:Match,now:number){return g.gameType==='R'&&g.state==='Preview'&&!g.startTimeTBD&&['Scheduled','Pre-Game','Warmup'].includes(g.status)&&Date.parse(g.date)>now;}
+export function isMlbPostseason(gameType:string){return ['F','D','L','W'].includes(gameType);}
+export function isMlbAnalysisGame(gameType:string){return gameType==='R'||isMlbPostseason(gameType);}
+export function isPregame(g:Match,now:number){return isMlbAnalysisGame(g.gameType)&&g.state==='Preview'&&!g.startTimeTBD&&['Scheduled','Pre-Game','Warmup'].includes(g.status)&&Date.parse(g.date)>now;}
 // A TBD start is not evidence that the game has started. Quotes may be viewed,
 // but isPregame continues to block predictions until the start is confirmed.
-export function canShowPregameMarkets(g:Match,now:number){return isPregame(g,now)||(g.gameType==='R'&&g.state==='Preview'&&g.startTimeTBD&&['Scheduled','Pre-Game','Warmup'].includes(g.status));}
+export function canShowPregameMarkets(g:Match,now:number){return isPregame(g,now)||(isMlbAnalysisGame(g.gameType)&&g.state==='Preview'&&g.startTimeTBD&&['Scheduled','Pre-Game','Warmup'].includes(g.status));}
 export function matchStartLabel(g:Match){
  const date=new Date(g.date);
  if(!Number.isFinite(date.getTime()))return '開賽時間待確認';
