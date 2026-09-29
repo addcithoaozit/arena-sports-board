@@ -1,0 +1,211 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-09-29T12:03:06.823Z",
+  "dateAsiaTaipei": "2026-09-29",
+  "purpose": "current feed validation; not production deployment",
+  "collectionMode": "fresh public-source validation plus retained same-day live proof; GitHub Actions rerun was attempted but remained startup_failure",
+  "workflow": {
+    "runId": 35688889561,
+    "runAttempt": 50,
+    "status": "completed",
+    "conclusion": "startup_failure",
+    "runStartedAt": "2026-09-29T11:54:39Z",
+    "updatedAt": "2026-09-29T11:54:41Z",
+    "jobsObserved": 0,
+    "latestArtifactId": 10923208463,
+    "latestArtifactCreatedAt": "2026-09-27T04:44:22Z",
+    "acceptedAsCurrent": false,
+    "latestVerifiedJobId": 108552526980,
+    "rerunAttempted": true,
+    "rerunRequestAccepted": true,
+    "note": "Rerun request returned success, but run metadata still ended as attempt 50 startup_failure with zero jobs and no new artifact; old artifact rejected as current evidence."
+  },
+  "NPB": {
+    "games": 4,
+    "states": {
+      "final": 3,
+      "cancelled": 1
+    },
+    "sameDayLiveVerified": true,
+    "source": "SportsNavi/Yahoo Japan public NPB schedule, score and stats pages",
+    "sourceUrl": "https://baseball.yahoo.co.jp/npb/schedule/?date=2026-09-29",
+    "currentSummary": [
+      {
+        "key": "NPB:2021048564",
+        "away": "広島",
+        "home": "巨人",
+        "status": "final",
+        "awayScore": 1,
+        "homeScore": 3
+      },
+      {
+        "key": "NPB:2021048565",
+        "away": "ヤクルト",
+        "home": "阪神",
+        "status": "cancelled",
+        "awayScore": null,
+        "homeScore": null
+      },
+      {
+        "key": "NPB:2021039470",
+        "away": "ロッテ",
+        "home": "楽天",
+        "status": "final",
+        "awayScore": 6,
+        "homeScore": 3
+      },
+      {
+        "key": "NPB:2021039471",
+        "away": "オリックス",
+        "home": "西武",
+        "status": "final",
+        "awayScore": 1,
+        "homeScore": 2
+      }
+    ],
+    "retainedSameDayLiveProof": {
+      "beforeObservedAtRangeEnd": "2026-09-29T10:41:59.889Z",
+      "afterObservedAtRangeStart": "2026-09-29T10:45:32.466Z",
+      "minimumIntervalSeconds": 212.577,
+      "key": "NPB:2021039471",
+      "changes": {
+        "平良 海馬:pitchCount": {
+          "before": 89,
+          "after": 95
+        },
+        "平良 海馬:outsRecorded": {
+          "before": 19,
+          "after": 21
+        }
+      }
+    },
+    "latestLiveToFinalObservation": {
+      "key": "NPB:2021039470",
+      "firstStartedAt": "2026-09-29T11:59:32.617Z",
+      "firstFinishedAt": "2026-09-29T11:59:45.437Z",
+      "firstStatus": "live",
+      "firstState": {
+        "awayScore": 6,
+        "homeScore": 3,
+        "inning": 9,
+        "half": "bottom",
+        "balls": 0,
+        "strikes": 2,
+        "outs": 2
+      },
+      "secondStartedAt": "2026-09-29T12:01:16.673Z",
+      "secondFinishedAt": "2026-09-29T12:01:30.407Z",
+      "secondStatus": "final",
+      "conservativeIntervalSeconds": 91.236,
+      "note": "Live-to-final transition retained as fresh end-state evidence; it does not replace the earlier same-day live-to-live proof."
+    },
+    "normalizedUnsupportedFields": {
+      "balls": null,
+      "strikes": null,
+      "outs": null,
+      "bases": null
+    }
+  },
+  "KBO": {
+    "games": 5,
+    "states": {
+      "live": 5
+    },
+    "sameDayLiveVerified": true,
+    "source": "Naver public baseball schedule API and game-polling endpoints; categoryId=kbo only",
+    "sourceUrl": "https://api-gw.sports.naver.com/schedule/games?upperCategoryId=kbaseball&fromDate=2026-09-29&toDate=2026-09-29&page=1&pageSize=100",
+    "excludedNonKboRows": 3,
+    "currentSummary": [
+      {
+        "key": "KBO:20260929HHSS02026",
+        "away": "한화",
+        "home": "삼성",
+        "status": "live",
+        "awayScore": 3,
+        "homeScore": 10,
+        "inning": "7회말"
+      },
+      {
+        "key": "KBO:20260929KTHT02026",
+        "away": "KT",
+        "home": "KIA",
+        "status": "live",
+        "awayScore": 4,
+        "homeScore": 5,
+        "inning": "7회초"
+      },
+      {
+        "key": "KBO:20260929LGSK02026",
+        "away": "LG",
+        "home": "SSG",
+        "status": "live",
+        "awayScore": 1,
+        "homeScore": 7,
+        "inning": "9회초"
+      },
+      {
+        "key": "KBO:20260929NCOB02026",
+        "away": "NC",
+        "home": "두산",
+        "status": "live",
+        "awayScore": 2,
+        "homeScore": 5,
+        "inning": "7회말"
+      },
+      {
+        "key": "KBO:20260929WOLT02026",
+        "away": "키움",
+        "home": "롯데",
+        "status": "live",
+        "awayScore": 2,
+        "homeScore": 4,
+        "inning": "8회말"
+      }
+    ],
+    "freshLiveProof": {
+      "key": "KBO:20260929KTHT02026",
+      "firstStartedAt": "2026-09-29T11:57:32.636Z",
+      "firstFinishedAt": "2026-09-29T11:57:42.804Z",
+      "secondStartedAt": "2026-09-29T11:59:09.548Z",
+      "secondFinishedAt": "2026-09-29T11:59:20.214Z",
+      "conservativeIntervalSeconds": 86.744,
+      "changes": {
+        "balls": {
+          "before": 0,
+          "after": 2
+        },
+        "strikes": {
+          "before": 0,
+          "after": 1
+        },
+        "전상현:pitchCount": {
+          "before": 7,
+          "after": 10
+        }
+      }
+    }
+  },
+  "CPBL": {
+    "games": 0,
+    "states": {},
+    "sameDayLiveVerified": false,
+    "notApplicableToday": true,
+    "source": "current public CPBL listings",
+    "note": "No 2026-09-29 CPBL first-team regular-season game; second-team championship material excluded. Next first-team games are listed for 2026-09-30.",
+    "pitchCount": null,
+    "balls": null,
+    "strikes": null,
+    "outs": null,
+    "bases": null,
+    "lineupConfirmation": "source_listed_not_officially_verified"
+  },
+  "sourcePolicy": {
+    "noAccessChallengeBypass": true,
+    "oldArtifactNotAcceptedAsCurrent": true,
+    "unknownFieldsNotFilledWithZero": true,
+    "onlyFirstTeamOfficialGames": true
+  },
+  "productionChanged": false,
+  "productionDatabaseWritten": false,
+  "deployed": false
+}
