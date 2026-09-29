@@ -1,0 +1,10 @@
+Basketball dunk background
+
+Photographer: Davide Aracri
+Photo: A man jumping in the air to dunk a basketball
+Source: https://unsplash.com/photos/a-man-jumping-in-the-air-to-dunk-a-basketball-fgFZqnYmLq0
+Original CDN: https://images.unsplash.com/photo-1728941803861-fbd61eaa2b3e
+License: Unsplash License, https://unsplash.com/license
+Retrieved: 2026-09-29
+Delivery: 1600px WebP supplied by the image CDN, quality 50.
+Presentation: CSS dark overlay and responsive background positioning.
