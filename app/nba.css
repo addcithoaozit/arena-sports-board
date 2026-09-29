@@ -1,8 +1,9 @@
 /* NBA: a full-width match desk with a compact scoreboard and analysis panel. */
 .arena-shell[data-sport="basketball"]::before {
   background-color:#0a1018;
-  background-image:radial-gradient(ellipse at 85% 0%,#a45c2617,transparent 50%),linear-gradient(145deg,#0b141f,#090f17 72%);
+  background-image:linear-gradient(90deg,rgba(6,12,20,.28),rgba(6,12,20,.64) 40%,rgba(6,12,20,.62) 72%,rgba(6,12,20,.32)),linear-gradient(180deg,rgba(6,12,20,.18),rgba(6,12,20,.38)),url("/backgrounds/basketball-dunk-v1.webp");
   background-size:cover;
+  background-position:center 38%;
 }
 .nba-board,.nba-profile,.nba-recommendations {
   --nba-accent:#ffb46b;
@@ -17,7 +18,8 @@
   display:flex; align-items:center; justify-content:space-between; gap:2rem;
   padding:1.8rem 2rem; border:1px solid #3f3b37; border-bottom:0;
   border-radius:1.15rem 1.15rem 0 0;
-  background:linear-gradient(115deg,#1c2836,#182330 50%,#28231f);
+  background:linear-gradient(115deg,rgba(16,26,39,.95),rgba(16,26,39,.78) 48%,rgba(22,26,31,.55));
+  box-shadow:0 8px 32px #0003;
 }
 .nba-heading-title { display:flex; align-items:center; gap:1.25rem; }
 .nba-sport-mark { width:70px; height:70px; flex-shrink:0; stroke:var(--nba-accent); stroke-width:1.7; transform:rotate(-18deg); }
@@ -256,4 +258,8 @@
 }
 @media(prefers-reduced-motion:reduce) {
   .nba-team img,.nba-team-directory .nba-team { transition:none; }
+}
+
+@media(max-width:800px) {
+  .arena-shell[data-sport="basketball"]::before { background-position:46% center; }
 }
