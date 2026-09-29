@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-09-29T13:39:10.980Z",
+  "dateAsiaTaipei": "2026-09-29",
+  "purpose": "current feed validation; not production deployment",
+  "workflow": {
+    "runId": 35688889561,
+    "runAttempt": 50,
+    "status": "completed",
+    "conclusion": "startup_failure",
+    "jobsObserved": 0,
+    "artifact": {
+      "id": 10923208463,
+      "createdAt": "2026-09-27T04:44:22Z",
+      "acceptedAsCurrent": false
+    }
+  },
+  "leagues": {
+    "NPB": {
+      "games": 4,
+      "final": 3,
+      "cancelled": 1,
+      "sameDayLiveVerified": true
+    },
+    "KBO": {
+      "games": 5,
+      "live": 1,
+      "final": 4,
+      "sameDayLiveVerified": true,
+      "proof": {
+        "gameId": "20260929KTHT02026",
+        "firstFinishedAt": "2026-09-29T13:36:28.376Z",
+        "secondStartedAt": "2026-09-29T13:37:40.075Z",
+        "conservativeIntervalSeconds": 71.699,
+        "first": {
+          "score": "8-5",
+          "inning": "10회말",
+          "balls": 2,
+          "strikes": 1,
+          "outs": 1,
+          "bases": [
+            "3루"
+          ]
+        },
+        "second": {
+          "score": "8-5",
+          "inning": "10회말",
+          "balls": 1,
+          "strikes": 2,
+          "outs": 2,
+          "bases": [
+            "3루"
+          ]
+        },
+        "qualifyingChanges": [
+          "balls",
+          "strikes",
+          "outs"
+        ]
+      }
+    },
+    "CPBL": {
+      "games": 0,
+      "notApplicableToday": true,
+      "pitchCount": null,
+      "balls": null,
+      "strikes": null,
+      "outs": null,
+      "bases": null
+    }
+  },
+  "productionChanged": false,
+  "deployed": false
+}
