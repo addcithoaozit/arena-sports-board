@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-09-29T06:03:18Z",
+  "dateAsiaTaipei": "2026-09-29",
+  "purpose": "current feed validation; not production deployment",
+  "workflow": {
+    "runId": 35688889561,
+    "lastKnownRunAttempt": 50,
+    "rerunJobId": 108552526980,
+    "rerunRequestAccepted": true,
+    "currentJobs": 0,
+    "latestArtifact": {
+      "id": 10923208463,
+      "createdAt": "2026-09-27T04:44:22Z",
+      "acceptedAsCurrent": false
+    }
+  },
+  "NPB": {
+    "games": 4,
+    "state": "pregame",
+    "liveVerified": false,
+    "firstStartTaipei": "18:00",
+    "gamesSummary": [
+      [
+        "NPB:2021048564",
+        "広島",
+        "巨人",
+        "18:00"
+      ],
+      [
+        "NPB:2021048565",
+        "ヤクルト",
+        "阪神",
+        "18:00"
+      ],
+      [
+        "NPB:2021039470",
+        "ロッテ",
+        "楽天",
+        "18:00"
+      ],
+      [
+        "NPB:2021039471",
+        "オリックス",
+        "西武",
+        "18:00"
+      ]
+    ]
+  },
+  "KBO": {
+    "games": 5,
+    "state": "pregame",
+    "liveVerified": false,
+    "firstStartTaipei": "18:30",
+    "nonKboRowsExcluded": 3,
+    "gamesSummary": [
+      [
+        "KBO:20260929HHSS02026",
+        "한화",
+        "삼성",
+        "18:30"
+      ],
+      [
+        "KBO:20260929KTHT02026",
+        "KT",
+        "KIA",
+        "18:30"
+      ],
+      [
+        "KBO:20260929LGSK02026",
+        "LG",
+        "SSG",
+        "18:30"
+      ],
+      [
+        "KBO:20260929NCOB02026",
+        "NC",
+        "두산",
+        "18:30"
+      ],
+      [
+        "KBO:20260929WOLT02026",
+        "키움",
+        "롯데",
+        "18:30"
+      ]
+    ]
+  },
+  "CPBL": {
+    "games": 0,
+    "state": "no_games",
+    "liveVerified": false,
+    "notApplicableToday": true,
+    "pitchCount": null,
+    "balls": null,
+    "strikes": null,
+    "outs": null,
+    "bases": null,
+    "lineupConfirmation": "source_listed_not_officially_verified"
+  },
+  "secondCapturePerformed": false,
+  "reason": "No live first-team game existed at this capture.",
+  "productionChanged": false,
+  "productionDatabaseWritten": false,
+  "deployed": false
+}
