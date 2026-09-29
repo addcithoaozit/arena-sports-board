@@ -65,3 +65,9 @@ export async function nbaTeamProfile(teamId:string){
  return {team,results:nbaHistory(games,teamId),upcoming:games.filter(g=>g.state==='scheduled'&&Date.parse(g.start)>Date.now()).sort((a,b)=>Date.parse(a.start)-Date.parse(b.start)).slice(0,5),fetchedAt:[data.fetchedAt,preseason.fetchedAt].sort()[0]};
 }
 export type NbaTeamProfileData=Awaited<ReturnType<typeof nbaTeamProfile>>;
+
+export async function nbaTeamSeasonProfile(teamId:string,season:number,phase:number){
+ if(!nbaTeam(teamId))throw Error('球隊不存在');
+ const row=await teamSeason(teamId,season,phase);
+ return {team:nbaTeam(teamId)!,season,phase,games:reconcileNbaGames(row.games),fetchedAt:row.fetchedAt};
+}

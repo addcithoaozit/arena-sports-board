@@ -8,6 +8,14 @@ const read=name=>JSON.parse(readFileSync(new URL(`./fixtures/nba/${name}.json`,i
 globalThis.fetch=async(input,options)=>{
  const u=new URL(typeof input==='string'||input instanceof URL?String(input):input.url);
  if(['localhost','127.0.0.1'].includes(u.hostname))return native(input,options);
+ if(u.hostname==='www.nba.com'){
+  let data;
+  if(u.pathname==='/players')data={props:{pageProps:{players:[{PERSON_ID:1628369,PLAYER_SLUG:'jayson-tatum'}]}}};
+  else if(u.pathname==='/team/1610612738/celtics')data=read('official-team');
+  else if(u.pathname==='/player/1628369/jayson-tatum')data=read('official-player');
+  else return new Response('',{status:404});
+  return new Response('<script id="__NEXT_DATA__" type="application/json">'+JSON.stringify(data)+'</script>');
+ }
  if(u.hostname==='site.api.espn.com'&&u.pathname.startsWith('/apis/site/v2/sports/basketball/nba/')){
   const team=u.pathname.match(/teams\/(\d+)\/schedule/);
   if(team){
