@@ -15,6 +15,7 @@ import type { RunSnapshot } from '@/lib/markets';
 import { teamZh } from './zh';
 import TeamName from './team-name';
 import PlayerLink from './player-link';
+import Link from 'next/link';
 import {matchOdds} from '@/lib/pinnacle';
 import {boardQuote,binaryOutcome} from '@/lib/board-markets';
 import MarketOutcomes from './market-outcomes';
@@ -104,7 +105,7 @@ export default function Pregame(){
           return <div key={side} className="match-team-summary min-w-0" data-side={side}>
             <div className="match-team-identity">
             <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-              <h4 className="text-base font-bold"><TeamName team={team} size={32}/><span className="ml-1 text-sm font-normal text-slate-400">（{side==='home'?'主':'客'}）</span></h4>
+              <h4 className="text-base font-bold"><Link href={`/teams/${team.id}`} prefetch={false} className="player-link"><TeamName team={team} size={32}/></Link><span className="ml-1 text-sm font-normal text-slate-400">（{side==='home'?'主':'客'}）</span></h4>
               <span className="whitespace-nowrap text-2xl font-black tabular-nums text-[#ffd538]" title="依已取得的戰績、先發與分項數據試算；尚未回測校準">
                 <span className="mr-1 text-sm font-medium text-slate-400">預估勝率</span>{prob===null?'待分析':`${Math.round(prob*100)}%`}
               </span>

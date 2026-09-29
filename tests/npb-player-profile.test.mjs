@@ -3,7 +3,9 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {moduleUrl} from './profile-loader.mjs';
 const {parseNpbPlayer,npbSeasonStats,npbPlayerId}=await import(moduleUrl('lib/npb-player-profile.ts'));
-const {withPlayerPhotos,npbCatalogPlayer}=await import(moduleUrl('lib/international-player-photos.ts'));
+const {withPlayerPhotos,npbCatalogPlayer,npbProfileLinks}=await import(moduleUrl('lib/international-player-photos.ts'));
+const {internationalTeamHref,npbPlayerHref}=await import(moduleUrl('lib/international-profile-links.ts'));
+const {profileTeams}=await import(moduleUrl('lib/international-profile.ts'));
 const fixture=id=>readFileSync(`tests/fixtures/npb-players/${id}.html`,'utf8');
 const parse=(id,html=fixture(id))=>parseNpbPlayer(html,id,'2026-09-28T12:00:00Z');
 test('batter profile includes real identity, metric units, first-team totals and career colspan alignment',()=>{
@@ -47,6 +49,30 @@ test('NPB roster profile links use verified same-team identities and retain exis
  const p=withPlayerPhotos(data,'NPB','t',2026);assert.equal(p.playerLinks['井坪 陽生'],'/players/international/npb/2104697');assert.equal(p.playerLinks['石黒 佑弥'],'/players/international/npb/2106233');assert.match(p.photos['井坪 陽生'],/2104697\.jpg$/);
  assert.equal(npbCatalogPlayer('井坪 陽生','g'),null);assert.equal(withPlayerPhotos(data,'NPB','t',2025),data);
  assert.equal(npbCatalogPlayer('伊藤 将司','t').id,'2000052');assert.equal(npbCatalogPlayer('糸原 健斗','t').id,'1600117');
+});
+test('analysis links resolve the screenshot teams and announced starters without guessing another player',()=>{
+ const links=npbProfileLinks(2026);
+ assert.equal(internationalTeamHref('NPB','廣島東洋鯉魚（客）'),'/teams/international/npb/c');
+ assert.equal(internationalTeamHref('NPB','読売ジャイアンツ'),'/teams/international/npb/g');
+ assert.equal(npbPlayerHref(links,'廣島東洋鯉魚','玉村　昇悟'),'/players/international/npb/1900057');
+ assert.equal(npbPlayerHref(links,'讀賣巨人','戸郷 翔征'),'/players/international/npb/1800028');
+ for(const name of ['玉村','尚未取得','不存在的球員'])assert.equal(npbPlayerHref(links,'廣島',name),null);
+ assert.equal(npbPlayerHref(links,'讀賣巨人','玉村 昇悟'),null);
+ assert.equal(npbPlayerHref(undefined,'廣島','玉村 昇悟'),null);
+ assert.equal(npbPlayerHref({c:{'昇悟玉村':'../1800028'}},'廣島','玉村 昇悟'),null);
+ assert.deepEqual(npbProfileLinks(2025),{});
+ assert.equal(internationalTeamHref('NPB','未知球隊'),null);
+ assert.equal(internationalTeamHref('FOOTBALL','廣島'),null);
+ // All 12 team routes and every exported ID agree with the verified roster links.
+ assert.equal(Object.keys(links).length,12);
+ for(const [code,players] of Object.entries(links)){
+  assert.equal(internationalTeamHref('NPB',profileTeams.NPB[code]),`/teams/international/npb/${code}`);
+  for(const [name,id] of Object.entries(players)){
+   assert.equal(npbCatalogPlayer(name,code)?.id,id);
+   assert.equal(npbPlayerHref(links,profileTeams.NPB[code],name),`/players/international/npb/${id}`);
+  }
+ }
+ assert.ok(JSON.stringify(links).length<40000);
 });
 test('player API rejects invalid ids, coalesces fetches and returns verified profile data',async()=>{
  const {GET}=await import(moduleUrl('app/api/npb-player/route.ts'));const original=globalThis.fetch;let calls=0;

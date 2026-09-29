@@ -15,10 +15,11 @@ import type {SourceTable} from '@/lib/international';
 import {useSource} from './use-source';
 import {profileCode,profileHref,profileTeams} from '@/lib/international-profile';
 import type {PregameData} from '@/lib/international-pregame';
+import type {NpbPlayerLinks} from '@/lib/international-profile-links';
 import {taipeiFixtureDay} from '@/lib/international-board-fixtures';
 const names={CPBL:'中華職棒',NPB:'日本職棒',KBO:'韓國職棒'};
 type League=keyof typeof names;
-type Data={tables?:SourceTable[];games?:{id:string;label:string;url?:string;date?:string}[];status?:string;error?:string;fetchedAt?:string;scope?:string;pregame?:PregameData};
+type Data={playerLinks?:NpbPlayerLinks;tables?:SourceTable[];games?:{id:string;label:string;url?:string;date?:string}[];status?:string;error?:string;fetchedAt?:string;scope?:string;pregame?:PregameData};
 const stamp=(s?:string)=>s?new Date(s).toLocaleString('zh-TW',{timeZone:'Asia/Taipei',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'}):'尚未取得';
 const teamRows=(data:Data|undefined,team:string)=>(data?.tables||[]).map(t=>({...t,rows:t.rows.filter(r=>!team||r[t.headers.indexOf('球隊')]===team)}));
 export default function InternationalBoard({league,initialView="analysis",onViewChange}:{league:League;initialView?:string;onViewChange?:(view:string)=>void}){

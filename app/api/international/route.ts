@@ -1,12 +1,14 @@
 import {parseInternational,sourceLinks} from '@/lib/international';
 import {getInternationalPregame} from '@/lib/international-feed';
 import {baseballBackgroundStatus} from '@/server/baseball-background-state.mjs';
+import {npbProfileLinks} from '@/lib/international-player-photos';
 export const dynamic='force-dynamic';
 type Entry={data:any;until:number};
 const memory=new Map<string,Entry>();
 const lastGood=new Map<string,any>();
 export async function GET(request:Request){
  const u=new URL(request.url),kind=u.searchParams.get('kind')||'sources',year=new Date().getUTCFullYear();
+ const respond=(data:any)=>Response.json({...data,...(kind==='npb-starters'?{playerLinks:npbProfileLinks(year)}:{})},{headers:{'Cache-Control':'no-store'}});
  if(kind==='sources')return Response.json({sources:sourceLinks},{headers:{'Cache-Control':'no-store'}});
  if(/^(npb|kbo|cpbl)-pregame$/.test(kind)){
   const date=u.searchParams.get('date')||undefined;
@@ -43,7 +45,7 @@ export async function GET(request:Request){
  else if(kind==='npb-game'&&/^\d{6,12}$/.test(u.searchParams.get('id')||''))source=`https://baseball.yahoo.co.jp/npb/game/${u.searchParams.get('id')}/stats`;
  else return Response.json({error:'不支援的來源或比賽編號'},{status:400});
  const key=source,current=memory.get(key);
- if(current&&current.until>Date.now())return Response.json(current.data,{headers:{'Cache-Control':'no-store'}});
+ if(current&&current.until>Date.now())return respond(current.data);
  const result=await (async()=>{
   const checkedAt=new Date().toISOString();
   try{
@@ -55,5 +57,5 @@ export async function GET(request:Request){
    lastGood.set(key,data);return data;
   }catch(e){const old=lastGood.get(key);return {...old,tables:old?.tables||[],games:old?.games||[],status:old?'stale':'unavailable',source,kind,checkedAt,fetchedAt:old?.fetchedAt||null,error:e instanceof Error?e.message:'來源連線失敗'};}
  })().then(data=>{if(memory.size>80){const first=memory.keys().next().value!;memory.delete(first);lastGood.delete(first);}memory.set(key,{data,until:Date.now()+(data.status==='ready'?600000:300000)});return data;});
- return Response.json(result,{headers:{'Cache-Control':'no-store'}});
+ return respond(result);
 }

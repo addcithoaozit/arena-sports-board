@@ -1,13 +1,25 @@
 import catalog from '@/data/international-player-photos.json';
+import {playerPhotoKey,type NpbPlayerLinks} from './international-profile-links';
+export {playerPhotoKey} from './international-profile-links';
 // NPB handedness markers are not part of a name. English name order and hyphens
 // vary between FanGraphs and KBO; never compare names across different teams.
-export function playerPhotoKey(name:string){return String(name||'').normalize('NFKC').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/^[\s*＊+＋#＃]+/,'').replace(/[.,'’·・-]/g,' ').trim().toLowerCase().split(/\s+/).filter(Boolean).sort().join('');}
 export function npbCatalogPlayer(name:string,code:string){
  const entry=(catalog.teams as Record<string,Record<string,{url:string;source:string;alternatives?:string[]}>>)[`NPB:${code}`]?.[playerPhotoKey(name)];
  if(!entry)return null;
  const urls=[entry.url,...entry.alternatives||[]];
  const id=urls.map(url=>url.match(/^https:\/\/sports-baseball\.west\.edge\.storage-yahoo\.jp\/npb\/images\/player\/(?:portrait|square)\/\d+\/([1-9]\d{3,8})\.jpg$/)?.[1]).find(Boolean);
  return {id,photoUrls:[...new Set(urls)]};
+}
+/** Send only verified IDs to the analysis board, keeping the photo catalog server-side. */
+export function npbProfileLinks(year:number):NpbPlayerLinks{
+ if(year!==catalog.season)return {};
+ return Object.fromEntries(Object.entries(catalog.teams).filter(([team])=>team.startsWith('NPB:')).map(([team,players])=>{
+  const code=team.slice(4);
+  return [code,Object.fromEntries(Object.keys(players).flatMap(name=>{
+   const id=npbCatalogPlayer(name,code)?.id;
+   return id?[[name,id]]:[];
+  }))];
+ }));
 }
 export function withPlayerPhotos(data:any,league:string,code:string,year:number){
  if(year!==catalog.season)return data;
