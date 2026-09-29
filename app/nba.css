@@ -1,5 +1,259 @@
-.arena-shell[data-sport="basketball"]::before{background-color:#100f14;background-image:radial-gradient(ellipse at 50% 115%,transparent 0 24%,#da8d4825 24.2% 24.5%,transparent 24.7% 44%,#da8d4825 44.2% 44.5%,transparent 44.7%),linear-gradient(90deg,transparent 49.85%,#da8d481c 50%,transparent 50.15%),linear-gradient(0deg,#171015e8,#101923ed);background-size:cover;background-position:center}
-.nba-board,.nba-profile-inner{min-width:0}.nba-heading,.nba-toolbar,.nba-status,.nba-card>header,.nba-pane-context{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}.nba-heading{padding:.25rem 0 1.4rem}.nba-eyebrow{font-size:.68rem;letter-spacing:.18em;color:#ffb16a;font-weight:800}.nba-heading h1,.nba-profile-heading h1{font-size:clamp(1.6rem,3vw,2rem);font-weight:900;letter-spacing:-.03em}.nba-heading h1 span{font-size:.7em;font-weight:650}.nba-heading>span{border:1px solid #594331;border-radius:99px;padding:.4rem .7rem;color:#efcaa6;font-size:.75rem}.nba-tabs,.nba-date,.nba-filters{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}.nba-tabs{margin-bottom:1.4rem}.nba-tabs button,.nba-filters button,.nba-date button,.nba-alert button{min-height:42px;border:1px solid #3b4c61;border-radius:.55rem;padding:.5rem .85rem;background:#111f2eef;color:#c0ccda;cursor:pointer}.nba-tabs button{font-weight:750}.nba-tabs button[aria-pressed=true],.nba-filters button[aria-pressed=true]{color:#ffbd7d;border-color:#eda25e;background:#3b281ce8}.nba-board button:disabled{opacity:.5;cursor:wait}.nba-board a:focus-visible,.nba-profile a:focus-visible,.nba-board button:focus-visible,.nba-profile button:focus-visible,.nba-board input:focus-visible{outline:2px solid #ffbd7d;outline-offset:3px}.nba-toolbar{border:1px solid #354354;border-radius:.8rem;padding:1rem 1.2rem;background:#101b28ef}.nba-toolbar h2{font-size:1rem;font-weight:800}.nba-toolbar small{color:#8da0b8;font-size:.75rem}.nba-date button{display:inline-flex;align-items:center;justify-content:center;padding:.55rem}.nba-date label{display:flex;gap:.5rem;align-items:center;color:#a9b9cb}.nba-date input{min-width:0;width:148px;min-height:42px;border:1px solid #3b4c61;border-radius:.4rem;padding:.4rem;background:#0b1624;color:white;color-scheme:dark}.nba-status{padding:.8rem .2rem;color:#95a6ba;font-size:.75rem}.nba-filters{margin:.5rem 0 1rem}.nba-filters button{font-size:.8rem;min-height:38px}.nba-games{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;align-items:start}.nba-card{min-width:0;overflow:hidden;border:1px solid #354354;border-radius:.9rem;background:#0f1b29f5;box-shadow:0 10px 30px #0002}.nba-card>header{padding:.8rem 1rem;border-bottom:1px solid #2c3a4e;font-size:.75rem;color:#a6b7ca;background:#121e2c!important;gap:.5rem}.nba-live{color:#fb8b92;font-weight:800}.nba-match{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:.4rem;padding:1.4rem .8rem}.nba-team{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.45rem;text-align:center;min-width:0;color:#eaf0f7;text-decoration:none}.nba-team img{object-fit:contain;flex-shrink:0;width:64px;height:64px}.nba-team strong{font-size:.95rem;line-height:1.5;overflow-wrap:anywhere}.nba-team small{color:#93a5bd;font-size:.7rem}.nba-team:hover strong,.nba-pick a:hover,.nba-profile-game a:hover{color:#ffbd7d;text-decoration:underline}.nba-match-score{display:flex;gap:.4rem;align-items:center;font-size:1.4rem;color:#ffbd7d;font-variant-numeric:tabular-nums}.nba-match-score span{color:#697c94;font-size:.9rem}.nba-analysis-numbers{padding:0 1rem 1rem}.nba-probabilities{display:flex;align-items:center;justify-content:space-between}.nba-probabilities>div{display:grid;gap:.15rem}.nba-probabilities>div:last-child{text-align:right}.nba-probabilities span{font-size:.72rem;color:#9aacbf}.nba-probabilities strong{font-size:1.6rem;font-variant-numeric:tabular-nums}.nba-probabilities>div:first-child strong{color:#8cc4ff}.nba-probabilities>div:last-child strong{color:#ffbd7d}.nba-probability-bar{display:flex;height:6px;overflow:hidden;border-radius:20px;margin:.55rem 0 1rem}.nba-probability-bar i:first-child{background:#73b3ee}.nba-probability-bar i:last-child{background:#efa263}.nba-estimates{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:.5rem;padding:.75rem 0;border-top:1px solid #2c3a4e}.nba-estimates>div{display:grid;gap:.3rem}.nba-estimates span{font-size:.68rem;color:#9aacbf}.nba-estimates b{font-size:1rem;font-variant-numeric:tabular-nums;white-space:nowrap}.nba-pick{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;margin-top:.4rem;padding:.75rem;background:#39291980;border:1px solid #97612e70;border-radius:.55rem}.nba-pick>span{font-size:.72rem;color:#d2bca7}.nba-pick strong{font-size:.9rem;color:#ffce9f}.nba-pick>b{margin-left:auto;font-size:.95rem;color:#ffbd7d}.nba-form{display:grid;grid-template-columns:1fr 1fr;gap:.6rem 1rem;padding:1rem;border-top:1px solid #2c3a4e;background:#101c2b}.nba-form>span{grid-column:1/-1;font-size:.75rem;color:#adbdcf}.nba-form>div{display:grid;gap:.25rem}.nba-form small,.nba-form>div>span{font-size:.72rem;color:#9aacbf}.nba-form strong{font-size:.9rem}.nba-streak{display:flex;gap:.25rem;margin-top:.25rem}.nba-streak i,.nba-result{font-size:.65rem;font-style:normal;padding:.15rem .3rem;border-radius:.25rem;color:#ffb3b8;background:#662f3b}.nba-streak i[data-result=W],.nba-result[data-result=W]{color:#9ce7c6;background:#234e44}.nba-analysis-status{padding:.8rem 1rem;text-align:center;border-top:1px solid #2c3a4e;color:#93a5bd;font-size:.8rem}.nba-table-scroll{overflow-x:auto;padding:0 1rem 1rem}.nba-quarter-table{width:100%;border-collapse:collapse;text-align:center;font-size:.75rem;white-space:nowrap}.nba-quarter-table th,.nba-quarter-table td{padding:.45rem;border-bottom:1px solid #2b394c;min-width:42px}.nba-quarter-table thead{color:#8fa3bb}.nba-quarter-table tbody td:last-child{color:#ffbd7d;font-weight:850}.nba-empty{display:grid;justify-items:center;text-align:center;gap:1rem;padding:3rem 1rem;border:1px solid #344354;border-radius:.8rem;background:#101b28ed;color:#a2b3c7}.nba-empty h3{font-weight:750;color:#e6edf5}.nba-primary{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:42px;padding:.55rem 1rem;border-radius:.5rem;background:#ffb16a;color:#1b1510;font-weight:850}.nba-alert{display:flex;align-items:center;gap:.7rem;flex-wrap:wrap;padding:1rem;margin-bottom:1rem;border:1px solid #88414c;border-radius:.65rem;background:#331a22;color:#ffd3d6;font-size:.85rem}.nba-alert button{margin-left:auto}.nba-team-directory{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:1rem}.nba-team-directory .nba-team{padding:1.2rem .5rem;border:1px solid #344354;border-radius:.8rem;background:#0e1c2bf2}.nba-recommendations{padding:.8rem;display:grid;gap:1rem}.nba-pane-context{font-size:.8rem;color:#a9bacd}.nba-pane-context strong{color:#ffbd7d}.nba-recommendations .nba-match{padding:1rem .5rem}.nba-recommendations .nba-team img{width:45px;height:45px}.nba-recommendations .nba-team strong{font-size:.85rem}.nba-recommendations .nba-match-score{font-size:1.1rem}.nba-recommendations .nba-estimates b{font-size:.85rem}.nba-profile{min-height:100vh;padding:1.5rem 1rem 3rem}.nba-profile-inner{max-width:1120px;margin:0 auto}.nba-back{display:inline-block;color:#ffbd7d;font-size:.9rem;margin-bottom:1.6rem}.nba-profile-heading{display:flex;align-items:center;gap:1.5rem;margin-bottom:1.5rem}.nba-profile-heading>.nba-team strong{display:none}.nba-profile-heading>.nba-team img{width:90px;height:90px}.nba-profile-heading p{color:#99aac1;font-size:.85rem}.nba-profile-controls{display:flex;justify-content:space-between;gap:.75rem;flex-wrap:wrap}.nba-profile-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.8rem;margin:.5rem 0 1.5rem}.nba-profile-stats>div{display:grid;align-content:start;gap:.5rem;padding:1.2rem;border:1px solid #344354;border-radius:.75rem;background:#111e2df5}.nba-profile-stats span,.nba-profile-stats small{font-size:.75rem;color:#9aacbf}.nba-profile-stats strong{font-size:1.5rem;color:#ffce9f;font-variant-numeric:tabular-nums}.nba-profile-columns{display:grid;grid-template-columns:1.25fr 1fr;gap:1rem;align-items:start}.nba-profile-panel{min-width:0;overflow:hidden;border:1px solid #344354;border-radius:.8rem;background:#101e2df5}.nba-profile-panel h2{padding:1rem;font-size:1rem;font-weight:800;border-bottom:1px solid #344354}.nba-profile-game{padding:1rem;border-bottom:1px solid #2b3b50}.nba-profile-game:last-child{border-bottom:0}.nba-profile-game>div{display:flex;align-items:center;gap:.6rem}.nba-profile-game>div:first-child{justify-content:space-between;color:#93a6bd;font-size:.7rem;margin-bottom:.65rem}.nba-profile-game a{flex:1;font-size:.85rem}.nba-profile-game small{font-size:.7rem;color:#93a6bd;white-space:nowrap}.nba-profile-game b{font-size:.95rem;white-space:nowrap;font-variant-numeric:tabular-nums}
-@media(max-width:900px){.nba-team-directory{grid-template-columns:repeat(3,minmax(0,1fr))}.nba-profile-columns{grid-template-columns:1fr}.nba-toolbar{align-items:flex-start}.nba-date{width:100%}}
-@media(max-width:760px){.nba-games{grid-template-columns:1fr}.nba-profile-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.nba-heading>span{font-size:.65rem}.nba-heading{gap:.5rem}.nba-match{padding:1.2rem .6rem}.nba-profile-heading{gap:1rem}.nba-profile-heading h1{font-size:1.5rem}}
-@media(max-width:400px){.nba-toolbar{padding:.8rem}.nba-date{gap:.35rem}.nba-date label>svg{display:none}.nba-date input{width:136px;font-size:.85rem}.nba-date button{padding:.5rem}.nba-team-directory{grid-template-columns:repeat(2,minmax(0,1fr))}.nba-estimates b{font-size:.9rem}.nba-team strong{font-size:.85rem}.nba-match-score{font-size:1.15rem}.nba-heading>span{display:none}}
+/* NBA: a full-width match desk with a compact scoreboard and analysis panel. */
+.arena-shell[data-sport="basketball"]::before {
+  background-color:#0a1018;
+  background-image:radial-gradient(ellipse at 85% 0%,#a45c2617,transparent 50%),linear-gradient(145deg,#0b141f,#090f17 72%);
+  background-size:cover;
+}
+.nba-board,.nba-profile,.nba-recommendations {
+  --nba-accent:#ffb46b;
+  --nba-border:#2b3747;
+  --nba-muted:#94a5ba;
+  --nba-panel:#111c29;
+  color:#edf2f8;
+}
+.nba-board,.nba-profile-inner { min-width:0; }
+.nba-heading {
+  position:relative; isolation:isolate; overflow:hidden;
+  display:flex; align-items:center; justify-content:space-between; gap:2rem;
+  padding:1.8rem 2rem; border:1px solid #3f3b37; border-bottom:0;
+  border-radius:1.15rem 1.15rem 0 0;
+  background:linear-gradient(115deg,#1c2836,#182330 50%,#28231f);
+}
+.nba-heading-title { display:flex; align-items:center; gap:1.25rem; }
+.nba-sport-mark { width:70px; height:70px; flex-shrink:0; stroke:var(--nba-accent); stroke-width:1.7; transform:rotate(-18deg); }
+.nba-eyebrow { display:block; color:var(--nba-accent); font-size:.63rem; font-weight:850; letter-spacing:.22em; }
+.nba-heading h1 { display:flex; align-items:baseline; gap:.65rem; margin:.2rem 0; font-family:Arial,"Noto Sans TC",sans-serif; font-size:3.15rem; font-weight:900; line-height:1.1; letter-spacing:-.06em; }
+.nba-heading h1 span { font-family:var(--font-sans); font-size:1.05rem; font-weight:700; letter-spacing:.02em; }
+.nba-heading p { margin-top:.4rem; color:#9cabbe; font-size:.72rem; letter-spacing:.08em; }
+.nba-heading-stats { display:flex; align-items:center; z-index:1; }
+.nba-heading-stats>div { display:grid; gap:.35rem; padding:.3rem 1.8rem; border-left:1px solid #ffffff14; text-align:center; }
+.nba-heading-stats strong { font-size:2rem; font-weight:800; line-height:1; font-variant-numeric:tabular-nums; }
+.nba-heading-stats span { font-size:.72rem; color:#abb7c7; }
+.nba-court-art { position:absolute; z-index:-1; right:9%; top:-75px; width:430px; height:290px; stroke:#efa566; stroke-width:1; opacity:.065; transform:rotate(-14deg); pointer-events:none; }
+.nba-tabs { display:flex; align-items:center; gap:1.5rem; margin-bottom:1.35rem; padding:0 2rem; border:1px solid #3a3a3b; border-top:0; border-radius:0 0 1.15rem 1.15rem; background:#141f2d; }
+.nba-tabs button { position:relative; min-height:53px; padding:.8rem .1rem; border:0; background:none; color:#9baabe; cursor:pointer; font-size:.88rem; font-weight:750; }
+.nba-tabs button::after { content:""; position:absolute; bottom:0; inset-inline:0; height:3px; border-radius:3px 3px 0 0; background:transparent; }
+.nba-tabs button[aria-pressed=true] { color:var(--nba-accent); }
+.nba-tabs button[aria-pressed=true]::after { background:var(--nba-accent); }
+.nba-board a:focus-visible,.nba-profile a:focus-visible,.nba-board button:focus-visible,.nba-profile button:focus-visible,.nba-recommendations a:focus-visible,.nba-board input:focus-visible { outline:2px solid var(--nba-accent); outline-offset:4px; }
+.nba-board button:disabled { opacity:.45; cursor:wait; }
+.nba-board button:not(:disabled):hover { color:#fff; }
+.nba-toolbar { display:flex; align-items:center; justify-content:space-between; gap:1.2rem; padding:.55rem .1rem .9rem; }
+.nba-section-kicker { display:block; font-size:.59rem; font-weight:800; color:#798ea6; letter-spacing:.19em; }
+.nba-toolbar h2 { margin:.2rem 0; font-size:1.2rem; font-weight:800; letter-spacing:-.03em; }
+.nba-toolbar small { display:block; color:var(--nba-muted); font-size:.69rem; }
+.nba-date { display:flex; align-items:center; gap:.4rem; }
+.nba-date button,.nba-date label { min-height:42px; border:1px solid #344256; border-radius:.6rem; background:#142131; color:#b7c5d7; }
+.nba-date button { display:inline-flex; align-items:center; justify-content:center; min-width:42px; padding:.6rem; cursor:pointer; }
+.nba-date button.nba-today { margin-left:.25rem; padding:.6rem .9rem; color:#ffd1a2; background:#35291f; border-color:#684a31; font-size:.8rem; }
+.nba-date label { display:flex; align-items:center; gap:.45rem; padding:0 .7rem; }
+.nba-date input { width:142px; min-width:0; height:40px; border:0; outline-offset:-2px; background:transparent; color:#eef4fa; color-scheme:dark; font-size:.87rem; font-weight:650; }
+.nba-board-meta { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:.7rem; margin-bottom:1.15rem; padding-bottom:.85rem; border-bottom:1px solid #263142; }
+.nba-filters { display:flex; align-items:center; flex-wrap:wrap; gap:.35rem; }
+.nba-filters button { display:inline-flex; align-items:center; justify-content:center; gap:.5rem; min-height:38px; padding:.5rem .85rem; border:1px solid transparent; border-radius:.5rem; background:transparent; color:#96a8bd; font-size:.76rem; cursor:pointer; }
+.nba-filters button>span { min-width:18px; font-size:.67rem; font-variant-numeric:tabular-nums; opacity:.65; }
+.nba-filters button[aria-pressed=true] { color:#f6e0c9; background:#2b2b2b; border-color:#554636; }
+.nba-updated,.nba-status { color:#7f93ac; font-size:.67rem; }
+.nba-status { padding:1rem .1rem; }
+.nba-games { display:grid; grid-template-columns:minmax(0,1fr); gap:1.3rem; }
+.nba-card { min-width:0; overflow:hidden; border:1px solid var(--nba-border); border-radius:1rem; background:var(--nba-panel); box-shadow:0 12px 32px #0002; }
+.nba-card>header { display:flex; align-items:center; justify-content:space-between; gap:1rem; min-height:55px; padding:.7rem 1.5rem; border-bottom:1px solid #2b3747; background:#16212f!important; color:#a0b0c5; font-size:.73rem; }
+.nba-card-labels { display:flex; align-items:center; flex-wrap:wrap; gap:.8rem; }
+.nba-phase-tag { padding:.25rem .5rem; border:1px solid #6d4c3259; border-radius:.3rem; color:#edbd92; background:#382b223b; font-size:.64rem; font-weight:700; }
+.nba-game-status,.nba-live { display:inline-flex; align-items:center; gap:.4rem; font-size:.69rem; }
+.nba-game-status i,.nba-live i { width:5px; height:5px; border-radius:50%; background:#718398; }
+.nba-live { color:#ff9ca3; font-weight:750; }
+.nba-live i { background:#ff6c7c; box-shadow:0 0 0 3px #ff6c7c12; }
+.nba-card time { color:#b6c4d6; white-space:nowrap; font-size:.73rem; font-variant-numeric:tabular-nums; }
+.nba-card-layout { display:grid; grid-template-columns:minmax(0,1fr); }
+.nba-card-layout[data-analysis=true] { grid-template-columns:minmax(0,1.05fr) minmax(340px,1fr); }
+.nba-match-overview { display:flex; flex-direction:column; justify-content:center; min-width:0; padding:1.25rem 1.75rem; }
+.nba-match { display:grid; grid-template-columns:minmax(0,1fr) auto minmax(0,1fr); align-items:center; gap:1rem; padding:.65rem 0 1.3rem; }
+.nba-card-layout[data-analysis=false] .nba-match { width:100%; max-width:640px; margin:auto; }
+.nba-team { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:.35rem; min-width:0; text-decoration:none; text-align:center; color:#eaf0f8; }
+.nba-team-logo { display:flex; align-items:center; justify-content:center; width:112px; height:108px; margin-bottom:.2rem; border-radius:50%; background:radial-gradient(ellipse,#eef5ff09,transparent 72%); }
+.nba-team img { display:block; width:90px; height:90px; object-fit:contain; flex-shrink:0; filter:drop-shadow(0 8px 10px #0003); transition:transform .2s; }
+.nba-team:hover img { transform:translateY(-3px); }
+.nba-team strong { font-size:1rem; font-weight:800; line-height:1.5; overflow-wrap:anywhere; }
+.nba-team small { color:#8da0b8; font-size:.68rem; }
+.nba-team:hover strong,.nba-pick a:hover,.nba-profile-game a:hover { color:var(--nba-accent); text-decoration:underline; text-underline-offset:4px; }
+.nba-match-score { display:flex; align-items:center; justify-content:center; gap:.6rem; font-size:1.45rem; font-weight:750; color:#748aa4; font-variant-numeric:tabular-nums; }
+.nba-card[data-state=live] .nba-match-score,.nba-card[data-state=final] .nba-match-score { color:#f5d2ad; font-size:2rem; }
+.nba-match-score span { color:#667b94; font-size:1rem; }
+.nba-card-analysis { min-width:0; padding:1.5rem 1.75rem; border-left:1px solid #2a384a; background:#0d1724; }
+.nba-analysis-numbers { min-width:0; }
+.nba-analysis-heading { display:flex; justify-content:space-between; align-items:center; gap:.5rem; padding-bottom:.8rem; }
+.nba-analysis-heading>span { font-size:.8rem; font-weight:750; color:#d7e2ef; }
+.nba-analysis-heading small { color:#788ca5; font-size:.65rem; }
+.nba-forecast-score { display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:1.15rem; }
+.nba-forecast-score>span { display:grid; gap:.35rem; color:#aebed1; font-size:.72rem; }
+.nba-forecast-score small { color:#6e829d; font-size:.65rem; }
+.nba-forecast-score>b { display:flex; align-items:center; justify-content:center; gap:1rem; color:#f3f7fb; font-family:Arial,sans-serif; font-size:clamp(2.6rem,3.5vw,3.65rem); font-weight:800; line-height:1; font-variant-numeric:tabular-nums; letter-spacing:-.06em; }
+.nba-forecast-score i { color:#50657e; font-size:.65em; font-style:normal; font-weight:400; }
+.nba-probabilities { display:flex; justify-content:space-between; align-items:center; }
+.nba-probabilities>div { display:flex; align-items:baseline; gap:.6rem; }
+.nba-probabilities>div:last-child { flex-direction:row-reverse; }
+.nba-probabilities span { color:#92a8c1; font-size:.68rem; }
+.nba-probabilities strong { color:#8ac1f5; font-family:Arial,sans-serif; font-size:1.65rem; line-height:1.2; font-variant-numeric:tabular-nums; letter-spacing:-.03em; }
+.nba-probabilities>div:last-child strong { color:var(--nba-accent); }
+.nba-probability-bar { display:flex; gap:3px; height:7px; overflow:hidden; border-radius:10px; margin:.5rem 0 1rem; }
+.nba-probability-bar i { display:block; border-radius:10px; }
+.nba-probability-bar i:first-child { background:#7eb9ef; }
+.nba-probability-bar i:last-child { background:#ffb46b; }
+.nba-estimates { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; margin-bottom:1rem; padding:.75rem 0; border-top:1px solid #253449; border-bottom:1px solid #253449; }
+.nba-estimates>div { display:flex; align-items:center; justify-content:space-between; gap:.5rem; }
+.nba-estimates>div+div { padding-left:1rem; border-left:1px solid #253449; }
+.nba-estimates span { color:#91a3bb; font-size:.68rem; white-space:nowrap; }
+.nba-estimates b { color:#dde7f2; font-size:1.15rem; font-weight:750; font-variant-numeric:tabular-nums; white-space:nowrap; }
+.nba-pick { display:flex; align-items:center; gap:.75rem; padding:.9rem 1rem; border:1px solid #457b634a; border-radius:.65rem; background:#142a25; }
+.nba-pick-icon { display:flex; align-items:center; justify-content:center; width:33px; height:33px; flex-shrink:0; border:1px solid #75c49a33; border-radius:50%; color:#84d5aa; font-size:1.25rem; }
+.nba-pick>div { display:grid; min-width:0; gap:.25rem; }
+.nba-pick>div>span { color:#8ab5a3; font-size:.63rem; }
+.nba-pick strong { color:#d1efdf; font-size:.88rem; line-height:1.4; }
+.nba-pick>b { margin-left:auto; color:#95d9b3; font-family:Arial,sans-serif; font-size:1.25rem; font-variant-numeric:tabular-nums; white-space:nowrap; }
+.nba-form { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.65rem 1.1rem; margin-top:.4rem; padding-top:1rem; border-top:1px solid #2a3748; }
+.nba-form>span { grid-column:1/-1; font-size:.7rem; color:#70869f; }
+.nba-form>div { display:grid; gap:.35rem; align-content:start; }
+.nba-form>div:last-child { text-align:right; }
+.nba-form small,.nba-form>div>span { color:#8da2bc; font-size:.68rem; }
+.nba-form strong { display:block; font-family:Arial,var(--font-sans),sans-serif; font-size:1.4rem; font-weight:750; font-variant-numeric:tabular-nums; }
+.nba-form em { margin:0 .2rem; font-size:.68rem; font-style:normal; font-weight:500; color:#879ab2; }
+.nba-streak { display:flex; gap:.3rem; margin-top:.25rem; }
+.nba-form>div:last-child .nba-streak { justify-content:flex-end; }
+.nba-streak i,.nba-result { display:inline-flex; align-items:center; justify-content:center; min-width:22px; min-height:22px; padding:.15rem .3rem; border-radius:.3rem; color:#d6a1ac; background:#442d39; font-size:.63rem; font-style:normal; }
+.nba-streak i[data-result=W],.nba-result[data-result=W] { color:#a1d5ba; background:#233d37; }
+.nba-analysis-pending { display:flex; align-items:center; justify-content:center; flex-direction:column; gap:.75rem; min-height:200px; color:#94a5ba; font-size:.85rem; }
+.nba-games[data-view=live] { grid-template-columns:repeat(auto-fit,minmax(min(100%,390px),1fr)); }
+.nba-table-scroll { overflow-x:auto; padding:.5rem 0; }
+.nba-quarter-table { width:100%; border-collapse:collapse; text-align:center; font-size:.75rem; white-space:nowrap; }
+.nba-quarter-table th,.nba-quarter-table td { min-width:42px; padding:.55rem .4rem; border-bottom:1px solid #29364a; }
+.nba-quarter-table thead { color:#7d92ad; font-size:.65rem; }
+.nba-quarter-table tbody td:last-child { color:var(--nba-accent); font-weight:850; }
+.nba-empty { display:grid; justify-items:center; gap:1rem; padding:3.5rem 1rem; border:1px solid var(--nba-border); border-radius:1rem; background:#111d2bd9; text-align:center; color:#91a5bf; }
+.nba-empty>svg { color:#bb885c; }
+.nba-empty h3 { color:#d9e4f0; font-size:1rem; font-weight:750; }
+.nba-primary { display:inline-flex; align-items:center; justify-content:center; gap:.6rem; min-height:44px; padding:.65rem 1rem; border-radius:.5rem; background:#eaa15e; color:#171310!important; font-size:.83rem; font-weight:800; cursor:pointer; }
+.nba-alert { display:flex; align-items:center; gap:.7rem; flex-wrap:wrap; padding:1rem; margin-bottom:1rem; border:1px solid #6c3946; border-radius:.65rem; background:#331d28; color:#eac0c9; font-size:.82rem; }
+.nba-alert button { margin-left:auto; min-height:40px; padding:.5rem .8rem; border:1px solid #865267; border-radius:.5rem; cursor:pointer; }
+.nba-team-directory { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:1rem; }
+.nba-team-directory .nba-team { position:relative; min-height:215px; gap:.5rem; padding:1.2rem .6rem; border:1px solid var(--nba-border); border-radius:.8rem; background:#121f2e; transition:border-color .15s,background .15s; }
+.nba-team-directory .nba-team:hover { border-color:#927353; background:#18283b; }
+.nba-team-directory .nba-team small { order:-1; align-self:flex-start; margin-left:.4rem; color:#879bb4; font-size:.63rem; font-weight:800; letter-spacing:.14em; }
+.nba-team-directory .nba-team-logo { width:100px; height:100px; }
+.nba-team-directory .nba-team strong { font-size:.82rem; }
+/* Compact version inside the existing SUPER floating recommendation panel. */
+.nba-recommendations { display:grid; gap:.85rem; padding:.75rem; }
+.nba-pane-context { display:flex; align-items:center; justify-content:space-between; gap:.5rem; color:#8ea3bd; font-size:.7rem; }
+.nba-pane-context strong { font-size:1rem; color:var(--nba-accent); }
+.nba-recommendations .nba-card>header { min-height:43px; padding:.6rem .85rem; font-size:.67rem; }
+.nba-recommendations .nba-card time { font-size:.67rem; }
+.nba-recommendations .nba-match { gap:.5rem; padding:1rem .6rem .75rem; }
+.nba-recommendations .nba-team-logo { width:62px; height:62px; }
+.nba-recommendations .nba-team img { width:56px; height:56px; }
+.nba-recommendations .nba-team strong { font-size:.78rem; }
+.nba-recommendations .nba-match-score { font-size:.85rem; }
+.nba-recommendations .nba-analysis-numbers { padding:1rem .9rem; border-top:1px solid #293749; background:#0d1724; }
+.nba-recommendations .nba-forecast-score>b { font-size:2.6rem; gap:.7rem; }
+.nba-recommendations .nba-probabilities strong { font-size:1.45rem; }
+.nba-recommendations .nba-estimates>div { display:grid; gap:.3rem; }
+.nba-recommendations .nba-estimates b { font-size:1.05rem; }
+.nba-recommendations .nba-pick { gap:.55rem; padding:.7rem; }
+.nba-recommendations .nba-pick strong { font-size:.78rem; }
+.nba-recommendations .nba-pick>b { font-size:1.05rem; }
+.nba-recommendations .nba-pick-icon { width:27px; height:27px; font-size:1rem; }
+.nba-profile{min-height:100vh;padding:1.5rem 1rem 3rem}.nba-profile-inner{max-width:1120px;margin:0 auto}.nba-back{display:inline-block;color:#ffbd7d;font-size:.9rem;margin-bottom:1.6rem}.nba-profile-heading{display:flex;align-items:center;gap:1.5rem;margin-bottom:1.5rem}.nba-profile-heading>.nba-team strong{display:none}.nba-profile-heading>.nba-team img{width:90px;height:90px}.nba-profile-heading p{color:#99aac1;font-size:.85rem}.nba-profile-controls{display:flex;justify-content:space-between;gap:.75rem;flex-wrap:wrap}.nba-profile-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.8rem;margin:.5rem 0 1.5rem}.nba-profile-stats>div{display:grid;align-content:start;gap:.5rem;padding:1.2rem;border:1px solid #344354;border-radius:.75rem;background:#111e2df5}.nba-profile-stats span,.nba-profile-stats small{font-size:.75rem;color:#9aacbf}.nba-profile-stats strong{font-size:1.5rem;color:#ffce9f;font-variant-numeric:tabular-nums}.nba-profile-columns{display:grid;grid-template-columns:1.25fr 1fr;gap:1rem;align-items:start}.nba-profile-panel{min-width:0;overflow:hidden;border:1px solid #344354;border-radius:.8rem;background:#101e2df5}.nba-profile-panel h2{padding:1rem;font-size:1rem;font-weight:800;border-bottom:1px solid #344354}.nba-profile-game{padding:1rem;border-bottom:1px solid #2b3b50}.nba-profile-game:last-child{border-bottom:0}.nba-profile-game>div{display:flex;align-items:center;gap:.6rem}.nba-profile-game>div:first-child{justify-content:space-between;color:#93a6bd;font-size:.7rem;margin-bottom:.65rem}.nba-profile-game a{flex:1;font-size:.85rem}.nba-profile-game small{font-size:.7rem;color:#93a6bd;white-space:nowrap}.nba-profile-game b{font-size:.95rem;white-space:nowrap;font-variant-numeric:tabular-nums}
+.nba-profile-heading>.nba-team small { display:none; }
+.nba-profile-heading h1 { font-size:1.75rem; font-weight:850; }
+.nba-profile-controls .nba-filters { margin-bottom:1rem; }
+@media(max-width:1100px) {
+  .nba-heading-stats>div { padding:.3rem 1.1rem; }
+  .nba-match-overview,.nba-card-analysis { padding:1.3rem; }
+  .nba-estimates>div { display:grid; gap:.35rem; }
+  .nba-team-directory { grid-template-columns:repeat(4,minmax(0,1fr)); }
+}
+@media(max-width:850px) {
+  .nba-heading { padding:1.4rem; }
+  .nba-heading-stats>div:last-child { display:none; }
+  .nba-card-layout[data-analysis=true] { grid-template-columns:minmax(0,1fr); }
+  .nba-card-analysis { border-left:0; border-top:1px solid #2a384a; }
+  .nba-match-overview { padding:1.5rem; }
+  .nba-match { max-width:560px; width:100%; margin:0 auto; }
+  .nba-form { max-width:560px; width:100%; margin:.3rem auto 0; }
+  .nba-forecast-score>b { font-size:3.1rem; }
+  .nba-estimates>div { display:flex; }
+  .nba-toolbar { align-items:flex-start; flex-direction:column; gap:.9rem; }
+  .nba-date { width:100%; }
+  .nba-profile-columns { grid-template-columns:1fr; }
+  .nba-team-directory { grid-template-columns:repeat(3,minmax(0,1fr)); }
+}
+@media(max-width:560px) {
+  .nba-heading { gap:.6rem; padding:1.2rem 1rem; border-radius:.8rem .8rem 0 0; }
+  .nba-heading-title { gap:.7rem; }
+  .nba-sport-mark { width:43px; height:43px; }
+  .nba-heading h1 { gap:.4rem; font-size:2.4rem; }
+  .nba-heading h1 span { font-size:.8rem; }
+  .nba-eyebrow { font-size:.52rem; letter-spacing:.15em; }
+  .nba-heading p { font-size:.59rem; letter-spacing:0; }
+  .nba-heading-stats>div { display:none; }
+  .nba-heading-stats>div:first-child { display:grid; padding:.2rem 0 .2rem .8rem; }
+  .nba-heading-stats strong { font-size:1.6rem; }
+  .nba-heading-stats span { font-size:.56rem; white-space:nowrap; }
+  .nba-tabs { justify-content:space-between; gap:.5rem; padding:0 1.1rem; margin-bottom:1rem; border-radius:0 0 .8rem .8rem; }
+  .nba-tabs button { min-height:47px; font-size:.78rem; }
+  .nba-toolbar h2 { font-size:1.05rem; }
+  .nba-date { display:grid; grid-template-columns:36px minmax(0,1fr) 36px auto 36px; gap:.35rem; }
+  .nba-date button { min-width:36px; min-height:40px; padding:.4rem; }
+  .nba-date label { min-width:0; min-height:40px; padding:0 .5rem; }
+  .nba-date label>svg { display:none; }
+  .nba-date input { width:100%; height:38px; font-size:.78rem; }
+  .nba-date button.nba-today { margin-left:0; padding:.4rem .55rem; font-size:.73rem; }
+  .nba-filters { width:100%; justify-content:space-between; gap:.15rem; }
+  .nba-filters button { gap:.25rem; padding:.4rem .55rem; font-size:.71rem; }
+  .nba-filters button>span { min-width:12px; font-size:.61rem; }
+  .nba-board-meta { gap:.5rem; margin-bottom:.9rem; padding-bottom:.65rem; }
+  .nba-updated { margin-left:auto; font-size:.6rem; }
+  .nba-card { border-radius:.8rem; }
+  .nba-card>header { min-height:48px; padding:.65rem .9rem; gap:.4rem; }
+  .nba-card-labels { gap:.5rem; }
+  .nba-phase-tag { padding:.2rem .4rem; font-size:.6rem; }
+  .nba-game-status,.nba-live,.nba-card time { font-size:.64rem; }
+  .nba-match-overview { padding:1.1rem; }
+  .nba-match { gap:.5rem; padding:.25rem 0 1rem; }
+  .nba-team-logo { width:88px; height:88px; }
+  .nba-team img { width:74px; height:74px; }
+  .nba-team strong { font-size:.88rem; }
+  .nba-match-score { font-size:1.1rem; }
+  .nba-card[data-state=live] .nba-match-score,.nba-card[data-state=final] .nba-match-score { font-size:1.5rem; }
+  .nba-form { gap:.5rem 1rem; padding-top:.8rem; }
+  .nba-form strong { font-size:1.25rem; }
+  .nba-form small,.nba-form>div>span { font-size:.63rem; }
+  .nba-streak i { min-width:20px; min-height:20px; font-size:.59rem; }
+  .nba-card-analysis { padding:1.1rem; }
+  .nba-forecast-score { margin-bottom:1rem; }
+  .nba-forecast-score>b { font-size:2.9rem; gap:.8rem; }
+  .nba-probabilities strong { font-size:1.5rem; }
+  .nba-estimates { gap:.75rem; }
+  .nba-estimates>div { display:grid; gap:.35rem; }
+  .nba-estimates>div+div { padding-left:.75rem; }
+  .nba-estimates b { font-size:1.15rem; }
+  .nba-pick { padding:.8rem; gap:.6rem; }
+  .nba-pick strong { font-size:.82rem; }
+  .nba-pick>b { font-size:1.15rem; }
+  .nba-team-directory { grid-template-columns:repeat(2,minmax(0,1fr)); gap:.65rem; }
+  .nba-team-directory .nba-team { min-height:195px; }
+  .nba-profile-stats { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .nba-profile-heading { gap:1rem; }
+  .nba-profile-heading h1 { font-size:1.4rem; }
+}
+@media(max-width:360px) {
+  .nba-sport-mark { display:none; }
+  .nba-date { grid-template-columns:32px minmax(0,1fr) 32px auto 32px; gap:.2rem; }
+  .nba-date button { min-width:32px; }
+  .nba-date label { padding:0 .3rem; }
+  .nba-date input { font-size:.71rem; }
+  .nba-pick-icon { display:none; }
+  .nba-card-labels { gap:.3rem; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .nba-team img,.nba-team-directory .nba-team { transition:none; }
+}
