@@ -22,7 +22,7 @@ button,input { font:inherit; }
 .arena-shell header { background:#0b1420; }
 .header-action { display:inline-flex; align-items:center; gap:.45rem; min-height:2.5rem; padding:.55rem .75rem; border:1px solid #425269; border-radius:.5rem; color:#e2e8f0; font-size:.875rem; font-weight:700; }
 .header-action:hover,.header-action:focus-visible { color:#ffd538; border-color:#ffd538; outline:none; }
-.league-switcher { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:.75rem; margin:0 0 1.5rem; padding:.65rem; border:1px solid #34465d; border-radius:.8rem; background:rgba(8,18,30,.92); box-shadow:0 12px 36px #0005; }
+.league-switcher { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:.75rem; margin:0 0 1.5rem; padding:.65rem; border:1px solid #34465d; border-radius:.8rem; background:rgba(8,18,30,.92); box-shadow:0 12px 36px #0005; }
 .league-switcher button { position:relative; display:flex; min-width:0; align-items:center; gap:.65rem; min-height:3.75rem; padding:.75rem 1rem; border:1px solid transparent; border-radius:.55rem; color:#aebed1; cursor:pointer; text-align:left; transition:background .15s,border-color .15s,color .15s; }
 .league-switcher button:hover { background:#17283b; color:#fff; }
 .league-switcher button[aria-pressed=true] { color:#07111d; background:#ffd538; border-color:#ffe887; box-shadow:0 6px 20px #ffd53825; }
@@ -40,7 +40,7 @@ button,input { font:inherit; }
 .analysis-weights-trigger { min-height:48px; padding:.65rem 1rem; border-color:#687381; background:#0e1a29; color:#ffd538; font-weight:700; }
 .analysis-weights-trigger:hover { background:#152235; color:#ffe778; border-color:#ffd538; }
 @media(max-width:640px) { .league-heading { flex-wrap:wrap; }.league-heading-actions { width:100%; gap:.5rem; }.league-heading-actions .super-connect-trigger { padding:.65rem .75rem; font-size:.95rem; }.analysis-weights-trigger { padding:.65rem .75rem; } }
-@media(max-width:900px) { .league-switcher { grid-template-columns:repeat(2,minmax(0,1fr)); }.preview-grid { grid-template-columns:minmax(0,1fr); }.analysis-preview-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media(max-width:900px) { .league-switcher { grid-template-columns:repeat(3,minmax(0,1fr)); }.preview-grid { grid-template-columns:minmax(0,1fr); }.analysis-preview-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
 @media(max-width:800px) { .admin-grid { grid-template-columns:minmax(0,1fr); } }
 @media(max-width:640px) { .header-action span { display:none; }.league-switcher { gap:.45rem; padding:.45rem; }.league-switcher button { min-height:3.25rem; padding:.6rem .7rem; }.league-switcher span { display:none; }.league-switcher i { font-size:.58rem; }.provider-pill { width:100%; }.analysis-preview-grid { grid-template-columns:minmax(0,1fr); }.empty-games { padding:2.4rem 1rem; } }
 .league-eyebrow { color:#8e9eaf; font-size:.875rem; margin-bottom:.5rem; }
