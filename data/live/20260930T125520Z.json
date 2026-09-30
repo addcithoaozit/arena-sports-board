@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-09-30T12:55:20.701Z",
+  "dateAsiaTaipei": "2026-09-30",
+  "workflow": {
+    "runId": 35688889561,
+    "runAttempt": 50,
+    "jobsObserved": 0,
+    "latestArtifactId": 10923208463,
+    "latestArtifactCreatedAt": "2026-09-27T04:44:22Z",
+    "acceptedAsCurrent": false
+  },
+  "NPB": {
+    "games": 2,
+    "final": 2,
+    "sameDayLiveVerified": true,
+    "results": [
+      "阪神 5-0 養樂多",
+      "樂天 3-0 羅德"
+    ]
+  },
+  "KBO": {
+    "games": 5,
+    "live": 3,
+    "final": 2,
+    "sameDayLiveVerified": true,
+    "proof": {
+      "gameId": "20260930KTHT02026",
+      "intervalSeconds": 85.759,
+      "first": {
+        "balls": 0,
+        "strikes": 1,
+        "outs": 1,
+        "pitchCount": 3,
+        "pitcherOutsRecorded": 1
+      },
+      "second": {
+        "balls": 1,
+        "strikes": 1,
+        "outs": 2,
+        "pitchCount": 7,
+        "pitcherOutsRecorded": 2
+      }
+    }
+  },
+  "CPBL": {
+    "games": 3,
+    "live": 3,
+    "sameDayLiveVerified": true,
+    "proof": {
+      "game": "統一 vs 富邦",
+      "intervalSeconds": 254.033,
+      "first": {
+        "score": "3-2",
+        "inning": "6局下"
+      },
+      "second": {
+        "score": "3-2",
+        "inning": "7局上"
+      }
+    },
+    "pitchCount": null,
+    "balls": null,
+    "strikes": null,
+    "outs": null,
+    "bases": null
+  },
+  "productionChanged": false,
+  "deployed": false
+}
