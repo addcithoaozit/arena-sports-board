@@ -6,7 +6,7 @@ export function officialTeam(id:string){const team=nbaTeam(id);return team?OFFIC
 export function localTeam(id:number){return NBA_TEAMS.find(t=>officialTeam(t.id)?.[0]===id)||null;}
 const num=(v:unknown):number|null=>typeof v==='number'&&Number.isFinite(v)?v:null;
 const str=(v:unknown)=>typeof v==='string'?v:'';
-const person=(r:any)=>({id:Number(r.PLAYER_ID),name:str(r.PLAYER),slug:str(r.PLAYER_SLUG),number:str(r.NUM),position:str(r.POSITION),height:str(r.HEIGHT),weight:str(r.WEIGHT),experience:str(r.EXP),school:str(r.SCHOOL),season:str(r.SEASON)});
+const person=(r:any)=>({id:Number(r.PLAYER_ID),name:str(r.PLAYER),slug:str(r.PLAYER_SLUG),number:str(r.NUM),position:str(r.POSITION),height:str(r.HEIGHT),weight:str(r.WEIGHT),experience:str(r.EXP),school:str(r.SCHOOL),season:str(r.SEASON),photo:undefined as string|undefined,photoFallback:undefined as string|undefined,href:undefined as string|undefined,country:undefined as string|undefined,draftYear:undefined as string|undefined,averages:undefined as {season:number;points:number|null;rebounds:number|null;assists:number|null}|null|undefined});
 export function parseOfficialTeam(data:any,id:string){
  const t=data?.props?.pageProps?.team,expected=officialTeam(id)?.[0];
  if(!expected||Number(t?.id)!==expected||Number(t?.info?.TEAM_ID)!==expected||!Array.isArray(t.roster))throw Error('NBA 球隊資料不符');
