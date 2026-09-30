@@ -1,0 +1,2222 @@
+{
+  "source": "https://www.wnba.com/players",
+  "checkedAt": "2026-09-30T19:39:08.996434+00:00",
+  "players": {
+    "4432832": {
+      "id": 1641660,
+      "name": "Zia Cooke",
+      "slug": "zia-cooke",
+      "height": "5-9",
+      "weight": "163",
+      "school": "South Carolina",
+      "country": "USA",
+      "draftYear": "2023"
+    },
+    "2529183": {
+      "id": 203828,
+      "name": "Stefanie Dolson",
+      "slug": "stefanie-dolson",
+      "height": "6-5",
+      "weight": "235",
+      "school": "Connecticut",
+      "country": "USA",
+      "draftYear": "2014"
+    },
+    "5345325": {
+      "id": 1643443,
+      "name": "Awa Fam",
+      "slug": "awa-fam",
+      "height": "6-4",
+      "weight": "",
+      "school": "",
+      "country": "Spain",
+      "draftYear": "2026"
+    },
+    "3906753": {
+      "id": 1629567,
+      "name": "Natisha Hiedeman",
+      "slug": "natisha-hiedeman",
+      "height": "5-8",
+      "weight": "132",
+      "school": "Marquette",
+      "country": "USA",
+      "draftYear": "2019"
+    },
+    "4433643": {
+      "id": 1642307,
+      "name": "Mackenzie Holmes",
+      "slug": "mackenzie-holmes",
+      "height": "6-3",
+      "weight": "",
+      "school": "Indiana",
+      "country": "USA",
+      "draftYear": "2024"
+    },
+    "4432830": {
+      "id": 1641651,
+      "name": "Jordan Horston",
+      "slug": "jordan-horston",
+      "height": "6-2",
+      "weight": "165",
+      "school": "Tennessee",
+      "country": "USA",
+      "draftYear": "2023"
+    },
+    "4698736": {
+      "id": 1643428,
+      "name": "Flau'jae Johnson",
+      "slug": "flaujae-johnson",
+      "height": "5-10",
+      "weight": "",
+      "school": "Louisiana State",
+      "country": "USA",
+      "draftYear": "2026"
+    },
+    "4420318": {
+      "id": 1629496,
+      "name": "Ezi Magbegor",
+      "slug": "ezi-magbegor",
+      "height": "6-4",
+      "weight": "181",
+      "school": "Melbourne",
+      "country": "Australia",
+      "draftYear": "2019"
+    },
+    "5106222": {
+      "id": 1643473,
+      "name": "Taina Mair",
+      "slug": "taina-mair",
+      "height": "5-9",
+      "weight": "",
+      "school": "Duke",
+      "country": "USA",
+      "draftYear": "2026"
+    },
+    "5220150": {
+      "id": 1642798,
+      "name": "Dominique Malonga",
+      "slug": "dominique-malonga",
+      "height": "6-6",
+      "weight": "",
+      "school": "",
+      "country": "France",
+      "draftYear": "2025"
+    },
+    "5017726": {
+      "id": 1631141,
+      "name": "Jade Melbourne",
+      "slug": "jade-melbourne",
+      "height": "5-10",
+      "weight": "145",
+      "school": "",
+      "country": "Australia",
+      "draftYear": "2022"
+    },
+    "3917453": {
+      "id": 1629478,
+      "name": "Katie Lou Samuelson",
+      "slug": "katie-lou-samuelson",
+      "height": "6-3",
+      "weight": "163",
+      "school": "Connecticut",
+      "country": "USA",
+      "draftYear": "2019"
+    },
+    "4433386": {
+      "id": 1642320,
+      "name": "Jaylyn Sherrod",
+      "slug": "jaylyn-sherrod",
+      "height": "5-7",
+      "weight": "147",
+      "school": "Colorado",
+      "country": "USA",
+      "draftYear": ""
+    },
+    "4898400": {
+      "id": 1642814,
+      "name": "Taylor Thierry",
+      "slug": "taylor-thierry",
+      "height": "6-1",
+      "weight": "",
+      "school": "Ohio State",
+      "country": "USA",
+      "draftYear": "2025"
+    },
+    "4001679": {
+      "id": 1627700,
+      "name": "Julie Allemand",
+      "slug": "julie-allemand",
+      "height": "5-10",
+      "weight": "152",
+      "school": "Castors Braine",
+      "country": "Belgium",
+      "draftYear": "2016"
+    },
+    "5364343": {
+      "id": 1643706,
+      "name": "Ornella Bankole",
+      "slug": "ornella-bankole",
+      "height": "5-11",
+      "weight": "",
+      "school": "",
+      "country": "France",
+      "draftYear": ""
+    },
+    "5017605": {
+      "id": 1631137,
+      "name": "Kamila Borkowska",
+      "slug": "kamila-borkowska",
+      "height": "6-7",
+      "weight": "",
+      "school": "",
+      "country": "Poland",
+      "draftYear": ""
+    },
+    "3910470": {
+      "id": 1629576,
+      "name": "Maria Conde",
+      "slug": "maria-conde",
+      "height": "6-3",
+      "weight": "168",
+      "school": "Florida State",
+      "country": "Spain",
+      "draftYear": "2019"
+    },
+    "2569044": {
+      "id": 1627701,
+      "name": "Temi Fagbenle",
+      "slug": "temi-fagbenle",
+      "height": "6-5",
+      "weight": "180",
+      "school": "Harvard",
+      "country": "United Kingdom",
+      "draftYear": "2016"
+    },
+    "4898548": {
+      "id": 1642832,
+      "name": "Maria Gakdeng",
+      "slug": "maria-gakdeng",
+      "height": "6-3",
+      "weight": "",
+      "school": "North Carolina",
+      "country": "USA",
+      "draftYear": ""
+    },
+    "4398766": {
+      "id": 1642791,
+      "name": "Zaay Green",
+      "slug": "zaay-green",
+      "height": "6-2",
+      "weight": "",
+      "school": "Alabama",
+      "country": "USA",
+      "draftYear": "2025"
+    },
+    "2566453": {
+      "id": 204330,
+      "name": "Isabelle Harrison",
+      "slug": "isabelle-harrison",
+      "height": "6-5",
+      "weight": "193",
+      "school": "Tennessee",
+      "country": "USA",
+      "draftYear": "2015"
+    },
+    "5345444": {
+      "id": 1643420,
+      "name": "Laura Juskaite",
+      "slug": "laura-juskaite",
+      "height": "6-4",
+      "weight": "188",
+      "school": "",
+      "country": "Lithuania",
+      "draftYear": ""
+    },
+    "4434020": {
+      "id": 1643457,
+      "name": "Teonni Key",
+      "slug": "teonni-key",
+      "height": "6-4",
+      "weight": "170",
+      "school": "Kentucky",
+      "country": "USA",
+      "draftYear": "2026"
+    },
+    "3904576": {
+      "id": 1629497,
+      "name": "Marina Mabrey",
+      "slug": "marina-mabrey",
+      "height": "6-1",
+      "weight": "186",
+      "school": "Notre Dame",
+      "country": "USA",
+      "draftYear": "2019"
+    },
+    "4684384": {
+      "id": 1642800,
+      "name": "Aneesah Morrow",
+      "slug": "aneesah-morrow",
+      "height": "6-1",
+      "weight": "178",
+      "school": "Louisiana State",
+      "country": "USA",
+      "draftYear": "2025"
+    },
+    "3142327": {
+      "id": 1628915,
+      "name": "Kia Nurse",
+      "slug": "kia-nurse",
+      "height": "6-0",
+      "weight": "195",
+      "school": "Connecticut",
+      "country": "Canada",
+      "draftYear": "2018"
+    },
+    "4565505": {
+      "id": 1643445,
+      "name": "Kiki Rice",
+      "slug": "kiki-rice",
+      "height": "5-11",
+      "weight": "166",
+      "school": "UCLA",
+      "country": "USA",
+      "draftYear": "2026"
+    },
+    "4398768": {
+      "id": 1631055,
+      "name": "Nyara Sabally",
+      "slug": "nyara-sabally",
+      "height": "6-5",
+      "weight": "214",
+      "school": "Oregon",
+      "country": "Germany",
+      "draftYear": "2022"
+    },
+    "2988756": {
+      "id": 1628279,
+      "name": "Brittney Sykes",
+      "slug": "brittney-sykes",
+      "height": "5-11",
+      "weight": "152",
+      "school": "Syracuse",
+      "country": "USA",
+      "draftYear": "2017"
+    },
+    "4280877": {
+      "id": 1631064,
+      "name": "Chloe Bibby",
+      "slug": "chloe-bibby",
+      "height": "6-2",
+      "weight": "191",
+      "school": "Maryland",
+      "country": "Australia",
+      "draftYear": ""
+    },
+    "3054590": {
+      "id": 1628269,
+      "name": "Nia Brodie",
+      "slug": "nia-brodie",
+      "height": "6-1",
+      "weight": "177",
+      "school": "Northwestern",
+      "country": "USA",
+      "draftYear": "2017"
+    },
+    "5208984": {
+      "id": 1643825,
+      "name": "Elena Buenavida",
+      "slug": "elena-buenavida",
+      "height": "5-9",
+      "weight": "",
+      "school": "",
+      "country": "Spain",
+      "draftYear": ""
+    },
+    "4280850": {
+      "id": 1630471,
+      "name": "Maya Caldwell",
+      "slug": "maya-caldwell",
+      "height": "5-11",
+      "weight": "159",
+      "school": "Georgia",
+      "country": "USA",
+      "draftYear": "2021"
+    },
+    "3917450": {
+      "id": 1629483,
+      "name": "Napheesa Collier",
+      "slug": "napheesa-collier",
+      "height": "6-1",
+      "weight": "182",
+      "school": "Connecticut",
+      "country": "USA",
+      "draftYear": "2019"
+    },
+    "4873358": {
+      "id": 1643489,
+      "name": "Antonia Delaere",
+      "slug": "antonia-delaere",
+      "height": "5-11",
+      "weight": "155",
+      "school": "",
+      "country": "Belgium",
+      "draftYear": ""
+    },
+    "2529130": {
+      "id": 203827,
+      "name": "Natasha Howard",
+      "slug": "natasha-howard",
+      "height": "6-2",
+      "weight": "171",
+      "school": "Florida State",
+      "country": "USA",
+      "draftYear": "2014"
+    },
+    "5345478": {
+      "id": 1643490,
+      "name": "Eliska Joklova",
+      "slug": "eliska-joklova",
+      "height": "6-0",
+      "weight": "162",
+      "school": "",
+      "country": "Czech Republic",
+      "draftYear": ""
+    },
+    "4398938": {
+      "id": 1641657,
+      "name": "Dorka Juhasz",
+      "slug": "dorka-juhasz",
+      "height": "6-5",
+      "weight": "190",
+      "school": "Connecticut",
+      "country": "Hungary",
+      "draftYear": "2023"
+    },
+    "4596309": {
+      "id": 1642820,
+      "name": "Liatu King",
+      "slug": "liatu-king",
+      "height": "5-11",
+      "weight": "178",
+      "school": "Notre Dame",
+      "country": "USA",
+      "draftYear": "2025"
+    },
+    "5278237": {
+      "id": 1642797,
+      "name": "Anastasiia Olairi Kosu",
+      "slug": "anastasiia-olairi-kosu",
+      "height": "6-1",
+      "weight": "200",
+      "school": "",
+      "country": "Russia",
+      "draftYear": "2025"
+    },
+    "2529205": {
+      "id": 203825,
+      "name": "Kayla McBride",
+      "slug": "kayla-mcbride",
+      "height": "5-11",
+      "weight": "179",
+      "school": "Notre Dame",
+      "country": "USA",
+      "draftYear": "2014"
+    },
+    "4066553": {
+      "id": 1630462,
+      "name": "Aari McDonald",
+      "slug": "aari-mcdonald",
+      "height": "5-6",
+      "weight": "149",
+      "school": "Arizona",
+      "country": "USA",
+      "draftYear": "2021"
+    },
+    "4433791": {
+      "id": 1643426,
+      "name": "Olivia Miles",
+      "slug": "olivia-miles",
+      "height": "5-10",
+      "weight": "168",
+      "school": "TCU",
+      "country": "USA",
+      "draftYear": "2026"
+    },
+    "2987891": {
+      "id": 1627675,
+      "name": "Courtney Williams",
+      "slug": "courtney-williams",
+      "height": "5-8",
+      "weight": "147",
+      "school": "South Florida",
+      "country": "USA",
+      "draftYear": "2016"
+    },
+    "5274110": {
+      "id": 1642777,
+      "name": "Monique Akoa Makani",
+      "slug": "monique-akoa-makani",
+      "height": "5-11",
+      "weight": "",
+      "school": "",
+      "country": "Cameroon",
+      "draftYear": ""
+    },
+    "3146151": {
+      "id": 1628878,
+      "name": "Ariel Atkins",
+      "slug": "ariel-atkins",
+      "height": "5-10",
+      "weight": "167",
+      "school": "Texas-Austin",
+      "country": "USA",
+      "draftYear": "2018"
+    },
+    "4433404": {
+      "id": 1642287,
+      "name": "Cameron Brink",
+      "slug": "cameron-brink",
+      "height": "6-4",
+      "weight": "170",
+      "school": "Stanford",
+      "country": "USA",
+      "draftYear": "2024"
+    },
+    "4398764": {
+      "id": 1630996,
+      "name": "Rae Burrell",
+      "slug": "rae-burrell",
+      "height": "6-2",
+      "weight": "168",
+      "school": "Tennessee",
+      "country": "USA",
+      "draftYear": "2022"
+    },
+    "2284331": {
+      "id": 1628242,
+      "name": "Emma Cannon",
+      "slug": "emma-cannon",
+      "height": "6-2",
+      "weight": "190",
+      "school": "Florida Southern",
+      "country": "USA",
+      "draftYear": ""
+    },
+    "5105729": {
+      "id": 1643462,
+      "name": "Chance Gray",
+      "slug": "chance-gray",
+      "height": "5-9",
+      "weight": "",
+      "school": "Ohio State",
+      "country": "USA",
+      "draftYear": "2026"
+    },
+    "2566106": {
+      "id": 204324,
+      "name": "Dearica Hamby",
+      "slug": "dearica-hamby",
+      "height": "6-3",
+      "weight": "189",
+      "school": "Wake Forest",
+      "country": "USA",
+      "draftYear": "2015"
+    },
+    "4565515": {
+      "id": 1643439,
+      "name": "Tonie Morgan",
+      "slug": "tonie-morgan",
+      "height": "",
+      "weight": "",
+      "school": "Kentucky",
+      "country": "USA",
+      "draftYear": "2026"
+    },
+    "5106170": {
+      "id": 1643479,
+      "name": "Ndjakalenga Mwenentanda",
+      "slug": "ndjakalenga-mwenentanda",
+      "height": "6-2",
+      "weight": "",
+      "school": "Vanderbilt",
+      "country": "USA",
+      "draftYear": ""
+    },
+    "4597509": {
+      "id": 1642801,
+      "name": "Aaliyah Nye",
+      "slug": "aaliyah-nye",
+      "height": "6-0",
+      "weight": "",
+      "school": "Alabama",
+      "country": "USA",
+      "draftYear": "2025"
+    },
+    "1068": {
+      "id": 203014,
+      "name": "Nneka Ogwumike",
+      "slug": "nneka-ogwumike",
+      "height": "6-2",
+      "weight": "190",
+      "school": "Stanford",
+      "country": "USA",
+      "draftYear": "2012"
+    },
+    "4874375": {
+      "id": 1630148,
+      "name": "Jihyun Park",
+      "slug": "jihyun-park",
+      "height": "6-1",
+      "weight": "",
+      "school": "",
+      "country": "South Korea",
+      "draftYear": ""
+    },
+    "4433808": {
+      "id": 1642811,
+      "name": "Shyanne Sellers",
+      "slug": "shyanne-sellers",
+      "height": "6-2",
+      "weight": "",
+      "school": "Maryland",
+      "country": "USA",
+      "draftYear": "2025",
+      "photoOverride": "https://cdn.wnba.com/sites/4/2025/03/Shyanne.png",
+      "photoSource": "https://www.wnba.com/draft/2025/prospects/shyanne-sellers"
+    },
+    "2491214": {
+      "id": 204365,
+      "name": "Erica Wheeler",
+      "slug": "erica-wheeler",
+      "height": "5-7",
+      "weight": "143",
+      "school": "Rutgers",
+      "country": "USA",
+      "draftYear": ""
+    },
+    "869": {
+      "id": 201886,
+      "name": "DeWanna Bonner",
+      "slug": "dewanna-bonner",
+      "height": "6-4",
+      "weight": "140",
+      "school": "Auburn",
+      "country": "USA",
+      "draftYear": "2009"
+    },
+    "5208983": {
+      "id": 1642302,
+      "name": "Isobel Borlase",
+      "slug": "isobel-borlase",
+      "height": "5-11",
+      "weight": "",
+      "school": "Adelaide",
+      "country": "Australia",
+      "draftYear": "2024"
+    },
+    "3142250": {
+      "id": 1628886,
+      "name": "Jordin Canada",
+      "slug": "jordin-canada",
+      "height": "5-6",
+      "weight": "135",
+      "school": "UCLA",
+      "country": "USA",
+      "draftYear": "2018"
+    },
+    "3058901": {
+      "id": 1628277,
+      "name": "Allisha Gray",
+      "slug": "allisha-gray",
+      "height": "6-0",
+      "weight": "167",
+      "school": "South Carolina",
+      "country": "USA",
+      "draftYear": "2017"
+    },
+    "4398915": {
+      "id": 1631044,
+      "name": "Naz Hillmon",
+      "slug": "naz-hillmon",
+      "height": "6-2",
+      "weight": "190",
+      "school": "Michigan",
+      "country": "USA",
+      "draftYear": "2022"
+    },
+    "4398674": {
+      "id": 1631009,
+      "name": "Rhyne Howard",
+      "slug": "rhyne-howard",
+      "height": "6-2",
+      "weight": "175",
+      "school": "Kentucky",
+      "country": "USA",
+      "draftYear": "2022"
+    },
+    "3058895": {
+      "id": 1628280,
+      "name": "Brionna Jones",
+      "slug": "brionna-jones",
+      "height": "6-3",
+      "weight": "215",
+      "school": "Maryland",
+      "country": "USA",
+      "draftYear": "2017"
+    },
+    "5017721": {
+      "id": 1631021,
+      "name": "Sika Kone",
+      "slug": "sika-kone",
+      "height": "6-3",
+      "weight": "180",
+      "school": "Spain",
+      "country": "Mali",
+      "draftYear": "2022"
+    },
+    "5105740": {
+      "id": 1643469,
+      "name": "Indya Nivar",
+      "slug": "indya-nivar",
+      "height": "5-10",
+      "weight": "",
+      "school": "North Carolina",
+      "country": "USA",
+      "draftYear": "2026"
+    },
+    "5108587": {
+      "id": 1643431,
+      "name": "Madina Okot",
+      "slug": "madina-okot",
+      "height": "6-6",
+      "weight": "",
+      "school": "South Carolina",
+      "country": "Kenya",
+      "draftYear": "2026"
+    },
+    "4433431": {
+      "id": 1642804,
+      "name": "Te-Hina Paopao",
+      "slug": "te-hina-paopao",
+      "height": "5-9",
+      "weight": "",
+      "school": "South Carolina",
+      "country": "",
+      "draftYear": "2025"
+    },
+    "4433402": {
+      "id": 1642291,
+      "name": "Angel Reese",
+      "slug": "angel-reese",
+      "height": "6-4",
+      "weight": "165",
+      "school": "Louisiana State",
+      "country": "USA",
+      "draftYear": "2024"
+    },
+    "5209602": {
+      "id": 1642327,
+      "name": "Matilde Villa",
+      "slug": "matilde-villa",
+      "height": "5-7",
+      "weight": "",
+      "school": "",
+      "country": "Italy",
+      "draftYear": "2024",
+      "photoOverride": "https://cdn.wnba.com/sites/4/2024/04/Villa.png",
+      "photoSource": "https://www.wnba.com/draft/2024/prospects/matilde-villa"
+    },
+    "3058893": {
+      "id": 1628278,
+      "name": "Shatori Walker-Kimbrough",
+      "slug": "shatori-walker-kimbrough",
+      "height": "5-9",
+      "weight": "140",
+      "school": "Maryland",
+      "country": "USA",
+      "draftYear": "2017"
+    },
+    "4432834": {
+      "id": 1641656,
+      "name": "Laeticia Amihere",
+      "slug": "laeticia-amihere",
+      "height": "6-3",
+      "weight": "185",
+      "school": "South Carolina",
+      "country": "Canada",
+      "draftYear": "2023"
+    },
+    "4398935": {
+      "id": 1631007,
+      "name": "Veronica Burton",
+      "slug": "veronica-burton",
+      "height": "5-9",
+      "weight": "155",
+      "school": "Northwestern",
+      "country": "USA",
+      "draftYear": "2022"
+    },
+    "4065780": {
+      "id": 1630097,
+      "name": "Kaila Charles",
+      "slug": "kaila-charles",
+      "height": "6-1",
+      "weight": "168",
+      "school": "Maryland",
+      "country": "USA",
+      "draftYear": "2020"
+    },
+    "4899328": {
+      "id": 1642822,
+      "name": "Kaitlyn Chen",
+      "slug": "kaitlyn-chen",
+      "height": "5-9",
+      "weight": "",
+      "school": "Connecticut",
+      "country": "USA",
+      "draftYear": "2025"
+    },
+    "5447776": {
+      "id": 1643832,
+      "name": "Aminata Gueye",
+      "slug": "aminata-gueye",
+      "height": "6-4",
+      "weight": "",
+      "school": "",
+      "country": "France",
+      "draftYear": ""
+    },
+    "1054": {
+      "id": 203026,
+      "name": "Tiffany Hayes",
+      "slug": "tiffany-hayes",
+      "height": "5-10",
+      "weight": "155",
+      "school": "Connecticut",
+      "country": "USA",
+      "draftYear": "2012"
+    },
+    "5277552": {
+      "id": 1642794,
+      "name": "Juste Jocyte",
+      "slug": "juste-jocyte",
+      "height": "6-0",
+      "weight": "",
+      "school": "",
+      "country": "Lithuania",
+      "draftYear": "2025"
+    },
+    "4433634": {
+      "id": 1641695,
+      "name": "Ashten Prechtel",
+      "slug": "ashten-prechtel",
+      "height": "6-5",
+      "weight": "",
+      "school": "Stanford",
+      "country": "USA",
+      "draftYear": "2023"
+    },
+    "4790263": {
+      "id": 1630387,
+      "name": "Iliana Rupert",
+      "slug": "iliana-rupert",
+      "height": "6-4",
+      "weight": "189",
+      "school": "Tango Bourges",
+      "country": "France",
+      "draftYear": "2021"
+    },
+    "4790264": {
+      "id": 1642767,
+      "name": "Janelle Salaun",
+      "slug": "janelle-salaun",
+      "height": "6-2",
+      "weight": "",
+      "school": "",
+      "country": "France",
+      "draftYear": ""
+    },
+    "4398577": {
+      "id": 1631039,
+      "name": "Miela Sowah",
+      "slug": "miela-sowah",
+      "height": "5-10",
+      "weight": "148",
+      "school": "Duke",
+      "country": "Australia",
+      "draftYear": ""
+    },
+    "2590093": {
+      "id": 204329,
+      "name": "Kiah Stokes",
+      "slug": "kiah-stokes",
+      "height": "6-3",
+      "weight": "191",
+      "school": "Connecticut",
+      "country": "USA",
+      "draftYear": "2015"
+    },
+    "2529622": {
+      "id": 203866,
+      "name": "Kayla Thornton",
+      "slug": "kayla-thornton",
+      "height": "6-1",
+      "weight": "190",
+      "school": "Texas-El Paso",
+      "country": "USA",
+      "draftYear": ""
+    },
+    "3142328": {
+      "id": 1628931,
+      "name": "Gabby Williams",
+      "slug": "gabby-williams",
+      "height": "5-11",
+      "weight": "172",
+      "school": "Connecticut",
+      "country": "USA",
+      "draftYear": "2018"
+    },
+    "4257500": {
+      "id": 1628508,
+      "name": "Cecilia Zandalasini",
+      "slug": "cecilia-zandalasini",
+      "height": "6-2",
+      "weight": "175",
+      "school": "PF Schio",
+      "country": "Italy",
+      "draftYear": ""
+    },
+    "4704180": {
+      "id": 1642781,
+      "name": "Georgia Amoore",
+      "slug": "georgia-amoore",
+      "height": "5-6",
+      "weight": "155",
+      "school": "Kentucky",
+      "country": "Australia",
+      "draftYear": "2025"
+    },
+    "4398911": {
+      "id": 1631022,
+      "name": "Shakira Austin",
+      "slug": "shakira-austin",
+      "height": "6-5",
+      "weight": "200",
+      "school": "Mississippi",
+      "country": "USA",
+      "draftYear": "2022"
+    },
+    "5105737": {
+      "id": 1643427,
+      "name": "Lauren Betts",
+      "slug": "lauren-betts",
+      "height": "6-7",
+      "weight": "",
+      "school": "UCLA",
+      "country": "USA",
+      "draftYear": "2026"
+    },
+    "4433524": {
+      "id": 1642785,
+      "name": "Sonia Citron",
+      "slug": "sonia-citron",
+      "height": "6-1",
+      "weight": "175",
+      "school": "Notre Dame",
+      "country": "USA",
+      "draftYear": "2025"
+    },
+    "4433411": {
+      "id": 1643455,
+      "name": "Angela Dugalic",
+      "slug": "angela-dugalic",
+      "height": "6-4",
+      "weight": "199",
+      "school": "UCLA",
+      "country": "USA",
+      "draftYear": "2026"
+    },
+    "5208985": {
+      "id": 1643644,
+      "name": "Alicia Florez",
+      "slug": "alicia-florez",
+      "height": "5-9",
+      "weight": "166",
+      "school": "",
+      "country": "Spain",
+      "draftYear": ""
+    },
+    "4433523": {
+      "id": 1643450,
+      "name": "Rori Harmon",
+      "slug": "rori-harmon",
+      "height": "5-6",
+      "weight": "146",
+      "school": "Texas",
+      "country": "USA",
+      "draftYear": "2026"
+    },
+    "4898384": {
+      "id": 1642792,
+      "name": "Kiki Iriafen",
+      "slug": "kiki-iriafen",
+      "height": "6-3",
+      "weight": "202",
+      "school": "Southern California",
+      "country": "USA",
+      "draftYear": "2025"
+    },
+    "2593770": {
+      "id": 204335,
+      "name": "Betnijah Laney-Hamilton",
+      "slug": "betnijah-laney-hamilton",
+      "height": "6-0",
+      "weight": "166",
+      "school": "Rutgers",
+      "country": "USA",
+      "draftYear": "2015"
+    },
+    "5106145": {
+      "id": 1643440,
+      "name": "Darianna Littlepage-Buggs",
+      "slug": "darianna-littlepage-buggs",
+      "height": "6-1",
+      "weight": "159",
+      "school": "Baylor",
+      "country": "USA",
+      "draftYear": "2026"
+    },
+    "4583144": {
+      "id": 1643430,
+      "name": "Cotie McMahon",
+      "slug": "cotie-mcmahon",
+      "height": "6-0",
+      "weight": "203",
+      "school": "Mississippi",
+      "country": "USA",
+      "draftYear": "2026"
+    },
+    "4433815": {
+      "id": 1642802,
+      "name": "Lucy Olsen",
+      "slug": "lucy-olsen",
+      "height": "5-10",
+      "weight": "141",
+      "school": "Iowa",
+      "country": "USA",
+      "draftYear": "2025"
+    },
+    "4282173": {
+      "id": 1630446,
+      "name": "Michaela Onyenwere",
+      "slug": "michaela-onyenwere",
+      "height": "6-0",
+      "weight": "202",
+      "school": "UCLA",
+      "country": "USA",
+      "draftYear": "2021"
+    },
+    "5122345": {
+      "id": 1643467,
+      "name": "Cassandre Prosper",
+      "slug": "cassandre-prosper",
+      "height": "6-3",
+      "weight": "182",
+      "school": "Notre Dame",
+      "country": "Canada",
+      "draftYear": "2026"
+    },
+    "2566186": {
+      "id": 1627671,
+      "name": "Rachel Banham",
+      "slug": "rachel-banham",
+      "height": "5-10",
+      "weight": "181",
+      "school": "Minnesota",
+      "country": "USA",
+      "draftYear": "2016"
+    },
+    "4433405": {
+      "id": 1642289,
+      "name": "Kamilla Cardoso",
+      "slug": "kamilla-cardoso",
+      "height": "6-7",
+      "weight": "215",
+      "school": "South Carolina",
+      "country": "Brazil",
+      "draftYear": "2024"
+    },
+    "4066548": {
+      "id": 1630096,
+      "name": "DiJonai Carrington",
+      "slug": "dijonai-carrington",
+      "height": "5-11",
+      "weight": "175",
+      "school": "Baylor",
+      "country": "USA",
+      "draftYear": "2021"
+    },
+    "2529137": {
+      "id": 204333,
+      "name": "Natasha Cloud",
+      "slug": "natasha-cloud",
+      "height": "5-10",
+      "weight": "160",
+      "school": "St. Joseph's (PA)",
+      "country": "USA",
+      "draftYear": "2015"
+    },
+    "4433433": {
+      "id": 1642786,
+      "name": "Aicha Coulibaly",
+      "slug": "aicha-coulibaly",
+      "height": "6-0",
+      "weight": "",
+      "school": "Texas A&M",
+      "country": "Mali",
+      "draftYear": "2025"
+    },
+    "2491205": {
+      "id": 203400,
+      "name": "Skylar Diggins",
+      "slug": "skylar-diggins",
+      "height": "5-9",
+      "weight": "140",
+      "school": "Notre Dame",
+      "country": "USA",
+      "draftYear": "2013"
+    },
+    "4433630": {
+      "id": 1642288,
+      "name": "Rickea Jackson",
+      "slug": "rickea-jackson",
+      "height": "6-2",
+      "weight": "175",
+      "school": "Tennessee",
+      "country": "USA",
+      "draftYear": "2024"
+    },
+    "4858656": {
+      "id": 1643447,
+      "name": "Gabriela Jaquez",
+      "slug": "gabriela-jaquez",
+      "height": "6-0",
+      "weight": "",
+      "school": "UCLA",
+      "country": "USA",
+      "draftYear": "2026"
+    },
+    "4599199": {
+      "id": 1642835,
+      "name": "Morgan Maly",
+      "slug": "morgan-maly",
+      "height": "6-1",
+      "weight": "",
+      "school": "Creighton",
+      "country": "USA",
+      "draftYear": ""
+    },
+    "4398907": {
+      "id": 1642324,
+      "name": "Kate Martin",
+      "slug": "kate-martin",
+      "height": "6-0",
+      "weight": "172",
+      "school": "Iowa",
+      "country": "USA",
+      "draftYear": "2024"
+    },
+    "4432865": {
+      "id": 1642292,
+      "name": "Jacy Sheldon",
+      "slug": "jacy-sheldon",
+      "height": "5-10",
+      "weight": "140",
+      "school": "Ohio State",
+      "country": "USA",
+      "draftYear": "2024"
+    },
+    "3142010": {
+      "id": 1628922,
+      "name": "Azura Stevens",
+      "slug": "azura-stevens",
+      "height": "6-6",
+      "weight": "180",
+      "school": "Connecticut",
+      "country": "USA",
+      "draftYear": "2018"
+    },
+    "4594786": {
+      "id": 1642321,
+      "name": "Sydney Taylor",
+      "slug": "sydney-taylor",
+      "height": "5-9",
+      "weight": "",
+      "school": "Louisville",
+      "country": "USA",
+      "draftYear": ""
+    },
+    "981": {
+      "id": 202664,
+      "name": "Courtney Vandersloot",
+      "slug": "courtney-vandersloot",
+      "height": "5-8",
+      "weight": "137",
+      "school": "Gonzaga",
+      "country": "USA",
+      "draftYear": "2011"
+    },
+    "2566081": {
+      "id": 204322,
+      "name": "Elizabeth Williams",
+      "slug": "elizabeth-williams",
+      "height": "6-3",
+      "weight": "200",
+      "school": "Duke",
+      "country": "United Kingdom",
+      "draftYear": "2015"
+    },
+    "3102133": {
+      "id": 204296,
+      "name": "Rebecca Allen",
+      "slug": "rebecca-allen",
+      "height": "6-2",
+      "weight": "162",
+      "school": "Melbourne",
+      "country": "Australia",
+      "draftYear": ""
+    },
+    "5345320": {
+      "id": 1631136,
+      "name": "Pauline Astier",
+      "slug": "pauline-astier",
+      "height": "5-11",
+      "weight": "",
+      "school": "",
+      "country": "France",
+      "draftYear": ""
+    },
+    "4398589": {
+      "id": 1641663,
+      "name": "Elizabeth Balogun",
+      "slug": "elizabeth-balogun",
+      "height": "6-2",
+      "weight": "183",
+      "school": "Duke",
+      "country": "USA",
+      "draftYear": ""
+    },
+    "4790258": {
+      "id": 1630384,
+      "name": "Raquel Carrera",
+      "slug": "raquel-carrera",
+      "height": "6-3",
+      "weight": "",
+      "school": "Valencia BC",
+      "country": "Spain",
+      "draftYear": "2021"
+    },
+    "4790260": {
+      "id": 1630469,
+      "name": "Marine Fauthoux",
+      "slug": "marine-fauthoux",
+      "height": "5-9",
+      "weight": "",
+      "school": "",
+      "country": "France",
+      "draftYear": "2021"
+    },
+    "4683006": {
+      "id": 1630142,
+      "name": "Leonie Fiebich",
+      "slug": "leonie-fiebich",
+      "height": "6-4",
+      "weight": "",
+      "school": "",
+      "country": "Germany",
+      "draftYear": "2020"
+    },
+    "2327695": {
+      "id": 203822,
+      "name": "Rebekah Gardner",
+      "slug": "rebekah-gardner",
+      "height": "6-1",
+      "weight": "130",
+      "school": "UCLA",
+      "country": "USA",
+      "draftYear": ""
+    },
+    "4066533": {
+      "id": 1629477,
+      "name": "Sabrina Ionescu",
+      "slug": "sabrina-ionescu",
+      "height": "5-11",
+      "weight": "165",
+      "school": "Oregon",
+      "country": "USA",
+      "draftYear": "2020"
+    },
+    "4038379": {
+      "id": 1629546,
+      "name": "Marine Johannes",
+      "slug": "marine-johannes",
+      "height": "5-10",
+      "weight": "134",
+      "school": "",
+      "country": "France",
+      "draftYear": ""
+    },
+    "2999101": {
+      "id": 1627673,
+      "name": "Jonquel Jones",
+      "slug": "jonquel-jones",
+      "height": "6-6",
+      "weight": "215",
+      "school": "George Washington",
+      "country": "Bahamas",
+      "draftYear": "2016"
+    },
+    "4281930": {
+      "id": 1630993,
+      "name": "Anneli Maley",
+      "slug": "anneli-maley",
+      "height": "6-1",
+      "weight": "",
+      "school": "",
+      "country": "Australia",
+      "draftYear": ""
+    },
+    "4281929": {
+      "id": 1630149,
+      "name": "Satou Sabally",
+      "slug": "satou-sabally",
+      "height": "6-4",
+      "weight": "175",
+      "school": "Oregon",
+      "country": "Germany",
+      "draftYear": "2020"
+    },
+    "4433416": {
+      "id": 1642810,
+      "name": "Madison Scott",
+      "slug": "madison-scott",
+      "height": "6-2",
+      "weight": "",
+      "school": "Mississippi",
+      "country": "USA",
+      "draftYear": "2025"
+    },
+    "2998928": {
+      "id": 1627668,
+      "name": "Breanna Stewart",
+      "slug": "breanna-stewart",
+      "height": "6-4",
+      "weight": "170",
+      "school": "Connecticut",
+      "country": "USA",
+      "draftYear": "2016"
+    },
+    "4337216": {
+      "id": 1629566,
+      "name": "Han Xu",
+      "slug": "han-xu",
+      "height": "6-11",
+      "weight": "203",
+      "school": "",
+      "country": "China",
+      "draftYear": "2019"
+    },
+    "3142255": {
+      "id": 1628881,
+      "name": "Monique Billings",
+      "slug": "monique-billings",
+      "height": "6-4",
+      "weight": "190",
+      "school": "UCLA",
+      "country": "USA",
+      "draftYear": "2018"
+    },
+    "4432831": {
+      "id": 1641648,
+      "name": "Aliyah Boston",
+      "slug": "aliyah-boston",
+      "height": "6-5",
+      "weight": "217",
+      "school": "South Carolina",
+      "country": "USA",
+      "draftYear": "2023"
+    },
+    "4433403": {
+      "id": 1642286,
+      "name": "Caitlin Clark",
+      "slug": "caitlin-clark",
+      "height": "6-0",
+      "weight": "157",
+      "school": "Iowa",
+      "country": "USA",
+      "draftYear": "2024"
+    },
+    "3907781": {
+      "id": 1629482,
+      "name": "Sophie Cunningham",
+      "slug": "sophie-cunningham",
+      "height": "6-1",
+      "weight": "156",
+      "school": "Missouri",
+      "country": "USA",
+      "draftYear": "2019"
+    },
+    "4898383": {
+      "id": 1642788,
+      "name": "Bree Hall",
+      "slug": "bree-hall",
+      "height": "6-1",
+      "weight": "161",
+      "school": "South Carolina",
+      "country": "USA",
+      "draftYear": "2025"
+    },
+    "4065760": {
+      "id": 1630112,
+      "name": "Tyasha Harris",
+      "slug": "tyasha-harris",
+      "height": "5-10",
+      "weight": "164",
+      "school": "South Carolina",
+      "country": "USA",
+      "draftYear": "2020"
+    },
+    "3142055": {
+      "id": 1628899,
+      "name": "Myisha Hines-Allen",
+      "slug": "myisha-hines-allen",
+      "height": "6-2",
+      "weight": "200",
+      "school": "Louisville",
+      "country": "USA",
+      "draftYear": "2018"
+    },
+    "4398829": {
+      "id": 1631086,
+      "name": "Lexie Hull",
+      "slug": "lexie-hull",
+      "height": "6-2",
+      "weight": "155",
+      "school": "Stanford",
+      "country": "USA",
+      "draftYear": "2022"
+    },
+    "4433797": {
+      "id": 1643433,
+      "name": "Raven Johnson",
+      "slug": "raven-johnson",
+      "height": "5-8",
+      "weight": "167",
+      "school": "South Carolina",
+      "country": "USA",
+      "draftYear": "2026"
+    },
+    "3142191": {
+      "id": 1628909,
+      "name": "Kelsey Mitchell",
+      "slug": "kelsey-mitchell",
+      "height": "5-8",
+      "weight": "153",
+      "school": "Ohio State",
+      "country": "USA",
+      "draftYear": "2018"
+    },
+    "4433744": {
+      "id": 1642803,
+      "name": "Michelle Onyiah",
+      "slug": "michelle-onyiah",
+      "height": "6-3",
+      "weight": "",
+      "school": "California-Berkeley",
+      "country": "USA",
+      "draftYear": ""
+    },
+    "3056672": {
+      "id": 1628920,
+      "name": "Mercedes Russell",
+      "slug": "mercedes-russell",
+      "height": "6-6",
+      "weight": "195",
+      "school": "Tennessee",
+      "country": "USA",
+      "draftYear": "2018"
+    },
+    "4433546": {
+      "id": 1642815,
+      "name": "Makayla Timpson",
+      "slug": "makayla-timpson",
+      "height": "6-2",
+      "weight": "177",
+      "school": "Florida State",
+      "country": "USA",
+      "draftYear": "2025"
+    },
+    "5105731": {
+      "id": 1643453,
+      "name": "Grace VanSlooten",
+      "slug": "grace-vanslooten",
+      "height": "6-3",
+      "weight": "",
+      "school": "Michigan State",
+      "country": "USA",
+      "draftYear": "2026"
+    },
+    "4433633": {
+      "id": 1631006,
+      "name": "Kierstan Bell",
+      "slug": "kierstan-bell",
+      "height": "6-1",
+      "weight": "176",
+      "school": "Florida Gulf Coast",
+      "country": "USA",
+      "draftYear": "2022"
+    },
+    "3916514": {
+      "id": 1629480,
+      "name": "Kalani Brown",
+      "slug": "kalani-brown",
+      "height": "6-7",
+      "weight": "245",
+      "school": "Baylor",
+      "country": "USA",
+      "draftYear": "2019"
+    },
+    "4281190": {
+      "id": 1630389,
+      "name": "Dana Evans",
+      "slug": "dana-evans",
+      "height": "5-6",
+      "weight": "145",
+      "school": "Louisville",
+      "country": "USA",
+      "draftYear": "2021"
+    },
+    "2529122": {
+      "id": 203833,
+      "name": "Chelsea Gray",
+      "slug": "chelsea-gray",
+      "height": "5-11",
+      "weight": "170",
+      "school": "Duke",
+      "country": "USA",
+      "draftYear": "2014"
+    },
+    "4609797": {
+      "id": 1643444,
+      "name": "Ta'Niya Latson",
+      "slug": "taniya-latson",
+      "height": "5-8",
+      "weight": "",
+      "school": "South Carolina",
+      "country": "USA",
+      "draftYear": "2026"
+    },
+    "2987869": {
+      "id": 204319,
+      "name": "Jewell Loyd",
+      "slug": "jewell-loyd",
+      "height": "5-11",
+      "weight": "175",
+      "school": "Notre Dame",
+      "country": "USA",
+      "draftYear": "2015"
+    },
+    "2529458": {
+      "id": 204323,
+      "name": "Cheyenne Parker-Tyus",
+      "slug": "cheyenne-parker-tyus",
+      "height": "6-4",
+      "weight": "193",
+      "school": "Middle Tennessee",
+      "country": "USA",
+      "draftYear": "2015"
+    },
+    "4682855": {
+      "id": 1643495,
+      "name": "Justine Pissott",
+      "slug": "justine-pissott",
+      "height": "6-4",
+      "weight": "175",
+      "school": "Vanderbilt",
+      "country": "USA",
+      "draftYear": "2026"
+    },
+    "4398776": {
+      "id": 1631019,
+      "name": "NaLyssa Smith",
+      "slug": "nalyssa-smith",
+      "height": "6-4",
+      "weight": "185",
+      "school": "Baylor",
+      "country": "USA",
+      "draftYear": "2022"
+    },
+    "3099736": {
+      "id": 203855,
+      "name": "Stephanie Talbot",
+      "slug": "stephanie-talbot",
+      "height": "6-2",
+      "weight": "192",
+      "school": "Adelaide",
+      "country": "Australia",
+      "draftYear": "2014"
+    },
+    "3142086": {
+      "id": 1629488,
+      "name": "Brianna Turner",
+      "slug": "brianna-turner",
+      "height": "6-3",
+      "weight": "175",
+      "school": "Notre Dame",
+      "country": "USA",
+      "draftYear": "2019"
+    },
+    "3149391": {
+      "id": 1628932,
+      "name": "A'ja Wilson",
+      "slug": "aja-wilson",
+      "height": "6-4",
+      "weight": "195",
+      "school": "South Carolina",
+      "country": "USA",
+      "draftYear": "2018"
+    },
+    "5220104": {
+      "id": 1642769,
+      "name": "Mai Yamamoto",
+      "slug": "mai-yamamoto",
+      "height": "5-5",
+      "weight": "",
+      "school": "",
+      "country": "Japan",
+      "draftYear": ""
+    },
+    "4065870": {
+      "id": 1629498,
+      "name": "Jackie Young",
+      "slug": "jackie-young",
+      "height": "6-0",
+      "weight": "165",
+      "school": "Notre Dame",
+      "country": "USA",
+      "draftYear": "2019"
+    },
+    "4703794": {
+      "id": 1642782,
+      "name": "Sarah Ashlee Barker",
+      "slug": "sarah-ashlee-barker",
+      "height": "6-0",
+      "weight": "173",
+      "school": "Alabama",
+      "country": "USA",
+      "draftYear": "2025"
+    },
+    "5105406": {
+      "id": 1643494,
+      "name": "Frieda Buhner",
+      "slug": "frieda-buhner",
+      "height": "6-2",
+      "weight": "175",
+      "school": "",
+      "country": "Germany",
+      "draftYear": "2026"
+    },
+    "3906972": {
+      "id": 1629524,
+      "name": "Bridget Carleton",
+      "slug": "bridget-carleton",
+      "height": "6-2",
+      "weight": "190",
+      "school": "Iowa State",
+      "country": "Canada",
+      "draftYear": "2019"
+    },
+    "3934218": {
+      "id": 1629484,
+      "name": "Megan DiLeo",
+      "slug": "megan-dileo",
+      "height": "6-4",
+      "weight": "208",
+      "school": "Iowa",
+      "country": "USA",
+      "draftYear": "2019"
+    },
+    "4398729": {
+      "id": 1631083,
+      "name": "Emily Engstler",
+      "slug": "emily-engstler",
+      "height": "6-1",
+      "weight": "184",
+      "school": "Louisville",
+      "country": "USA",
+      "draftYear": "2022"
+    },
+    "4433795": {
+      "id": 1642790,
+      "name": "Sania Feagin",
+      "slug": "sania-feagin",
+      "height": "6-3",
+      "weight": "",
+      "school": "South Carolina",
+      "country": "USA",
+      "draftYear": "2025"
+    },
+    "4682797": {
+      "id": 1630143,
+      "name": "Luisa Geiselsoder",
+      "slug": "luisa-geiselsoder",
+      "height": "6-4",
+      "weight": "204",
+      "school": "",
+      "country": "Germany",
+      "draftYear": "2020"
+    },
+    "5108051": {
+      "id": 1643527,
+      "name": "Jordan Harrison",
+      "slug": "jordan-harrison",
+      "height": "5-6",
+      "weight": "132",
+      "school": "West Virginia",
+      "country": "USA",
+      "draftYear": ""
+    },
+    "5208982": {
+      "id": 1642304,
+      "name": "Carla Leite",
+      "slug": "carla-leite",
+      "height": "5-9",
+      "weight": "151",
+      "school": "",
+      "country": "France",
+      "draftYear": "2024"
+    },
+    "5346554": {
+      "id": 1643506,
+      "name": "Teja Oblak",
+      "slug": "teja-oblak",
+      "height": "5-8",
+      "weight": "149",
+      "school": "",
+      "country": "Slovenia",
+      "draftYear": ""
+    },
+    "3142242": {
+      "id": 1629539,
+      "name": "Amy Okonkwo",
+      "slug": "amy-okonkwo",
+      "height": "6-2",
+      "weight": "",
+      "school": "TCU",
+      "country": "USA",
+      "draftYear": ""
+    },
+    "4433293": {
+      "id": 1642294,
+      "name": "Charisma Osborne",
+      "slug": "charisma-osborne",
+      "height": "5-9",
+      "weight": "166",
+      "school": "UCLA",
+      "country": "USA",
+      "draftYear": "2024"
+    },
+    "5209202": {
+      "id": 1642296,
+      "name": "Nyadiew Puoch",
+      "slug": "nyadiew-puoch",
+      "height": "6-3",
+      "weight": "167",
+      "school": "Southside",
+      "country": "Australia",
+      "draftYear": "2024"
+    },
+    "3056730": {
+      "id": 1628317,
+      "name": "Karlie Samuelson",
+      "slug": "karlie-samuelson",
+      "height": "6-0",
+      "weight": "159",
+      "school": "Stanford",
+      "country": "USA",
+      "draftYear": ""
+    },
+    "5108550": {
+      "id": 1643436,
+      "name": "Serah Williams",
+      "slug": "serah-williams",
+      "height": "6-4",
+      "weight": "185",
+      "school": "Connecticut",
+      "country": "Canada",
+      "draftYear": "2026"
+    },
+    "4433690": {
+      "id": 1641683,
+      "name": "Holly Winterburn",
+      "slug": "holly-winterburn",
+      "height": "5-11",
+      "weight": "",
+      "school": "Oregon",
+      "country": "United Kingdom",
+      "draftYear": ""
+    },
+    "5345319": {
+      "id": 1643448,
+      "name": "Nell Angloma",
+      "slug": "nell-angloma",
+      "height": "6-1",
+      "weight": "",
+      "school": "",
+      "country": "France",
+      "draftYear": "2026"
+    },
+    "5105732": {
+      "id": 1643441,
+      "name": "Raegan Beers",
+      "slug": "raegan-beers",
+      "height": "6-4",
+      "weight": "244",
+      "school": "Oklahoma",
+      "country": "USA",
+      "draftYear": ""
+    },
+    "3922628": {
+      "id": 1629568,
+      "name": "Kennedy Burke",
+      "slug": "kennedy-burke",
+      "height": "6-1",
+      "weight": "199",
+      "school": "UCLA",
+      "country": "USA",
+      "draftYear": "2019"
+    },
+    "4433408": {
+      "id": 1642290,
+      "name": "Aaliyah Edwards",
+      "slug": "aaliyah-edwards",
+      "height": "6-3",
+      "weight": "206",
+      "school": "Connecticut",
+      "country": "Canada",
+      "draftYear": "2024"
+    },
+    "2490553": {
+      "id": 203398,
+      "name": "Brittney Griner",
+      "slug": "brittney-griner",
+      "height": "6-9",
+      "weight": "219",
+      "school": "Baylor",
+      "country": "USA",
+      "draftYear": "2013"
+    },
+    "5106232": {
+      "id": 1643437,
+      "name": "Ashlon Jackson",
+      "slug": "ashlon-jackson",
+      "height": "6-0",
+      "weight": "170",
+      "school": "Duke",
+      "country": "USA",
+      "draftYear": "2026"
+    },
+    "4898898": {
+      "id": 1643429,
+      "name": "Gianna Kneepkens",
+      "slug": "gianna-kneepkens",
+      "height": "5-11",
+      "weight": "174",
+      "school": "UCLA",
+      "country": "USA",
+      "draftYear": "2026"
+    },
+    "5208981": {
+      "id": 1642303,
+      "name": "Leila Lacan",
+      "slug": "leila-lacan",
+      "height": "5-11",
+      "weight": "",
+      "school": "",
+      "country": "France",
+      "draftYear": "2024"
+    },
+    "4703609": {
+      "id": 1643449,
+      "name": "Charlisse Leger-Walker",
+      "slug": "charlisse-leger-walker",
+      "height": "5-10",
+      "weight": "190",
+      "school": "UCLA",
+      "country": "New Zealand",
+      "draftYear": "2026"
+    },
+    "4433792": {
+      "id": 1642796,
+      "name": "Rayah Marshall",
+      "slug": "rayah-marshall",
+      "height": "6-4",
+      "weight": "",
+      "school": "Southern California",
+      "country": "USA",
+      "draftYear": "2025"
+    },
+    "4433635": {
+      "id": 1641649,
+      "name": "Diamond Miller",
+      "slug": "diamond-miller",
+      "height": "6-1",
+      "weight": "178",
+      "school": "Maryland",
+      "country": "USA",
+      "draftYear": "2023"
+    },
+    "4398966": {
+      "id": 1631135,
+      "name": "Olivia Nelson-Ododa",
+      "slug": "olivia-nelson-ododa",
+      "height": "6-5",
+      "weight": "179",
+      "school": "Connecticut",
+      "country": "USA",
+      "draftYear": "2022"
+    },
+    "4433514": {
+      "id": 1642809,
+      "name": "Saniya Rivers",
+      "slug": "saniya-rivers",
+      "height": "6-1",
+      "weight": "159",
+      "school": "North Carolina State",
+      "country": "USA",
+      "draftYear": "2025"
+    },
+    "4433412": {
+      "id": 1642817,
+      "name": "Hailey Van Lith",
+      "slug": "hailey-van-lith",
+      "height": "5-9",
+      "weight": "157",
+      "school": "TCU",
+      "country": "USA",
+      "draftYear": "2025"
+    },
+    "4433730": {
+      "id": 1642784,
+      "name": "Paige Bueckers",
+      "slug": "paige-bueckers",
+      "height": "6-0",
+      "weight": "",
+      "school": "Connecticut",
+      "country": "USA",
+      "draftYear": "2025"
+    },
+    "924": {
+      "id": 202252,
+      "name": "Alysha Clark",
+      "slug": "alysha-clark",
+      "height": "5-11",
+      "weight": "167",
+      "school": "Middle Tennessee",
+      "country": "USA",
+      "draftYear": "2010"
+    },
+    "4433790": {
+      "id": 1643425,
+      "name": "Azzi Fudd",
+      "slug": "azzi-fudd",
+      "height": "5-11",
+      "weight": "",
+      "school": "Connecticut",
+      "country": "USA",
+      "draftYear": "2026"
+    },
+    "4433807": {
+      "id": 1642793,
+      "name": "Aziaha James",
+      "slug": "aziaha-james",
+      "height": "5-10",
+      "weight": "",
+      "school": "North Carolina State",
+      "country": "USA",
+      "draftYear": "2025"
+    },
+    "4595910": {
+      "id": 1641650,
+      "name": "Haley Jones",
+      "slug": "haley-jones",
+      "height": "6-1",
+      "weight": "202",
+      "school": "Stanford",
+      "country": "USA",
+      "draftYear": "2023"
+    },
+    "4433410": {
+      "id": 1642795,
+      "name": "Deja Kelly",
+      "slug": "deja-kelly",
+      "height": "5-8",
+      "weight": "",
+      "school": "Oregon",
+      "country": "USA",
+      "draftYear": ""
+    },
+    "4790266": {
+      "id": 1630386,
+      "name": "Awak Kuier",
+      "slug": "awak-kuier",
+      "height": "6-6",
+      "weight": "168",
+      "school": "Ragusa",
+      "country": "Finland",
+      "draftYear": "2021"
+    },
+    "3920741": {
+      "id": 1629490,
+      "name": "Kitija Laksa",
+      "slug": "kitija-laksa",
+      "height": "6-1",
+      "weight": "",
+      "school": "South Florida",
+      "country": "Latvia",
+      "draftYear": "2020"
+    },
+    "3904577": {
+      "id": 1629481,
+      "name": "Arike Ogunbowale",
+      "slug": "arike-ogunbowale",
+      "height": "5-8",
+      "weight": "165",
+      "school": "Notre Dame",
+      "country": "USA",
+      "draftYear": "2019"
+    },
+    "3906949": {
+      "id": 1629491,
+      "name": "Jessica Shepard",
+      "slug": "jessica-shepard",
+      "height": "6-4",
+      "weight": "175",
+      "school": "Notre Dame",
+      "country": "USA",
+      "draftYear": "2019"
+    },
+    "4399415": {
+      "id": 1641652,
+      "name": "Maddy Siegrist",
+      "slug": "maddy-siegrist",
+      "height": "6-2",
+      "weight": "175",
+      "school": "Villanova",
+      "country": "USA",
+      "draftYear": "2023"
+    },
+    "2529047": {
+      "id": 203824,
+      "name": "Odyssey Sims",
+      "slug": "odyssey-sims",
+      "height": "5-8",
+      "weight": "155",
+      "school": "Baylor",
+      "country": "USA",
+      "draftYear": "2014"
+    },
+    "3913881": {
+      "id": 1629501,
+      "name": "Alanna Smith",
+      "slug": "alanna-smith",
+      "height": "6-4",
+      "weight": "177",
+      "school": "Stanford",
+      "country": "Australia",
+      "draftYear": "2019"
+    },
+    "5345473": {
+      "id": 1643424,
+      "name": "Costanza Verona",
+      "slug": "costanza-verona",
+      "height": "5-6",
+      "weight": "",
+      "school": "",
+      "country": "Italy",
+      "draftYear": ""
+    },
+    "4398965": {
+      "id": 1631090,
+      "name": "Christyn Williams",
+      "slug": "christyn-williams",
+      "height": "5-11",
+      "weight": "174",
+      "school": "Connecticut",
+      "country": "USA",
+      "draftYear": "2022"
+    },
+    "4336633": {
+      "id": 1629574,
+      "name": "Li Yueru",
+      "slug": "li-yueru",
+      "height": "6-7",
+      "weight": "",
+      "school": "",
+      "country": "China",
+      "draftYear": "2019"
+    },
+    "3919496": {
+      "id": 204468,
+      "name": "Valeriane Ayayi",
+      "slug": "valeriane-ayayi",
+      "height": "6-1",
+      "weight": "",
+      "school": "France",
+      "country": "France",
+      "draftYear": ""
+    },
+    "5345524": {
+      "id": 1643493,
+      "name": "Noemie Brochant",
+      "slug": "noemie-brochant",
+      "height": "5-11",
+      "weight": "",
+      "school": "",
+      "country": "France",
+      "draftYear": ""
+    },
+    "4688629": {
+      "id": 1643470,
+      "name": "Shay Ciezki",
+      "slug": "shay-ciezki",
+      "height": "5-7",
+      "weight": "",
+      "school": "Indiana",
+      "country": "USA",
+      "draftYear": ""
+    },
+    "2998938": {
+      "id": 1627674,
+      "name": "Kahleah Copper",
+      "slug": "kahleah-copper",
+      "height": "6-1",
+      "weight": "165",
+      "school": "Rutgers",
+      "country": "USA",
+      "draftYear": "2016"
+    },
+    "4698730": {
+      "id": 1643454,
+      "name": "Kara Dunn",
+      "slug": "kara-dunn",
+      "height": "5-11",
+      "weight": "",
+      "school": "Southern California",
+      "country": "USA",
+      "draftYear": "",
+      "photoOverride": "https://cdn.wnba.com/sites/4/2026/04/Dunn.png",
+      "photoSource": "https://www.wnba.com/draft/2026/prospects/kara-dunn"
+    },
+    "4399342": {
+      "id": 1631118,
+      "name": "Lexi Held",
+      "slug": "lexi-held",
+      "height": "5-10",
+      "weight": "138",
+      "school": "DePaul",
+      "country": "USA",
+      "draftYear": ""
+    },
+    "4873359": {
+      "id": 1642768,
+      "name": "Kyara Linskens",
+      "slug": "kyara-linskens",
+      "height": "6-4",
+      "weight": "",
+      "school": "",
+      "country": "Belgium",
+      "draftYear": ""
+    },
+    "4068042": {
+      "id": 1630442,
+      "name": "Natasha Mack",
+      "slug": "natasha-mack",
+      "height": "6-4",
+      "weight": "182",
+      "school": "Oklahoma State",
+      "country": "USA",
+      "draftYear": "2021"
+    },
+    "3906769": {
+      "id": 1643505,
+      "name": "Jovana Nogic",
+      "slug": "jovana-nogic",
+      "height": "6-0",
+      "weight": "",
+      "school": "Providence",
+      "country": "Serbia",
+      "draftYear": ""
+    },
+    "3065570": {
+      "id": 1628276,
+      "name": "Kelsey Plum",
+      "slug": "kelsey-plum",
+      "height": "5-8",
+      "weight": "145",
+      "school": "Washington",
+      "country": "USA",
+      "draftYear": "2017"
+    },
+    "4433542": {
+      "id": 1643458,
+      "name": "Saylor Poffenbarger",
+      "slug": "saylor-poffenbarger",
+      "height": "6-2",
+      "weight": "189",
+      "school": "Maryland",
+      "country": "",
+      "draftYear": ""
+    },
+    "4704594": {
+      "id": 1643438,
+      "name": "Marta Suarez",
+      "slug": "marta-suarez",
+      "height": "6-3",
+      "weight": "",
+      "school": "TCU",
+      "country": "Spain",
+      "draftYear": "2026"
+    },
+    "2529140": {
+      "id": 203826,
+      "name": "Alyssa Thomas",
+      "slug": "alyssa-thomas",
+      "height": "6-2",
+      "weight": "203",
+      "school": "Maryland",
+      "country": "USA",
+      "draftYear": "2014"
+    },
+    "4433424": {
+      "id": 1642818,
+      "name": "Maddy Westbeld",
+      "slug": "maddy-westbeld",
+      "height": "6-3",
+      "weight": "",
+      "school": "Notre Dame",
+      "country": "USA",
+      "draftYear": "2025"
+    },
+    "887": {
+      "id": 1628244,
+      "name": "Sami Whitcomb",
+      "slug": "sami-whitcomb",
+      "height": "5-10",
+      "weight": "149",
+      "school": "Washington",
+      "country": "Australia",
+      "draftYear": ""
+    }
+  }
+}
