@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-09-30T14:43:16.920Z",
+  "dateAsiaTaipei": "2026-09-30",
+  "purpose": "current feed validation; not production deployment",
+  "collector": {
+    "workflow": "Current baseball collector",
+    "runId": 35688889561,
+    "rerunJobId": 108552526980,
+    "rerunRequestAccepted": true,
+    "jobsObserved": 0,
+    "freshArtifactAccepted": false,
+    "latestArtifactId": 10923208463,
+    "latestArtifactCreatedAt": "2026-09-27T04:44:22Z",
+    "artifactRejectedReason": "artifact creation date does not match 2026-09-30; not used as current evidence",
+    "collectorFallback": true
+  },
+  "sourceObservations": {
+    "firstObservedNoEarlierThan": "2026-09-30T14:41:22.222Z",
+    "secondObservedAt": "2026-09-30T14:43:16.920Z",
+    "conservativeIntervalSeconds": 114.698,
+    "sources": {
+      "NPB": "https://www.playsport.cc/livescore/2",
+      "KBO": "https://www.playsport.cc/livescore/9",
+      "CPBL": "https://www.playsport.cc/livescore/6"
+    }
+  },
+  "NPB": {
+    "games": 2,
+    "pregame": 0,
+    "live": 0,
+    "final": 2,
+    "sameDayLiveVerified": true,
+    "results": [
+      "養樂多 0-5 阪神",
+      "羅德 0-3 樂天"
+    ],
+    "balls": null,
+    "strikes": null,
+    "outs": null,
+    "bases": null
+  },
+  "KBO": {
+    "games": 5,
+    "pregame": 0,
+    "live": 0,
+    "final": 5,
+    "sameDayLiveVerified": true,
+    "results": [
+      "NC恐龍 5-6 斗山熊",
+      "韓華鷹 2-6 三星獅",
+      "培證英雄 6-8 樂天巨人",
+      "LG雙子 3-4 SSG登陸者",
+      "KT巫師 3-2 起亞虎"
+    ]
+  },
+  "CPBL": {
+    "games": 3,
+    "pregame": 0,
+    "live": 0,
+    "final": 3,
+    "sameDayLiveVerified": true,
+    "results": [
+      "味全龍 5-3 樂天桃猿",
+      "統一獅 4-2 富邦悍將",
+      "中信兄弟 7-1 台鋼雄鷹"
+    ],
+    "currentRunTransition": {
+      "firstObservation": {
+        "final": 1,
+        "live": 2,
+        "scores": [
+          "味全龍 5-3 樂天桃猿 (final)",
+          "統一獅 4-2 富邦悍將 (live)",
+          "中信兄弟 7-1 台鋼雄鷹 (live)"
+        ]
+      },
+      "secondObservation": {
+        "final": 3,
+        "live": 0,
+        "scores": [
+          "味全龍 5-3 樂天桃猿 (final)",
+          "統一獅 4-2 富邦悍將 (final)",
+          "中信兄弟 7-1 台鋼雄鷹 (final)"
+        ]
+      },
+      "conservativeIntervalSeconds": 114.698,
+      "note": "This run confirms live-to-final transitions. The qualifying same-day live numeric-change proof was already retained earlier on 2026-09-30 and is not replaced by this final-state transition."
+    },
+    "pitchCount": null,
+    "balls": null,
+    "strikes": null,
+    "outs": null,
+    "bases": null,
+    "lineupConfirmation": "source_listed_not_officially_verified"
+  },
+  "productionChanged": false,
+  "productionDatabaseWritten": false,
+  "deployed": false
+}
