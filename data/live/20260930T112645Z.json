@@ -1,0 +1,216 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-09-30T11:26:45.996Z",
+  "dateAsiaTaipei": "2026-09-30",
+  "purpose": "current feed validation; not production deployment",
+  "collectionMode": "fresh public-source validation after validated collector job rerun request; GitHub Actions run still has zero jobs and no current-day artifact",
+  "workflow": {
+    "runId": 35688889561,
+    "lastKnownRunAttempt": 50,
+    "jobsObserved": 0,
+    "latestArtifactId": 10923208463,
+    "latestArtifactCreatedAt": "2026-09-27T04:44:22Z",
+    "acceptedAsCurrent": false,
+    "latestVerifiedJobId": 108552526980,
+    "rerunAttempted": true,
+    "rerunRequestAccepted": true,
+    "note": "Rerun request was accepted, but jobs remained empty and no 2026-09-30 artifact appeared; old artifact rejected as current evidence."
+  },
+  "NPB": {
+    "games": 2,
+    "states": {
+      "live": 2
+    },
+    "sameDayLiveVerified": true,
+    "source": "SportsNavi/Yahoo Japan public NPB schedule, score and stats pages",
+    "sourceUrl": "https://baseball.yahoo.co.jp/npb/schedule/?date=2026-09-30",
+    "proof": {
+      "key": "NPB:2021048566",
+      "firstStartedAt": "2026-09-30T11:24:50.847Z",
+      "firstFinishedAt": "2026-09-30T11:25:09.318Z",
+      "secondStartedAt": "2026-09-30T11:26:24.539Z",
+      "secondFinishedAt": "2026-09-30T11:26:45.996Z",
+      "conservativeIntervalSeconds": 75.221,
+      "first": {
+        "score": "0-3",
+        "inning": "8回表",
+        "pitchers": [
+          {
+            "name": "奥川 恭伸",
+            "inningsPitched": 6,
+            "pitchCount": 107
+          },
+          {
+            "name": "中村 優斗",
+            "inningsPitched": 1,
+            "pitchCount": 14
+          },
+          {
+            "name": "髙橋 遥人",
+            "inningsPitched": 8,
+            "pitchCount": 107
+          }
+        ]
+      },
+      "second": {
+        "score": "0-3",
+        "inning": "8回裏",
+        "pitchers": [
+          {
+            "name": "奥川 恭伸",
+            "inningsPitched": 6,
+            "pitchCount": 107
+          },
+          {
+            "name": "中村 優斗",
+            "inningsPitched": 1,
+            "pitchCount": 14
+          },
+          {
+            "name": "清水 昇",
+            "inningsPitched": 0,
+            "pitchCount": 0
+          },
+          {
+            "name": "髙橋 遥人",
+            "inningsPitched": 8,
+            "pitchCount": 107
+          }
+        ]
+      },
+      "qualifyingChanges": [
+        "inningHalf"
+      ]
+    },
+    "normalizedUnsupportedFields": {
+      "balls": null,
+      "strikes": null,
+      "outs": null,
+      "bases": null
+    }
+  },
+  "KBO": {
+    "games": 5,
+    "states": {
+      "live": 5
+    },
+    "sameDayLiveVerified": true,
+    "source": "Naver public baseball schedule API and game-polling endpoints; categoryId=kbo only",
+    "sourceUrl": "https://api-gw.sports.naver.com/schedule/games?upperCategoryId=kbaseball&fromDate=2026-09-30&toDate=2026-09-30&page=1&pageSize=100",
+    "excludedNonKboRows": 2,
+    "proof": {
+      "key": "KBO:20260930HHSS02026",
+      "firstStartedAt": "2026-09-30T11:24:50.847Z",
+      "firstFinishedAt": "2026-09-30T11:25:09.318Z",
+      "secondStartedAt": "2026-09-30T11:26:24.539Z",
+      "secondFinishedAt": "2026-09-30T11:26:45.996Z",
+      "conservativeIntervalSeconds": 75.221,
+      "first": {
+        "score": "2-6",
+        "inning": "7회초",
+        "balls": 3,
+        "strikes": 1,
+        "outs": 0,
+        "bases": [
+          true,
+          false,
+          false
+        ],
+        "pitcher": "후라도",
+        "pitcherPitchCount": 90,
+        "pitcherOutsRecorded": 18
+      },
+      "second": {
+        "score": "2-6",
+        "inning": "7회초",
+        "balls": 0,
+        "strikes": 1,
+        "outs": 1,
+        "bases": [
+          false,
+          true,
+          false
+        ],
+        "pitcher": "후라도",
+        "pitcherPitchCount": 93,
+        "pitcherOutsRecorded": 19
+      },
+      "qualifyingChanges": [
+        "balls",
+        "outs",
+        "bases",
+        "pitchCount",
+        "pitcherOutsRecorded"
+      ]
+    }
+  },
+  "CPBL": {
+    "games": 3,
+    "states": {
+      "live": 3
+    },
+    "sameDayLiveVerified": true,
+    "source": "PlaySport public CPBL live-score page fallback",
+    "sourceUrl": "https://www.playsport.cc/livescore/6",
+    "proof": {
+      "firstStartedAt": "2026-09-30T11:23:04.488Z",
+      "firstFinishedAt": "2026-09-30T11:23:14.751Z",
+      "secondStartedAt": "2026-09-30T11:24:22.718Z",
+      "secondFinishedAt": "2026-09-30T11:24:32.096Z",
+      "conservativeIntervalSeconds": 67.967,
+      "game": "兄弟 vs 台鋼",
+      "first": {
+        "score": "2-0",
+        "inning": "3局上"
+      },
+      "second": {
+        "score": "3-0",
+        "inning": "3局上"
+      },
+      "qualifyingChanges": [
+        "score"
+      ]
+    },
+    "latestSummary": [
+      {
+        "away": "味全",
+        "home": "樂天",
+        "status": "live",
+        "awayScore": 2,
+        "homeScore": 0,
+        "inning": "4局上"
+      },
+      {
+        "away": "統一",
+        "home": "富邦",
+        "status": "live",
+        "awayScore": 0,
+        "homeScore": 2,
+        "inning": "3局上"
+      },
+      {
+        "away": "兄弟",
+        "home": "台鋼",
+        "status": "live",
+        "awayScore": 3,
+        "homeScore": 0,
+        "inning": "3局上"
+      }
+    ],
+    "pitchCount": null,
+    "balls": null,
+    "strikes": null,
+    "outs": null,
+    "bases": null,
+    "lineupConfirmation": "source_listed_not_officially_verified"
+  },
+  "sourcePolicy": {
+    "noAccessChallengeBypass": true,
+    "oldArtifactNotAcceptedAsCurrent": true,
+    "unknownFieldsNotFilledWithZero": true,
+    "onlyFirstTeamOfficialGames": true
+  },
+  "productionChanged": false,
+  "productionDatabaseWritten": false,
+  "deployed": false
+}
