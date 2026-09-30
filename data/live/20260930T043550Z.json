@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-09-30T04:35:50Z",
+  "dateAsiaTaipei": "2026-09-30",
+  "purpose": "current feed validation; not production deployment",
+  "workflow": {
+    "runId": 35688889561,
+    "runAttempt": 50,
+    "jobsObserved": 0,
+    "conclusion": "startup_failure",
+    "artifactId": 10923208463,
+    "artifactCreatedAt": "2026-09-27T04:44:22Z",
+    "artifactAcceptedAsCurrent": false,
+    "rerunError": "403 This workflow run cannot be retried"
+  },
+  "leagues": {
+    "NPB": {
+      "games": 2,
+      "pregame": 2,
+      "live": 0,
+      "final": 0,
+      "sameDayLiveVerified": false,
+      "firstStartTaipei": "17:00",
+      "source": "sportsnavi"
+    },
+    "KBO": {
+      "games": 5,
+      "pregame": 5,
+      "live": 0,
+      "final": 0,
+      "sameDayLiveVerified": false,
+      "excludedNonKboRows": 2,
+      "firstStartTaipei": "17:30",
+      "source": "naver"
+    },
+    "CPBL": {
+      "games": 3,
+      "pregame": 3,
+      "live": 0,
+      "final": 0,
+      "sameDayLiveVerified": false,
+      "firstStartTaipei": "18:35",
+      "source": "playsport-public-fallback",
+      "pitchCount": null,
+      "balls": null,
+      "strikes": null,
+      "outs": null,
+      "bases": null
+    }
+  },
+  "secondCapturePerformed": false,
+  "captureIntervalSeconds": null,
+  "qualifiedNumericChanges": 0,
+  "productionChanged": false,
+  "deployed": false
+}
