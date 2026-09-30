@@ -42,3 +42,11 @@ test('quarter score renderer labels overtime and retains null as unknown rather 
 });
 
 test('displayed complementary win rates sum to 100 after one-decimal rounding',()=>{for(const home of [.0025,.3845,.5005,.9975]){const d=match.nbaDisplayedProbabilities({home,away:1-home});assert.equal(Math.round((parseFloat(d.home)+parseFloat(d.away))*10),1000);}});
+
+test('integer predicted scores cannot tie or contradict the favored side',()=>{
+ assert.deepEqual(match.nbaDisplayedScore({home:88,away:88.4},{home:.4842,away:.5158}),{home:88,away:89,total:177,margin:-1});
+ assert.deepEqual(match.nbaDisplayedScore({home:88.4,away:88},{home:.5158,away:.4842}),{home:89,away:88,total:177,margin:1});
+ assert.deepEqual(match.nbaDisplayedScore({home:88.6,away:88.9},{home:.49,away:.51}),{home:88,away:89,total:177,margin:-1});
+ assert.equal(match.nbaDisplayedScore({home:88,away:88},{home:.5,away:.5}),null);
+ assert.deepEqual(match.nbaDisplayedScore({home:110.2,away:105.3},{home:.6,away:.4}),{home:110,away:105,total:215,margin:5});
+});
