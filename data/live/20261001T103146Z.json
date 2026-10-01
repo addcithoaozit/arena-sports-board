@@ -1,0 +1,168 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-10-01T10:31:46.118Z",
+  "dateAsiaTaipei": "2026-10-01",
+  "purpose": "current feed validation; not production deployment",
+  "collector": {
+    "workflow": "Current baseball collector",
+    "runId": 35688889561,
+    "runAttempt": 50,
+    "status": "completed",
+    "conclusion": "startup_failure",
+    "jobsObserved": 0,
+    "rerunJobId": 108552526980,
+    "rerunRequestAccepted": false,
+    "rerunBlockedBySafetyChecks": true,
+    "freshArtifactAccepted": false,
+    "latestArtifactId": 10923208463,
+    "latestArtifactCreatedAt": "2026-09-27T04:44:22Z",
+    "collectorFallback": true
+  },
+  "NPB": {
+    "games": 4,
+    "state": "live",
+    "sameDayLiveVerified": true,
+    "previousObservation": "data/live/20261001T094109Z.json",
+    "previousCapturedAt": "2026-10-01T09:41:09.008Z",
+    "changes": [
+      "廣島-中日 2-0 3回裏 -> 4-0 7回表",
+      "樂天-軟銀 0-4 2回裏 -> 1-7 5回裏"
+    ],
+    "current": [
+      {
+        "away": "巨人",
+        "home": "阪神",
+        "awayScore": 1,
+        "homeScore": 0,
+        "inning": "4回裏",
+        "status": "live"
+      },
+      {
+        "away": "中日",
+        "home": "廣島",
+        "awayScore": 0,
+        "homeScore": 4,
+        "inning": "7回表",
+        "status": "live"
+      },
+      {
+        "away": "軟銀",
+        "home": "樂天",
+        "awayScore": 7,
+        "homeScore": 1,
+        "inning": "5回裏",
+        "status": "live"
+      },
+      {
+        "away": "日本火腿",
+        "home": "羅德",
+        "awayScore": 1,
+        "homeScore": 0,
+        "inning": "5回表",
+        "status": "live"
+      }
+    ],
+    "unsupported": {
+      "balls": null,
+      "strikes": null,
+      "outs": null,
+      "bases": null
+    },
+    "source": "https://baseball.yahoo.co.jp/npb/schedule/?date=2026-10-01"
+  },
+  "KBO": {
+    "games": 4,
+    "state": "live",
+    "sameDayLiveVerified": true,
+    "previousObservation": "data/live/20261001T094109Z.json",
+    "previousCapturedAt": "2026-10-01T09:41:09.008Z",
+    "excludedNonFirstTeamGames": 1,
+    "changes": [
+      "KT-KIA 1回裏 -> 3回裏"
+    ],
+    "current": [
+      {
+        "away": "韓華",
+        "home": "三星",
+        "awayScore": 0,
+        "homeScore": 0,
+        "inning": "3回表",
+        "status": "live"
+      },
+      {
+        "away": "KT",
+        "home": "KIA",
+        "awayScore": 2,
+        "homeScore": 2,
+        "inning": "3回裏",
+        "status": "live",
+        "balls": 2,
+        "strikes": 1,
+        "outs": 2,
+        "bases": [
+          false,
+          false,
+          false
+        ],
+        "currentPitcher": "50030",
+        "currentPitcherName": "蘇珩準",
+        "pitchCount": 50,
+        "outsRecorded": 8
+      },
+      {
+        "away": "LG",
+        "home": "SSG",
+        "awayScore": 0,
+        "homeScore": 4,
+        "inning": "3回裏",
+        "status": "live"
+      },
+      {
+        "away": "NC",
+        "home": "斗山",
+        "awayScore": 4,
+        "homeScore": 2,
+        "inning": "3回裏",
+        "status": "live"
+      }
+    ],
+    "source": "https://api-gw.sports.naver.com/schedule/games?upperCategoryId=kbaseball&fromDate=2026-10-01&toDate=2026-10-01&page=1&pageSize=100",
+    "detailSource": "https://api-gw.sports.naver.com/schedule/games/20261001KTHT02026/game-polling"
+  },
+  "CPBL": {
+    "games": 2,
+    "state": "mixed_pregame_suspended",
+    "pregame": 1,
+    "suspended": 1,
+    "live": 0,
+    "sameDayLiveVerified": false,
+    "current": [
+      {
+        "away": "統一",
+        "home": "味全",
+        "awayScore": 0,
+        "homeScore": 0,
+        "status": "suspended",
+        "inningsPlayed": 3
+      },
+      {
+        "away": "樂天",
+        "home": "台鋼",
+        "awayScore": null,
+        "homeScore": null,
+        "status": "pregame",
+        "startTimeTaipei": "18:35"
+      }
+    ],
+    "pitchCount": null,
+    "balls": null,
+    "strikes": null,
+    "outs": null,
+    "bases": null,
+    "lineupConfirmation": "source_listed_not_officially_verified",
+    "source": "https://www.playsport.cc/livescore/6"
+  },
+  "productionChanged": false,
+  "productionDatabaseWritten": false,
+  "deployed": false
+}
