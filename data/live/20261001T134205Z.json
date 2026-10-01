@@ -1,0 +1,192 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-10-01T13:42:05.389Z",
+  "dateAsiaTaipei": "2026-10-01",
+  "purpose": "current feed validation; not production deployment",
+  "collector": {
+    "workflow": "Current baseball collector",
+    "runId": 35688889561,
+    "runAttempt": 50,
+    "latestVerifiedJobId": 108552526980,
+    "jobsObserved": 0,
+    "rerunRequestAccepted": false,
+    "rerunBlockedByConnectorSafetyChecks": true,
+    "freshArtifactAccepted": false,
+    "staleArtifactRejected": {
+      "artifactId": 10923208463,
+      "createdAt": "2026-09-27T04:44:22Z",
+      "reason": "artifact creation date does not match 2026-10-01"
+    },
+    "collectorFallback": true
+  },
+  "NPB": {
+    "games": 4,
+    "state": "mixed_live_final",
+    "live": 1,
+    "final": 3,
+    "sameDayLiveVerified": true,
+    "proof": {
+      "source": "sportsnavi-direct-game-page",
+      "firstCaptureStartedAt": "2026-10-01T13:39:13.933Z",
+      "firstCaptureFinishedAt": "2026-10-01T13:39:24.475Z",
+      "secondCaptureStartedAt": "2026-10-01T13:40:43.323Z",
+      "secondCaptureFinishedAt": "2026-10-01T13:40:56.373Z",
+      "conservativeIntervalSeconds": 78.848,
+      "game": "巨人-阪神",
+      "liveAtBothCaptures": true,
+      "inningAtBothCaptures": "11回表",
+      "extractedLiveFieldChange": {
+        "balls": {
+          "before": 3,
+          "after": 0
+        },
+        "strikes": {
+          "before": 2,
+          "after": 0
+        },
+        "outs": {
+          "before": 0,
+          "after": 0
+        },
+        "pitcher": {
+          "name": "岩崎 優",
+          "pitchCountBefore": 3,
+          "pitchCountAfter": 4
+        }
+      },
+      "note": "Fresh source-detail captures were >65 seconds apart. These direct-page fields are verification evidence only; normalized NPB B/S/O and pitcher counts remain null because the repository parser has not promoted them."
+    },
+    "currentAsOf": "2026-10-01T13:42:05.389Z",
+    "current": [
+      {
+        "away": "巨人",
+        "home": "阪神",
+        "awayScore": 2,
+        "homeScore": 2,
+        "status": "live",
+        "inning": "11回表"
+      },
+      {
+        "away": "中日",
+        "home": "廣島",
+        "awayScore": 1,
+        "homeScore": 5,
+        "status": "final",
+        "inning": null
+      },
+      {
+        "away": "軟銀",
+        "home": "樂天",
+        "awayScore": 8,
+        "homeScore": 2,
+        "status": "final",
+        "inning": null
+      },
+      {
+        "away": "日本火腿",
+        "home": "羅德",
+        "awayScore": 3,
+        "homeScore": 1,
+        "status": "final",
+        "inning": null
+      }
+    ],
+    "unsupported": {
+      "balls": null,
+      "strikes": null,
+      "outs": null,
+      "bases": null,
+      "pitchCount": null
+    },
+    "sources": [
+      "https://baseball.yahoo.co.jp/npb/schedule/?date=2026-10-01",
+      "https://baseball.yahoo.co.jp/npb/game/2021048567/score"
+    ]
+  },
+  "KBO": {
+    "games": 4,
+    "state": "final",
+    "live": 0,
+    "final": 4,
+    "excludedNonFirstTeamGames": 1,
+    "sameDayLiveVerified": true,
+    "currentAsOf": "2026-10-01T13:39:00Z",
+    "current": [
+      {
+        "gameId": "20261001HHSS02026",
+        "away": "韓華",
+        "home": "三星",
+        "awayScore": 2,
+        "homeScore": 3,
+        "status": "final"
+      },
+      {
+        "gameId": "20261001KTHT02026",
+        "away": "KT",
+        "home": "KIA",
+        "awayScore": 7,
+        "homeScore": 5,
+        "status": "final"
+      },
+      {
+        "gameId": "20261001LGSK02026",
+        "away": "LG",
+        "home": "SSG",
+        "awayScore": 5,
+        "homeScore": 6,
+        "status": "final"
+      },
+      {
+        "gameId": "20261001NCOB02026",
+        "away": "NC",
+        "home": "斗山",
+        "awayScore": 7,
+        "homeScore": 9,
+        "status": "final"
+      }
+    ],
+    "excluded": [
+      {
+        "gameId": "20261001KBO1",
+        "categoryId": "kbaseballetc",
+        "statusCode": "RESULT",
+        "reason": "not categoryId=kbo first-team game"
+      }
+    ],
+    "source": "https://api-gw.sports.naver.com/schedule/games?upperCategoryId=kbaseball&fromDate=2026-10-01&toDate=2026-10-01&page=1&pageSize=100"
+  },
+  "CPBL": {
+    "games": 2,
+    "state": "final",
+    "live": 0,
+    "final": 2,
+    "sameDayLiveVerified": true,
+    "currentAsOf": "2026-10-01T13:36:00Z",
+    "current": [
+      {
+        "away": "樂天",
+        "home": "台鋼",
+        "awayScore": 2,
+        "homeScore": 1,
+        "status": "final"
+      },
+      {
+        "away": "統一",
+        "home": "味全",
+        "awayScore": 4,
+        "homeScore": 3,
+        "status": "final"
+      }
+    ],
+    "pitchCount": null,
+    "balls": null,
+    "strikes": null,
+    "outs": null,
+    "bases": null,
+    "lineupConfirmation": "source_listed_not_officially_verified",
+    "source": "https://www.playsport.cc/livescore/6"
+  },
+  "productionChanged": false,
+  "productionDatabaseWritten": false,
+  "deployed": false
+}
