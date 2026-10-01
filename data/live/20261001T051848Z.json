@@ -1,0 +1,148 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-10-01T05:18:48.079Z",
+  "dateAsiaTaipei": "2026-10-01",
+  "purpose": "current feed validation; not production deployment",
+  "collector": {
+    "workflow": "Current baseball collector",
+    "runId": 35688889561,
+    "latestKnownRunAttempt": 50,
+    "rerunJobId": 108552526980,
+    "rerunRequestAccepted": false,
+    "rerunBlockedByConnectorSafety": true,
+    "jobsObserved": 0,
+    "freshArtifactAccepted": false,
+    "latestArtifactId": 10923208463,
+    "latestArtifactCreatedAt": "2026-09-27T04:44:22Z",
+    "artifactRejectedReason": "artifact creation date does not match 2026-10-01; not used as current evidence",
+    "collectorFallback": true
+  },
+  "sourceObservations": {
+    "observedAt": "2026-10-01T05:18:48.079Z",
+    "sources": {
+      "NPB": "https://baseball.yahoo.co.jp/npb/schedule/?date=2026-10-01",
+      "NPB_fallback": "https://www.playsport.cc/livescore/2",
+      "KBO_fallback": "https://www.playsport.cc/livescore/9",
+      "KBO_crosscheck": "https://mykbostats.com/schedule/week_of/2026-10-01",
+      "CPBL_fallback": "https://www.playsport.cc/livescore/6"
+    }
+  },
+  "NPB": {
+    "games": 4,
+    "pregame": 4,
+    "live": 0,
+    "final": 0,
+    "cancelled": 0,
+    "suspended": 0,
+    "sameDayLiveVerified": false,
+    "firstStartTaipei": "17:00",
+    "gamesSummary": [
+      {
+        "away": "讀賣巨人",
+        "home": "阪神虎",
+        "status": "pregame",
+        "startTaipei": "17:00"
+      },
+      {
+        "away": "中日龍",
+        "home": "廣島東洋鯉魚",
+        "status": "pregame",
+        "startTaipei": "17:00"
+      },
+      {
+        "away": "福岡軟銀鷹",
+        "home": "東北樂天金鷲",
+        "status": "pregame",
+        "startTaipei": "17:00"
+      },
+      {
+        "away": "日本火腿鬥士",
+        "home": "千葉羅德海洋",
+        "status": "pregame",
+        "startTaipei": "17:00"
+      }
+    ],
+    "balls": null,
+    "strikes": null,
+    "outs": null,
+    "bases": null,
+    "note": "Pregame only; displayed zero placeholders from public scoreboard are not treated as played-game scores."
+  },
+  "KBO": {
+    "games": 4,
+    "pregame": 4,
+    "live": 0,
+    "final": 0,
+    "cancelled": 0,
+    "suspended": 0,
+    "sameDayLiveVerified": false,
+    "firstStartTaipei": "17:30",
+    "gamesSummary": [
+      {
+        "away": "NC恐龍",
+        "home": "斗山熊",
+        "status": "pregame",
+        "startTaipei": "17:30"
+      },
+      {
+        "away": "韓華鷹",
+        "home": "三星獅",
+        "status": "pregame",
+        "startTaipei": "17:30"
+      },
+      {
+        "away": "LG雙子",
+        "home": "SSG登陸者",
+        "status": "pregame",
+        "startTaipei": "17:30"
+      },
+      {
+        "away": "KT巫師",
+        "home": "起亞虎",
+        "status": "pregame",
+        "startTaipei": "17:30"
+      }
+    ],
+    "balls": null,
+    "strikes": null,
+    "outs": null,
+    "bases": null
+  },
+  "CPBL": {
+    "games": 2,
+    "pregame": 1,
+    "live": 0,
+    "final": 0,
+    "cancelled": 0,
+    "suspended": 1,
+    "sameDayLiveVerified": false,
+    "firstStartTaipei": "18:35",
+    "gamesSummary": [
+      {
+        "away": "樂天桃猿",
+        "home": "台鋼雄鷹",
+        "status": "pregame",
+        "startTaipei": "18:35"
+      },
+      {
+        "away": "統一獅",
+        "home": "味全龍",
+        "status": "suspended",
+        "displayState": "比賽保留",
+        "resumeListingTaipei": "18:35"
+      }
+    ],
+    "pitchCount": null,
+    "balls": null,
+    "strikes": null,
+    "outs": null,
+    "bases": null,
+    "lineupConfirmation": "source_listed_not_officially_verified",
+    "note": "The retained Uni-Lions vs Dragons listing is kept separate from live state; no unsupported live fields are inferred."
+  },
+  "secondCapturePerformed": false,
+  "secondCaptureReason": "No live first-team game was observed in this run.",
+  "productionChanged": false,
+  "productionDatabaseWritten": false,
+  "deployed": false
+}
