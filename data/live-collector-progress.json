@@ -8,17 +8,17 @@
   "baselineRunId": 34926808234,
   "baselineJobId": 104246472890,
   "baselineArtifactId": 10380098816,
-  "observedAt": "2026-09-30T12:55:20.701Z",
-  "dateAsiaTaipei": "2026-09-30",
+  "observedAt": "2026-10-01T06:46:11.228Z",
+  "dateAsiaTaipei": "2026-10-01",
   "currentGames": {
-    "NPB": 2,
-    "KBO": 5,
-    "CPBL": 3
+    "NPB": 4,
+    "KBO": 4,
+    "CPBL": 2
   },
   "currentStates": {
-    "NPB": "final",
-    "KBO": "mixed_live_final",
-    "CPBL": "live"
+    "NPB": "pregame",
+    "KBO": "pregame",
+    "CPBL": "mixed_pregame_suspended"
   },
   "databaseTest": {
     "environment": "isolated GitHub Actions PostgreSQL 16; not Render",
@@ -30,13 +30,13 @@
     "passed": true
   },
   "firstStartTaipei": {
-    "NPB": "18:00",
-    "KBO": "18:30",
+    "NPB": "17:00",
+    "KBO": "17:30",
     "CPBL": "18:35"
   },
   "sourceURLs": {
-    "NPB": "https://baseball.yahoo.co.jp/npb/schedule/?date=2026-09-30",
-    "KBO": "https://api-gw.sports.naver.com/schedule/games?upperCategoryId=kbaseball&fromDate=2026-09-30&toDate=2026-09-30&page=1&pageSize=100",
+    "NPB": "https://baseball.yahoo.co.jp/npb/schedule/?date=2026-10-01",
+    "KBO": "https://api-gw.sports.naver.com/schedule/games?upperCategoryId=kbaseball&fromDate=2026-10-01&toDate=2026-10-01&page=1&pageSize=100",
     "CPBL": "https://www.playsport.cc/livescore/6"
   },
   "liveChangeProof": {
@@ -539,6 +539,46 @@
         "jobId": null,
         "observationPath": "data/live/20260930T125520Z.json",
         "collectorFallback": true
+      }
+    },
+    "2026-10-01": {
+      "NPB": {
+        "verified": false,
+        "verifiedAt": null,
+        "source": "sportsnavi",
+        "state": "pregame",
+        "games": 4
+      },
+      "KBO": {
+        "verified": false,
+        "verifiedAt": null,
+        "source": "naver",
+        "state": "pregame",
+        "games": 4,
+        "excludedNonFirstTeamGames": 1
+      },
+      "CPBL": {
+        "verified": false,
+        "verifiedAt": null,
+        "source": "playsport-public-fallback",
+        "state": "mixed_pregame_suspended",
+        "games": 2,
+        "note": "統一獅 vs 味全龍 currently appears as 比賽保留 with three completed innings; treated as suspended, not live."
+      },
+      "allScheduledLeaguesVerified": false,
+      "allThreeLeaguesLiveVerified": false,
+      "reason": "No first-team games are live yet. NPB and KBO are pregame; CPBL has one pregame listing and one retained/suspended listing. Same-day live-change verification is pending.",
+      "evidenceRetainedIn": "data/live/",
+      "latestObservation": {
+        "capturedAt": "2026-10-01T06:46:11.228Z",
+        "artifactId": null,
+        "artifactCreatedAt": null,
+        "runId": 35688889561,
+        "runAttempt": 50,
+        "jobId": null,
+        "observationPath": null,
+        "collectorFallback": true,
+        "observationWriteBlocked": true
       }
     }
   },
