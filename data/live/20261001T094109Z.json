@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-10-01T09:41:09.008Z",
+  "dateAsiaTaipei": "2026-10-01",
+  "purpose": "current feed validation; not production deployment",
+  "collector": {
+    "runId": 35688889561,
+    "runAttempt": 50,
+    "rerunJobId": 108552526980,
+    "rerunRequestAccepted": true,
+    "jobsObserved": 0,
+    "freshArtifactAccepted": false,
+    "latestArtifactId": 10923208463,
+    "latestArtifactCreatedAt": "2026-09-27T04:44:22Z"
+  },
+  "NPB": {
+    "games": 4,
+    "state": "live",
+    "sameDayLiveVerified": true,
+    "intervalSeconds": 101.917,
+    "changes": [
+      "廣島-中日 0-0 3回裏 -> 2-0 3回裏",
+      "樂天-軟銀 0-4 2回表 -> 0-4 2回裏"
+    ],
+    "unsupported": {
+      "balls": null,
+      "strikes": null,
+      "outs": null,
+      "bases": null
+    }
+  },
+  "KBO": {
+    "games": 4,
+    "state": "live",
+    "sameDayLiveVerified": true,
+    "excludedNonFirstTeamGames": 1,
+    "intervalSeconds": 79.366,
+    "proof": "KT-KIA 1회초 -> 1회말; B/S/O 2-1-2 -> 0-0-0; bases 0/2/0 -> 0/0/0; pitcher 77637 -> 50030"
+  },
+  "CPBL": {
+    "games": 2,
+    "state": "mixed_pregame_suspended",
+    "pregame": 1,
+    "suspended": 1,
+    "live": 0,
+    "sameDayLiveVerified": false,
+    "pitchCount": null,
+    "balls": null,
+    "strikes": null,
+    "outs": null,
+    "bases": null,
+    "lineupConfirmation": "source_listed_not_officially_verified"
+  },
+  "productionChanged": false,
+  "productionDatabaseWritten": false,
+  "deployed": false
+}
