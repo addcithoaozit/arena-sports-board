@@ -1,0 +1,183 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-10-01T13:44:30.122Z",
+  "dateAsiaTaipei": "2026-10-01",
+  "purpose": "current feed validation; not production deployment",
+  "collector": {
+    "workflow": "Current baseball collector",
+    "runId": 35688889561,
+    "runAttempt": 50,
+    "latestVerifiedJobId": 108552526980,
+    "jobsObserved": 0,
+    "freshArtifactAccepted": false,
+    "staleArtifactRejected": {
+      "artifactId": 10923208463,
+      "createdAt": "2026-09-27T04:44:22Z",
+      "reason": "artifact creation date does not match 2026-10-01"
+    },
+    "collectorFallback": true
+  },
+  "NPB": {
+    "games": 4,
+    "state": "mixed_live_final",
+    "live": 1,
+    "final": 3,
+    "sameDayLiveVerified": true,
+    "proof": {
+      "source": "sportsnavi-direct-game-page",
+      "beforeCaptureStartedAt": "2026-10-01T13:40:43.323Z",
+      "beforeCaptureFinishedAt": "2026-10-01T13:40:56.373Z",
+      "afterCaptureStartedAt": "2026-10-01T13:44:20.189Z",
+      "afterCaptureFinishedAt": "2026-10-01T13:44:30.122Z",
+      "conservativeIntervalSeconds": 203.816,
+      "game": "巨人-阪神",
+      "before": {
+        "status": "live",
+        "inning": "11回表",
+        "awayScore": 2,
+        "homeScore": 2
+      },
+      "after": {
+        "status": "live",
+        "inning": "11回裏",
+        "awayScore": 2,
+        "homeScore": 2
+      },
+      "materialChange": "inning/half progressed from 11回表 to 11回裏 while live"
+    },
+    "currentAsOf": "2026-10-01T13:44:30.122Z",
+    "current": [
+      {
+        "away": "巨人",
+        "home": "阪神",
+        "awayScore": 2,
+        "homeScore": 2,
+        "status": "live",
+        "inning": "11回裏"
+      },
+      {
+        "away": "中日",
+        "home": "廣島",
+        "awayScore": 1,
+        "homeScore": 5,
+        "status": "final",
+        "inning": null
+      },
+      {
+        "away": "軟銀",
+        "home": "樂天",
+        "awayScore": 8,
+        "homeScore": 2,
+        "status": "final",
+        "inning": null
+      },
+      {
+        "away": "日本火腿",
+        "home": "羅德",
+        "awayScore": 3,
+        "homeScore": 1,
+        "status": "final",
+        "inning": null
+      }
+    ],
+    "unsupported": {
+      "balls": null,
+      "strikes": null,
+      "outs": null,
+      "bases": null,
+      "pitchCount": null
+    },
+    "sources": [
+      "https://baseball.yahoo.co.jp/npb/schedule/?date=2026-10-01",
+      "https://baseball.yahoo.co.jp/npb/game/2021048567/score"
+    ]
+  },
+  "KBO": {
+    "games": 4,
+    "state": "final",
+    "live": 0,
+    "final": 4,
+    "excludedNonFirstTeamGames": 1,
+    "sameDayLiveVerified": true,
+    "current": [
+      {
+        "gameId": "20261001HHSS02026",
+        "away": "韓華",
+        "home": "三星",
+        "awayScore": 2,
+        "homeScore": 3,
+        "status": "final"
+      },
+      {
+        "gameId": "20261001KTHT02026",
+        "away": "KT",
+        "home": "KIA",
+        "awayScore": 7,
+        "homeScore": 5,
+        "status": "final"
+      },
+      {
+        "gameId": "20261001LGSK02026",
+        "away": "LG",
+        "home": "SSG",
+        "awayScore": 5,
+        "homeScore": 6,
+        "status": "final"
+      },
+      {
+        "gameId": "20261001NCOB02026",
+        "away": "NC",
+        "home": "斗山",
+        "awayScore": 7,
+        "homeScore": 9,
+        "status": "final"
+      }
+    ],
+    "excluded": [
+      {
+        "gameId": "20261001KBO1",
+        "categoryId": "kbaseballetc",
+        "reason": "not first-team categoryId=kbo"
+      }
+    ],
+    "source": "https://api-gw.sports.naver.com/schedule/games?upperCategoryId=kbaseball&fromDate=2026-10-01&toDate=2026-10-01&page=1&pageSize=100"
+  },
+  "CPBL": {
+    "games": 2,
+    "state": "final",
+    "live": 0,
+    "final": 2,
+    "sameDayLiveVerified": true,
+    "current": [
+      {
+        "away": "樂天",
+        "home": "台鋼",
+        "awayScore": 2,
+        "homeScore": 1,
+        "status": "final"
+      },
+      {
+        "away": "統一",
+        "home": "味全",
+        "awayScore": 4,
+        "homeScore": 3,
+        "status": "final"
+      }
+    ],
+    "pitchCount": null,
+    "balls": null,
+    "strikes": null,
+    "outs": null,
+    "bases": null,
+    "lineupConfirmation": "source_listed_not_officially_verified",
+    "source": "https://www.playsport.cc/livescore/6"
+  },
+  "progressUpdate": {
+    "attempted": true,
+    "succeeded": false,
+    "reason": "standard GitHub contents update was blocked by connector safety checks"
+  },
+  "productionChanged": false,
+  "productionDatabaseWritten": false,
+  "deployed": false
+}
