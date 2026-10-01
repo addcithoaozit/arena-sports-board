@@ -1,0 +1,192 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-10-01T11:39:38.988Z",
+  "dateAsiaTaipei": "2026-10-01",
+  "purpose": "current feed validation; not production deployment",
+  "collector": {
+    "workflow": "Current baseball collector",
+    "runId": 35688889561,
+    "runAttempt": 50,
+    "rerunJobId": 108552526980,
+    "rerunRequestAccepted": true,
+    "jobsObserved": 0,
+    "freshArtifactAccepted": false,
+    "staleArtifactRejected": {
+      "artifactId": 10923208463,
+      "createdAt": "2026-09-27T04:44:22Z",
+      "reason": "artifact date does not match 2026-10-01"
+    },
+    "collectorFallback": true
+  },
+  "NPB": {
+    "games": 4,
+    "state": "mixed_live_final",
+    "live": 3,
+    "final": 1,
+    "sameDayLiveVerified": true,
+    "proof": {
+      "beforeCapturedAt": "2026-10-01T11:28:58.767Z",
+      "afterCapturedAt": "2026-10-01T11:30:27.405Z",
+      "intervalSeconds": 88.638,
+      "changes": [
+        "巨人-阪神: 7回表 -> 7回裏 while live",
+        "軟銀-樂天: 8回裏 -> 9回表 while live"
+      ]
+    },
+    "currentAsOf": "2026-10-01T11:33:23.317Z",
+    "current": [
+      {
+        "away": "巨人",
+        "home": "阪神",
+        "awayScore": 1,
+        "homeScore": 1,
+        "status": "live",
+        "inning": "7回裏"
+      },
+      {
+        "away": "中日",
+        "home": "廣島",
+        "awayScore": 1,
+        "homeScore": 5,
+        "status": "final",
+        "inning": null
+      },
+      {
+        "away": "軟銀",
+        "home": "樂天",
+        "awayScore": 8,
+        "homeScore": 1,
+        "status": "live",
+        "inning": "9回表"
+      },
+      {
+        "away": "日本火腿",
+        "home": "羅德",
+        "awayScore": 3,
+        "homeScore": 0,
+        "status": "live",
+        "inning": "8回裏"
+      }
+    ],
+    "unsupported": {
+      "balls": null,
+      "strikes": null,
+      "outs": null,
+      "bases": null
+    },
+    "source": "https://baseball.yahoo.co.jp/npb/schedule/?date=2026-10-01"
+  },
+  "KBO": {
+    "games": 4,
+    "state": "live",
+    "live": 4,
+    "final": 0,
+    "excludedNonFirstTeamGames": 1,
+    "sameDayLiveVerified": true,
+    "proof": {
+      "gameId": "20261001KTHT02026",
+      "beforeCapturedAt": "2026-10-01T11:30:27.405Z",
+      "afterCapturedAt": "2026-10-01T11:33:23.317Z",
+      "intervalSeconds": 175.912,
+      "score": {
+        "awayBefore": 5,
+        "homeBefore": 2,
+        "awayAfter": 5,
+        "homeAfter": 2
+      },
+      "inningBefore": "6회초",
+      "inningAfter": "6회초",
+      "balls": {
+        "before": 0,
+        "after": 0
+      },
+      "strikes": {
+        "before": 0,
+        "after": 2
+      },
+      "outs": {
+        "before": 0,
+        "after": 0
+      },
+      "bases": {
+        "before": [
+          false,
+          false,
+          false
+        ],
+        "after": [
+          false,
+          false,
+          false
+        ]
+      },
+      "currentPitcher": {
+        "id": "52641",
+        "name": "황동하",
+        "pitchCountBefore": 31,
+        "pitchCountAfter": 33,
+        "inningsPitchedBefore": "1.1",
+        "inningsPitchedAfter": "1.1"
+      }
+    },
+    "currentAsOf": "2026-10-01T11:33:23.317Z",
+    "detailSource": "https://api-gw.sports.naver.com/schedule/games/20261001KTHT02026/game-polling",
+    "scheduleSource": "https://api-gw.sports.naver.com/schedule/games?upperCategoryId=kbaseball&fromDate=2026-10-01&toDate=2026-10-01&page=1&pageSize=100"
+  },
+  "CPBL": {
+    "games": 2,
+    "state": "live",
+    "live": 2,
+    "pregame": 0,
+    "suspended": 0,
+    "final": 0,
+    "sameDayLiveVerified": true,
+    "proof": {
+      "source": "playsport-public-fallback",
+      "firstObservationNoLaterThan": "2026-10-01T11:28:58.767Z",
+      "secondObservationAt": "2026-10-01T11:39:38.988Z",
+      "minimumIntervalSeconds": 640.221,
+      "game": "統一-味全",
+      "change": "inning table 4th inning changed from blank at the earlier observation to 3 runs at the later observation; later source also showed 5局下",
+      "corroboration": "Yahoo TW direct game page reports yGameStatus=live / IN_PROGRESS for cpbl.g.261001326 and score 3-0"
+    },
+    "currentAsOf": "2026-10-01T11:39:38.988Z",
+    "current": [
+      {
+        "gameId": "cpbl.g.261001277",
+        "away": "樂天",
+        "home": "台鋼",
+        "awayScore": 1,
+        "homeScore": 0,
+        "status": "live"
+      },
+      {
+        "gameId": "cpbl.g.261001326",
+        "away": "統一",
+        "home": "味全",
+        "awayScore": 3,
+        "homeScore": 0,
+        "status": "live"
+      }
+    ],
+    "dataQualityWarning": {
+      "source": "playsport.cc",
+      "key": "CPBL:261001326",
+      "warning": "scoreboard total displayed 0-0 while inning row showed 3 runs in the 4th; Yahoo TW direct payload showed IN_PROGRESS and 3-0, so the Playsport total was not promoted as authoritative"
+    },
+    "pitchCount": null,
+    "balls": null,
+    "strikes": null,
+    "outs": null,
+    "bases": null,
+    "lineupConfirmation": "source_listed_not_officially_verified",
+    "sources": [
+      "https://www.playsport.cc/livescore/6",
+      "https://tw.sports.yahoo.com/cpbl/%E7%B5%B1%E4%B8%80-%E7%8D%85-%E5%91%B3%E5%85%A8-%E9%BE%8D-261001326/",
+      "https://tw.sports.yahoo.com/cpbl/%E6%A8%82%E5%A4%A9-%E6%A1%83%E7%8C%BF-%E5%8F%B0%E9%8B%BC-%E9%9B%84%E9%B7%B9-261001277/"
+    ]
+  },
+  "productionChanged": false,
+  "productionDatabaseWritten": false,
+  "deployed": false
+}
