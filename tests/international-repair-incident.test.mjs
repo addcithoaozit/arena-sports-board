@@ -41,3 +41,14 @@ test('CPBL future schedule remains visible when a box score is not yet published
  const result=await collectLeague('CPBL',{date:'2026-09-24',fetcher:async url=>new Response(String(url).includes('/teams/')?html:'<title>game</title>')});
  assert.equal(result.games.length,1);assert.equal(result.games[0].status,'pregame');assert.equal(result.games[0].starters.away,null);assert.equal(result.games[0].away.score,null);assert.equal(result.status,'partial');
 });
+test('Chiba Long announcement keeps matching season data; actual starter changes still block',()=>{
+ assert.equal(pitcherIdentity('Ｓ・ロング','NPB','千葉羅德'),pitcherIdentity('ロング','NPB','千葉羅德海洋'));
+ assert.notEqual(pitcherIdentity('A・ロング','NPB','千葉羅德'),pitcherIdentity('ロング','NPB','千葉羅德'));
+ assert.notEqual(pitcherIdentity('S・ロング','NPB','阪神虎'),pitcherIdentity('ロング','NPB','阪神虎'));
+ const starter=name=>({name,season:{era:'3.50',whip:'1.20'},quality:'source_reported'});
+ const game={id:'long-regression',league:'NPB',date:'2026-10-01',start:'2026-10-01 17:00:00',kind:'pregame_snapshot',source:{observedAt:'2026-10-01T07:00:00Z'},away:{team:'北海道日本火腿鬥士',starter:starter('北山亘基')},home:{team:'千葉羅德海洋',starter:starter('ロング')}};
+ const fixture={id:'official',start:game.start,away:game.away.team,home:game.home.team,live:false,displayMarkets:[],starters:{away:'北山 亘基',home:'S・ロング'}};
+ const snapshot={league:'NPB',season:2026,date:game.date,games:[game]};
+ assert.equal(mergePregameFixtures([fixture],snapshot,'NPB')[0].pregame.home.starter.season.whip,'1.20');
+ assert.equal(mergePregameFixtures([{...fixture,starters:{...fixture.starters,home:'ジャクソン'}}],snapshot,'NPB')[0].pregame,undefined);
+});

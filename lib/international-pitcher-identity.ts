@@ -8,5 +8,8 @@ export function pitcherIdentity(name:string,league:string,team:string){
  if(league==='NPB'&&t==='千葉羅德海洋'&&['jackson','aジャクソン','ジャクソン'].includes(n))return 'npb-m-jackson';
  // NPB announcement/season table uses ルケーシー; Sportsnavi uses J・ルケーシー.
  if(league==='NPB'&&t==='千葉羅德海洋'&&['ルケーシー','jルケーシー'].includes(n))return 'npb-m-lucchesi';
+ // NPB season row ロング and the announced starter S・ロング are
+ // the same Chiba pitcher; retain team scope and reject other initials.
+ if(league==='NPB'&&t==='千葉羅德海洋'&&['ロング','sロング'].includes(n))return 'npb-m-long';
  return n;
 }
