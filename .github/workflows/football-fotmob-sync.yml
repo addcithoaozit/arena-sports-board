@@ -1,0 +1,42 @@
+name: Football xG source collection
+
+on:
+  schedule:
+    # 04:25 Asia/Taipei. GitHub may delay scheduled jobs.
+    - cron: '25 20 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: football-fotmob-source
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate source parser
+        run: python -m unittest discover -s tests -p test_football_fotmob.py -v
+      - name: Restore previously verified source records
+        uses: actions/cache@v4
+        with:
+          path: data/football/fotmob
+          key: fotmob-v1-${{ github.run_id }}
+          restore-keys: fotmob-v1-
+      - name: Refresh public current-season data
+        run: python scripts/football-fotmob/sync.py --seasons latest --limit 250
+      - name: Preserve data and quality reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: football-fotmob-source-${{ github.run_id }}
+          path: data/football/fotmob
+          retention-days: 30
+          if-no-files-found: error
