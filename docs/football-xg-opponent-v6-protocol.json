@@ -1,0 +1,21 @@
+{
+  "version": "football-xg-opponent-v6-20261002",
+  "frozenBeforeFit": "2026-10-02",
+  "scope": ["ger.1", "ita.1", "uefa.champions", "uefa.nations"],
+  "unchangedValidatedModels": ["eng.1", "esp.1", "fra.1"],
+  "family": "regularized correction to each deployed model using opponent-adjusted historical goal and xG attack/defence",
+  "candidateGrid": {"decayDays": [90, 180], "ridge": [0.01, 0.1, 1], "blend": [0.25, 0.5, 1]},
+  "opponentAdjustment": {"priorGames": 5, "opponentRatioBounds": [0.5, 2], "clubLookbackDays": 365, "nationalLookbackDays": 730, "maxTeamMatches": 20},
+  "correctionBounds": {"intercepts": [-0.3, 0.3], "goalStrengthAndXgCoefficients": [0, 1], "additionalScoreGridTilts": [-0.2, 0.2]},
+  "sourceGates": {"minimumXgGamesPerTeam": 5, "minimumXgCoverage": 0.8, "latestXgResultDays": 120, "missingXgIsZero": false, "excludeExtraTimeUnlessRegulationVerified": true, "neutralVenueMustBeVerified": true},
+  "splits": {
+    "domestic": {"training": [2015, 2020], "selection": [2021, 2022], "regressionAudit": [2023, 2024], "audit2025": [2025, 2025], "audit2026": [2026, 2026], "minimumSamples": {"training": 500, "selection": 100, "regressionAudit": 160, "audit2025": 60, "audit2026": 60}},
+    "champions": {"training": [2021, 2022], "selection": [2023, 2023], "holdout": [2024, 2025], "audit2026": [2026, 2026], "minimumSamples": {"training": 120, "selection": 60, "holdout": 120, "audit2026": 40}},
+    "nations": {"training": ["2021-01-01", "2024-01-01"], "selection": ["2024-09-01", "2024-10-01"], "holdout": ["2024-10-01", "2026-01-01"], "audit2026": ["2026-01-01", "2027-01-01"], "minimumSamples": {"training": 80, "selection": 20, "holdout": 60, "audit2026": 20}}
+  },
+  "selectionRule": "Fit all coefficients and score-grid corrections on training only; select the converged candidate with the best selection log loss among candidates passing every selection metric. Freeze one winner before later audits; do not search later splits for another winner.",
+  "acceptance": {"logLoss": "strictly better than deployed competition model", "multiclassBrier": "no worse", "over25BrierMaximumIncrease": 0.002, "bttsBrierMaximumIncrease": 0.002, "applyToEveryNamedEvaluationSplit": true, "requireNonzeroXgCoefficient": true},
+  "leakageControls": ["exclude target fixture and all same-UTC-day results", "build opponent features using only data prior to each historical match", "verify provider team IDs, fixture dates, scores and neutral venues", "compare on identical eligible fixtures", "keep a rejected candidate disabled", "report coverage and fallback behavior"],
+  "interpretation": "Domestic 2023-2026 outcomes were inspected in earlier development; these are regression audits, not pristine independent validation. Newly collected cup history is evaluated only after freezing the selection. Historical improvements are not guarantees of future accuracy.",
+  "fallback": "Retain the deployed model whenever the new league gate, identity, coverage or freshness check fails. Do not manufacture xG or alter a team's probability to match rankings or a desired result."
+}

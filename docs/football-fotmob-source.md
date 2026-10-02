@@ -20,7 +20,7 @@ Output: `data/football/fotmob/<competition>-<season>.json`. `--limit` bounds new
 match requests per competition/season and reports deferred records as incomplete.
 The collector uses Python's standard library, one request at a time with at
 least 1.25 seconds between starts. It does not use cloudscraper, access tokens,
-cookies, browser impersonation, proxies or private signed APIs. HTTP 401/403/429
+cookies, browser impersonation, proxy rotation or private signed APIs. HTTP 401/403/429
 stops the run without replacing the last saved dataset. A failed-run report is
 saved separately. There is no automatic retry around access denials.
 
@@ -53,23 +53,38 @@ Verified examples:
 ## Daily job and model boundary
 
 `football-fotmob-sync.yml` requests a run at 20:25 UTC / 04:25 Asia/Taipei.
-GitHub Actions scheduling is best effort. It refreshes current-season source
-data, reuses verified older records and saves quality reports as Actions
-artifacts. It has read-only repository permissions and does not write to main,
-deploy Render, alter production predictions or enable model candidates.
+GitHub Actions scheduling is best effort. Each run collects current-season xG,
+refreshes ESPN identity and venue evidence, cross-checks both providers and
+rebuilds `data/football/cup-xg-history.json`. Tests run before the job commits
+only generated data to main; Render can then deploy that data through the
+existing automatic deployment. A concurrent main change causes a safe push
+failure rather than an overwrite. No credentials or cookies are needed.
 
-All rows have `modelEligible: false`; the dataset has `modelEnabled: false`.
-Provider IDs must still be mapped and checked against the production fixture
-identities. Neutral venue is explicitly unknown (`null`) until verified; it is
-never assumed false. Qualification/playoff competitions remain separately
-identified. Neither a successful download nor a high coverage percentage is a
-model-validation result.
+HTTP denial, transport failure or an exhausted request budget stops publication.
+Historical source records and compact primary fixture evidence are committed so
+Actions caches are not required for continuity. Missing xG and unresolved venues
+stay excluded. EURO 2023 qualification has a narrowly scoped legacy parent
+mapping; an ordinary EURO match cannot pass that exception.
 
-Before production use, collect sufficient earlier seasons, join identities and
-neutral venues, freeze a chronological fitting/selection/holdout protocol, and
-compare the candidate against the currently deployed competition model. Do not
-enable a failed candidate or tune repeatedly on the holdout set. In particular,
-this source addition does not change the failed Germany/Italy candidate gates.
+`lib/football-cup-xg-source.ts` attaches source evidence to the existing analysis
+response for Champions League and Nations League. Its `modelApplied` field is
+always false. This enrichment does not alter probabilities, recommendations,
+model versions or the user-facing screen. Raw averages describe available
+verified matches, not a calibrated forecast or a claim of complete coverage.
 
-User-provided HAR files and full page HTML are not included in the repository.
-Test fixtures contain only the public match data needed to verify the parser.
+The four v6 candidates were evaluated under the frozen protocol in
+`docs/football-xg-opponent-v6-protocol.json`. Full results are in
+`docs/football-opponent-xg-v6-results.json`. Germany, Italy, Champions League and
+Nations League remain disabled because at least one fixed gate failed.
+The existing EPL/Spain/France xG models and other active models remain in place.
+Do not reinterpret successful collection or unit tests as statistical validation.
+
+National xG history pools Nations League, EURO, World Cup and UEFA qualifying
+fixtures while preserving each original competition. Friendlies are not added
+as substitute xG. Regulation time excludes extra time and penalty shootouts.
+Away-country tournament hosts remain excluded because they require a reverse
+home-advantage treatment rather than a neutral flag.
+
+User-provided HAR files, cookies, full HTML and raw ESPN responses are not
+included in the repository. Compact public match and fixture data are retained
+for reproducibility. Local cache pages are never uploaded.

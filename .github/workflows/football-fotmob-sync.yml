@@ -1,13 +1,13 @@
-name: Football xG source collection
+name: Football xG source refresh
 
 on:
   schedule:
-    # 04:25 Asia/Taipei. GitHub may delay scheduled jobs.
+    # 04:25 Asia/Taipei. GitHub can delay scheduled jobs.
     - cron: '25 20 * * *'
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
   group: football-fotmob-source
@@ -22,21 +22,39 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Validate source parser
-        run: python -m unittest discover -s tests -p test_football_fotmob.py -v
-      - name: Restore previously verified source records
-        uses: actions/cache@v4
+      - uses: actions/setup-node@v4
         with:
-          path: data/football/fotmob
-          key: fotmob-v1-${{ github.run_id }}
-          restore-keys: fotmob-v1-
-      - name: Refresh public current-season data
+          node-version: '24'
+      - name: Install locked project dependencies
+        run: npm ci --ignore-scripts
+      - name: Validate source parser and identity join
+        run: python -m unittest discover -s tests -p 'test_football_*.py' -v
+      - name: Refresh public current-season xG
         run: python scripts/football-fotmob/sync.py --seasons latest --limit 250
-      - name: Preserve data and quality reports
+      - name: Refresh primary identity and venue evidence
+        run: node scripts/football-fotmob/refresh_espn.mjs
+      - name: Build verified website dataset
+        run: python scripts/football-fotmob/build_history.py
+      - name: Check chronology and safe production integration
+        run: node --test tests/football-opponent-xg.test.mjs tests/football-cup-xg.test.mjs
+      - name: Publish only validated source data
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/football/fotmob/*.json data/football/cup-fixtures/*.json data/football/cup-xg-history.json docs/football-cup-source-quality.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Refresh verified football xG source data'
+            # Never overwrite changes made while this collection was running.
+            git push origin HEAD:main
+          fi
+      - name: Preserve collection reports
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: football-fotmob-source-${{ github.run_id }}
-          path: data/football/fotmob
+          path: |
+            data/football/fotmob
+            docs/football-cup-source-quality.json
           retention-days: 30
           if-no-files-found: error

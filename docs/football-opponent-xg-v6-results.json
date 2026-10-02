@@ -1,0 +1,376 @@
+{
+  "version": "football-opponent-xg-v6-20261002",
+  "evaluatedAt": "2026-10-02T16:28:59.972122+00:00",
+  "productionModelChanged": false,
+  "dataRefreshEnabled": true,
+  "protocolSha256": "f27470f20037c57f08c6f77f3d813bd004b8ea363389b9f35957d5e17a98d5b8",
+  "leagues": {
+    "ger.1": {
+      "enabled": false,
+      "reasons": [
+        "audit2026_gate_failed"
+      ],
+      "parameters": {
+        "decayDays": 180,
+        "lookbackDays": 365,
+        "blend": 1,
+        "coefficients": [
+          0.027970141607277017,
+          0.025698184386143137,
+          0.0031470927475196193,
+          0.03627015899564312,
+          0.1568341390110275,
+          0.17500381745173374
+        ],
+        "tilts": [
+          0.03299088795538919,
+          -0.0354140389561027,
+          0.004812150527754349
+        ]
+      },
+      "sampleSizes": {
+        "training": 1708,
+        "selection": 610,
+        "regressionAudit": 591,
+        "audit2025": 296,
+        "audit2026": 196
+      },
+      "metrics": {
+        "selection": {
+          "baseline": {
+            "n": 610,
+            "logLoss": 1.0008936225331058,
+            "brier": 0.5964466115430959,
+            "over25Brier": 0.23802789003484018,
+            "bttsBrier": 0.24167416268076086
+          },
+          "candidate": {
+            "n": 610,
+            "logLoss": 0.9967887660010102,
+            "brier": 0.5936451620931357,
+            "over25Brier": 0.23745731571862863,
+            "bttsBrier": 0.24115709547268963
+          }
+        },
+        "regressionAudit": {
+          "baseline": {
+            "n": 591,
+            "logLoss": 0.9889331367440432,
+            "brier": 0.5919709489467568,
+            "over25Brier": 0.23258699378635897,
+            "bttsBrier": 0.23380204756113662
+          },
+          "candidate": {
+            "n": 591,
+            "logLoss": 0.9845180624612555,
+            "brier": 0.5882289534633286,
+            "over25Brier": 0.2327890947313663,
+            "bttsBrier": 0.23425366428673727
+          }
+        },
+        "audit2025": {
+          "baseline": {
+            "n": 296,
+            "logLoss": 1.0171231399645067,
+            "brier": 0.608951749461768,
+            "over25Brier": 0.23864885836469052,
+            "bttsBrier": 0.25310883283312197
+          },
+          "candidate": {
+            "n": 296,
+            "logLoss": 1.0091017698590699,
+            "brier": 0.6030458607324647,
+            "over25Brier": 0.24010711599770085,
+            "bttsBrier": 0.25456247818721517
+          }
+        },
+        "audit2026": {
+          "baseline": {
+            "n": 196,
+            "logLoss": 0.973852113958219,
+            "brier": 0.5770514784081735,
+            "over25Brier": 0.2142000602057224,
+            "bttsBrier": 0.2242856611393509
+          },
+          "candidate": {
+            "n": 196,
+            "logLoss": 0.9740043842126211,
+            "brier": 0.5768126779609531,
+            "over25Brier": 0.21146132823939098,
+            "bttsBrier": 0.22257308590906963
+          }
+        }
+      },
+      "protocolSha256": "f27470f20037c57f08c6f77f3d813bd004b8ea363389b9f35957d5e17a98d5b8",
+      "selectionSha256": "61debd3a20bb07bc8ba5640ece616d9f05cbfc21cafeac7aa2864d7bf7d0e1e6"
+    },
+    "ita.1": {
+      "enabled": false,
+      "reasons": [
+        "regressionAudit_gate_failed",
+        "audit2025_gate_failed"
+      ],
+      "parameters": {
+        "decayDays": 90,
+        "lookbackDays": 365,
+        "blend": 1,
+        "coefficients": [
+          -0.002109896959579125,
+          0.042169964920328845,
+          0.0,
+          0.07291304315887659,
+          0.14436391852800257,
+          0.1607874231472333
+        ],
+        "tilts": [
+          0.0407808816515581,
+          -0.03131035523127978,
+          -0.03908611510056918
+        ]
+      },
+      "sampleSizes": {
+        "training": 2150,
+        "selection": 743,
+        "regressionAudit": 758,
+        "audit2025": 354,
+        "audit2026": 250
+      },
+      "metrics": {
+        "selection": {
+          "baseline": {
+            "n": 743,
+            "logLoss": 0.964754001714781,
+            "brier": 0.5722877581064666,
+            "over25Brier": 0.24724708602025555,
+            "bttsBrier": 0.24401427673514428
+          },
+          "candidate": {
+            "n": 743,
+            "logLoss": 0.9637691252191253,
+            "brier": 0.5709135718069535,
+            "over25Brier": 0.24892983914193711,
+            "bttsBrier": 0.24475158038742276
+          }
+        },
+        "regressionAudit": {
+          "baseline": {
+            "n": 758,
+            "logLoss": 0.9979815223280313,
+            "brier": 0.5979523392595263,
+            "over25Brier": 0.24963716267608127,
+            "bttsBrier": 0.2511692534898879
+          },
+          "candidate": {
+            "n": 758,
+            "logLoss": 0.9991810028085893,
+            "brier": 0.5979041127568362,
+            "over25Brier": 0.24935291695681722,
+            "bttsBrier": 0.25141469996814675
+          }
+        },
+        "audit2025": {
+          "baseline": {
+            "n": 354,
+            "logLoss": 1.0001895544444381,
+            "brier": 0.5981913927073209,
+            "over25Brier": 0.24978098325988995,
+            "bttsBrier": 0.25099834682053934
+          },
+          "candidate": {
+            "n": 354,
+            "logLoss": 1.0009184182887458,
+            "brier": 0.5979411413726843,
+            "over25Brier": 0.2519265653634308,
+            "bttsBrier": 0.2518611517471589
+          }
+        },
+        "audit2026": {
+          "baseline": {
+            "n": 250,
+            "logLoss": 0.9812857607802197,
+            "brier": 0.5843924734887304,
+            "over25Brier": 0.25402591462358354,
+            "bttsBrier": 0.24995293825120166
+          },
+          "candidate": {
+            "n": 250,
+            "logLoss": 0.9753558939999057,
+            "brier": 0.5801033193228076,
+            "over25Brier": 0.25157263779416456,
+            "bttsBrier": 0.2511754161233714
+          }
+        }
+      },
+      "protocolSha256": "f27470f20037c57f08c6f77f3d813bd004b8ea363389b9f35957d5e17a98d5b8",
+      "selectionSha256": "0b9e93fb3a5ac44a03301a797797a10fdc96e4a3f341f4346f3b2cc5753a6662"
+    },
+    "uefa.champions": {
+      "enabled": false,
+      "reasons": [
+        "selection_gate_failed",
+        "audit2026_gate_failed",
+        "selection_sample_small",
+        "no_selection_eligible_candidate"
+      ],
+      "parameters": {
+        "decayDays": 180,
+        "lookbackDays": 365,
+        "blend": 0.25,
+        "coefficients": [
+          -0.058701378717263435,
+          0.11501586466215344,
+          0.0029083544318946894,
+          0.0,
+          0.0,
+          0.010665754670362784
+        ],
+        "tilts": [
+          -0.025368049432576513,
+          -0.02567864815260123,
+          0.01578529879188854
+        ]
+      },
+      "sampleSizes": {
+        "training": 121,
+        "selection": 55,
+        "holdout": 186,
+        "audit2026": 81
+      },
+      "metrics": {
+        "selection": {
+          "baseline": {
+            "n": 55,
+            "logLoss": 0.8910914824840724,
+            "brier": 0.5190640448130966,
+            "over25Brier": 0.26395707485917447,
+            "bttsBrier": 0.27171390578240684
+          },
+          "candidate": {
+            "n": 55,
+            "logLoss": 0.8922809983968087,
+            "brier": 0.5196316852462493,
+            "over25Brier": 0.2641087031088567,
+            "bttsBrier": 0.27272777752738764
+          }
+        },
+        "holdout": {
+          "baseline": {
+            "n": 186,
+            "logLoss": 0.9704488444600583,
+            "brier": 0.576702556928111,
+            "over25Brier": 0.22760477054886874,
+            "bttsBrier": 0.23942077639330472
+          },
+          "candidate": {
+            "n": 186,
+            "logLoss": 0.9697031289387481,
+            "brier": 0.5764435373504487,
+            "over25Brier": 0.22750500844062355,
+            "bttsBrier": 0.23917320316423363
+          }
+        },
+        "audit2026": {
+          "baseline": {
+            "n": 81,
+            "logLoss": 0.9565246929025717,
+            "brier": 0.5676618421056862,
+            "over25Brier": 0.23743568625735942,
+            "bttsBrier": 0.24131171886440222
+          },
+          "candidate": {
+            "n": 81,
+            "logLoss": 0.957188019678531,
+            "brier": 0.5679623180538856,
+            "over25Brier": 0.2374519737918841,
+            "bttsBrier": 0.24147466008344243
+          }
+        }
+      },
+      "protocolSha256": "f27470f20037c57f08c6f77f3d813bd004b8ea363389b9f35957d5e17a98d5b8",
+      "selectionSha256": "51c961f35fee6abbd8a1fc0d89f6e851518baed9daeecbeb3f782608886a4494"
+    },
+    "uefa.nations": {
+      "enabled": false,
+      "reasons": [
+        "holdout_gate_failed",
+        "audit2026_gate_failed"
+      ],
+      "parameters": {
+        "decayDays": 180,
+        "lookbackDays": 730,
+        "blend": 1,
+        "coefficients": [
+          0.01107017427194879,
+          0.014343472226378861,
+          0.0,
+          0.006938260728096948,
+          0.021896818803361404,
+          0.01554430998623361
+        ],
+        "tilts": [
+          -0.007555475976520414,
+          -0.015183789180080808,
+          -0.008418707183809835
+        ]
+      },
+      "sampleSizes": {
+        "training": 128,
+        "selection": 31,
+        "holdout": 106,
+        "audit2026": 35
+      },
+      "metrics": {
+        "selection": {
+          "baseline": {
+            "n": 31,
+            "logLoss": 0.9330910459270392,
+            "brier": 0.5464671729491947,
+            "over25Brier": 0.24875576841407152,
+            "bttsBrier": 0.24300484887107926
+          },
+          "candidate": {
+            "n": 31,
+            "logLoss": 0.9315231645178146,
+            "brier": 0.5454429080339206,
+            "over25Brier": 0.24888102128128484,
+            "bttsBrier": 0.24376875081252689
+          }
+        },
+        "holdout": {
+          "baseline": {
+            "n": 106,
+            "logLoss": 0.9795038983909695,
+            "brier": 0.5878456847687225,
+            "over25Brier": 0.24456803164807103,
+            "bttsBrier": 0.24485819657074454
+          },
+          "candidate": {
+            "n": 106,
+            "logLoss": 0.9814565609346764,
+            "brier": 0.5886985825705332,
+            "over25Brier": 0.24412787352314871,
+            "bttsBrier": 0.24468494708192393
+          }
+        },
+        "audit2026": {
+          "baseline": {
+            "n": 35,
+            "logLoss": 1.0071232976620164,
+            "brier": 0.6028642166476021,
+            "over25Brier": 0.26675051378004905,
+            "bttsBrier": 0.24741909289832265
+          },
+          "candidate": {
+            "n": 35,
+            "logLoss": 1.0077016590863614,
+            "brier": 0.602828690394023,
+            "over25Brier": 0.2675924613870395,
+            "bttsBrier": 0.24874894266960784
+          }
+        }
+      },
+      "protocolSha256": "f27470f20037c57f08c6f77f3d813bd004b8ea363389b9f35957d5e17a98d5b8",
+      "selectionSha256": "4b42ee317aefee52760e5e801f8e3af350aa0211c4c4f0e51cff3e8054d6e1dc"
+    }
+  }
+}

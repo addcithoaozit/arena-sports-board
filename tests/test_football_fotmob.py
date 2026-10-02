@@ -22,6 +22,40 @@ def parse(data):
 
 
 class FotmobTests(unittest.TestCase):
+    def test_historical_qualification_parent_requires_specific_label_and_season(self):
+        data = sample("champions-final")
+        data.update(competition="euro-qualifying", season="2023")
+        data["page"]["general"].update(parentLeagueId=50, leagueName="EURO Qualification Grp. H")
+        self.assertEqual(parse(data)["league"], "uefa.euroq")
+        for label, season in [("EURO Grp. H", "2023"), ("EURO Qualification Grp. H", "2024")]:
+            data["page"]["general"]["leagueName"] = label
+            data["season"] = season
+            with self.assertRaisesRegex(sync.InvalidData, "competition_mismatch"):
+                parse(data)
+
+    def test_legacy_fulltime_with_only_all_period(self):
+        data = sample("champions-final")
+        periods = data["page"]["content"]["stats"]["Periods"]
+        data["page"]["content"]["stats"]["Periods"] = {"All": periods["All"]}
+        result = parse(data)
+        self.assertEqual([result["homeXg"], result["awayXg"]], [2.08, 1.13])
+
+    def test_legacy_extra_time_cannot_use_full_match_total(self):
+        data = sample()
+        periods = data["page"]["content"]["stats"]["Periods"]
+        data["page"]["content"]["stats"]["Periods"] = {"All": periods["All"]}
+        with self.assertRaisesRegex(sync.InvalidData, "extra_time_without_regulation_xg"):
+            parse(data)
+
+    def test_legacy_basic_half_stats_without_half_xg(self):
+        data = sample("champions-final")
+        periods = data["page"]["content"]["stats"]["Periods"]
+        for key in ("FirstHalf", "SecondHalf"):
+            for group in periods[key]["stats"]:
+                group["stats"] = [s for s in group["stats"] if s.get("key") != "expected_goals"]
+        result = parse(data)
+        self.assertEqual([result["homeXg"], result["awayXg"]], [2.08, 1.13])
+
     def test_regulation_excludes_extra_time_and_shootout(self):
         result = parse(sample())
         self.assertEqual([result["homeGoals"], result["awayGoals"]], [2, 2])
@@ -121,6 +155,20 @@ class FotmobTests(unittest.TestCase):
                 if "/leagues/" in url:
                     return {"details": {"id": 9806, "selectedSeason": "2024/2025"}, "fixtures": {"allMatches": [data["fixture"]]}}
                 raise sync.AccessStopped("source_http_429")
+        with tempfile.TemporaryDirectory() as directory:
+            path = pathlib.Path(directory) / "nations-a-2024-2025.json"
+            path.write_text('{"games":[],"sentinel":true}')
+            with self.assertRaises(sync.AccessStopped):
+                sync.sync(Client(), "nations-a", "2024-2025", pathlib.Path(directory))
+            self.assertTrue(json.loads(path.read_text())["sentinel"])
+
+    def test_network_failure_keeps_previous_dataset(self):
+        data = sample()
+        class Client:
+            def get(self, url):
+                if "/leagues/" in url:
+                    return {"details": {"id": 9806, "selectedSeason": "2024/2025"}, "fixtures": {"allMatches": [data["fixture"]]}}
+                raise TimeoutError('temporary transport failure')
         with tempfile.TemporaryDirectory() as directory:
             path = pathlib.Path(directory) / "nations-a-2024-2025.json"
             path.write_text('{"games":[],"sentinel":true}')

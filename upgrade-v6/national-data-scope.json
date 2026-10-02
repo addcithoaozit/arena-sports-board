@@ -1,0 +1,10 @@
+{
+ "fixedBeforeNationalFit": true,
+ "target": "uefa.nations",
+ "historicalFeaturePool": ["uefa.nations", "uefa.euro", "uefa.euroq", "fifa.world", "fifa.worldq.uefa"],
+ "reason": "A national team's recent official form spans competitions; Nations League alone has multi-year gaps. Preserve each source competition identity and use the predeclared 730-day chronological feature window.",
+ "baselineGoalPool": "Existing production national model: UEFA teams' official international fixtures plus friendlies weighted 0.2.",
+ "identity": "Exact reviewed names plus ordered provider IDs, same kickoff, final-score agreement, verified venue classification.",
+ "unresolved": "Reject unresolved venues, fixture conflicts and non-UEFA-only games outside the production opponent pool.",
+ "selectionAndGates": "Unchanged from docs/football-xg-opponent-v6-protocol.json. No coefficients, validation outcomes or thresholds changed."
+}

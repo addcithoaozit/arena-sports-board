@@ -1,0 +1,85 @@
+{
+  "enabled": false,
+  "reasons": [
+    "selection_gate_failed",
+    "audit2026_gate_failed",
+    "selection_sample_small",
+    "no_selection_eligible_candidate"
+  ],
+  "parameters": {
+    "decayDays": 180,
+    "lookbackDays": 365,
+    "blend": 0.25,
+    "coefficients": [
+      -0.058701378717263435,
+      0.11501586466215344,
+      0.0029083544318946894,
+      0.0,
+      0.0,
+      0.010665754670362784
+    ],
+    "tilts": [
+      -0.025368049432576513,
+      -0.02567864815260123,
+      0.01578529879188854
+    ]
+  },
+  "sampleSizes": {
+    "training": 121,
+    "selection": 55,
+    "holdout": 186,
+    "audit2026": 81
+  },
+  "metrics": {
+    "selection": {
+      "baseline": {
+        "n": 55,
+        "logLoss": 0.8910914824840724,
+        "brier": 0.5190640448130966,
+        "over25Brier": 0.26395707485917447,
+        "bttsBrier": 0.27171390578240684
+      },
+      "candidate": {
+        "n": 55,
+        "logLoss": 0.8922809983968087,
+        "brier": 0.5196316852462493,
+        "over25Brier": 0.2641087031088567,
+        "bttsBrier": 0.27272777752738764
+      }
+    },
+    "holdout": {
+      "baseline": {
+        "n": 186,
+        "logLoss": 0.9704488444600583,
+        "brier": 0.576702556928111,
+        "over25Brier": 0.22760477054886874,
+        "bttsBrier": 0.23942077639330472
+      },
+      "candidate": {
+        "n": 186,
+        "logLoss": 0.9697031289387481,
+        "brier": 0.5764435373504487,
+        "over25Brier": 0.22750500844062355,
+        "bttsBrier": 0.23917320316423363
+      }
+    },
+    "audit2026": {
+      "baseline": {
+        "n": 81,
+        "logLoss": 0.9565246929025717,
+        "brier": 0.5676618421056862,
+        "over25Brier": 0.23743568625735942,
+        "bttsBrier": 0.24131171886440222
+      },
+      "candidate": {
+        "n": 81,
+        "logLoss": 0.957188019678531,
+        "brier": 0.5679623180538856,
+        "over25Brier": 0.2374519737918841,
+        "bttsBrier": 0.24147466008344243
+      }
+    }
+  },
+  "protocolSha256": "f27470f20037c57f08c6f77f3d813bd004b8ea363389b9f35957d5e17a98d5b8",
+  "selectionSha256": "51c961f35fee6abbd8a1fc0d89f6e851518baed9daeecbeb3f782608886a4494"
+}

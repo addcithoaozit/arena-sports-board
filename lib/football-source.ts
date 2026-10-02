@@ -1,4 +1,5 @@
 import {loadNationalFootballPool} from './football-national-source';
+import {attachCupXgEvidence} from './football-cup-xg-source';
 import {applyNationalFootballModel,NATIONAL_MODEL_VERSION} from './football-national-model';
 import {analyzeFootball,footballDay,isFootballNationalCompetition,needsFootballRecentForm,parseFootballEvents,parseFootballTeamHistory,shiftFootballDay,type FootballGame,type FootballLeague} from './football';
 import {archivedFootballHistory,footballArchiveCutoff} from './football-archive';
@@ -96,7 +97,7 @@ export async function footballGameAnalysis(league:FootballLeague,day:string,id:s
   const market=await marketRequest;
   if(market)analysis=applyFootballMarketAnalysis(game,analysis,market);
   else if(marketActive&&analysis.quality){analysis.quality.label='資料有限';analysis.quality.warnings.push('第二輪模型已通過，但聯賽年度來源暫時未更新，沿用既有分析。');}
-  return {game,analysis,sourceFetchedAt:[...success,...extraSuccess].map(r=>r.fetchedAt).sort()[0]||null,archiveAsOf:merged.supplemented?footballArchiveCutoff:null};
+  return {game,analysis:attachCupXgEvidence(game,analysis),sourceFetchedAt:[...success,...extraSuccess].map(r=>r.fetchedAt).sort()[0]||null,archiveAsOf:merged.supplemented?footballArchiveCutoff:null};
 }
 
 async function nationalGameAnalysis(game:FootballGame){
@@ -133,7 +134,7 @@ async function nationalGameAnalysis(game:FootballGame){
     delete analysis.probabilities;delete analysis.expected;delete analysis.scores;delete analysis.lean;
   }
   analysis.quality={label:warnings.length?'資料有限':'國家隊正式賽果完整',warnings,historyConflicts:merged.conflicts,archiveSupplementGames:0};
-  return {game,analysis,sourceFetchedAt:success.map(r=>r.fetchedAt).sort()[0]||null,archiveAsOf:null};
+  return {game,analysis:attachCupXgEvidence(game,analysis),sourceFetchedAt:success.map(r=>r.fetchedAt).sort()[0]||null,archiveAsOf:null};
 }
 
 export async function footballTeamProfile(league:FootballLeague,teamId:string):Promise<FootballTeamProfileData>{

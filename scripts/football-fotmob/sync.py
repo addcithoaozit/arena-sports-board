@@ -7,6 +7,7 @@ Every result is bound to a fixture ID, competition, kickoff and ordered teams.
 import argparse
 import collections
 import datetime as dt
+import hashlib
 import json
 import math
 import pathlib
@@ -26,6 +27,10 @@ CATALOG = {
     "nations-d": (9809, "uefa-nations-league-d", "uefa.nations"),
     "nations-b-playoff": (10718, "uefa-nations-league-b-qualification", "uefa.nations"),
     "nations-c-playoff": (10719, "uefa-nations-league-c-qualification", "uefa.nations"),
+    "euro": (50, "euro", "uefa.euro"),
+    "world-cup": (77, "world-cup", "fifa.world"),
+    "euro-qualifying": (10607, "euro-qualification", "uefa.euroq"),
+    "world-qualifying-uefa": (10195, "world-cup-qualification-uefa", "fifa.worldq.uefa"),
 }
 UTC = dt.timezone.utc
 
@@ -96,7 +101,14 @@ def parse_match(page, fixture, competition, season, now):
     mid = str(fixture.get("id", ""))
     if not mid.isdigit() or str(general.get("matchId")) != mid:
         raise InvalidData("match_id_mismatch")
-    if str(general.get("parentLeagueId") or general.get("leagueId")) != str(league_id):
+    parent = str(general.get("parentLeagueId") or general.get("leagueId"))
+    # Historical 2023 qualification groups were filed under EURO (50).
+    # The enclosing 10607 fixture feed, qualification label, exact match ID,
+    # kickoff, ordered teams and final score must all still agree.
+    legacy_euro_qualifier = (competition == "euro-qualifying" and season == "2023"
+                            and parent == "50"
+                            and re.fullmatch(r"EURO Qualification Grp\. [A-J]", general.get("leagueName", "")))
+    if parent != str(league_id) and not legacy_euro_qualifier:
         raise InvalidData("competition_mismatch")
     start = timestamp(general.get("matchTimeUTCDate"))
     if start != timestamp(fixture.get("status", {}).get("utcTime")):
@@ -119,7 +131,6 @@ def parse_match(page, fixture, competition, season, now):
         raise InvalidData("fixture_score_mismatch")
     content = page.get("content", {})
     periods = (content.get("stats") or {}).get("Periods", {})
-    half_xg = [stat_pair(periods, period, "expected_goals") for period in ("FirstHalf", "SecondHalf")]
     # Read the explicit end-of-regulation marker, not the AET/penalty final score.
     markers = [e for e in (content.get("matchFacts") or {}).get("events", {}).get("events", [])
                if e.get("type") == "Half" and e.get("time") == 90 and e.get("halfStrKey") == "fulltime_short"]
@@ -127,18 +138,34 @@ def parse_match(page, fixture, competition, season, now):
     if not scores or any(s != scores[0] for s in scores):
         raise InvalidData("missing_or_conflicting_90min_score")
     score = scores[0]
-    extra = any(p in periods for p in ("FirstExtraHalf", "SecondExtraHalf")) or status.get("reason", {}).get("short") in ("AET", "Pen")
+    shots = (content.get("shotmap") or {}).get("shots")
+    extra = (any(p in periods for p in ("FirstExtraHalf", "SecondExtraHalf"))
+             or status.get("reason", {}).get("short") in ("AET", "Pen")
+             or bool(status.get("halfs", {}).get("firstExtraHalfStarted"))
+             or any(s.get("period") in ("FirstHalfExtra", "SecondHalfExtra", "PenaltyShootout") for s in (shots or [])))
     if (not extra and score != final_score) or any(score[i] > final_score[i] for i in (0, 1)):
         raise InvalidData("regulation_score_mismatch")
-    shots = (content.get("shotmap") or {}).get("shots")
     if not isinstance(shots, list):
         raise InvalidData("missing_shotmap")
+    split_available = True
+    try:
+        for period in ("FirstHalf", "SecondHalf"):
+            stat_pair(periods, period, "expected_goals")
+            stat_pair(periods, period, "total_shots")
+    except InvalidData as error:
+        if not str(error).startswith(("missing_expected_goals_", "missing_total_shots_")):
+            raise
+        split_available = False
+    if extra and not split_available:
+        raise InvalidData("extra_time_without_regulation_xg")
+    checked_periods = ("FirstHalf", "SecondHalf") if split_available else ("All",)
+    half_xg = [stat_pair(periods, period, "expected_goals") for period in checked_periods]
     seen, xg = set(), [0.0, 0.0]
-    for period, totals in zip(("FirstHalf", "SecondHalf"), half_xg):
+    for period, totals in zip(checked_periods, half_xg):
         count, sums = [0, 0], [0.0, 0.0]
         expected_counts = stat_pair(periods, period, "total_shots")
         for shot in shots:
-            if shot.get("period") != period or shot.get("isOwnGoal") is True:
+            if (shot.get("period") not in ("FirstHalf", "SecondHalf") if period == "All" else shot.get("period") != period) or shot.get("isOwnGoal") is True:
                 continue
             sid = shot.get("id")
             if sid is None or sid in seen:
@@ -180,13 +207,22 @@ def parse_match(page, fixture, competition, season, now):
 
 
 class PublicClient:
-    def __init__(self, delay=1.25):
-        self.delay, self.last = max(1.0, delay), 0.0
+    def __init__(self, delay=1.25, evidence_dir=None):
+        self.delay, self.last, self.evidence_dir = max(1.0, delay), 0.0, evidence_dir
 
     def get(self, url):
         parsed = urllib.parse.urlsplit(url)
         if parsed.scheme != "https" or parsed.netloc != "www.fotmob.com":
             raise InvalidData("unexpected_source_host")
+        evidence_path = self.evidence_dir / (hashlib.sha256(url.encode()).hexdigest() + ".json") if self.evidence_dir else None
+        if evidence_path and evidence_path.exists():
+            evidence = json.loads(evidence_path.read_text())
+            age = dt.datetime.now(UTC) - timestamp(evidence["capturedAt"])
+            page = evidence["page"]
+            start = page.get("general", {}).get("matchTimeUTCDate")
+            old_final = start and page.get("general", {}).get("finished") is True and timestamp(start) < dt.datetime.now(UTC) - dt.timedelta(days=14)
+            if evidence.get("url") == url and (old_final or age < dt.timedelta(hours=6)):
+                return page
         time.sleep(max(0, self.delay - (time.monotonic() - self.last)))
         self.last = time.monotonic()
         request = urllib.request.Request(url, headers={"User-Agent": "Maya-YJ-xG-audit/1.0", "Accept": "text/html"})
@@ -197,7 +233,10 @@ class PublicClient:
                 body = response.read(8_000_001)
                 if len(body) > 8_000_000:
                     raise InvalidData("page_too_large")
-                return next_data(body.decode("utf-8"))
+                page = next_data(body.decode("utf-8"))
+                if evidence_path:
+                    atomic_json(evidence_path, {"url": url, "capturedAt": dt.datetime.now(UTC).isoformat(), "page": page})
+                return page
         except urllib.error.HTTPError as error:
             if error.code in (401, 403, 429):
                 raise AccessStopped("source_http_" + str(error.code)) from None
@@ -216,16 +255,16 @@ def sync(client, competition, season, output, limit=None):
     lid, slug, _ = CATALOG[competition]
     url = f"https://www.fotmob.com/leagues/{lid}/overview/{slug}"
     if season != "latest":
-        if not re.fullmatch(r"\d{4}-\d{4}", season):
+        if not re.fullmatch(r"\d{4}(?:-\d{4})?", season):
             raise InvalidData("invalid_season")
         url += "?season=" + season
     page = client.get(url)
     details = page.get("details", {})
     selected = str(details.get("selectedSeason", "")).replace("/", "-")
-    if str(details.get("id")) != str(lid) or not re.fullmatch(r"\d{4}-\d{4}", selected) or (season != "latest" and selected != season):
+    if str(details.get("id")) != str(lid) or not re.fullmatch(r"\d{4}(?:-\d{4})?", selected) or (season != "latest" and selected != season):
         raise InvalidData("season_identity_mismatch")
     fixtures = page.get("fixtures", {}).get("allMatches")
-    if not isinstance(fixtures, list) or not 1 <= len(fixtures) <= 2000:
+    if not isinstance(fixtures, list) or len(fixtures) > 2000 or (not fixtures and int(selected[:4]) <= now.year):
         raise InvalidData("invalid_fixture_list")
     ineligible = collections.Counter()
     for fixture in fixtures:
@@ -258,8 +297,9 @@ def sync(client, competition, season, output, limit=None):
             games.append(cached)
             continue
         if limit is not None and requested >= limit:
+            stopped = "request_budget_deferred"
             rejected.append({"id": mid, "reason": "request_budget_deferred"})
-            continue
+            break
         requested += 1
         try:
             data = client.get("https://www.fotmob.com/match/" + mid)
@@ -275,6 +315,9 @@ def sync(client, competition, season, output, limit=None):
         except (InvalidData, KeyError, TypeError, urllib.error.URLError, TimeoutError) as error:
             reason = str(error) if isinstance(error, InvalidData) else type(error).__name__
             rejected.append({"id": mid, "reason": reason})
+            if isinstance(error, (urllib.error.URLError, TimeoutError)) or reason.startswith("source_http_"):
+                stopped = reason
+                break
         if requested % 20 == 0:
             print(json.dumps({"competition": competition, "season": selected, "requested": requested, "accepted": len(games)}), flush=True)
     reasons = dict(collections.Counter(r["reason"] for r in rejected))
@@ -301,10 +344,11 @@ def main():
     parser.add_argument("--seasons", nargs="+", default=["latest"])
     parser.add_argument("--output", type=pathlib.Path, default=ROOT / "data/football/fotmob")
     parser.add_argument("--limit", type=int, help="Maximum new match requests per competition/season")
+    parser.add_argument("--evidence-dir", type=pathlib.Path, help="Optional local cache of public pages for reproducible audits")
     args = parser.parse_args()
     if args.limit is not None and args.limit < 1:
         parser.error("--limit must be positive")
-    client = PublicClient()
+    client = PublicClient(evidence_dir=args.evidence_dir)
     try:
         for competition in args.competitions:
             for season in args.seasons:

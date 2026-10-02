@@ -1,0 +1,83 @@
+{
+  "enabled": false,
+  "reasons": [
+    "holdout_gate_failed",
+    "audit2026_gate_failed"
+  ],
+  "parameters": {
+    "decayDays": 180,
+    "lookbackDays": 730,
+    "blend": 1,
+    "coefficients": [
+      0.01107017427194879,
+      0.014343472226378861,
+      0.0,
+      0.006938260728096948,
+      0.021896818803361404,
+      0.01554430998623361
+    ],
+    "tilts": [
+      -0.007555475976520414,
+      -0.015183789180080808,
+      -0.008418707183809835
+    ]
+  },
+  "sampleSizes": {
+    "training": 128,
+    "selection": 31,
+    "holdout": 106,
+    "audit2026": 35
+  },
+  "metrics": {
+    "selection": {
+      "baseline": {
+        "n": 31,
+        "logLoss": 0.9330910459270392,
+        "brier": 0.5464671729491947,
+        "over25Brier": 0.24875576841407152,
+        "bttsBrier": 0.24300484887107926
+      },
+      "candidate": {
+        "n": 31,
+        "logLoss": 0.9315231645178146,
+        "brier": 0.5454429080339206,
+        "over25Brier": 0.24888102128128484,
+        "bttsBrier": 0.24376875081252689
+      }
+    },
+    "holdout": {
+      "baseline": {
+        "n": 106,
+        "logLoss": 0.9795038983909695,
+        "brier": 0.5878456847687225,
+        "over25Brier": 0.24456803164807103,
+        "bttsBrier": 0.24485819657074454
+      },
+      "candidate": {
+        "n": 106,
+        "logLoss": 0.9814565609346764,
+        "brier": 0.5886985825705332,
+        "over25Brier": 0.24412787352314871,
+        "bttsBrier": 0.24468494708192393
+      }
+    },
+    "audit2026": {
+      "baseline": {
+        "n": 35,
+        "logLoss": 1.0071232976620164,
+        "brier": 0.6028642166476021,
+        "over25Brier": 0.26675051378004905,
+        "bttsBrier": 0.24741909289832265
+      },
+      "candidate": {
+        "n": 35,
+        "logLoss": 1.0077016590863614,
+        "brier": 0.602828690394023,
+        "over25Brier": 0.2675924613870395,
+        "bttsBrier": 0.24874894266960784
+      }
+    }
+  },
+  "protocolSha256": "f27470f20037c57f08c6f77f3d813bd004b8ea363389b9f35957d5e17a98d5b8",
+  "selectionSha256": "4b42ee317aefee52760e5e801f8e3af350aa0211c4c4f0e51cff3e8054d6e1dc"
+}
