@@ -1,5 +1,6 @@
 import {attachCupXgEvidence} from './football-cup-xg-source';
 import {loadNationalFootballPool} from './football-national-source';
+import {attachCupXgEvidence} from './football-cup-xg-source';
 import {applyNationalFootballModel,NATIONAL_MODEL_VERSION} from './football-national-model';
 import {bbcFootballAnalysis} from './football-bbc-analysis';
 import {alternateFootballSchedule,alternateNextFootball} from './alternate-schedules';

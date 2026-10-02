@@ -1,0 +1,100 @@
+{
+  "enabled": false,
+  "reasons": [
+    "regressionAudit_gate_failed",
+    "audit2025_gate_failed"
+  ],
+  "parameters": {
+    "decayDays": 90,
+    "lookbackDays": 365,
+    "blend": 1,
+    "coefficients": [
+      -0.002109896959579125,
+      0.042169964920328845,
+      0.0,
+      0.07291304315887659,
+      0.14436391852800257,
+      0.1607874231472333
+    ],
+    "tilts": [
+      0.0407808816515581,
+      -0.03131035523127978,
+      -0.03908611510056918
+    ]
+  },
+  "sampleSizes": {
+    "training": 2150,
+    "selection": 743,
+    "regressionAudit": 758,
+    "audit2025": 354,
+    "audit2026": 250
+  },
+  "metrics": {
+    "selection": {
+      "baseline": {
+        "n": 743,
+        "logLoss": 0.964754001714781,
+        "brier": 0.5722877581064666,
+        "over25Brier": 0.24724708602025555,
+        "bttsBrier": 0.24401427673514428
+      },
+      "candidate": {
+        "n": 743,
+        "logLoss": 0.9637691252191253,
+        "brier": 0.5709135718069535,
+        "over25Brier": 0.24892983914193711,
+        "bttsBrier": 0.24475158038742276
+      }
+    },
+    "regressionAudit": {
+      "baseline": {
+        "n": 758,
+        "logLoss": 0.9979815223280313,
+        "brier": 0.5979523392595263,
+        "over25Brier": 0.24963716267608127,
+        "bttsBrier": 0.2511692534898879
+      },
+      "candidate": {
+        "n": 758,
+        "logLoss": 0.9991810028085893,
+        "brier": 0.5979041127568362,
+        "over25Brier": 0.24935291695681722,
+        "bttsBrier": 0.25141469996814675
+      }
+    },
+    "audit2025": {
+      "baseline": {
+        "n": 354,
+        "logLoss": 1.0001895544444381,
+        "brier": 0.5981913927073209,
+        "over25Brier": 0.24978098325988995,
+        "bttsBrier": 0.25099834682053934
+      },
+      "candidate": {
+        "n": 354,
+        "logLoss": 1.0009184182887458,
+        "brier": 0.5979411413726843,
+        "over25Brier": 0.2519265653634308,
+        "bttsBrier": 0.2518611517471589
+      }
+    },
+    "audit2026": {
+      "baseline": {
+        "n": 250,
+        "logLoss": 0.9812857607802197,
+        "brier": 0.5843924734887304,
+        "over25Brier": 0.25402591462358354,
+        "bttsBrier": 0.24995293825120166
+      },
+      "candidate": {
+        "n": 250,
+        "logLoss": 0.9753558939999057,
+        "brier": 0.5801033193228076,
+        "over25Brier": 0.25157263779416456,
+        "bttsBrier": 0.2511754161233714
+      }
+    }
+  },
+  "protocolSha256": "f27470f20037c57f08c6f77f3d813bd004b8ea363389b9f35957d5e17a98d5b8",
+  "selectionSha256": "0b9e93fb3a5ac44a03301a797797a10fdc96e4a3f341f4346f3b2cc5753a6662"
+}
