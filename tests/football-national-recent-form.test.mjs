@@ -58,7 +58,7 @@ test('adequate competitive national analysis remains identical even when recent 
  const official=full.filter(g=>g.league!=='fifa.friendly');
  assert.deepEqual(analyzeFootball(game,full,now,full),analyzeFootball(game,official,now,official));
 });
-test('source pipeline produces both recent-form forecasts and withdraws them when current history fails',async()=>{
+test('source pipeline requires opponent context and withdraws forecasts when current history fails',async()=>{
  const {footballGameAnalysis}=await import(moduleUrl('lib/football-source.ts'));
  const originalFetch=globalThis.fetch,originalNow=Date.now;let clock=now,fail=false;
  Date.now=()=>clock;globalThis.fetch=async url=>{
@@ -67,8 +67,9 @@ test('source pipeline produces both recent-form forecasts and withdraws them whe
   return Response.json(payload);
  };
  try{
-  for(const game of games){const r=await footballGameAnalysis(league,'2026-09-29',game.id);assert.equal(r.analysis.status,'ready');assert.equal(r.analysis.awayForm.friendlyGames,5);assert.equal(r.analysis.version,'football-national-recent-v1');}
+  for(const game of games){const r=await footballGameAnalysis(league,'2026-09-29',game.id);assert.equal(r.analysis.status,'waiting');assert.equal(r.analysis.awayForm.friendlyGames,5);assert.equal(r.analysis.version,'football-national-opponent-v2');assert.equal(r.analysis.probabilities,undefined);assert.match(r.analysis.reason,/對手強度/);}
   fail=true;clock+=61*60000;
   for(const game of games){const r=await footballGameAnalysis(league,'2026-09-29',game.id);assert.equal(r.analysis.status,'waiting');assert.equal(r.analysis.probabilities,undefined);assert.match(r.analysis.reason,/本年國家隊/);}
  }finally{globalThis.fetch=originalFetch;Date.now=originalNow;}
 });
+

@@ -48,6 +48,15 @@ function goals(raw:any):number|null{
   if(value===null||value===undefined||value==='')return null;
   const n=Number(value);return Number.isInteger(n)&&n>=0&&n<=30?n:null;
 }
+// Tournament home/away labels alone do not establish home advantage.
+export function footballNeutralVenue(league:string,competition:any,homeName:string,awayName:string){
+  if(competition?.neutralSite===true)return true;
+  if(!['fifa.world','uefa.euro'].includes(league))return false;
+  const normalize=(name:string)=>{const key=name.toLowerCase().replace(/[^a-z]/g,'');return ({usa:'unitedstates',unitedstatesofamerica:'unitedstates',republicofireland:'ireland',turkiye:'turkey',czechrepublic:'czechia'} as Record<string,string>)[key]||key;};
+  const country=normalize(String(competition?.venue?.address?.country||''));
+  // Unknown venues retain the source flag; no nation-specific rating overrides.
+  return !!country&&country!=='uk'&&country!=='unitedkingdom'&&country!==normalize(homeName)&&country!==normalize(awayName);
+}
 export function parseFootballEvents<L extends string>(data:any,league:L):FootballGame<L>[]{
   if(!Array.isArray(data?.events))throw Error('足球來源格式改變');
   const games=new Map<string,FootballGame<L>>();
@@ -61,7 +70,7 @@ export function parseFootballEvents<L extends string>(data:any,league:L):Footbal
     const labels:Record<string,string>={STATUS_POSTPONED:'延期',STATUS_CANCELED:'取消',STATUS_CANCELLED:'取消',STATUS_SUSPENDED:'暫停',STATUS_ABANDONED:'中止',STATUS_FULL_TIME:'完場',STATUS_FINAL_AET:'加時完場',STATUS_FINAL_PEN:'互射十二碼完場',STATUS_HALFTIME:'中場休息'};
     const timeConfirmed=(c?.timeValid??event.timeValid)===true;
     const team=(value:any):FootballTeam=>{const englishName=String(value.team.displayName||value.team.name||'未知球隊');return {id:String(value.team.id),name:footballTeamName(englishName),englishName};};
-    games.set(String(event.id),{id:String(event.id),league,season:Number(event.season?.year)||new Date(start).getUTCFullYear(),start:new Date(start).toISOString(),timeConfirmed,home:team(home),away:team(away),homeScore:state==='live'||state==='final'?goals(home.score):null,awayScore:state==='live'||state==='final'?goals(away.score):null,state,statusName,statusLabel:labels[statusName]||(state==='live'?`進行中 ${String(status.displayClock||'')}`:state==='scheduled'?(timeConfirmed?'未開賽':'開賽時間待定'):'狀態待確認'),neutral:c?.neutralSite===true,venue:String(c?.venue?.fullName||''),sourceUrl:`https://www.espn.com/soccer/match/_/gameId/${event.id}`});
+    games.set(String(event.id),{id:String(event.id),league,season:Number(event.season?.year)||new Date(start).getUTCFullYear(),start:new Date(start).toISOString(),timeConfirmed,home:team(home),away:team(away),homeScore:state==='live'||state==='final'?goals(home.score):null,awayScore:state==='live'||state==='final'?goals(away.score):null,state,statusName,statusLabel:labels[statusName]||(state==='live'?`進行中 ${String(status.displayClock||'')}`:state==='scheduled'?(timeConfirmed?'未開賽':'開賽時間待定'):'狀態待確認'),neutral:footballNeutralVenue(league,c,String(home.team.displayName||home.team.name||''),String(away.team.displayName||away.team.name||'')),venue:String(c?.venue?.fullName||''),sourceUrl:`https://www.espn.com/soccer/match/_/gameId/${event.id}`});
   }
   return [...games.values()];
 }
@@ -146,3 +155,4 @@ export function analyzeFootball(game:FootballGame,history:FootballGame<string>[]
   const lean=best[0].p-best[1].p>=.08?`模型傾向${best[0].name}`:'勝負接近，保留觀望';
   return {...base,status:'ready',reason:'',historyMode,homeForm,awayForm,expected,...result,lean};
 }
+

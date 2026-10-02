@@ -62,9 +62,10 @@ test('full source pipeline preserves Taiwan dates and withdraws predictions if c
  };
  try{
   const board=await footballSchedule(league,'2026-09-29');assert.equal(board.games.length,8);assert.ok(board.games.every(g=>footballDay(g.start)==='2026-09-29'));assert.ok(board.games.every(g=>g.homeScore===null));
-  const result=await footballGameAnalysis(league,'2026-09-29',game.id);assert.equal(result.analysis.status,'ready');assert.equal(result.game.home.name,'比利時');assert.equal(result.analysis.homeForm.games,10);assert.equal(result.analysis.awayForm.games,13);
+  const result=await footballGameAnalysis(league,'2026-09-29',game.id);assert.equal(result.analysis.status,'waiting');assert.equal(result.analysis.probabilities,undefined);assert.match(result.analysis.reason,/對手強度/);assert.equal(result.game.home.name,'比利時');assert.equal(result.analysis.homeForm.games,10);assert.equal(result.analysis.awayForm.games,13);
   for(const team of ['459','478'])for(const year of [2026,2025])assert.ok(calls.includes(`all/teams/${team}/schedule?season=${year}&limit=100`));
   assert.ok(calls.every(p=>!p.includes('understat')));failCurrent=true;clock+=61*60000;
   const failed=await footballGameAnalysis(league,'2026-09-29',game.id);assert.equal(failed.analysis.status,'waiting');assert.equal(failed.analysis.probabilities,undefined);assert.match(failed.analysis.reason,/本年國家隊/);
  }finally{globalThis.fetch=originalFetch;Date.now=originalNow;}
 });
+

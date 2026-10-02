@@ -1,3 +1,5 @@
+import {loadNationalFootballPool} from './football-national-source';
+import {applyNationalFootballModel,NATIONAL_MODEL_VERSION} from './football-national-model';
 import {analyzeFootball,footballDay,isFootballNationalCompetition,needsFootballRecentForm,parseFootballEvents,parseFootballTeamHistory,shiftFootballDay,type FootballGame,type FootballLeague} from './football';
 import {archivedFootballHistory,footballArchiveCutoff} from './football-archive';
 import {reconcileFootballHistory} from './football-history';
@@ -98,6 +100,7 @@ export async function footballGameAnalysis(league:FootballLeague,day:string,id:s
 }
 
 async function nationalGameAnalysis(game:FootballGame){
+  const poolRequest=loadNationalFootballPool();
   // National competitions span multi-year cycles. Request both calendar years
   // together and preserve each event's competition; do not load club xG models.
   const year=new Date(Date.now()).getUTCFullYear();
@@ -109,7 +112,17 @@ async function nationalGameAnalysis(game:FootballGame){
   }));
   const success=results.flatMap(r=>r.status==='fulfilled'?[r.value]:[]),missing=results.flatMap((r,i)=>r.status==='rejected'?[requests[i]]:[]);
   const merged=reconcileFootballHistory(success.flatMap(r=>r.games),[]);
-  const analysis=analyzeFootball(game,merged.games,Date.now(),merged.games),warnings:string[]=[];
+  let analysis=analyzeFootball(game,merged.games,Date.now(),merged.games);const warnings:string[]=[];
+  const pool=await poolRequest;
+  if(pool){
+    const context=reconcileFootballHistory(success.flatMap(r=>r.games),pool.games);
+    analysis=applyNationalFootballModel(game,analysis,context.games);
+    if(Date.now()-Date.parse(pool.fetchedAt)>6*3600000)warnings.push('對手強度資料使用最近48小時內快照，來源更新稍後重試。');
+  }else if(analysis.status==='ready'){
+    analysis={...analysis,status:'waiting',version:NATIONAL_MODEL_VERSION,reason:'國家隊對手強度資料尚未更新。'};
+    delete analysis.probabilities;delete analysis.expected;delete analysis.scores;delete analysis.lean;
+  }
+
   if(missing.length)warnings.push(`${missing.length}份國家隊歷史來源未完成，僅採用已核對的賽果。`);
   if(merged.conflicts)warnings.push(`${merged.conflicts}場歷史賽果衝突，已排除。`);
   if([analysis.homeForm,analysis.awayForm].some(f=>f&&f.games<10))warnings.push('至少一隊少於10場近期賽果，估計較不穩定。');

@@ -1,0 +1,17 @@
+{
+  "repository": "poias45652-creator/arena-sports-board",
+  "baseCommit": "8e4262d6d3d8cdcb296395f2b8274650f55640c5",
+  "status": "prepared-not-pushed-github-integration-403",
+  "files": {
+    "lib/football.ts": "48b700b4f021bced14669443a02ba457132a625734a65553130777db8d2c52b3",
+    "lib/football-national-model.ts": "53030f2753429da857866d1a2f416a27a9465fcf3255e8eabda860ecfc6e2d40",
+    "lib/football-national-source.ts": "a6ed60f8555724424496b2ad58d3d21f6c97bc60b025215f76712da17c838912",
+    "lib/football-source.ts": "c619734239740b609247924a2c9ad909e2eb9bef533b1b0eff16e36b15ede4a0",
+    "data/football/national-history.json": "424e5c55d7f2b789c17a540c8ca9080fa7ee919446128d82fb4e38a611148382",
+    "tests/football-national-model.test.mjs": "ed55f98c422d5d20bc9db3b7649703d0d2885c81ea315d2bf6fd7ad4d8f3980f",
+    "tests/football-national-pipeline.test.mjs": "66438c6da66ddf04e846a85315ec6c856a0f95363547ed90fbc586bc042b2761",
+    "tests/football-national-recent-form.test.mjs": "fc5522e841139fb6956307744109734c02fad3dfe8229fa4a960649a8622e3bc",
+    "tests/football-nations.test.mjs": "c69527a43e56469d1b7ffb3f9c6b1a6ad74e1f6e3e04d9842f1b5eca6d21bfa7",
+    "docs/football-national-v2.md": "880b4c695a528e725099f78a253730fd34ada2aa9f8a970effaed54afd96e3eb"
+  }
+}
