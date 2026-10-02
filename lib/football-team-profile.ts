@@ -29,3 +29,4 @@ export function summarizeFootballProfile(games:FootballGame<string>[],id:string)
  const count=wins+draws+losses,rate=(value:number)=>count?value/count:null;
  return {games:count,wins,draws,losses,scored,conceded,goalDifference:scored-conceded,winRate:rate(wins),scoredPerGame:rate(scored),concededPerGame:rate(conceded),cleanSheetRate:rate(cleanSheets),bttsRate:rate(btts),over25Rate:rate(over25),recent:recent.slice(0,5)};
 }
+

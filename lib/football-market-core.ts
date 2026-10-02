@@ -43,3 +43,4 @@ export function marketFootballDistribution(r:{home:number;away:number;rho:number
  for(const s of scores){s.probability/=z;probabilities[s.home>s.away?'home':s.home<s.away?'away':'draw']+=s.probability;probabilities[s.home+s.away>2?'over25':'under25']+=s.probability;if(s.home>0&&s.away>0)probabilities.btts+=s.probability;expected.home+=s.home*s.probability;expected.away+=s.away*s.probability;}
  return {probabilities,expected,scores:scores.sort((x,y)=>y.probability-x.probability).slice(0,3)};
 }
+

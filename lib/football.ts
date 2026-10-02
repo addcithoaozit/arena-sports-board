@@ -9,7 +9,7 @@ export const FOOTBALL_LEAGUES = [
   {code:'uefa.nations',name:'歐國聯',fullName:'歐洲足總國家聯賽'},
 ] as const;
 export type FootballLeague = typeof FOOTBALL_LEAGUES[number]['code'];
-export type FootballTeam = {id:string;name:string;englishName:string};
+export type FootballTeam = {id:string;name:string;englishName:string;sourceSlug?:string};
 export type FootballGame<L extends string=FootballLeague> = {
   id:string;league:L;season:number;start:string;timeConfirmed:boolean;
   home:FootballTeam;away:FootballTeam;homeScore:number|null;awayScore:number|null;
@@ -25,6 +25,7 @@ export type FootballAnalysis = {
   homeForm?:FootballForm;awayForm?:FootballForm;
   historyMode?:'competition'|'recent-form';
   external?:{sources:string[];fetchedAt:string;historyGames:number;conflicts:number;homeXgGames:number;awayXgGames:number;modelApplied:boolean;modelFamily?:'score-market';leagueGames?:number;reasons:string[]};
+  xgEvidence?:import('./football-cup-xg-source').CupXgEvidence;
   expected?:{home:number;away:number};probabilities?:{home:number;draw:number;away:number;over25:number;under25:number;btts:number};
   scores?:{home:number;away:number;probability:number}[];lean?:string;notes:string[];
 };

@@ -55,3 +55,4 @@ export function applyNationalFootballModel(game:FootballGame,base:FootballAnalys
     calibration:{status:'baseline',label:'對手強度模型・持續驗證',version:NATIONAL_MODEL_VERSION,reasons:['近期滾動回測僅作初步檢查，尚待長期獨立驗證'],holdoutGames:0,recentGames:0,uncertainty:'對手攻防、主場效果及小樣本收縮；不代表已證明未來命中率。'},
     notes:[`以${fit.games}場成年國家隊90分鐘賽果共同估計攻防與主場效果，最多回溯兩年。`,'180天時間衰減；正式賽權重1、友誼賽0.2；小樣本向整體平均收縮，不再以三場客場資料套用60%權重。','依對手攻防調整賽程強度；中立場地不加主場效果，排除加時與十二碼賽果。','尚未納入傷停、先發、xG或即時賠率；機率為90分鐘含補時估計。']};
 }
+

@@ -33,3 +33,4 @@ export class FootballElo{
   this.ratings.set(hk,{rating:h+change,year});this.ratings.set(ak,{rating:a-change,year});
  }
 }
+

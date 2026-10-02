@@ -1,0 +1,489 @@
+{
+  "version": "football-xg-strength-v5-20261002",
+  "createdAt": "2026-10-02T14:22:00.000Z",
+  "expiresAt": "2026-12-31T14:22:00.000Z",
+  "sourceSha256": "672f4a0d6fb49aa413a23fd6049f1f5980aef10fa0746bc5398c09a3a880c15c",
+  "protocolSha256": "795e874d47e25d463dd6b7ae7af86e682fdfc50771fb3832f36311bc09fdc5ec",
+  "leagues": {
+    "eng.1": {
+      "enabled": false,
+      "reasons": [
+        "selection_gate_failed",
+        "holdout_gate_failed",
+        "audit2025_gate_failed"
+      ],
+      "parameters": {
+        "decayDays": 90,
+        "venueWeight": 0,
+        "blend": 0.75,
+        "homeIntercept": 0.09073388501559712,
+        "awayIntercept": -0.1720668493577229,
+        "goalAttack": 0.12488832584312042,
+        "goalDefense": 0.09077761720657915,
+        "xgAttack": 0.4454104935090895,
+        "xgDefense": 0.3015618594073885,
+        "elo": 0.49889240335868207,
+        "rho": 0,
+        "usesXg": true,
+        "overTilt": 0.09847598331629058,
+        "bttsTilt": -0.06150342630200254,
+        "drawTilt": 0.07018331747902103
+      },
+      "sampleSizes": {
+        "training": 1473,
+        "selection": 740,
+        "holdout": 755,
+        "audit2025": 364,
+        "audit2026": 230
+      },
+      "metrics": {
+        "selection": {
+          "baseline": {
+            "n": 740,
+            "logLoss": 0.9745444492110232,
+            "brier": 0.5777069657617715,
+            "over25Brier": 0.24546394942336047,
+            "bttsBrier": 0.25030585308103026
+          },
+          "candidate": {
+            "n": 740,
+            "logLoss": 0.9776847987007132,
+            "brier": 0.5803396388831186,
+            "over25Brier": 0.24575274945119296,
+            "bttsBrier": 0.24920281685188475
+          }
+        },
+        "holdout": {
+          "baseline": {
+            "n": 755,
+            "logLoss": 0.9609764421167503,
+            "brier": 0.5697832279553903,
+            "over25Brier": 0.23656740932157447,
+            "bttsBrier": 0.24318138771047523
+          },
+          "candidate": {
+            "n": 755,
+            "logLoss": 0.9657124998360269,
+            "brier": 0.5730641558750713,
+            "over25Brier": 0.23593554319623278,
+            "bttsBrier": 0.24205827653699116
+          }
+        },
+        "audit2025": {
+          "baseline": {
+            "n": 364,
+            "logLoss": 0.9605631494635455,
+            "brier": 0.570650660014029,
+            "over25Brier": 0.24361257941144762,
+            "bttsBrier": 0.24792355623735818
+          },
+          "candidate": {
+            "n": 364,
+            "logLoss": 0.9655790965075532,
+            "brier": 0.5740568967685337,
+            "over25Brier": 0.24760676079631938,
+            "bttsBrier": 0.24951215594966825
+          }
+        },
+        "audit2026": {
+          "baseline": {
+            "n": 230,
+            "logLoss": 1.080031889470224,
+            "brier": 0.6545942082467545,
+            "over25Brier": 0.2568831424476454,
+            "bttsBrier": 0.2457396762906448
+          },
+          "candidate": {
+            "n": 230,
+            "logLoss": 1.0717142456693258,
+            "brier": 0.6483609607612422,
+            "over25Brier": 0.2582084305161574,
+            "bttsBrier": 0.24570009672718537
+          }
+        }
+      }
+    },
+    "esp.1": {
+      "enabled": true,
+      "reasons": [],
+      "parameters": {
+        "decayDays": 180,
+        "venueWeight": 0,
+        "blend": 1,
+        "homeIntercept": 0.025981095075247738,
+        "awayIntercept": -0.298355277046129,
+        "goalAttack": 0.25269706714495854,
+        "goalDefense": 0.25730761188816914,
+        "xgAttack": 0.39140990900353356,
+        "xgDefense": 0.2951505166074772,
+        "elo": 0.4237592114105842,
+        "rho": 0,
+        "usesXg": true,
+        "overTilt": -0.012151110978181685,
+        "bttsTilt": 0.02608199084432554,
+        "drawTilt": 0.023014346611800574
+      },
+      "sampleSizes": {
+        "training": 1471,
+        "selection": 728,
+        "holdout": 763,
+        "audit2025": 357,
+        "audit2026": 264
+      },
+      "metrics": {
+        "selection": {
+          "baseline": {
+            "n": 728,
+            "logLoss": 1.0167787790696061,
+            "brier": 0.6103825616216547,
+            "over25Brier": 0.2517798030968998,
+            "bttsBrier": 0.25163214751853297
+          },
+          "candidate": {
+            "n": 728,
+            "logLoss": 0.9935135490596627,
+            "brier": 0.5935413955487894,
+            "over25Brier": 0.2486860912600818,
+            "bttsBrier": 0.25094612475440264
+          }
+        },
+        "holdout": {
+          "baseline": {
+            "n": 763,
+            "logLoss": 1.0080981229774137,
+            "brier": 0.6019351339456029,
+            "over25Brier": 0.24219996023057103,
+            "bttsBrier": 0.24621254798597994
+          },
+          "candidate": {
+            "n": 763,
+            "logLoss": 0.9824225464152487,
+            "brier": 0.583577271356458,
+            "over25Brier": 0.24132286865779237,
+            "bttsBrier": 0.2447931810367086
+          }
+        },
+        "audit2025": {
+          "baseline": {
+            "n": 357,
+            "logLoss": 0.9875849819136311,
+            "brier": 0.5880621589533769,
+            "over25Brier": 0.24873717046579524,
+            "bttsBrier": 0.24664937812760002
+          },
+          "candidate": {
+            "n": 357,
+            "logLoss": 0.9533491611298521,
+            "brier": 0.5646554547153761,
+            "over25Brier": 0.24950055611296915,
+            "bttsBrier": 0.24809330387447298
+          }
+        },
+        "audit2026": {
+          "baseline": {
+            "n": 264,
+            "logLoss": 1.0110690882502387,
+            "brier": 0.6035459410803192,
+            "over25Brier": 0.24086613086141903,
+            "bttsBrier": 0.24259276638643948
+          },
+          "candidate": {
+            "n": 264,
+            "logLoss": 0.9913335822260086,
+            "brier": 0.5894998419074304,
+            "over25Brier": 0.2375547399502549,
+            "bttsBrier": 0.2369392299414034
+          }
+        }
+      }
+    },
+    "ger.1": {
+      "enabled": false,
+      "reasons": [
+        "audit2025_gate_failed"
+      ],
+      "parameters": {
+        "decayDays": 180,
+        "venueWeight": 0,
+        "blend": 1,
+        "homeIntercept": 0.1372891130440243,
+        "awayIntercept": -0.15548689724257236,
+        "goalAttack": 0.2033435682627144,
+        "goalDefense": 0.04531039822517686,
+        "xgAttack": 0.3506251513629744,
+        "xgDefense": 0.320465045677008,
+        "elo": 0.3978992774821716,
+        "rho": 0,
+        "usesXg": true,
+        "overTilt": 0.0630730411553516,
+        "bttsTilt": -0.008690593185714,
+        "drawTilt": 0.08919395830603709
+      },
+      "sampleSizes": {
+        "training": 1157,
+        "selection": 610,
+        "holdout": 591,
+        "audit2025": 296,
+        "audit2026": 196
+      },
+      "metrics": {
+        "selection": {
+          "baseline": {
+            "n": 610,
+            "logLoss": 1.0008936225331058,
+            "brier": 0.5964466115430959,
+            "over25Brier": 0.23802789003484018,
+            "bttsBrier": 0.24167416268076086
+          },
+          "candidate": {
+            "n": 610,
+            "logLoss": 0.9862921689230647,
+            "brier": 0.5868502000715978,
+            "over25Brier": 0.23611771803620693,
+            "bttsBrier": 0.23926345067880836
+          }
+        },
+        "holdout": {
+          "baseline": {
+            "n": 591,
+            "logLoss": 0.9889331367440432,
+            "brier": 0.5919709489467568,
+            "over25Brier": 0.23258699378635897,
+            "bttsBrier": 0.23380204756113662
+          },
+          "candidate": {
+            "n": 591,
+            "logLoss": 0.9778233587851664,
+            "brier": 0.5830550425057506,
+            "over25Brier": 0.23257509935570442,
+            "bttsBrier": 0.23342721249274836
+          }
+        },
+        "audit2025": {
+          "baseline": {
+            "n": 296,
+            "logLoss": 1.0171231399645067,
+            "brier": 0.608951749461768,
+            "over25Brier": 0.23864885836469052,
+            "bttsBrier": 0.25310883283312197
+          },
+          "candidate": {
+            "n": 296,
+            "logLoss": 1.0185643573489016,
+            "brier": 0.6088546271975102,
+            "over25Brier": 0.24039988120904557,
+            "bttsBrier": 0.2534898629740079
+          }
+        },
+        "audit2026": {
+          "baseline": {
+            "n": 196,
+            "logLoss": 0.973852113958219,
+            "brier": 0.5770514784081735,
+            "over25Brier": 0.2142000602057224,
+            "bttsBrier": 0.2242856611393509
+          },
+          "candidate": {
+            "n": 196,
+            "logLoss": 0.964915704292403,
+            "brier": 0.5681702583592938,
+            "over25Brier": 0.20917663244625784,
+            "bttsBrier": 0.22285840610228508
+          }
+        }
+      }
+    },
+    "ita.1": {
+      "enabled": false,
+      "reasons": [
+        "holdout_gate_failed",
+        "audit2025_gate_failed",
+        "audit2026_gate_failed"
+      ],
+      "parameters": {
+        "decayDays": 90,
+        "venueWeight": 0,
+        "blend": 1,
+        "homeIntercept": 0.1025852614837615,
+        "awayIntercept": -0.14390466500644733,
+        "goalAttack": 0.145157373708333,
+        "goalDefense": 0.0606528477146624,
+        "xgAttack": 0.3527263983677338,
+        "xgDefense": 0.35962886870035454,
+        "elo": 0.47890732817439835,
+        "rho": 0,
+        "usesXg": true,
+        "overTilt": -0.025964058324002417,
+        "bttsTilt": 0.12282009495982539,
+        "drawTilt": 0.0031302442696352103
+      },
+      "sampleSizes": {
+        "training": 1471,
+        "selection": 743,
+        "holdout": 758,
+        "audit2025": 354,
+        "audit2026": 250
+      },
+      "metrics": {
+        "selection": {
+          "baseline": {
+            "n": 743,
+            "logLoss": 0.964754001714781,
+            "brier": 0.5722877581064666,
+            "over25Brier": 0.24724708602025555,
+            "bttsBrier": 0.24401427673514428
+          },
+          "candidate": {
+            "n": 743,
+            "logLoss": 0.9611516151068091,
+            "brier": 0.5698216600856881,
+            "over25Brier": 0.24754238994943129,
+            "bttsBrier": 0.2438531630941767
+          }
+        },
+        "holdout": {
+          "baseline": {
+            "n": 758,
+            "logLoss": 0.9979815223280313,
+            "brier": 0.5979523392595263,
+            "over25Brier": 0.24963716267608127,
+            "bttsBrier": 0.2511692534898879
+          },
+          "candidate": {
+            "n": 758,
+            "logLoss": 0.9939598789821771,
+            "brier": 0.5940655263546191,
+            "over25Brier": 0.2520328477936846,
+            "bttsBrier": 0.2519404963230055
+          }
+        },
+        "audit2025": {
+          "baseline": {
+            "n": 354,
+            "logLoss": 1.0001895544444381,
+            "brier": 0.5981913927073209,
+            "over25Brier": 0.24978098325988995,
+            "bttsBrier": 0.25099834682053934
+          },
+          "candidate": {
+            "n": 354,
+            "logLoss": 0.9958701374507241,
+            "brier": 0.5954051240797937,
+            "over25Brier": 0.25442042792555636,
+            "bttsBrier": 0.2559464657219927
+          }
+        },
+        "audit2026": {
+          "baseline": {
+            "n": 250,
+            "logLoss": 0.9812857607802197,
+            "brier": 0.5843924734887304,
+            "over25Brier": 0.25402591462358354,
+            "bttsBrier": 0.24995293825120166
+          },
+          "candidate": {
+            "n": 250,
+            "logLoss": 0.9724248142090384,
+            "brier": 0.5780115986886385,
+            "over25Brier": 0.2546982635128297,
+            "bttsBrier": 0.2559851377477072
+          }
+        }
+      }
+    },
+    "fra.1": {
+      "enabled": true,
+      "reasons": [],
+      "parameters": {
+        "decayDays": 180,
+        "venueWeight": 0,
+        "blend": 0.75,
+        "homeIntercept": 0.10163224709670506,
+        "awayIntercept": -0.18432377933780594,
+        "goalAttack": 0.24301802263012132,
+        "goalDefense": 0.1483558755984589,
+        "xgAttack": 0.37113757342299314,
+        "xgDefense": 0.1886641717191384,
+        "elo": 0.4696742830620225,
+        "rho": 0,
+        "usesXg": true,
+        "overTilt": 0.06952579494942383,
+        "bttsTilt": -0.03298802999308908,
+        "drawTilt": 0.11493455520526535
+      },
+      "sampleSizes": {
+        "training": 1459,
+        "selection": 728,
+        "holdout": 637,
+        "audit2025": 300,
+        "audit2026": 197
+      },
+      "metrics": {
+        "selection": {
+          "baseline": {
+            "n": 728,
+            "logLoss": 1.0134348408503757,
+            "brier": 0.604043270284051,
+            "over25Brier": 0.24638414176332613,
+            "bttsBrier": 0.24419423623219805
+          },
+          "candidate": {
+            "n": 728,
+            "logLoss": 1.010903690378309,
+            "brier": 0.6026882392452604,
+            "over25Brier": 0.24770574230978973,
+            "bttsBrier": 0.24380184126517637
+          }
+        },
+        "holdout": {
+          "baseline": {
+            "n": 637,
+            "logLoss": 1.009454875301868,
+            "brier": 0.6052019001380406,
+            "over25Brier": 0.2469224486741544,
+            "bttsBrier": 0.25095380477641155
+          },
+          "candidate": {
+            "n": 637,
+            "logLoss": 1.0038967748546002,
+            "brier": 0.6016086605302938,
+            "over25Brier": 0.2466626019380488,
+            "bttsBrier": 0.25035883861045943
+          }
+        },
+        "audit2025": {
+          "baseline": {
+            "n": 300,
+            "logLoss": 0.9759525704515336,
+            "brier": 0.5796148179741416,
+            "over25Brier": 0.2562109936473153,
+            "bttsBrier": 0.25158279691049545
+          },
+          "candidate": {
+            "n": 300,
+            "logLoss": 0.9732383511767618,
+            "brier": 0.5782057989519925,
+            "over25Brier": 0.2529548341163107,
+            "bttsBrier": 0.2503426040106755
+          }
+        },
+        "audit2026": {
+          "baseline": {
+            "n": 197,
+            "logLoss": 1.0273907686994168,
+            "brier": 0.6178264453699867,
+            "over25Brier": 0.24475626620408825,
+            "bttsBrier": 0.24970981485755459
+          },
+          "candidate": {
+            "n": 197,
+            "logLoss": 1.0230955994894446,
+            "brier": 0.6148154960948509,
+            "over25Brier": 0.24368794028254787,
+            "bttsBrier": 0.25075273771133555
+          }
+        }
+      }
+    }
+  }
+}

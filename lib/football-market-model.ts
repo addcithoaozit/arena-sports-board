@@ -6,3 +6,4 @@ export function footballMarketAudit(league:FootballLeague){return (runtime.leagu
 export function selectFootballMarketModel(league:FootballLeague,now=Date.now()):MarketParameters|null{
  const e=footballMarketAudit(league);return e?.enabled&&now>=Date.parse(runtime.createdAt)&&now<Date.parse(runtime.expiresAt)?e.parameters:null;
 }
+

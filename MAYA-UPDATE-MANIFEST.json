@@ -1,0 +1,479 @@
+{
+  "package": "maya-football-update-20261003",
+  "target": "existing maya-sports repository",
+  "sourceCommit": "753487382c3db281b4a4efe99a1dce86e61825a1",
+  "mayaBaseCommit": "298ae442f2e3fcaaea6d9c3586919facaaebbc0d",
+  "requiresExistingMayaFiles": [
+    "lib/alternate-schedules.ts",
+    "lib/source-request.ts",
+    "lib/sports-source-access.ts"
+  ],
+  "candidateModelsEnabled": false,
+  "files": [
+    {
+      "path": ".github/workflows/football-fotmob-sync.yml",
+      "sha256": "6a6f19724fbe35d27e9fa732bc7ac28350f2c67636d7e73ea41c250f99dab924",
+      "bytes": 2229
+    },
+    {
+      "path": "README-MAYA-UPDATE.txt",
+      "sha256": "654b4c7c74cbfba68bca3a496a02125e82097ae232ffede8628f1516c1fb6b15",
+      "bytes": 1912
+    },
+    {
+      "path": "data/football/calibration-runtime.json",
+      "sha256": "b014d2810657b81f8b04b63489df5d09b8326803f84518b1d8761cf829a63b96",
+      "bytes": 12462
+    },
+    {
+      "path": "data/football/cup-fixtures/2018.json",
+      "sha256": "cd2bfda71f2256b1000d3d2aea1994b4ae585ca50f7246548a64c22e10e9e560",
+      "bytes": 262346
+    },
+    {
+      "path": "data/football/cup-fixtures/2019.json",
+      "sha256": "0d7b25a39405249bb0009b086a034270ed202544f48efeb404333b5353e0c138",
+      "bytes": 227133
+    },
+    {
+      "path": "data/football/cup-fixtures/2020.json",
+      "sha256": "e1ce1a6bc06133de036e78b5503d9efbcc386b299b5a5f4cdd6d31030ffc5619",
+      "bytes": 187210
+    },
+    {
+      "path": "data/football/cup-fixtures/2021.json",
+      "sha256": "16ed8ccd63ae5b71f8316522bcf4e9d41886cf709e81246e4e4f906ddd53c47e",
+      "bytes": 233226
+    },
+    {
+      "path": "data/football/cup-fixtures/2022.json",
+      "sha256": "46964f1d5c294bd3391b9b7cfa0530b6d2ffeba1bef9a66c78a58f661d344069",
+      "bytes": 207771
+    },
+    {
+      "path": "data/football/cup-fixtures/2023.json",
+      "sha256": "ef03ad7fbceb7c76f8ae843202d972bbcc61b12b3cad56a8d0e936c49bd9db59",
+      "bytes": 180173
+    },
+    {
+      "path": "data/football/cup-fixtures/2024.json",
+      "sha256": "f5c49ae7ddaea15fe1ec931d37e399fcb84598447bb11ecc02e2e8c20a486120",
+      "bytes": 206941
+    },
+    {
+      "path": "data/football/cup-fixtures/2025.json",
+      "sha256": "187d58633e513339479d56cfecb1934517922dcfa660318daf1ce2f1086de766",
+      "bytes": 210079
+    },
+    {
+      "path": "data/football/cup-fixtures/2026.json",
+      "sha256": "b69b8874884f2c07672af5f5cec0068befdb1be79837a1247abdacce0d2829a8",
+      "bytes": 255002
+    },
+    {
+      "path": "data/football/cup-xg-history.json",
+      "sha256": "d41b6a3cce27df4fdba1d7dfaa9e9fe4f8e5cd5d2c54ffe0a2321254abaedcc2",
+      "bytes": 406167
+    },
+    {
+      "path": "data/football/external-calibration-runtime.json",
+      "sha256": "cfa5446a2c032177c4c0894d8a69db7445fa17dde19aab517c5abfd7acaf46df",
+      "bytes": 26702
+    },
+    {
+      "path": "data/football/external-history-20260927.json",
+      "sha256": "aa7b7d27cd4c721903f38c7517dddc2d9a70983421ecc49c28cdc4b05320c88a",
+      "bytes": 2200663
+    },
+    {
+      "path": "data/football/external-quarantine.json",
+      "sha256": "8e0c74e9e4582407985e820c228ab76d2b43f7742cab7a69e3d8153df1e436bc",
+      "bytes": 666
+    },
+    {
+      "path": "data/football/external-team-map.json",
+      "sha256": "77bcf5b55d4ed0ea2ac028d5ac16149be5045f984b6597b7fbe36d5427097a4a",
+      "bytes": 20131
+    },
+    {
+      "path": "data/football/fotmob/champions-2017-2018.json",
+      "sha256": "7fec3f666c6c57b9064fb8bdbf3b2db3764797ef9927a41414de96e23ba6e629",
+      "bytes": 8161
+    },
+    {
+      "path": "data/football/fotmob/champions-2020-2021.json",
+      "sha256": "65302d1878d97e098712d251b44c4975cd6d924cce58191e2d0d17a63a3d2656",
+      "bytes": 78396
+    },
+    {
+      "path": "data/football/fotmob/champions-2021-2022.json",
+      "sha256": "adf52c10a041d4ce533da60544d5db24fb1be1133c2c5f2d05f8e77641449e3a",
+      "bytes": 78529
+    },
+    {
+      "path": "data/football/fotmob/champions-2022-2023.json",
+      "sha256": "c7f38c76979b02de8fde71e9a579c0b5b20ed11503adb7a7403c8f4abf1637c3",
+      "bytes": 79661
+    },
+    {
+      "path": "data/football/fotmob/champions-2023-2024.json",
+      "sha256": "b9830c278a6f2deb41a92f1ab2a0dace8cdc0a8a568a52f2f0d67c65e356855c",
+      "bytes": 79240
+    },
+    {
+      "path": "data/football/fotmob/champions-2024-2025.json",
+      "sha256": "9d6d557ec4f0f771d33db989eaf2c28efe9c18800885ecb34e8258756bc282a0",
+      "bytes": 120235
+    },
+    {
+      "path": "data/football/fotmob/champions-2025-2026.json",
+      "sha256": "ad744a02319a1742ad05893aa6231e4fc9d77e11a16ad15f8b67e7cf677a61ca",
+      "bytes": 120514
+    },
+    {
+      "path": "data/football/fotmob/champions-2026-2027.json",
+      "sha256": "718c337cf4cab7967fa183fa92d620f8d2d7af1098fd360cb5b351d534625b1f",
+      "bytes": 11897
+    },
+    {
+      "path": "data/football/fotmob/euro-2020.json",
+      "sha256": "c565837fe4b4bdb7789eb76b9e37c5751c4499e0cf7e8ee73da6e7576f2e66bd",
+      "bytes": 26141
+    },
+    {
+      "path": "data/football/fotmob/euro-2024.json",
+      "sha256": "536bd24bb56c0e4b0c1706ead1c4739b95f1d16dafac7d41a0bbe2a6192e0eae",
+      "bytes": 31672
+    },
+    {
+      "path": "data/football/fotmob/euro-2028.json",
+      "sha256": "92fc396416ec1a468d87b1e20e2af96469944cf0cc32ffdf423ca7edb5137cac",
+      "bytes": 476
+    },
+    {
+      "path": "data/football/fotmob/euro-qualifying-2022-2023.json",
+      "sha256": "d4be857ca8d022728fa1fee95becb04c398baf6ad4b65ddacbb86aec0db92201",
+      "bytes": 6184
+    },
+    {
+      "path": "data/football/fotmob/euro-qualifying-2023.json",
+      "sha256": "94ef8617085c5464b18effe90e65566e4c183e3e6c4d70c3dbea456c16815075",
+      "bytes": 144991
+    },
+    {
+      "path": "data/football/fotmob/nations-a-2018-2019.json",
+      "sha256": "7e2ec3029606c6957a1ee645d9ca471d1db00024e65c7edaad791e2282577cb1",
+      "bytes": 2246
+    },
+    {
+      "path": "data/football/fotmob/nations-a-2020-2021.json",
+      "sha256": "417468e1c4073d8939f47283e6dd9d7d574780d33d895c1b8c7086ae1d3e5d85",
+      "bytes": 32111
+    },
+    {
+      "path": "data/football/fotmob/nations-a-2022-2023.json",
+      "sha256": "ffb9b34deefda940513f46c8b0114532d1b9e098592ceecbc9af84793292bfc1",
+      "bytes": 33053
+    },
+    {
+      "path": "data/football/fotmob/nations-a-2024-2025.json",
+      "sha256": "f1ea7c0a91f0290c51a56f478a881bc0bb7050bda90fb95b550f77ebc071454d",
+      "bytes": 38169
+    },
+    {
+      "path": "data/football/fotmob/nations-a-2026-2027.json",
+      "sha256": "e8fdbb404aff9d05c5e0b5fe31a7eb859a4ce9ab01434b78fefbba96557a1bb6",
+      "bytes": 13008
+    },
+    {
+      "path": "data/football/fotmob/nations-b-2018-2019.json",
+      "sha256": "7698d3c0f45023e362561f7785cfcbd0c17d53c77b1dcf6d619b2d6fe13b7a8b",
+      "bytes": 2004
+    },
+    {
+      "path": "data/football/fotmob/nations-b-2020-2021.json",
+      "sha256": "af70af9f022676861582de51a19c4a9b34837bf4f8dcee690da4d4e841623df6",
+      "bytes": 29594
+    },
+    {
+      "path": "data/football/fotmob/nations-b-2022-2023.json",
+      "sha256": "6668150e5c5ab54441cfafb4ff915950d2502d18a5a50fac48f42ac6046f222a",
+      "bytes": 26908
+    },
+    {
+      "path": "data/football/fotmob/nations-b-2024-2025.json",
+      "sha256": "d69869efe2ba2d26efc65f247b394126773c45e63e14f55a1ee496643783bd55",
+      "bytes": 30557
+    },
+    {
+      "path": "data/football/fotmob/nations-b-2026-2027.json",
+      "sha256": "e04e2d1627a6f98a6b91c022d022ff490b42d465c01f8a004bccdfc07ed3113b",
+      "bytes": 11837
+    },
+    {
+      "path": "data/football/fotmob/nations-b-playoff-2024-2025.json",
+      "sha256": "da6fa39d3a182a61497dad676045cccacc90dd4b8e3bc16c19850c2d0412bee7",
+      "bytes": 5597
+    },
+    {
+      "path": "data/football/fotmob/nations-c-2020-2021.json",
+      "sha256": "e673d12c1da9b401a47119775ed6e058d707a6b1c7e5522b873042d9dea3c717",
+      "bytes": 32291
+    },
+    {
+      "path": "data/football/fotmob/nations-c-2022-2023.json",
+      "sha256": "43ed9e02eb40e73db71acf32acace0b7b1f3b9932475b682e8c51c645c164632",
+      "bytes": 32038
+    },
+    {
+      "path": "data/football/fotmob/nations-c-2024-2025.json",
+      "sha256": "6611d51b6b13c3e9705d555f3ac730146b8e45cd62129d0f7f47ba2606e89393",
+      "bytes": 28979
+    },
+    {
+      "path": "data/football/fotmob/nations-c-2026-2027.json",
+      "sha256": "64f5b95b39bfddb62e46234fb95a27b4377fe62c75b0e3c3101af0ea1e595ac5",
+      "bytes": 11187
+    },
+    {
+      "path": "data/football/fotmob/nations-c-playoff-2024-2025.json",
+      "sha256": "542728b017753e3dad43712adb0840a999bb0d3a188a88c42936956b8aadb573",
+      "bytes": 3054
+    },
+    {
+      "path": "data/football/fotmob/nations-d-2020-2021.json",
+      "sha256": "b478eb9b13cc6fff6fe65b42c7416c47085d8326e155ea03e3d3c7ddfc16b011",
+      "bytes": 11698
+    },
+    {
+      "path": "data/football/fotmob/nations-d-2022-2023.json",
+      "sha256": "2f5a23638031a09a361f7623b5d7eaa3c5f5ab07e0d0fe3c947e6d9e0e94a59a",
+      "bytes": 11806
+    },
+    {
+      "path": "data/football/fotmob/nations-d-2024-2025.json",
+      "sha256": "362a1157af26043dd8b06a05c4d93e254e2aa3b60edf9bdf0500f4fb96cdff83",
+      "bytes": 8058
+    },
+    {
+      "path": "data/football/fotmob/nations-d-2026-2027.json",
+      "sha256": "de02c60b5188fce827d1e7e7d8c748ffa78212d4cf42135804921839c76f038e",
+      "bytes": 4283
+    },
+    {
+      "path": "data/football/fotmob/world-cup-2022.json",
+      "sha256": "8a5200bebd84b0e4735f81b24104e23ebc51fc7c522b12392823b01cdb2a76d1",
+      "bytes": 37775
+    },
+    {
+      "path": "data/football/fotmob/world-cup-2026.json",
+      "sha256": "bcd4267762be8e6b8d82d473a582fab6663081af4f1ec59bc2d121ecf393307c",
+      "bytes": 64753
+    },
+    {
+      "path": "data/football/fotmob/world-qualifying-uefa-2021-2022.json",
+      "sha256": "474651cf4b4ca076713e46a36cea42b27dda6bd88a37d4b883e3f35be542f9be",
+      "bytes": 164414
+    },
+    {
+      "path": "data/football/fotmob/world-qualifying-uefa-2025-2026.json",
+      "sha256": "af3ab2392b26a1caab9036ccaff398bfb5fd6931f81c0df3b7e25d2b2f5d19c6",
+      "bytes": 132143
+    },
+    {
+      "path": "data/football/history-20260927.json",
+      "sha256": "f547f870c8fee8e841d818abfee462827305dbb44bff5f138d474eb41f3f9aaf",
+      "bytes": 786906
+    },
+    {
+      "path": "data/football/market-calibration-runtime.json",
+      "sha256": "57f0a40b3a89e984199f97d21b8cdc03ec7115bffee2a1940edbc31b0568bb95",
+      "bytes": 10808
+    },
+    {
+      "path": "data/football/market-history-20260928.json",
+      "sha256": "6d9c166da006fd43a9f943079605fa1bfecbf5cbbc969b559e89c15a957c7e6e",
+      "bytes": 1157644
+    },
+    {
+      "path": "data/football/national-history.json",
+      "sha256": "424e5c55d7f2b789c17a540c8ca9080fa7ee919446128d82fb4e38a611148382",
+      "bytes": 57626
+    },
+    {
+      "path": "data/football/xg-strength-runtime.json",
+      "sha256": "f2204fee596d3d7dc31128490268514c2ed1aae63445954ac19b7ac403570299",
+      "bytes": 14732
+    },
+    {
+      "path": "docs/football-cup-source-quality.json",
+      "sha256": "ba17c165cb9291f980e8501af09341880118705c67f47969f0301624d1f0fc46",
+      "bytes": 18822
+    },
+    {
+      "path": "docs/football-fotmob-source.md",
+      "sha256": "226ad7bbbc57534a8ddfe47f5e49adf37530b0f4ded8df80fc5be1789a8ab22a",
+      "bytes": 5229
+    },
+    {
+      "path": "docs/football-opponent-xg-v6-results.json",
+      "sha256": "487f50e6cd83532265e8af4de14e2b84f766e060697cf4567c53fe357368be6c",
+      "bytes": 11161
+    },
+    {
+      "path": "docs/football-xg-opponent-v6-protocol.json",
+      "sha256": "f27470f20037c57f08c6f77f3d813bd004b8ea363389b9f35957d5e17a98d5b8",
+      "bytes": 3093
+    },
+    {
+      "path": "lib/football-archive.ts",
+      "sha256": "8b0b50660e1e08e3ffa3a393b727a9521b1ae853b98223202ba5e3b2dc72eea6",
+      "bytes": 1136
+    },
+    {
+      "path": "lib/football-bbc-analysis.ts",
+      "sha256": "55ed04c592b3c07a756e70b69b9ca8d35b09edea2545c2e74eac60a1d15a1ae1",
+      "bytes": 3316
+    },
+    {
+      "path": "lib/football-calibration.ts",
+      "sha256": "07eb5ddb8ac811558f14242e2c02c7a6af094e046a05911793fc33b2c5fca920",
+      "bytes": 3110
+    },
+    {
+      "path": "lib/football-cup-xg-source.ts",
+      "sha256": "7864cff9944e47b0a7cfc0fec5c47b5ebeebed447e195eae0f93ee5fedc887ee",
+      "bytes": 2317
+    },
+    {
+      "path": "lib/football-external-model.ts",
+      "sha256": "de35a7e28279b3abf8fb7545fc458f848967264511c99cffc9f11fb9ed1c64a8",
+      "bytes": 1677
+    },
+    {
+      "path": "lib/football-external-source.ts",
+      "sha256": "a81337f8dce91223144ba6acd11a2c9e44e6d0c4a7ada50f4316ec6d6bb2d4ff",
+      "bytes": 12470
+    },
+    {
+      "path": "lib/football-history.ts",
+      "sha256": "d3708d85ef62ff505ecb68cd7d9639e271177c79afa7de23d1387bd51ef0e152",
+      "bytes": 1057
+    },
+    {
+      "path": "lib/football-market-core.ts",
+      "sha256": "c4669659bfbe7f5a38fdf284248b8ca66e3891da09ae39af69ee9db2e3d37a36",
+      "bytes": 5610
+    },
+    {
+      "path": "lib/football-market-model.ts",
+      "sha256": "9fe62a3eab8117ca93078125235a745d4ca4a8eccb99f5387858b9c5783d14a4",
+      "bytes": 638
+    },
+    {
+      "path": "lib/football-market-source.ts",
+      "sha256": "ec3e4b9c11c799f129a6b9ea2209ad7659a9ebc67379dde14224a2532193e14b",
+      "bytes": 6774
+    },
+    {
+      "path": "lib/football-national-model.ts",
+      "sha256": "4264aede95e6f7c27521904cd00f46435d0995f3cd8aca7e4ba5917e0badce57",
+      "bytes": 6025
+    },
+    {
+      "path": "lib/football-national-source.ts",
+      "sha256": "6c53e6999063efc461672ee735af01c5b2eccc599affde7b56e15afadabc6157",
+      "bytes": 4718
+    },
+    {
+      "path": "lib/football-opponent-xg.ts",
+      "sha256": "aa06f9b6046977275d602c611e6a9d29432c47d6bcdc51f541fe1bc4d19882c3",
+      "bytes": 6836
+    },
+    {
+      "path": "lib/football-recommendations.ts",
+      "sha256": "b7648a8ecd6a3188bcaa4c2c9befdcb6210054d6461c03af88a6ce3856df8208",
+      "bytes": 3067
+    },
+    {
+      "path": "lib/football-source.ts",
+      "sha256": "c9a1f40e5baeaf4170487160fffe346790a127c26a1d4a8313e0ea4d4d8e9f2f",
+      "bytes": 13947
+    },
+    {
+      "path": "lib/football-team-profile.ts",
+      "sha256": "24f61944efd74df200f4fc2576b4e8174631822c852fc66e4a2d912d57d53c8d",
+      "bytes": 3993
+    },
+    {
+      "path": "lib/football-xg-features.ts",
+      "sha256": "849143c3823c254bcdd1b064c89d5476cc890efc970d242b5a0d58a5cc608bf3",
+      "bytes": 3767
+    },
+    {
+      "path": "lib/football-xg-strength-model.ts",
+      "sha256": "028c97ecba0207142506a40373d7c0acc8cae088f28e5eea04f6954d98c1782c",
+      "bytes": 969
+    },
+    {
+      "path": "lib/football.ts",
+      "sha256": "52339bde22f7288421b32dea3bd8ef13c0a8ec75123dce6cbe02f81d29f20f63",
+      "bytes": 22308
+    },
+    {
+      "path": "scripts/football-fotmob/build_history.py",
+      "sha256": "c90d67c3036e4efbd8bfc7d1748eb50ff7689006273d0c7f1b980a948cf0b03e",
+      "bytes": 9218
+    },
+    {
+      "path": "scripts/football-fotmob/refresh_espn.mjs",
+      "sha256": "08d64f74519a57786e3c1bad01e554853ceea7caee293427c890c0dc832e0644",
+      "bytes": 3236
+    },
+    {
+      "path": "scripts/football-fotmob/sync.py",
+      "sha256": "5ef8aab66cc745e08b7bbc6c2b89870aadb25af8edebdff5f393f573f7fd5f38",
+      "bytes": 18930
+    },
+    {
+      "path": "tests/fixtures/fotmob/champions-final.json",
+      "sha256": "bb571beb06c2b81c0064cb371701f78f20840b2f4e9875323419015f242d99c1",
+      "bytes": 6626
+    },
+    {
+      "path": "tests/fixtures/fotmob/nations-final.json",
+      "sha256": "39dcf56ccbea1320453ba8445d14ca1fa2f1866ce5f64bc3782d5889dbeced85",
+      "bytes": 8704
+    },
+    {
+      "path": "tests/football-cup-xg.test.mjs",
+      "sha256": "6086ad269b0816846b87e13dee10af691b604b4cdb91be1eea389ad4224be9b9",
+      "bytes": 2476
+    },
+    {
+      "path": "tests/football-national-pipeline.test.mjs",
+      "sha256": "ee89d5cc5b37755f9e9b3ef2f213f7ce4d9efcdb2548e05a30719e33ec00cc8e",
+      "bytes": 3707
+    },
+    {
+      "path": "tests/football-opponent-xg.test.mjs",
+      "sha256": "9a951194ed26595108afb78ef56a12e194bd1482dcd2392b97af58d17b0d7b81",
+      "bytes": 2235
+    },
+    {
+      "path": "tests/profile-loader.mjs",
+      "sha256": "4a2f8e8763302c0db7323644d98fe13ff65e23e01d0ee3eb685e42c334b746e4",
+      "bytes": 847
+    },
+    {
+      "path": "tests/test_football_cup_join.py",
+      "sha256": "23f3dd6ac149155398207e4066e24d1860e6ef97bb7f2a861513abf263af890b",
+      "bytes": 2168
+    },
+    {
+      "path": "tests/test_football_fotmob.py",
+      "sha256": "3bd1e15509bf00954655cda3f19066634b30c2288090d1e042772c83b115cf90",
+      "bytes": 8422
+    }
+  ]
+}

@@ -39,3 +39,4 @@ export function applyFootballMarketAnalysis(game:FootballGame,base:FootballAnaly
  const best=[{name:'主勝',p:probs.home},{name:'和局',p:probs.draw},{name:'客勝',p:probs.away}].sort((a,b)=>b.p-a.p);
  return {...base,status:'ready',reason:'',version:footballMarketRuntime.version,capturedAt:new Date(now).toISOString(),historyMode:'competition',homeForm:f.home,awayForm:f.away,...distribution,lean:best[0].p-best[1].p>=.08?`模型傾向${best[0].name}`:'勝負接近，保留觀望',external:{...evidence,modelApplied:true},calibration:{status:'applied',label:'比分分布校準・觀察中',version:footballMarketRuntime.version,reasons:[],holdoutGames:entry.sampleSizes.holdout,recentGames:entry.sampleSizes.audit2026,uncertainty:'固定門檻與獨立歷史測試通過；改善幅度與未來表現仍需持續觀察。'},notes:['使用同聯賽近期比分、球隊相對Elo與聯賽近一年主客平均進球；此版本不依賴xG。','勝和負、大小2.5球、雙方進球與預期比分都由同一個校準後比分分布計算。','2005–2009訓練，2010–2011選參數，2012–2013獨立測試；2019–2020、2025與2026另行驗收，所有門檻均通過。','全部特徵只用預測當日前的正式90分鐘賽果；不含升降級附加賽、加時或十二碼。','先發、傷停與實際賠率尚未納入；歷史驗收不保證未來命中率或獲利。']};
 }
+

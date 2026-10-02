@@ -13,3 +13,4 @@ export function externalFootballRates(input:number[],baseline:number[],p:Externa
  const away=clamp(Math.exp(ia+p.goalAttack*Math.log(as+.1)+p.goalDefense*Math.log(hc+.1)+p.xgAttack*Math.log(ax+.1)+p.xgDefense*Math.log(hxa+.1)-p.elo*diff));
  return {home:p.blend*home+(1-p.blend)*clamp((baseline[0]+baseline[3])/2),away:p.blend*away+(1-p.blend)*clamp((baseline[2]+baseline[1])/2),rho:p.rho*p.blend};
 }
+

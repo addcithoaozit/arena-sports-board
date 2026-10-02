@@ -9,3 +9,4 @@ export function archivedFootballHistory(league:FootballLeague,homeId:string,away
     return {id:String(r[0]),league,season:Number(r[2]),start:String(r[3]),home:team(String(r[4])),away:team(String(r[5])),homeScore:Number(r[6]),awayScore:Number(r[7]),neutral:!!r[8],state:'final',statusName:'STATUS_FULL_TIME',statusLabel:'完場',timeConfirmed:true,venue:'',sourceUrl:`https://www.espn.com/soccer/match/_/gameId/${r[0]}`};
   });
 }
+

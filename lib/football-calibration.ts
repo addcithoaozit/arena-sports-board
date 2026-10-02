@@ -17,3 +17,4 @@ export function calibratedFootballGoals(home:{scored:number;conceded:number},awa
   const clamp=(n:number)=>Math.max(.15,Math.min(5,n)),ih=neutral?(p.homeIntercept+p.awayIntercept)/2:p.homeIntercept,ia=neutral?(p.homeIntercept+p.awayIntercept)/2:p.awayIntercept;
   return {home:clamp(Math.exp(ih+p.attack*Math.log(home.scored+.1)+p.defense*Math.log(away.conceded+.1))),away:clamp(Math.exp(ia+p.attack*Math.log(away.scored+.1)+p.defense*Math.log(home.conceded+.1)))};
 }
+

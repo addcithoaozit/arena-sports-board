@@ -18,12 +18,12 @@ test('source endpoint uses the opponent model and withdraws forecasts when curre
  };
  try{
   const source=readFileSync(process.env.FOOTBALL_SOURCE_PATH||'lib/football-source.ts','utf8').replace(/^import .*;\r?\n/gm,'');
-  const imports=[['lib/football.ts','analyzeFootball,footballDay,isFootballNationalCompetition,needsFootballRecentForm,parseFootballEvents,parseFootballTeamHistory,shiftFootballDay'],['lib/football-history.ts','reconcileFootballHistory'],['lib/football-national-model.ts','applyNationalFootballModel,NATIONAL_MODEL_VERSION'],['lib/football-national-source.ts','loadNationalFootballPool']].map(([path,names])=>`const {${names}}=await import(${JSON.stringify(moduleUrl(path))});`).join('\n');
+  const imports=[['lib/football.ts','analyzeFootball,footballDay,isFootballNationalCompetition,needsFootballRecentForm,parseFootballEvents,parseFootballTeamHistory,shiftFootballDay'],['lib/football-history.ts','reconcileFootballHistory'],['lib/football-national-model.ts','applyNationalFootballModel,NATIONAL_MODEL_VERSION'],['lib/football-national-source.ts','loadNationalFootballPool'],['lib/football-cup-xg-source.ts','attachCupXgEvidence']].map(([path,names])=>`const {${names}}=await import(${JSON.stringify(moduleUrl(path))});`).join('\n');
   const prefix=imports+'\nconst work={active:0,pending:new Map(),queue:[]};const sourceWork=()=>work;const sportsSourceFetch=(...args)=>fetch(...args);class SportsSourceDenied extends Error{};\n';
   const code=prefix+ts.transpileModule(source,{compilerOptions:{module:ts.ModuleKind.ESNext,target:ts.ScriptTarget.ES2022}}).outputText;
   const {footballGameAnalysis}=await import('data:text/javascript;base64,'+Buffer.from(code).toString('base64'));
   const result=await footballGameAnalysis('uefa.nations','2026-10-03',match.id);
-  assert.equal(result.analysis.status,'ready');assert.equal(result.analysis.version,'football-national-opponent-v2');assert.ok(result.analysis.probabilities.home>result.analysis.probabilities.away);
+  assert.equal(result.analysis.status,'ready');assert.equal(result.analysis.version,'football-national-opponent-v2');assert.ok(result.analysis.probabilities.home>result.analysis.probabilities.away);assert.equal(result.analysis.xgEvidence.modelApplied,false);assert.ok(result.analysis.xgEvidence.home.games>0);
   fail=true;clock+=61*60000;const failed=await footballGameAnalysis('uefa.nations','2026-10-03',match.id);assert.equal(failed.analysis.status,'waiting');assert.equal(failed.analysis.probabilities,undefined);
  }finally{globalThis.fetch=originalFetch;Date.now=originalNow;}
 });

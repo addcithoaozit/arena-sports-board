@@ -1,0 +1,893 @@
+{
+  "asOf": "2026-10-02T16:26:54.766090+00:00",
+  "sourceCount": 2415,
+  "rejected": [
+    {
+      "id": "fotmob:3461642",
+      "reason": "club_venue_not_verified"
+    },
+    {
+      "id": "fotmob:3461742",
+      "reason": "club_venue_not_verified"
+    },
+    {
+      "id": "fotmob:3462202",
+      "reason": "club_venue_not_verified"
+    },
+    {
+      "id": "fotmob:3461639",
+      "reason": "club_venue_not_verified"
+    },
+    {
+      "id": "fotmob:3462204",
+      "reason": "club_venue_not_verified"
+    },
+    {
+      "id": "fotmob:3462011",
+      "reason": "club_venue_not_verified"
+    },
+    {
+      "id": "fotmob:3461747",
+      "reason": "club_venue_not_verified"
+    },
+    {
+      "id": "fotmob:3461645",
+      "reason": "club_venue_not_verified"
+    },
+    {
+      "id": "fotmob:3461748",
+      "reason": "club_venue_not_verified"
+    },
+    {
+      "id": "fotmob:3462208",
+      "reason": "club_venue_not_verified"
+    },
+    {
+      "id": "fotmob:3462015",
+      "reason": "club_venue_not_verified"
+    },
+    {
+      "id": "fotmob:3714066",
+      "reason": "date_status_or_score_conflict"
+    },
+    {
+      "id": "fotmob:4010185",
+      "reason": "date_status_or_score_conflict"
+    },
+    {
+      "id": "fotmob:4621641",
+      "reason": "club_venue_not_verified"
+    },
+    {
+      "id": "fotmob:4621511",
+      "reason": "club_venue_not_verified"
+    },
+    {
+      "id": "fotmob:3230637",
+      "reason": "away_country_host_requires_reverse_advantage"
+    },
+    {
+      "id": "fotmob:3230643",
+      "reason": "date_status_or_score_conflict"
+    },
+    {
+      "id": "fotmob:3230644",
+      "reason": "away_country_host_requires_reverse_advantage"
+    },
+    {
+      "id": "fotmob:3230668",
+      "reason": "away_country_host_requires_reverse_advantage"
+    },
+    {
+      "id": "fotmob:3230646",
+      "reason": "away_country_host_requires_reverse_advantage"
+    },
+    {
+      "id": "fotmob:3230670",
+      "reason": "away_country_host_requires_reverse_advantage"
+    },
+    {
+      "id": "fotmob:3230653",
+      "reason": "away_country_host_requires_reverse_advantage"
+    },
+    {
+      "id": "fotmob:3230647",
+      "reason": "away_country_host_requires_reverse_advantage"
+    },
+    {
+      "id": "fotmob:3230660",
+      "reason": "away_country_host_requires_reverse_advantage"
+    },
+    {
+      "id": "fotmob:3230659",
+      "reason": "away_country_host_requires_reverse_advantage"
+    },
+    {
+      "id": "fotmob:3230665",
+      "reason": "away_country_host_requires_reverse_advantage"
+    },
+    {
+      "id": "fotmob:4043841",
+      "reason": "away_country_host_requires_reverse_advantage"
+    },
+    {
+      "id": "fotmob:4043979",
+      "reason": "away_country_host_requires_reverse_advantage"
+    },
+    {
+      "id": "fotmob:4044699",
+      "reason": "date_status_or_score_conflict"
+    },
+    {
+      "id": "fotmob:4044668",
+      "reason": "country_missing_or_ambiguous"
+    },
+    {
+      "id": "fotmob:4044670",
+      "reason": "country_missing_or_ambiguous"
+    },
+    {
+      "id": "fotmob:4044672",
+      "reason": "country_missing_or_ambiguous"
+    },
+    {
+      "id": "fotmob:4044617",
+      "reason": "country_missing_or_ambiguous"
+    },
+    {
+      "id": "fotmob:3492720",
+      "reason": "date_status_or_score_conflict"
+    },
+    {
+      "id": "fotmob:3287129",
+      "reason": "country_missing_or_ambiguous"
+    },
+    {
+      "id": "fotmob:3287130",
+      "reason": "country_missing_or_ambiguous"
+    },
+    {
+      "id": "fotmob:3287135",
+      "reason": "date_status_or_score_conflict"
+    },
+    {
+      "id": "fotmob:3287136",
+      "reason": "country_missing_or_ambiguous"
+    },
+    {
+      "id": "fotmob:3784602",
+      "reason": "date_status_or_score_conflict"
+    },
+    {
+      "id": "fotmob:3784505",
+      "reason": "country_missing_or_ambiguous"
+    },
+    {
+      "id": "fotmob:3784568",
+      "reason": "date_status_or_score_conflict"
+    },
+    {
+      "id": "fotmob:3784508",
+      "reason": "country_missing_or_ambiguous"
+    },
+    {
+      "id": "fotmob:3784538",
+      "reason": "country_missing_or_ambiguous"
+    },
+    {
+      "id": "fotmob:4421989",
+      "reason": "country_missing_or_ambiguous"
+    },
+    {
+      "id": "fotmob:4421992",
+      "reason": "country_missing_or_ambiguous"
+    },
+    {
+      "id": "fotmob:4421998",
+      "reason": "country_missing_or_ambiguous"
+    },
+    {
+      "id": "fotmob:5181817",
+      "reason": "country_missing_or_ambiguous"
+    },
+    {
+      "id": "fotmob:4679412",
+      "reason": "country_missing_or_ambiguous"
+    },
+    {
+      "id": "fotmob:4151924",
+      "reason": "country_missing_or_ambiguous"
+    },
+    {
+      "id": "fotmob:3370549",
+      "home": "Qatar",
+      "away": "Ecuador",
+      "reason": "identity_or_fixture_ambiguous",
+      "homeCandidates": [
+        "4398"
+      ],
+      "awayCandidates": [
+        "209"
+      ]
+    },
+    {
+      "id": "fotmob:3854572",
+      "home": "Argentina",
+      "away": "Saudi Arabia",
+      "reason": "identity_or_fixture_ambiguous",
+      "homeCandidates": [
+        "202"
+      ],
+      "awayCandidates": [
+        "655"
+      ]
+    },
+    {
+      "id": "fotmob:3854604",
+      "home": "Uruguay",
+      "away": "South Korea",
+      "reason": "identity_or_fixture_ambiguous",
+      "homeCandidates": [
+        "212"
+      ],
+      "awayCandidates": [
+        "451"
+      ]
+    },
+    {
+      "id": "fotmob:3854555",
+      "home": "Qatar",
+      "away": "Senegal",
+      "reason": "identity_or_fixture_ambiguous",
+      "homeCandidates": [
+        "4398"
+      ],
+      "awayCandidates": [
+        "654"
+      ]
+    },
+    {
+      "id": "fotmob:3854582",
+      "home": "Tunisia",
+      "away": "Australia",
+      "reason": "identity_or_fixture_ambiguous",
+      "homeCandidates": [
+        "659"
+      ],
+      "awayCandidates": [
+        "628"
+      ]
+    },
+    {
+      "id": "fotmob:3854574",
+      "home": "Argentina",
+      "away": "Mexico",
+      "reason": "identity_or_fixture_ambiguous",
+      "homeCandidates": [
+        "202"
+      ],
+      "awayCandidates": [
+        "203"
+      ]
+    },
+    {
+      "id": "fotmob:3854588",
+      "home": "Japan",
+      "away": "Costa Rica",
+      "reason": "identity_or_fixture_ambiguous",
+      "homeCandidates": [
+        "627"
+      ],
+      "awayCandidates": [
+        "214"
+      ]
+    },
+    {
+      "id": "fotmob:3854606",
+      "home": "South Korea",
+      "away": "Ghana",
+      "reason": "identity_or_fixture_ambiguous",
+      "homeCandidates": [
+        "451"
+      ],
+      "awayCandidates": [
+        "4469"
+      ]
+    },
+    {
+      "id": "fotmob:3854558",
+      "home": "Ecuador",
+      "away": "Senegal",
+      "reason": "identity_or_fixture_ambiguous",
+      "homeCandidates": [
+        "209"
+      ],
+      "awayCandidates": [
+        "654"
+      ]
+    },
+    {
+      "id": "fotmob:3854557",
+      "reason": "away_country_host_requires_reverse_advantage"
+    },
+    {
+      "id": "fotmob:3854564",
+      "home": "Iran",
+      "away": "USA",
+      "reason": "identity_or_fixture_ambiguous",
+      "homeCandidates": [
+        "469"
+      ],
+      "awayCandidates": [
+        "660"
+      ]
+    },
+    {
+      "id": "fotmob:3854577",
+      "home": "Saudi Arabia",
+      "away": "Mexico",
+      "reason": "identity_or_fixture_ambiguous",
+      "homeCandidates": [
+        "655"
+      ],
+      "awayCandidates": [
+        "203"
+      ]
+    },
+    {
+      "id": "fotmob:3854596",
+      "home": "Canada",
+      "away": "Morocco",
+      "reason": "identity_or_fixture_ambiguous",
+      "homeCandidates": [
+        "206"
+      ],
+      "awayCandidates": [
+        "2869"
+      ]
+    },
+    {
+      "id": "fotmob:3854608",
+      "home": "Ghana",
+      "away": "Uruguay",
+      "reason": "identity_or_fixture_ambiguous",
+      "homeCandidates": [
+        "4469"
+      ],
+      "awayCandidates": [
+        "212"
+      ]
+    },
+    {
+      "id": "fotmob:3854601",
+      "home": "Cameroon",
+      "away": "Brazil",
+      "reason": "identity_or_fixture_ambiguous",
+      "homeCandidates": [
+        "656"
+      ],
+      "awayCandidates": [
+        "205"
+      ]
+    },
+    {
+      "id": "fotmob:3370551",
+      "home": "Argentina",
+      "away": "Australia",
+      "reason": "identity_or_fixture_ambiguous",
+      "homeCandidates": [
+        "202"
+      ],
+      "awayCandidates": [
+        "628"
+      ]
+    },
+    {
+      "id": "fotmob:3370554",
+      "home": "Brazil",
+      "away": "South Korea",
+      "reason": "identity_or_fixture_ambiguous",
+      "homeCandidates": [
+        "205"
+      ],
+      "awayCandidates": [
+        "451"
+      ]
+    },
+    {
+      "id": "fotmob:4667751",
+      "home": "Mexico",
+      "away": "South Africa",
+      "reason": "identity_or_fixture_ambiguous",
+      "homeCandidates": [
+        "203"
+      ],
+      "awayCandidates": [
+        "467"
+      ]
+    },
+    {
+      "id": "fotmob:4667771",
+      "home": "USA",
+      "away": "Paraguay",
+      "reason": "identity_or_fixture_ambiguous",
+      "homeCandidates": [
+        "660"
+      ],
+      "awayCandidates": [
+        "210"
+      ]
+    },
+    {
+      "id": "fotmob:4667764",
+      "home": "Brazil",
+      "away": "Morocco",
+      "reason": "identity_or_fixture_ambiguous",
+      "homeCandidates": [
+        "205"
+      ],
+      "awayCandidates": [
+        "2869"
+      ]
+    },
+    {
+      "id": "fotmob:4667778",
+      "home": "Ivory Coast",
+      "away": "Ecuador",
+      "reason": "identity_or_fixture_ambiguous",
+      "homeCandidates": [
+        "4789"
+      ],
+      "awayCandidates": [
+        "209"
+      ]
+    },
+    {
+      "id": "fotmob:4667799",
+      "home": "Saudi Arabia",
+      "away": "Uruguay",
+      "reason": "identity_or_fixture_ambiguous",
+      "homeCandidates": [
+        "655"
+      ],
+      "awayCandidates": [
+        "212"
+      ]
+    },
+    {
+      "id": "fotmob:4667791",
+      "home": "Iran",
+      "away": "New Zealand",
+      "reason": "identity_or_fixture_ambiguous",
+      "homeCandidates": [
+        "469"
+      ],
+      "awayCandidates": [
+        "2666"
+      ]
+    },
+    {
+      "id": "fotmob:4667812",
+      "home": "Argentina",
+      "away": "Algeria",
+      "reason": "identity_or_fixture_ambiguous",
+      "homeCandidates": [
+        "202"
+      ],
+      "awayCandidates": [
+        "624"
+      ]
+    },
+    {
+      "id": "fotmob:4667826",
+      "home": "Ghana",
+      "away": "Panama",
+      "reason": "identity_or_fixture_ambiguous",
+      "homeCandidates": [
+        "4469"
+      ],
+      "awayCandidates": [
+        "2659"
+      ]
+    },
+    {
+      "id": "fotmob:4667820",
+      "home": "Uzbekistan",
+      "away": "Colombia",
+      "reason": "identity_or_fixture_ambiguous",
+      "homeCandidates": [
+        "2570"
+      ],
+      "awayCandidates": [
+        "208"
+      ]
+    },
+    {
+      "id": "fotmob:4667760",
+      "home": "Canada",
+      "away": "Qatar",
+      "reason": "identity_or_fixture_ambiguous",
+      "homeCandidates": [
+        "206"
+      ],
+      "awayCandidates": [
+        "4398"
+      ]
+    },
+    {
+      "id": "fotmob:4667754",
+      "home": "Mexico",
+      "away": "South Korea",
+      "reason": "identity_or_fixture_ambiguous",
+      "homeCandidates": [
+        "203"
+      ],
+      "awayCandidates": [
+        "451"
+      ]
+    },
+    {
+      "id": "fotmob:4667774",
+      "home": "USA",
+      "away": "Australia",
+      "reason": "identity_or_fixture_ambiguous",
+      "homeCandidates": [
+        "660"
+      ],
+      "awayCandidates": [
+        "628"
+      ]
+    },
+    {
+      "id": "fotmob:4667767",
+      "home": "Brazil",
+      "away": "Haiti",
+      "reason": "identity_or_fixture_ambiguous",
+      "homeCandidates": [
+        "205"
+      ],
+      "awayCandidates": [
+        "2654"
+      ]
+    },
+    {
+      "id": "fotmob:4667779",
+      "home": "Ecuador",
+      "away": "Curacao",
+      "reason": "identity_or_fixture_ambiguous",
+      "homeCandidates": [
+        "209"
+      ],
+      "awayCandidates": [
+        "11678"
+      ]
+    },
+    {
+      "id": "fotmob:4667785",
+      "home": "Tunisia",
+      "away": "Japan",
+      "reason": "identity_or_fixture_ambiguous",
+      "homeCandidates": [
+        "659"
+      ],
+      "awayCandidates": [
+        "627"
+      ]
+    },
+    {
+      "id": "fotmob:4667800",
+      "home": "Uruguay",
+      "away": "Cape Verde",
+      "reason": "identity_or_fixture_ambiguous",
+      "homeCandidates": [
+        "212"
+      ],
+      "awayCandidates": [
+        "2597"
+      ]
+    },
+    {
+      "id": "fotmob:4667792",
+      "home": "New Zealand",
+      "away": "Egypt",
+      "reason": "identity_or_fixture_ambiguous",
+      "homeCandidates": [
+        "2666"
+      ],
+      "awayCandidates": [
+        "2620"
+      ]
+    },
+    {
+      "id": "fotmob:4667814",
+      "home": "Jordan",
+      "away": "Algeria",
+      "reason": "identity_or_fixture_ambiguous",
+      "homeCandidates": [
+        "2917"
+      ],
+      "awayCandidates": [
+        "624"
+      ]
+    },
+    {
+      "id": "fotmob:4667821",
+      "home": "Colombia",
+      "away": "DR Congo",
+      "reason": "identity_or_fixture_ambiguous",
+      "homeCandidates": [
+        "208"
+      ],
+      "awayCandidates": [
+        "2850"
+      ]
+    },
+    {
+      "id": "fotmob:4667761",
+      "reason": "away_country_host_requires_reverse_advantage"
+    },
+    {
+      "id": "fotmob:4667769",
+      "home": "Morocco",
+      "away": "Haiti",
+      "reason": "identity_or_fixture_ambiguous",
+      "homeCandidates": [
+        "2869"
+      ],
+      "awayCandidates": [
+        "2654"
+      ]
+    },
+    {
+      "id": "fotmob:4667755",
+      "reason": "away_country_host_requires_reverse_advantage"
+    },
+    {
+      "id": "fotmob:4667756",
+      "home": "South Africa",
+      "away": "South Korea",
+      "reason": "identity_or_fixture_ambiguous",
+      "homeCandidates": [
+        "467"
+      ],
+      "awayCandidates": [
+        "451"
+      ]
+    },
+    {
+      "id": "fotmob:4667782",
+      "home": "Curacao",
+      "away": "Ivory Coast",
+      "reason": "identity_or_fixture_ambiguous",
+      "homeCandidates": [
+        "11678"
+      ],
+      "awayCandidates": [
+        "4789"
+      ]
+    },
+    {
+      "id": "fotmob:4667776",
+      "home": "Paraguay",
+      "away": "Australia",
+      "reason": "identity_or_fixture_ambiguous",
+      "homeCandidates": [
+        "210"
+      ],
+      "awayCandidates": [
+        "628"
+      ]
+    },
+    {
+      "id": "fotmob:4667775",
+      "reason": "away_country_host_requires_reverse_advantage"
+    },
+    {
+      "id": "fotmob:4667809",
+      "home": "Senegal",
+      "away": "Iraq",
+      "reason": "identity_or_fixture_ambiguous",
+      "homeCandidates": [
+        "654"
+      ],
+      "awayCandidates": [
+        "4375"
+      ]
+    },
+    {
+      "id": "fotmob:4667803",
+      "home": "Cape Verde",
+      "away": "Saudi Arabia",
+      "reason": "identity_or_fixture_ambiguous",
+      "homeCandidates": [
+        "2597"
+      ],
+      "awayCandidates": [
+        "655"
+      ]
+    },
+    {
+      "id": "fotmob:4667795",
+      "home": "Egypt",
+      "away": "Iran",
+      "reason": "identity_or_fixture_ambiguous",
+      "homeCandidates": [
+        "2620"
+      ],
+      "awayCandidates": [
+        "469"
+      ]
+    },
+    {
+      "id": "fotmob:4667824",
+      "home": "DR Congo",
+      "away": "Uzbekistan",
+      "reason": "identity_or_fixture_ambiguous",
+      "homeCandidates": [
+        "2850"
+      ],
+      "awayCandidates": [
+        "2570"
+      ]
+    },
+    {
+      "id": "fotmob:4667816",
+      "home": "Jordan",
+      "away": "Argentina",
+      "reason": "identity_or_fixture_ambiguous",
+      "homeCandidates": [
+        "2917"
+      ],
+      "awayCandidates": [
+        "202"
+      ]
+    },
+    {
+      "id": "fotmob:4653705",
+      "home": "South Africa",
+      "away": "Canada",
+      "reason": "identity_or_fixture_ambiguous",
+      "homeCandidates": [
+        "467"
+      ],
+      "awayCandidates": [
+        "206"
+      ]
+    },
+    {
+      "id": "fotmob:4653711",
+      "home": "Brazil",
+      "away": "Japan",
+      "reason": "identity_or_fixture_ambiguous",
+      "homeCandidates": [
+        "205"
+      ],
+      "awayCandidates": [
+        "627"
+      ]
+    },
+    {
+      "id": "fotmob:4653713",
+      "home": "Mexico",
+      "away": "Ecuador",
+      "reason": "identity_or_fixture_ambiguous",
+      "homeCandidates": [
+        "203"
+      ],
+      "awayCandidates": [
+        "209"
+      ]
+    },
+    {
+      "id": "fotmob:4653716",
+      "home": "Australia",
+      "away": "Egypt",
+      "reason": "identity_or_fixture_ambiguous",
+      "homeCandidates": [
+        "628"
+      ],
+      "awayCandidates": [
+        "2620"
+      ]
+    },
+    {
+      "id": "fotmob:4653715",
+      "home": "Argentina",
+      "away": "Cape Verde",
+      "reason": "identity_or_fixture_ambiguous",
+      "homeCandidates": [
+        "202"
+      ],
+      "awayCandidates": [
+        "2597"
+      ]
+    },
+    {
+      "id": "fotmob:4653718",
+      "home": "Colombia",
+      "away": "Ghana",
+      "reason": "identity_or_fixture_ambiguous",
+      "homeCandidates": [
+        "208"
+      ],
+      "awayCandidates": [
+        "4469"
+      ]
+    },
+    {
+      "id": "fotmob:4653843",
+      "home": "Canada",
+      "away": "Morocco",
+      "reason": "identity_or_fixture_ambiguous",
+      "homeCandidates": [
+        "206"
+      ],
+      "awayCandidates": [
+        "2869"
+      ]
+    },
+    {
+      "id": "fotmob:4653848",
+      "home": "Argentina",
+      "away": "Egypt",
+      "reason": "identity_or_fixture_ambiguous",
+      "homeCandidates": [
+        "202"
+      ],
+      "awayCandidates": [
+        "2620"
+      ]
+    },
+    {
+      "id": "fotmob:3495150",
+      "reason": "country_missing_or_ambiguous"
+    },
+    {
+      "id": "fotmob:3495191",
+      "reason": "date_status_or_score_conflict"
+    },
+    {
+      "id": "fotmob:3495262",
+      "reason": "date_status_or_score_conflict"
+    },
+    {
+      "id": "fotmob:3495156",
+      "reason": "country_missing_or_ambiguous"
+    },
+    {
+      "id": "fotmob:3495159",
+      "reason": "country_missing_or_ambiguous"
+    },
+    {
+      "id": "fotmob:3495165",
+      "reason": "country_missing_or_ambiguous"
+    },
+    {
+      "id": "fotmob:4689352",
+      "reason": "country_missing_or_ambiguous"
+    },
+    {
+      "id": "fotmob:4689411",
+      "reason": "date_status_or_score_conflict"
+    },
+    {
+      "id": "fotmob:4689357",
+      "reason": "country_missing_or_ambiguous"
+    },
+    {
+      "id": "fotmob:4689360",
+      "reason": "country_missing_or_ambiguous"
+    },
+    {
+      "id": "fotmob:4689493",
+      "reason": "away_country_host_requires_reverse_advantage"
+    }
+  ],
+  "rejectedReasons": {
+    "club_venue_not_verified": 13,
+    "date_status_or_score_conflict": 11,
+    "away_country_host_requires_reverse_advantage": 17,
+    "country_missing_or_ambiguous": 23,
+    "identity_or_fixture_ambiguous": 52
+  }
+}

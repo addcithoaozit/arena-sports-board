@@ -64,3 +64,4 @@ export function mergeNationalProviderHistory(current:FootballGame<string>[],pool
   });
   return reconcileFootballHistory(converted,pool.games).games;
 }
+

@@ -13,3 +13,4 @@ export function reconcileFootballHistory(live:FootballGame<string>[],archived:Fo
   for(const g of archived){if((league&&g.league!==league)||chosen.has(g.id)||conflicts.has(g.id))continue;chosen.set(g.id,g);supplemented++;}
   return {games:[...chosen.values()],conflicts:conflicts.size,supplemented};
 }
+
